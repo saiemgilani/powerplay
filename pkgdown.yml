@@ -2,8 +2,8 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-09-02T10:21Z
+last_built: 2021-09-02T10:31Z
 urls:
-  reference: http://saiemgilani.github.io/powerplay/reference
-  article: http://saiemgilani.github.io/powerplay/articles
+  reference: https://saiemgilani.github.io/powerplay/reference
+  article: https://saiemgilani.github.io/powerplay/articles
 
