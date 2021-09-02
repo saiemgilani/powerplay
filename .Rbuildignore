@@ -5,3 +5,5 @@ git_push.sh
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^.swagger-codegen
+^LICENSE\.md$

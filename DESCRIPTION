@@ -4,7 +4,7 @@ Version: 1.0.0
 Authors@R: 
     person(given = "Saiem Gilani", email = "saiem.gilani@gmail.com", role = c("aut", "cre"))
 Description: An R package to quickly obtain clean and tidy hockey play by play data.
-License: MIT + file License
+License: MIT + file LICENSE
 URL: https://saiemgilani.github.io/powerplay,
     http://www.github.com/saiemgilani/powerplay
 Depends: 
