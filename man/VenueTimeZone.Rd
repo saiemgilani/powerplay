@@ -34,15 +34,31 @@ VenueTimeZone Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new VenueTimeZone object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$new(id, offset, tz)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{id}
+
+\item{\code{offset}}{offset}
+
+\item{\code{tz}}{tz}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+A new `VenueTimeZone` object.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+to JSON
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$toJSON()}\if{html}{\out{</div>}}
 }
@@ -52,15 +68,24 @@ VenueTimeZone Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+from JSON
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$fromJSON(VenueTimeZoneJson)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$fromJSON(VenueTimeZoneJson = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{VenueTimeZoneJson}}{VenueTimeZoneJson}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+to JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -70,10 +95,18 @@ VenueTimeZone Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+from JSON string
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$fromJSONString(VenueTimeZoneJson)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{VenueTimeZone$fromJSONString(VenueTimeZoneJson = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{VenueTimeZoneJson}}{VenueTimeZoneJson}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
