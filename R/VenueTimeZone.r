@@ -20,6 +20,12 @@ VenueTimeZone <- R6::R6Class(
     id = NULL,
     offset = NULL,
     tz = NULL,
+    #' @description
+    #' Create a new VenueTimeZone object.
+    #' @param id id
+    #' @param offset offset 
+    #' @param tz tz 
+    #' @return A new `VenueTimeZone` object.
     initialize = function(id, offset, tz){
       if (!missing(id)) {
         stopifnot(is.character(id), length(id) == 1)
@@ -35,6 +41,7 @@ VenueTimeZone <- R6::R6Class(
         self$tz <- tz
       }
     },
+    #' @description to JSON
     toJSON = function() {
       VenueTimeZoneObject <- list()
       if (!is.null(self$id)) {
@@ -49,8 +56,9 @@ VenueTimeZone <- R6::R6Class(
 
       VenueTimeZoneObject
     },
-    #' @field VenueTimeZoneJson
-    fromJSON = function(VenueTimeZoneJson) {
+    #' @description from JSON
+    #' @param VenueTimeZoneJson VenueTimeZoneJson
+    fromJSON = function(VenueTimeZoneJson=NULL) {
       VenueTimeZoneObject <- jsonlite::fromJSON(VenueTimeZoneJson)
       if (!is.null(VenueTimeZoneObject$id)) {
         self$id <- VenueTimeZoneObject$id
@@ -64,6 +72,7 @@ VenueTimeZone <- R6::R6Class(
         self$tz <- VenueTimeZoneObject$tz
       }
     },
+    #' @description to JSON string
     toJSONString = function() {
        sprintf(
         '{
@@ -76,8 +85,9 @@ VenueTimeZone <- R6::R6Class(
         self$tz
       )
     },
-    #' @param VenueTimeZoneJson
-    fromJSONString = function(VenueTimeZoneJson) {
+    #' @description from JSON string
+    #' @param VenueTimeZoneJson VenueTimeZoneJson
+    fromJSONString = function(VenueTimeZoneJson=NULL) {
       VenueTimeZoneObject <- jsonlite::fromJSON(VenueTimeZoneJson)
       self$id <- VenueTimeZoneObject$id
       BigDecimalObject <- BigDecimal$new()

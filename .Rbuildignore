@@ -1,3 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+git_push.sh
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
