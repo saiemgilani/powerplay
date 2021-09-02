@@ -1,10 +1,12 @@
 Package: powerplay
-Title: Swagger Generated Client for NHL API
+Title: Functions to Access Hockey Play by Play Data
 Version: 1.0.0
 Authors@R: 
     person(given = "Saiem Gilani", email = "saiem.gilani@gmail.com", role = c("aut", "cre"))
-Description: Documenting the publicly accessible portions of the NHL API.
+Description: An R package to quickly obtain clean and tidy hockey play by play data.
 License: MIT + file License
+URL: https://saiemgilani.github.io/powerplay,
+    http://www.github.com/saiemgilani/powerplay
 Depends: 
     R (>= 3.6)
 Imports: 
