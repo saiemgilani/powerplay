@@ -17,37 +17,37 @@
 DraftProspects <- R6::R6Class(
   'DraftProspects',
   public = list(
-    `copyright` = NULL,
-    `prospects` = NULL,
-    initialize = function(`copyright`, `prospects`){
-      if (!missing(`copyright`)) {
-        stopifnot(is.character(`copyright`), length(`copyright`) == 1)
-        self$`copyright` <- `copyright`
+    copyright = NULL,
+    prospects = NULL,
+    initialize = function(copyright, prospects){
+      if (!missing(copyright)) {
+        stopifnot(is.character(copyright), length(copyright) == 1)
+        self$copyright <- copyright
       }
-      if (!missing(`prospects`)) {
-        stopifnot(is.list(`prospects`), length(`prospects`) != 0)
-        lapply(`prospects`, function(x) stopifnot(R6::is.R6(x)))
-        self$`prospects` <- `prospects`
+      if (!missing(prospects)) {
+        stopifnot(is.list(prospects), length(prospects) != 0)
+        lapply(prospects, function(x) stopifnot(R6::is.R6(x)))
+        self$prospects <- prospects
       }
     },
     toJSON = function() {
       DraftProspectsObject <- list()
-      if (!is.null(self$`copyright`)) {
-        DraftProspectsObject[['copyright']] <- self$`copyright`
+      if (!is.null(self$copyright)) {
+        DraftProspectsObject[['copyright']] <- self$copyright
       }
-      if (!is.null(self$`prospects`)) {
-        DraftProspectsObject[['prospects']] <- lapply(self$`prospects`, function(x) x$toJSON())
+      if (!is.null(self$prospects)) {
+        DraftProspectsObject[['prospects']] <- lapply(self$prospects, function(x) x$toJSON())
       }
 
       DraftProspectsObject
     },
     fromJSON = function(DraftProspectsJson) {
       DraftProspectsObject <- jsonlite::fromJSON(DraftProspectsJson)
-      if (!is.null(DraftProspectsObject$`copyright`)) {
-        self$`copyright` <- DraftProspectsObject$`copyright`
+      if (!is.null(DraftProspectsObject$copyright)) {
+        self$copyright <- DraftProspectsObject$copyright
       }
-      if (!is.null(DraftProspectsObject$`prospects`)) {
-        self$`prospects` <- lapply(DraftProspectsObject$`prospects`, function(x) {
+      if (!is.null(DraftProspectsObject$prospects)) {
+        self$prospects <- lapply(DraftProspectsObject$prospects, function(x) {
           prospectsObject <- DraftProspect$new()
           prospectsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           prospectsObject
@@ -60,14 +60,14 @@ DraftProspects <- R6::R6Class(
            "copyright": %s,
            "prospects": [%s]
         }',
-        self$`copyright`,
-        lapply(self$`prospects`, function(x) paste(x$toJSON(), sep=","))
+        self$copyright,
+        lapply(self$prospects, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(DraftProspectsJson) {
       DraftProspectsObject <- jsonlite::fromJSON(DraftProspectsJson)
-      self$`copyright` <- DraftProspectsObject$`copyright`
-      self$`prospects` <- lapply(DraftProspectsObject$`prospects`, function(x) DraftProspect$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$copyright <- DraftProspectsObject$copyright
+      self$prospects <- lapply(DraftProspectsObject$prospects, function(x) DraftProspect$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

@@ -18,52 +18,52 @@
 GameLinescorePowerPlayInfo <- R6::R6Class(
   'GameLinescorePowerPlayInfo',
   public = list(
-    `situationTimeRemaining` = NULL,
-    `situationTimeElapsed` = NULL,
-    `inSituation` = NULL,
-    initialize = function(`situationTimeRemaining`, `situationTimeElapsed`, `inSituation`){
-      if (!missing(`situationTimeRemaining`)) {
-        stopifnot(is.numeric(`situationTimeRemaining`), length(`situationTimeRemaining`) == 1)
-        stopifnot(R6::is.R6(`situationTimeRemaining`))
-        self$`situationTimeRemaining` <- `situationTimeRemaining`
+    situationTimeRemaining = NULL,
+    situationTimeElapsed = NULL,
+    inSituation = NULL,
+    initialize = function(situationTimeRemaining, situationTimeElapsed, inSituation){
+      if (!missing(situationTimeRemaining)) {
+        stopifnot(is.numeric(situationTimeRemaining), length(situationTimeRemaining) == 1)
+        stopifnot(R6::is.R6(situationTimeRemaining))
+        self$situationTimeRemaining <- situationTimeRemaining
       }
-      if (!missing(`situationTimeElapsed`)) {
-        stopifnot(is.numeric(`situationTimeElapsed`), length(`situationTimeElapsed`) == 1)
-        stopifnot(R6::is.R6(`situationTimeElapsed`))
-        self$`situationTimeElapsed` <- `situationTimeElapsed`
+      if (!missing(situationTimeElapsed)) {
+        stopifnot(is.numeric(situationTimeElapsed), length(situationTimeElapsed) == 1)
+        stopifnot(R6::is.R6(situationTimeElapsed))
+        self$situationTimeElapsed <- situationTimeElapsed
       }
-      if (!missing(`inSituation`)) {
-        self$`inSituation` <- `inSituation`
+      if (!missing(inSituation)) {
+        self$inSituation <- inSituation
       }
     },
     toJSON = function() {
       GameLinescorePowerPlayInfoObject <- list()
-      if (!is.null(self$`situationTimeRemaining`)) {
-        GameLinescorePowerPlayInfoObject[['situationTimeRemaining']] <- self$`situationTimeRemaining`$toJSON()
+      if (!is.null(self$situationTimeRemaining)) {
+        GameLinescorePowerPlayInfoObject[['situationTimeRemaining']] <- self$situationTimeRemaining$toJSON()
       }
-      if (!is.null(self$`situationTimeElapsed`)) {
-        GameLinescorePowerPlayInfoObject[['situationTimeElapsed']] <- self$`situationTimeElapsed`$toJSON()
+      if (!is.null(self$situationTimeElapsed)) {
+        GameLinescorePowerPlayInfoObject[['situationTimeElapsed']] <- self$situationTimeElapsed$toJSON()
       }
-      if (!is.null(self$`inSituation`)) {
-        GameLinescorePowerPlayInfoObject[['inSituation']] <- self$`inSituation`
+      if (!is.null(self$inSituation)) {
+        GameLinescorePowerPlayInfoObject[['inSituation']] <- self$inSituation
       }
 
       GameLinescorePowerPlayInfoObject
     },
     fromJSON = function(GameLinescorePowerPlayInfoJson) {
       GameLinescorePowerPlayInfoObject <- jsonlite::fromJSON(GameLinescorePowerPlayInfoJson)
-      if (!is.null(GameLinescorePowerPlayInfoObject$`situationTimeRemaining`)) {
+      if (!is.null(GameLinescorePowerPlayInfoObject$situationTimeRemaining)) {
         situationTimeRemainingObject <- BigDecimal$new()
         situationTimeRemainingObject$fromJSON(jsonlite::toJSON(GameLinescorePowerPlayInfoObject$situationTimeRemaining, auto_unbox = TRUE))
-        self$`situationTimeRemaining` <- situationTimeRemainingObject
+        self$situationTimeRemaining <- situationTimeRemainingObject
       }
-      if (!is.null(GameLinescorePowerPlayInfoObject$`situationTimeElapsed`)) {
+      if (!is.null(GameLinescorePowerPlayInfoObject$situationTimeElapsed)) {
         situationTimeElapsedObject <- BigDecimal$new()
         situationTimeElapsedObject$fromJSON(jsonlite::toJSON(GameLinescorePowerPlayInfoObject$situationTimeElapsed, auto_unbox = TRUE))
-        self$`situationTimeElapsed` <- situationTimeElapsedObject
+        self$situationTimeElapsed <- situationTimeElapsedObject
       }
-      if (!is.null(GameLinescorePowerPlayInfoObject$`inSituation`)) {
-        self$`inSituation` <- GameLinescorePowerPlayInfoObject$`inSituation`
+      if (!is.null(GameLinescorePowerPlayInfoObject$inSituation)) {
+        self$inSituation <- GameLinescorePowerPlayInfoObject$inSituation
       }
     },
     toJSONString = function() {
@@ -73,18 +73,18 @@ GameLinescorePowerPlayInfo <- R6::R6Class(
            "situationTimeElapsed": %s,
            "inSituation": %s
         }',
-        self$`situationTimeRemaining`$toJSON(),
-        self$`situationTimeElapsed`$toJSON(),
-        self$`inSituation`
+        self$situationTimeRemaining$toJSON(),
+        self$situationTimeElapsed$toJSON(),
+        self$inSituation
       )
     },
     fromJSONString = function(GameLinescorePowerPlayInfoJson) {
       GameLinescorePowerPlayInfoObject <- jsonlite::fromJSON(GameLinescorePowerPlayInfoJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`situationTimeRemaining` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescorePowerPlayInfoObject$situationTimeRemaining, auto_unbox = TRUE))
+      self$situationTimeRemaining <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescorePowerPlayInfoObject$situationTimeRemaining, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`situationTimeElapsed` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescorePowerPlayInfoObject$situationTimeElapsed, auto_unbox = TRUE))
-      self$`inSituation` <- GameLinescorePowerPlayInfoObject$`inSituation`
+      self$situationTimeElapsed <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescorePowerPlayInfoObject$situationTimeElapsed, auto_unbox = TRUE))
+      self$inSituation <- GameLinescorePowerPlayInfoObject$inSituation
     }
   )
 )

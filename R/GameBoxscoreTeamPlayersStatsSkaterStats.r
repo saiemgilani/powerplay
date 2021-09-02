@@ -34,268 +34,268 @@
 GameBoxscoreTeamPlayersStatsSkaterStats <- R6::R6Class(
   'GameBoxscoreTeamPlayersStatsSkaterStats',
   public = list(
-    `timeOnIce` = NULL,
-    `assists` = NULL,
-    `goals` = NULL,
-    `shots` = NULL,
-    `hits` = NULL,
-    `powerPlayGoals` = NULL,
-    `powerPlayAssists` = NULL,
-    `penaltyMinutes` = NULL,
-    `faceOffWins` = NULL,
-    `faceoffTaken` = NULL,
-    `takeaways` = NULL,
-    `giveaways` = NULL,
-    `shortHandedGoals` = NULL,
-    `shortHandedAssists` = NULL,
-    `blocked` = NULL,
-    `plusMinus` = NULL,
-    `evenTimeOnIce` = NULL,
-    `powerPlayTimeOnIce` = NULL,
-    `shortHandedTimeOnIce` = NULL,
-    initialize = function(`timeOnIce`, `assists`, `goals`, `shots`, `hits`, `powerPlayGoals`, `powerPlayAssists`, `penaltyMinutes`, `faceOffWins`, `faceoffTaken`, `takeaways`, `giveaways`, `shortHandedGoals`, `shortHandedAssists`, `blocked`, `plusMinus`, `evenTimeOnIce`, `powerPlayTimeOnIce`, `shortHandedTimeOnIce`){
-      if (!missing(`timeOnIce`)) {
-        stopifnot(is.character(`timeOnIce`), length(`timeOnIce`) == 1)
-        self$`timeOnIce` <- `timeOnIce`
+    timeOnIce = NULL,
+    assists = NULL,
+    goals = NULL,
+    shots = NULL,
+    hits = NULL,
+    powerPlayGoals = NULL,
+    powerPlayAssists = NULL,
+    penaltyMinutes = NULL,
+    faceOffWins = NULL,
+    faceoffTaken = NULL,
+    takeaways = NULL,
+    giveaways = NULL,
+    shortHandedGoals = NULL,
+    shortHandedAssists = NULL,
+    blocked = NULL,
+    plusMinus = NULL,
+    evenTimeOnIce = NULL,
+    powerPlayTimeOnIce = NULL,
+    shortHandedTimeOnIce = NULL,
+    initialize = function(timeOnIce, assists, goals, shots, hits, powerPlayGoals, powerPlayAssists, penaltyMinutes, faceOffWins, faceoffTaken, takeaways, giveaways, shortHandedGoals, shortHandedAssists, blocked, plusMinus, evenTimeOnIce, powerPlayTimeOnIce, shortHandedTimeOnIce){
+      if (!missing(timeOnIce)) {
+        stopifnot(is.character(timeOnIce), length(timeOnIce) == 1)
+        self$timeOnIce <- timeOnIce
       }
-      if (!missing(`assists`)) {
-        stopifnot(is.numeric(`assists`), length(`assists`) == 1)
-        stopifnot(R6::is.R6(`assists`))
-        self$`assists` <- `assists`
+      if (!missing(assists)) {
+        stopifnot(is.numeric(assists), length(assists) == 1)
+        stopifnot(R6::is.R6(assists))
+        self$assists <- assists
       }
-      if (!missing(`goals`)) {
-        stopifnot(is.numeric(`goals`), length(`goals`) == 1)
-        stopifnot(R6::is.R6(`goals`))
-        self$`goals` <- `goals`
+      if (!missing(goals)) {
+        stopifnot(is.numeric(goals), length(goals) == 1)
+        stopifnot(R6::is.R6(goals))
+        self$goals <- goals
       }
-      if (!missing(`shots`)) {
-        stopifnot(is.numeric(`shots`), length(`shots`) == 1)
-        stopifnot(R6::is.R6(`shots`))
-        self$`shots` <- `shots`
+      if (!missing(shots)) {
+        stopifnot(is.numeric(shots), length(shots) == 1)
+        stopifnot(R6::is.R6(shots))
+        self$shots <- shots
       }
-      if (!missing(`hits`)) {
-        stopifnot(is.numeric(`hits`), length(`hits`) == 1)
-        stopifnot(R6::is.R6(`hits`))
-        self$`hits` <- `hits`
+      if (!missing(hits)) {
+        stopifnot(is.numeric(hits), length(hits) == 1)
+        stopifnot(R6::is.R6(hits))
+        self$hits <- hits
       }
-      if (!missing(`powerPlayGoals`)) {
-        stopifnot(is.numeric(`powerPlayGoals`), length(`powerPlayGoals`) == 1)
-        stopifnot(R6::is.R6(`powerPlayGoals`))
-        self$`powerPlayGoals` <- `powerPlayGoals`
+      if (!missing(powerPlayGoals)) {
+        stopifnot(is.numeric(powerPlayGoals), length(powerPlayGoals) == 1)
+        stopifnot(R6::is.R6(powerPlayGoals))
+        self$powerPlayGoals <- powerPlayGoals
       }
-      if (!missing(`powerPlayAssists`)) {
-        stopifnot(is.numeric(`powerPlayAssists`), length(`powerPlayAssists`) == 1)
-        stopifnot(R6::is.R6(`powerPlayAssists`))
-        self$`powerPlayAssists` <- `powerPlayAssists`
+      if (!missing(powerPlayAssists)) {
+        stopifnot(is.numeric(powerPlayAssists), length(powerPlayAssists) == 1)
+        stopifnot(R6::is.R6(powerPlayAssists))
+        self$powerPlayAssists <- powerPlayAssists
       }
-      if (!missing(`penaltyMinutes`)) {
-        stopifnot(is.numeric(`penaltyMinutes`), length(`penaltyMinutes`) == 1)
-        stopifnot(R6::is.R6(`penaltyMinutes`))
-        self$`penaltyMinutes` <- `penaltyMinutes`
+      if (!missing(penaltyMinutes)) {
+        stopifnot(is.numeric(penaltyMinutes), length(penaltyMinutes) == 1)
+        stopifnot(R6::is.R6(penaltyMinutes))
+        self$penaltyMinutes <- penaltyMinutes
       }
-      if (!missing(`faceOffWins`)) {
-        stopifnot(is.numeric(`faceOffWins`), length(`faceOffWins`) == 1)
-        stopifnot(R6::is.R6(`faceOffWins`))
-        self$`faceOffWins` <- `faceOffWins`
+      if (!missing(faceOffWins)) {
+        stopifnot(is.numeric(faceOffWins), length(faceOffWins) == 1)
+        stopifnot(R6::is.R6(faceOffWins))
+        self$faceOffWins <- faceOffWins
       }
-      if (!missing(`faceoffTaken`)) {
-        stopifnot(is.numeric(`faceoffTaken`), length(`faceoffTaken`) == 1)
-        stopifnot(R6::is.R6(`faceoffTaken`))
-        self$`faceoffTaken` <- `faceoffTaken`
+      if (!missing(faceoffTaken)) {
+        stopifnot(is.numeric(faceoffTaken), length(faceoffTaken) == 1)
+        stopifnot(R6::is.R6(faceoffTaken))
+        self$faceoffTaken <- faceoffTaken
       }
-      if (!missing(`takeaways`)) {
-        stopifnot(is.numeric(`takeaways`), length(`takeaways`) == 1)
-        stopifnot(R6::is.R6(`takeaways`))
-        self$`takeaways` <- `takeaways`
+      if (!missing(takeaways)) {
+        stopifnot(is.numeric(takeaways), length(takeaways) == 1)
+        stopifnot(R6::is.R6(takeaways))
+        self$takeaways <- takeaways
       }
-      if (!missing(`giveaways`)) {
-        stopifnot(is.numeric(`giveaways`), length(`giveaways`) == 1)
-        stopifnot(R6::is.R6(`giveaways`))
-        self$`giveaways` <- `giveaways`
+      if (!missing(giveaways)) {
+        stopifnot(is.numeric(giveaways), length(giveaways) == 1)
+        stopifnot(R6::is.R6(giveaways))
+        self$giveaways <- giveaways
       }
-      if (!missing(`shortHandedGoals`)) {
-        stopifnot(is.numeric(`shortHandedGoals`), length(`shortHandedGoals`) == 1)
-        stopifnot(R6::is.R6(`shortHandedGoals`))
-        self$`shortHandedGoals` <- `shortHandedGoals`
+      if (!missing(shortHandedGoals)) {
+        stopifnot(is.numeric(shortHandedGoals), length(shortHandedGoals) == 1)
+        stopifnot(R6::is.R6(shortHandedGoals))
+        self$shortHandedGoals <- shortHandedGoals
       }
-      if (!missing(`shortHandedAssists`)) {
-        stopifnot(is.numeric(`shortHandedAssists`), length(`shortHandedAssists`) == 1)
-        stopifnot(R6::is.R6(`shortHandedAssists`))
-        self$`shortHandedAssists` <- `shortHandedAssists`
+      if (!missing(shortHandedAssists)) {
+        stopifnot(is.numeric(shortHandedAssists), length(shortHandedAssists) == 1)
+        stopifnot(R6::is.R6(shortHandedAssists))
+        self$shortHandedAssists <- shortHandedAssists
       }
-      if (!missing(`blocked`)) {
-        stopifnot(is.numeric(`blocked`), length(`blocked`) == 1)
-        stopifnot(R6::is.R6(`blocked`))
-        self$`blocked` <- `blocked`
+      if (!missing(blocked)) {
+        stopifnot(is.numeric(blocked), length(blocked) == 1)
+        stopifnot(R6::is.R6(blocked))
+        self$blocked <- blocked
       }
-      if (!missing(`plusMinus`)) {
-        stopifnot(is.numeric(`plusMinus`), length(`plusMinus`) == 1)
-        stopifnot(R6::is.R6(`plusMinus`))
-        self$`plusMinus` <- `plusMinus`
+      if (!missing(plusMinus)) {
+        stopifnot(is.numeric(plusMinus), length(plusMinus) == 1)
+        stopifnot(R6::is.R6(plusMinus))
+        self$plusMinus <- plusMinus
       }
-      if (!missing(`evenTimeOnIce`)) {
-        stopifnot(is.character(`evenTimeOnIce`), length(`evenTimeOnIce`) == 1)
-        self$`evenTimeOnIce` <- `evenTimeOnIce`
+      if (!missing(evenTimeOnIce)) {
+        stopifnot(is.character(evenTimeOnIce), length(evenTimeOnIce) == 1)
+        self$evenTimeOnIce <- evenTimeOnIce
       }
-      if (!missing(`powerPlayTimeOnIce`)) {
-        stopifnot(is.character(`powerPlayTimeOnIce`), length(`powerPlayTimeOnIce`) == 1)
-        self$`powerPlayTimeOnIce` <- `powerPlayTimeOnIce`
+      if (!missing(powerPlayTimeOnIce)) {
+        stopifnot(is.character(powerPlayTimeOnIce), length(powerPlayTimeOnIce) == 1)
+        self$powerPlayTimeOnIce <- powerPlayTimeOnIce
       }
-      if (!missing(`shortHandedTimeOnIce`)) {
-        stopifnot(is.character(`shortHandedTimeOnIce`), length(`shortHandedTimeOnIce`) == 1)
-        self$`shortHandedTimeOnIce` <- `shortHandedTimeOnIce`
+      if (!missing(shortHandedTimeOnIce)) {
+        stopifnot(is.character(shortHandedTimeOnIce), length(shortHandedTimeOnIce) == 1)
+        self$shortHandedTimeOnIce <- shortHandedTimeOnIce
       }
     },
     toJSON = function() {
       GameBoxscoreTeamPlayersStatsSkaterStatsObject <- list()
-      if (!is.null(self$`timeOnIce`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['timeOnIce']] <- self$`timeOnIce`
+      if (!is.null(self$timeOnIce)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['timeOnIce']] <- self$timeOnIce
       }
-      if (!is.null(self$`assists`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['assists']] <- self$`assists`$toJSON()
+      if (!is.null(self$assists)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['assists']] <- self$assists$toJSON()
       }
-      if (!is.null(self$`goals`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['goals']] <- self$`goals`$toJSON()
+      if (!is.null(self$goals)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['goals']] <- self$goals$toJSON()
       }
-      if (!is.null(self$`shots`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shots']] <- self$`shots`$toJSON()
+      if (!is.null(self$shots)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shots']] <- self$shots$toJSON()
       }
-      if (!is.null(self$`hits`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['hits']] <- self$`hits`$toJSON()
+      if (!is.null(self$hits)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['hits']] <- self$hits$toJSON()
       }
-      if (!is.null(self$`powerPlayGoals`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['powerPlayGoals']] <- self$`powerPlayGoals`$toJSON()
+      if (!is.null(self$powerPlayGoals)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['powerPlayGoals']] <- self$powerPlayGoals$toJSON()
       }
-      if (!is.null(self$`powerPlayAssists`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['powerPlayAssists']] <- self$`powerPlayAssists`$toJSON()
+      if (!is.null(self$powerPlayAssists)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['powerPlayAssists']] <- self$powerPlayAssists$toJSON()
       }
-      if (!is.null(self$`penaltyMinutes`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['penaltyMinutes']] <- self$`penaltyMinutes`$toJSON()
+      if (!is.null(self$penaltyMinutes)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['penaltyMinutes']] <- self$penaltyMinutes$toJSON()
       }
-      if (!is.null(self$`faceOffWins`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['faceOffWins']] <- self$`faceOffWins`$toJSON()
+      if (!is.null(self$faceOffWins)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['faceOffWins']] <- self$faceOffWins$toJSON()
       }
-      if (!is.null(self$`faceoffTaken`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['faceoffTaken']] <- self$`faceoffTaken`$toJSON()
+      if (!is.null(self$faceoffTaken)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['faceoffTaken']] <- self$faceoffTaken$toJSON()
       }
-      if (!is.null(self$`takeaways`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['takeaways']] <- self$`takeaways`$toJSON()
+      if (!is.null(self$takeaways)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['takeaways']] <- self$takeaways$toJSON()
       }
-      if (!is.null(self$`giveaways`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['giveaways']] <- self$`giveaways`$toJSON()
+      if (!is.null(self$giveaways)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['giveaways']] <- self$giveaways$toJSON()
       }
-      if (!is.null(self$`shortHandedGoals`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shortHandedGoals']] <- self$`shortHandedGoals`$toJSON()
+      if (!is.null(self$shortHandedGoals)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shortHandedGoals']] <- self$shortHandedGoals$toJSON()
       }
-      if (!is.null(self$`shortHandedAssists`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shortHandedAssists']] <- self$`shortHandedAssists`$toJSON()
+      if (!is.null(self$shortHandedAssists)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shortHandedAssists']] <- self$shortHandedAssists$toJSON()
       }
-      if (!is.null(self$`blocked`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['blocked']] <- self$`blocked`$toJSON()
+      if (!is.null(self$blocked)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['blocked']] <- self$blocked$toJSON()
       }
-      if (!is.null(self$`plusMinus`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['plusMinus']] <- self$`plusMinus`$toJSON()
+      if (!is.null(self$plusMinus)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['plusMinus']] <- self$plusMinus$toJSON()
       }
-      if (!is.null(self$`evenTimeOnIce`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['evenTimeOnIce']] <- self$`evenTimeOnIce`
+      if (!is.null(self$evenTimeOnIce)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['evenTimeOnIce']] <- self$evenTimeOnIce
       }
-      if (!is.null(self$`powerPlayTimeOnIce`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['powerPlayTimeOnIce']] <- self$`powerPlayTimeOnIce`
+      if (!is.null(self$powerPlayTimeOnIce)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['powerPlayTimeOnIce']] <- self$powerPlayTimeOnIce
       }
-      if (!is.null(self$`shortHandedTimeOnIce`)) {
-        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shortHandedTimeOnIce']] <- self$`shortHandedTimeOnIce`
+      if (!is.null(self$shortHandedTimeOnIce)) {
+        GameBoxscoreTeamPlayersStatsSkaterStatsObject[['shortHandedTimeOnIce']] <- self$shortHandedTimeOnIce
       }
 
       GameBoxscoreTeamPlayersStatsSkaterStatsObject
     },
     fromJSON = function(GameBoxscoreTeamPlayersStatsSkaterStatsJson) {
       GameBoxscoreTeamPlayersStatsSkaterStatsObject <- jsonlite::fromJSON(GameBoxscoreTeamPlayersStatsSkaterStatsJson)
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`timeOnIce`)) {
-        self$`timeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`timeOnIce`
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$timeOnIce)) {
+        self$timeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$timeOnIce
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`assists`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$assists)) {
         assistsObject <- BigDecimal$new()
         assistsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$assists, auto_unbox = TRUE))
-        self$`assists` <- assistsObject
+        self$assists <- assistsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`goals`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$goals)) {
         goalsObject <- BigDecimal$new()
         goalsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$goals, auto_unbox = TRUE))
-        self$`goals` <- goalsObject
+        self$goals <- goalsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`shots`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shots)) {
         shotsObject <- BigDecimal$new()
         shotsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shots, auto_unbox = TRUE))
-        self$`shots` <- shotsObject
+        self$shots <- shotsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`hits`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$hits)) {
         hitsObject <- BigDecimal$new()
         hitsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$hits, auto_unbox = TRUE))
-        self$`hits` <- hitsObject
+        self$hits <- hitsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`powerPlayGoals`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayGoals)) {
         powerPlayGoalsObject <- BigDecimal$new()
         powerPlayGoalsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayGoals, auto_unbox = TRUE))
-        self$`powerPlayGoals` <- powerPlayGoalsObject
+        self$powerPlayGoals <- powerPlayGoalsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`powerPlayAssists`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayAssists)) {
         powerPlayAssistsObject <- BigDecimal$new()
         powerPlayAssistsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayAssists, auto_unbox = TRUE))
-        self$`powerPlayAssists` <- powerPlayAssistsObject
+        self$powerPlayAssists <- powerPlayAssistsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`penaltyMinutes`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$penaltyMinutes)) {
         penaltyMinutesObject <- BigDecimal$new()
         penaltyMinutesObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$penaltyMinutes, auto_unbox = TRUE))
-        self$`penaltyMinutes` <- penaltyMinutesObject
+        self$penaltyMinutes <- penaltyMinutesObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`faceOffWins`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceOffWins)) {
         faceOffWinsObject <- BigDecimal$new()
         faceOffWinsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceOffWins, auto_unbox = TRUE))
-        self$`faceOffWins` <- faceOffWinsObject
+        self$faceOffWins <- faceOffWinsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`faceoffTaken`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceoffTaken)) {
         faceoffTakenObject <- BigDecimal$new()
         faceoffTakenObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceoffTaken, auto_unbox = TRUE))
-        self$`faceoffTaken` <- faceoffTakenObject
+        self$faceoffTaken <- faceoffTakenObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`takeaways`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$takeaways)) {
         takeawaysObject <- BigDecimal$new()
         takeawaysObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$takeaways, auto_unbox = TRUE))
-        self$`takeaways` <- takeawaysObject
+        self$takeaways <- takeawaysObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`giveaways`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$giveaways)) {
         giveawaysObject <- BigDecimal$new()
         giveawaysObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$giveaways, auto_unbox = TRUE))
-        self$`giveaways` <- giveawaysObject
+        self$giveaways <- giveawaysObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`shortHandedGoals`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedGoals)) {
         shortHandedGoalsObject <- BigDecimal$new()
         shortHandedGoalsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedGoals, auto_unbox = TRUE))
-        self$`shortHandedGoals` <- shortHandedGoalsObject
+        self$shortHandedGoals <- shortHandedGoalsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`shortHandedAssists`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedAssists)) {
         shortHandedAssistsObject <- BigDecimal$new()
         shortHandedAssistsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedAssists, auto_unbox = TRUE))
-        self$`shortHandedAssists` <- shortHandedAssistsObject
+        self$shortHandedAssists <- shortHandedAssistsObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`blocked`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$blocked)) {
         blockedObject <- BigDecimal$new()
         blockedObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$blocked, auto_unbox = TRUE))
-        self$`blocked` <- blockedObject
+        self$blocked <- blockedObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`plusMinus`)) {
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$plusMinus)) {
         plusMinusObject <- BigDecimal$new()
         plusMinusObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$plusMinus, auto_unbox = TRUE))
-        self$`plusMinus` <- plusMinusObject
+        self$plusMinus <- plusMinusObject
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`evenTimeOnIce`)) {
-        self$`evenTimeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`evenTimeOnIce`
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$evenTimeOnIce)) {
+        self$evenTimeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$evenTimeOnIce
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`powerPlayTimeOnIce`)) {
-        self$`powerPlayTimeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`powerPlayTimeOnIce`
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayTimeOnIce)) {
+        self$powerPlayTimeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayTimeOnIce
       }
-      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$`shortHandedTimeOnIce`)) {
-        self$`shortHandedTimeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`shortHandedTimeOnIce`
+      if (!is.null(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedTimeOnIce)) {
+        self$shortHandedTimeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedTimeOnIce
       }
     },
     toJSONString = function() {
@@ -321,63 +321,63 @@ GameBoxscoreTeamPlayersStatsSkaterStats <- R6::R6Class(
            "powerPlayTimeOnIce": %s,
            "shortHandedTimeOnIce": %s
         }',
-        self$`timeOnIce`,
-        self$`assists`$toJSON(),
-        self$`goals`$toJSON(),
-        self$`shots`$toJSON(),
-        self$`hits`$toJSON(),
-        self$`powerPlayGoals`$toJSON(),
-        self$`powerPlayAssists`$toJSON(),
-        self$`penaltyMinutes`$toJSON(),
-        self$`faceOffWins`$toJSON(),
-        self$`faceoffTaken`$toJSON(),
-        self$`takeaways`$toJSON(),
-        self$`giveaways`$toJSON(),
-        self$`shortHandedGoals`$toJSON(),
-        self$`shortHandedAssists`$toJSON(),
-        self$`blocked`$toJSON(),
-        self$`plusMinus`$toJSON(),
-        self$`evenTimeOnIce`,
-        self$`powerPlayTimeOnIce`,
-        self$`shortHandedTimeOnIce`
+        self$timeOnIce,
+        self$assists$toJSON(),
+        self$goals$toJSON(),
+        self$shots$toJSON(),
+        self$hits$toJSON(),
+        self$powerPlayGoals$toJSON(),
+        self$powerPlayAssists$toJSON(),
+        self$penaltyMinutes$toJSON(),
+        self$faceOffWins$toJSON(),
+        self$faceoffTaken$toJSON(),
+        self$takeaways$toJSON(),
+        self$giveaways$toJSON(),
+        self$shortHandedGoals$toJSON(),
+        self$shortHandedAssists$toJSON(),
+        self$blocked$toJSON(),
+        self$plusMinus$toJSON(),
+        self$evenTimeOnIce,
+        self$powerPlayTimeOnIce,
+        self$shortHandedTimeOnIce
       )
     },
     fromJSONString = function(GameBoxscoreTeamPlayersStatsSkaterStatsJson) {
       GameBoxscoreTeamPlayersStatsSkaterStatsObject <- jsonlite::fromJSON(GameBoxscoreTeamPlayersStatsSkaterStatsJson)
-      self$`timeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`timeOnIce`
+      self$timeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$timeOnIce
       BigDecimalObject <- BigDecimal$new()
-      self$`assists` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$assists, auto_unbox = TRUE))
+      self$assists <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$assists, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`goals` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$goals, auto_unbox = TRUE))
+      self$goals <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$goals, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`shots` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shots, auto_unbox = TRUE))
+      self$shots <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shots, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`hits` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$hits, auto_unbox = TRUE))
+      self$hits <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$hits, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`powerPlayGoals` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayGoals, auto_unbox = TRUE))
+      self$powerPlayGoals <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayGoals, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`powerPlayAssists` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayAssists, auto_unbox = TRUE))
+      self$powerPlayAssists <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayAssists, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`penaltyMinutes` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$penaltyMinutes, auto_unbox = TRUE))
+      self$penaltyMinutes <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$penaltyMinutes, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`faceOffWins` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceOffWins, auto_unbox = TRUE))
+      self$faceOffWins <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceOffWins, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`faceoffTaken` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceoffTaken, auto_unbox = TRUE))
+      self$faceoffTaken <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$faceoffTaken, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`takeaways` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$takeaways, auto_unbox = TRUE))
+      self$takeaways <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$takeaways, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`giveaways` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$giveaways, auto_unbox = TRUE))
+      self$giveaways <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$giveaways, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`shortHandedGoals` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedGoals, auto_unbox = TRUE))
+      self$shortHandedGoals <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedGoals, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`shortHandedAssists` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedAssists, auto_unbox = TRUE))
+      self$shortHandedAssists <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedAssists, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`blocked` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$blocked, auto_unbox = TRUE))
+      self$blocked <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$blocked, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`plusMinus` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$plusMinus, auto_unbox = TRUE))
-      self$`evenTimeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`evenTimeOnIce`
-      self$`powerPlayTimeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`powerPlayTimeOnIce`
-      self$`shortHandedTimeOnIce` <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$`shortHandedTimeOnIce`
+      self$plusMinus <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamPlayersStatsSkaterStatsObject$plusMinus, auto_unbox = TRUE))
+      self$evenTimeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$evenTimeOnIce
+      self$powerPlayTimeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$powerPlayTimeOnIce
+      self$shortHandedTimeOnIce <- GameBoxscoreTeamPlayersStatsSkaterStatsObject$shortHandedTimeOnIce
     }
   )
 )

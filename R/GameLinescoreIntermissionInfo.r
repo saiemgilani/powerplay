@@ -18,52 +18,52 @@
 GameLinescoreIntermissionInfo <- R6::R6Class(
   'GameLinescoreIntermissionInfo',
   public = list(
-    `intermissionTimeRemaining` = NULL,
-    `intermissionTimeElapsed` = NULL,
-    `inIntermission` = NULL,
-    initialize = function(`intermissionTimeRemaining`, `intermissionTimeElapsed`, `inIntermission`){
-      if (!missing(`intermissionTimeRemaining`)) {
-        stopifnot(is.numeric(`intermissionTimeRemaining`), length(`intermissionTimeRemaining`) == 1)
-        stopifnot(R6::is.R6(`intermissionTimeRemaining`))
-        self$`intermissionTimeRemaining` <- `intermissionTimeRemaining`
+    intermissionTimeRemaining = NULL,
+    intermissionTimeElapsed = NULL,
+    inIntermission = NULL,
+    initialize = function(intermissionTimeRemaining, intermissionTimeElapsed, inIntermission){
+      if (!missing(intermissionTimeRemaining)) {
+        stopifnot(is.numeric(intermissionTimeRemaining), length(intermissionTimeRemaining) == 1)
+        stopifnot(R6::is.R6(intermissionTimeRemaining))
+        self$intermissionTimeRemaining <- intermissionTimeRemaining
       }
-      if (!missing(`intermissionTimeElapsed`)) {
-        stopifnot(is.numeric(`intermissionTimeElapsed`), length(`intermissionTimeElapsed`) == 1)
-        stopifnot(R6::is.R6(`intermissionTimeElapsed`))
-        self$`intermissionTimeElapsed` <- `intermissionTimeElapsed`
+      if (!missing(intermissionTimeElapsed)) {
+        stopifnot(is.numeric(intermissionTimeElapsed), length(intermissionTimeElapsed) == 1)
+        stopifnot(R6::is.R6(intermissionTimeElapsed))
+        self$intermissionTimeElapsed <- intermissionTimeElapsed
       }
-      if (!missing(`inIntermission`)) {
-        self$`inIntermission` <- `inIntermission`
+      if (!missing(inIntermission)) {
+        self$inIntermission <- inIntermission
       }
     },
     toJSON = function() {
       GameLinescoreIntermissionInfoObject <- list()
-      if (!is.null(self$`intermissionTimeRemaining`)) {
-        GameLinescoreIntermissionInfoObject[['intermissionTimeRemaining']] <- self$`intermissionTimeRemaining`$toJSON()
+      if (!is.null(self$intermissionTimeRemaining)) {
+        GameLinescoreIntermissionInfoObject[['intermissionTimeRemaining']] <- self$intermissionTimeRemaining$toJSON()
       }
-      if (!is.null(self$`intermissionTimeElapsed`)) {
-        GameLinescoreIntermissionInfoObject[['intermissionTimeElapsed']] <- self$`intermissionTimeElapsed`$toJSON()
+      if (!is.null(self$intermissionTimeElapsed)) {
+        GameLinescoreIntermissionInfoObject[['intermissionTimeElapsed']] <- self$intermissionTimeElapsed$toJSON()
       }
-      if (!is.null(self$`inIntermission`)) {
-        GameLinescoreIntermissionInfoObject[['inIntermission']] <- self$`inIntermission`
+      if (!is.null(self$inIntermission)) {
+        GameLinescoreIntermissionInfoObject[['inIntermission']] <- self$inIntermission
       }
 
       GameLinescoreIntermissionInfoObject
     },
     fromJSON = function(GameLinescoreIntermissionInfoJson) {
       GameLinescoreIntermissionInfoObject <- jsonlite::fromJSON(GameLinescoreIntermissionInfoJson)
-      if (!is.null(GameLinescoreIntermissionInfoObject$`intermissionTimeRemaining`)) {
+      if (!is.null(GameLinescoreIntermissionInfoObject$intermissionTimeRemaining)) {
         intermissionTimeRemainingObject <- BigDecimal$new()
         intermissionTimeRemainingObject$fromJSON(jsonlite::toJSON(GameLinescoreIntermissionInfoObject$intermissionTimeRemaining, auto_unbox = TRUE))
-        self$`intermissionTimeRemaining` <- intermissionTimeRemainingObject
+        self$intermissionTimeRemaining <- intermissionTimeRemainingObject
       }
-      if (!is.null(GameLinescoreIntermissionInfoObject$`intermissionTimeElapsed`)) {
+      if (!is.null(GameLinescoreIntermissionInfoObject$intermissionTimeElapsed)) {
         intermissionTimeElapsedObject <- BigDecimal$new()
         intermissionTimeElapsedObject$fromJSON(jsonlite::toJSON(GameLinescoreIntermissionInfoObject$intermissionTimeElapsed, auto_unbox = TRUE))
-        self$`intermissionTimeElapsed` <- intermissionTimeElapsedObject
+        self$intermissionTimeElapsed <- intermissionTimeElapsedObject
       }
-      if (!is.null(GameLinescoreIntermissionInfoObject$`inIntermission`)) {
-        self$`inIntermission` <- GameLinescoreIntermissionInfoObject$`inIntermission`
+      if (!is.null(GameLinescoreIntermissionInfoObject$inIntermission)) {
+        self$inIntermission <- GameLinescoreIntermissionInfoObject$inIntermission
       }
     },
     toJSONString = function() {
@@ -73,18 +73,18 @@ GameLinescoreIntermissionInfo <- R6::R6Class(
            "intermissionTimeElapsed": %s,
            "inIntermission": %s
         }',
-        self$`intermissionTimeRemaining`$toJSON(),
-        self$`intermissionTimeElapsed`$toJSON(),
-        self$`inIntermission`
+        self$intermissionTimeRemaining$toJSON(),
+        self$intermissionTimeElapsed$toJSON(),
+        self$inIntermission
       )
     },
     fromJSONString = function(GameLinescoreIntermissionInfoJson) {
       GameLinescoreIntermissionInfoObject <- jsonlite::fromJSON(GameLinescoreIntermissionInfoJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`intermissionTimeRemaining` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreIntermissionInfoObject$intermissionTimeRemaining, auto_unbox = TRUE))
+      self$intermissionTimeRemaining <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreIntermissionInfoObject$intermissionTimeRemaining, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`intermissionTimeElapsed` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreIntermissionInfoObject$intermissionTimeElapsed, auto_unbox = TRUE))
-      self$`inIntermission` <- GameLinescoreIntermissionInfoObject$`inIntermission`
+      self$intermissionTimeElapsed <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreIntermissionInfoObject$intermissionTimeElapsed, auto_unbox = TRUE))
+      self$inIntermission <- GameLinescoreIntermissionInfoObject$inIntermission
     }
   )
 )

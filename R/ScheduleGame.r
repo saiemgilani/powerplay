@@ -26,153 +26,153 @@
 ScheduleGame <- R6::R6Class(
   'ScheduleGame',
   public = list(
-    `gamePk` = NULL,
-    `link` = NULL,
-    `gameType` = NULL,
-    `season` = NULL,
-    `gameDate` = NULL,
-    `status` = NULL,
-    `teams` = NULL,
-    `linescore` = NULL,
-    `venue` = NULL,
-    `tickets` = NULL,
-    `content` = NULL,
-    initialize = function(`gamePk`, `link`, `gameType`, `season`, `gameDate`, `status`, `teams`, `linescore`, `venue`, `tickets`, `content`){
-      if (!missing(`gamePk`)) {
-        stopifnot(is.numeric(`gamePk`), length(`gamePk`) == 1)
-        stopifnot(R6::is.R6(`gamePk`))
-        self$`gamePk` <- `gamePk`
+    gamePk = NULL,
+    link = NULL,
+    gameType = NULL,
+    season = NULL,
+    gameDate = NULL,
+    status = NULL,
+    teams = NULL,
+    linescore = NULL,
+    venue = NULL,
+    tickets = NULL,
+    content = NULL,
+    initialize = function(gamePk, link, gameType, season, gameDate, status, teams, linescore, venue, tickets, content){
+      if (!missing(gamePk)) {
+        stopifnot(is.numeric(gamePk), length(gamePk) == 1)
+        stopifnot(R6::is.R6(gamePk))
+        self$gamePk <- gamePk
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
-      if (!missing(`gameType`)) {
-        stopifnot(is.character(`gameType`), length(`gameType`) == 1)
-        self$`gameType` <- `gameType`
+      if (!missing(gameType)) {
+        stopifnot(is.character(gameType), length(gameType) == 1)
+        self$gameType <- gameType
       }
-      if (!missing(`season`)) {
-        stopifnot(is.character(`season`), length(`season`) == 1)
-        self$`season` <- `season`
+      if (!missing(season)) {
+        stopifnot(is.character(season), length(season) == 1)
+        self$season <- season
       }
-      if (!missing(`gameDate`)) {
-        stopifnot(is.character(`gameDate`), length(`gameDate`) == 1)
-        self$`gameDate` <- `gameDate`
+      if (!missing(gameDate)) {
+        stopifnot(is.character(gameDate), length(gameDate) == 1)
+        self$gameDate <- gameDate
       }
-      if (!missing(`status`)) {
-        stopifnot(R6::is.R6(`status`))
-        self$`status` <- `status`
+      if (!missing(status)) {
+        stopifnot(R6::is.R6(status))
+        self$status <- status
       }
-      if (!missing(`teams`)) {
-        stopifnot(R6::is.R6(`teams`))
-        self$`teams` <- `teams`
+      if (!missing(teams)) {
+        stopifnot(R6::is.R6(teams))
+        self$teams <- teams
       }
-      if (!missing(`linescore`)) {
-        stopifnot(R6::is.R6(`linescore`))
-        self$`linescore` <- `linescore`
+      if (!missing(linescore)) {
+        stopifnot(R6::is.R6(linescore))
+        self$linescore <- linescore
       }
-      if (!missing(`venue`)) {
-        stopifnot(R6::is.R6(`venue`))
-        self$`venue` <- `venue`
+      if (!missing(venue)) {
+        stopifnot(R6::is.R6(venue))
+        self$venue <- venue
       }
-      if (!missing(`tickets`)) {
-        stopifnot(is.list(`tickets`), length(`tickets`) != 0)
-        lapply(`tickets`, function(x) stopifnot(R6::is.R6(x)))
-        self$`tickets` <- `tickets`
+      if (!missing(tickets)) {
+        stopifnot(is.list(tickets), length(tickets) != 0)
+        lapply(tickets, function(x) stopifnot(R6::is.R6(x)))
+        self$tickets <- tickets
       }
-      if (!missing(`content`)) {
-        stopifnot(R6::is.R6(`content`))
-        self$`content` <- `content`
+      if (!missing(content)) {
+        stopifnot(R6::is.R6(content))
+        self$content <- content
       }
     },
     toJSON = function() {
       ScheduleGameObject <- list()
-      if (!is.null(self$`gamePk`)) {
-        ScheduleGameObject[['gamePk']] <- self$`gamePk`$toJSON()
+      if (!is.null(self$gamePk)) {
+        ScheduleGameObject[['gamePk']] <- self$gamePk$toJSON()
       }
-      if (!is.null(self$`link`)) {
-        ScheduleGameObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        ScheduleGameObject[['link']] <- self$link
       }
-      if (!is.null(self$`gameType`)) {
-        ScheduleGameObject[['gameType']] <- self$`gameType`
+      if (!is.null(self$gameType)) {
+        ScheduleGameObject[['gameType']] <- self$gameType
       }
-      if (!is.null(self$`season`)) {
-        ScheduleGameObject[['season']] <- self$`season`
+      if (!is.null(self$season)) {
+        ScheduleGameObject[['season']] <- self$season
       }
-      if (!is.null(self$`gameDate`)) {
-        ScheduleGameObject[['gameDate']] <- self$`gameDate`
+      if (!is.null(self$gameDate)) {
+        ScheduleGameObject[['gameDate']] <- self$gameDate
       }
-      if (!is.null(self$`status`)) {
-        ScheduleGameObject[['status']] <- self$`status`$toJSON()
+      if (!is.null(self$status)) {
+        ScheduleGameObject[['status']] <- self$status$toJSON()
       }
-      if (!is.null(self$`teams`)) {
-        ScheduleGameObject[['teams']] <- self$`teams`$toJSON()
+      if (!is.null(self$teams)) {
+        ScheduleGameObject[['teams']] <- self$teams$toJSON()
       }
-      if (!is.null(self$`linescore`)) {
-        ScheduleGameObject[['linescore']] <- self$`linescore`$toJSON()
+      if (!is.null(self$linescore)) {
+        ScheduleGameObject[['linescore']] <- self$linescore$toJSON()
       }
-      if (!is.null(self$`venue`)) {
-        ScheduleGameObject[['venue']] <- self$`venue`$toJSON()
+      if (!is.null(self$venue)) {
+        ScheduleGameObject[['venue']] <- self$venue$toJSON()
       }
-      if (!is.null(self$`tickets`)) {
-        ScheduleGameObject[['tickets']] <- lapply(self$`tickets`, function(x) x$toJSON())
+      if (!is.null(self$tickets)) {
+        ScheduleGameObject[['tickets']] <- lapply(self$tickets, function(x) x$toJSON())
       }
-      if (!is.null(self$`content`)) {
-        ScheduleGameObject[['content']] <- self$`content`$toJSON()
+      if (!is.null(self$content)) {
+        ScheduleGameObject[['content']] <- self$content$toJSON()
       }
 
       ScheduleGameObject
     },
     fromJSON = function(ScheduleGameJson) {
       ScheduleGameObject <- jsonlite::fromJSON(ScheduleGameJson)
-      if (!is.null(ScheduleGameObject$`gamePk`)) {
+      if (!is.null(ScheduleGameObject$gamePk)) {
         gamePkObject <- BigDecimal$new()
         gamePkObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$gamePk, auto_unbox = TRUE))
-        self$`gamePk` <- gamePkObject
+        self$gamePk <- gamePkObject
       }
-      if (!is.null(ScheduleGameObject$`link`)) {
-        self$`link` <- ScheduleGameObject$`link`
+      if (!is.null(ScheduleGameObject$link)) {
+        self$link <- ScheduleGameObject$link
       }
-      if (!is.null(ScheduleGameObject$`gameType`)) {
-        self$`gameType` <- ScheduleGameObject$`gameType`
+      if (!is.null(ScheduleGameObject$gameType)) {
+        self$gameType <- ScheduleGameObject$gameType
       }
-      if (!is.null(ScheduleGameObject$`season`)) {
-        self$`season` <- ScheduleGameObject$`season`
+      if (!is.null(ScheduleGameObject$season)) {
+        self$season <- ScheduleGameObject$season
       }
-      if (!is.null(ScheduleGameObject$`gameDate`)) {
-        self$`gameDate` <- ScheduleGameObject$`gameDate`
+      if (!is.null(ScheduleGameObject$gameDate)) {
+        self$gameDate <- ScheduleGameObject$gameDate
       }
-      if (!is.null(ScheduleGameObject$`status`)) {
+      if (!is.null(ScheduleGameObject$status)) {
         statusObject <- GameGameDataStatus$new()
         statusObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$status, auto_unbox = TRUE))
-        self$`status` <- statusObject
+        self$status <- statusObject
       }
-      if (!is.null(ScheduleGameObject$`teams`)) {
+      if (!is.null(ScheduleGameObject$teams)) {
         teamsObject <- ScheduleGameTeams$new()
         teamsObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$teams, auto_unbox = TRUE))
-        self$`teams` <- teamsObject
+        self$teams <- teamsObject
       }
-      if (!is.null(ScheduleGameObject$`linescore`)) {
+      if (!is.null(ScheduleGameObject$linescore)) {
         linescoreObject <- GameLinescore$new()
         linescoreObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$linescore, auto_unbox = TRUE))
-        self$`linescore` <- linescoreObject
+        self$linescore <- linescoreObject
       }
-      if (!is.null(ScheduleGameObject$`venue`)) {
+      if (!is.null(ScheduleGameObject$venue)) {
         venueObject <- GameGameDataVenue$new()
         venueObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$venue, auto_unbox = TRUE))
-        self$`venue` <- venueObject
+        self$venue <- venueObject
       }
-      if (!is.null(ScheduleGameObject$`tickets`)) {
-        self$`tickets` <- lapply(ScheduleGameObject$`tickets`, function(x) {
+      if (!is.null(ScheduleGameObject$tickets)) {
+        self$tickets <- lapply(ScheduleGameObject$tickets, function(x) {
           ticketsObject <- ScheduleGameTickets$new()
           ticketsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           ticketsObject
         })
       }
-      if (!is.null(ScheduleGameObject$`content`)) {
+      if (!is.null(ScheduleGameObject$content)) {
         contentObject <- ScheduleGameContent$new()
         contentObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$content, auto_unbox = TRUE))
-        self$`content` <- contentObject
+        self$content <- contentObject
       }
     },
     toJSONString = function() {
@@ -190,38 +190,38 @@ ScheduleGame <- R6::R6Class(
            "tickets": [%s],
            "content": %s
         }',
-        self$`gamePk`$toJSON(),
-        self$`link`,
-        self$`gameType`,
-        self$`season`,
-        self$`gameDate`,
-        self$`status`$toJSON(),
-        self$`teams`$toJSON(),
-        self$`linescore`$toJSON(),
-        self$`venue`$toJSON(),
-        lapply(self$`tickets`, function(x) paste(x$toJSON(), sep=",")),
-        self$`content`$toJSON()
+        self$gamePk$toJSON(),
+        self$link,
+        self$gameType,
+        self$season,
+        self$gameDate,
+        self$status$toJSON(),
+        self$teams$toJSON(),
+        self$linescore$toJSON(),
+        self$venue$toJSON(),
+        lapply(self$tickets, function(x) paste(x$toJSON(), sep=",")),
+        self$content$toJSON()
       )
     },
     fromJSONString = function(ScheduleGameJson) {
       ScheduleGameObject <- jsonlite::fromJSON(ScheduleGameJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`gamePk` <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$gamePk, auto_unbox = TRUE))
-      self$`link` <- ScheduleGameObject$`link`
-      self$`gameType` <- ScheduleGameObject$`gameType`
-      self$`season` <- ScheduleGameObject$`season`
-      self$`gameDate` <- ScheduleGameObject$`gameDate`
+      self$gamePk <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$gamePk, auto_unbox = TRUE))
+      self$link <- ScheduleGameObject$link
+      self$gameType <- ScheduleGameObject$gameType
+      self$season <- ScheduleGameObject$season
+      self$gameDate <- ScheduleGameObject$gameDate
       GameGameDataStatusObject <- GameGameDataStatus$new()
-      self$`status` <- GameGameDataStatusObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$status, auto_unbox = TRUE))
+      self$status <- GameGameDataStatusObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$status, auto_unbox = TRUE))
       ScheduleGameTeamsObject <- ScheduleGameTeams$new()
-      self$`teams` <- ScheduleGameTeamsObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$teams, auto_unbox = TRUE))
+      self$teams <- ScheduleGameTeamsObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$teams, auto_unbox = TRUE))
       GameLinescoreObject <- GameLinescore$new()
-      self$`linescore` <- GameLinescoreObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$linescore, auto_unbox = TRUE))
+      self$linescore <- GameLinescoreObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$linescore, auto_unbox = TRUE))
       GameGameDataVenueObject <- GameGameDataVenue$new()
-      self$`venue` <- GameGameDataVenueObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$venue, auto_unbox = TRUE))
-      self$`tickets` <- lapply(ScheduleGameObject$`tickets`, function(x) ScheduleGameTickets$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$venue <- GameGameDataVenueObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$venue, auto_unbox = TRUE))
+      self$tickets <- lapply(ScheduleGameObject$tickets, function(x) ScheduleGameTickets$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       ScheduleGameContentObject <- ScheduleGameContent$new()
-      self$`content` <- ScheduleGameContentObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$content, auto_unbox = TRUE))
+      self$content <- ScheduleGameContentObject$fromJSON(jsonlite::toJSON(ScheduleGameObject$content, auto_unbox = TRUE))
     }
   )
 )

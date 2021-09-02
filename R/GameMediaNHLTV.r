@@ -18,48 +18,48 @@
 GameMediaNHLTV <- R6::R6Class(
   'GameMediaNHLTV',
   public = list(
-    `title` = NULL,
-    `platform` = NULL,
-    `items` = NULL,
-    initialize = function(`title`, `platform`, `items`){
-      if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
-        self$`title` <- `title`
+    title = NULL,
+    platform = NULL,
+    items = NULL,
+    initialize = function(title, platform, items){
+      if (!missing(title)) {
+        stopifnot(is.character(title), length(title) == 1)
+        self$title <- title
       }
-      if (!missing(`platform`)) {
-        stopifnot(is.character(`platform`), length(`platform`) == 1)
-        self$`platform` <- `platform`
+      if (!missing(platform)) {
+        stopifnot(is.character(platform), length(platform) == 1)
+        self$platform <- platform
       }
-      if (!missing(`items`)) {
-        stopifnot(is.list(`items`), length(`items`) != 0)
-        lapply(`items`, function(x) stopifnot(R6::is.R6(x)))
-        self$`items` <- `items`
+      if (!missing(items)) {
+        stopifnot(is.list(items), length(items) != 0)
+        lapply(items, function(x) stopifnot(R6::is.R6(x)))
+        self$items <- items
       }
     },
     toJSON = function() {
       GameMediaNHLTVObject <- list()
-      if (!is.null(self$`title`)) {
-        GameMediaNHLTVObject[['title']] <- self$`title`
+      if (!is.null(self$title)) {
+        GameMediaNHLTVObject[['title']] <- self$title
       }
-      if (!is.null(self$`platform`)) {
-        GameMediaNHLTVObject[['platform']] <- self$`platform`
+      if (!is.null(self$platform)) {
+        GameMediaNHLTVObject[['platform']] <- self$platform
       }
-      if (!is.null(self$`items`)) {
-        GameMediaNHLTVObject[['items']] <- lapply(self$`items`, function(x) x$toJSON())
+      if (!is.null(self$items)) {
+        GameMediaNHLTVObject[['items']] <- lapply(self$items, function(x) x$toJSON())
       }
 
       GameMediaNHLTVObject
     },
     fromJSON = function(GameMediaNHLTVJson) {
       GameMediaNHLTVObject <- jsonlite::fromJSON(GameMediaNHLTVJson)
-      if (!is.null(GameMediaNHLTVObject$`title`)) {
-        self$`title` <- GameMediaNHLTVObject$`title`
+      if (!is.null(GameMediaNHLTVObject$title)) {
+        self$title <- GameMediaNHLTVObject$title
       }
-      if (!is.null(GameMediaNHLTVObject$`platform`)) {
-        self$`platform` <- GameMediaNHLTVObject$`platform`
+      if (!is.null(GameMediaNHLTVObject$platform)) {
+        self$platform <- GameMediaNHLTVObject$platform
       }
-      if (!is.null(GameMediaNHLTVObject$`items`)) {
-        self$`items` <- lapply(GameMediaNHLTVObject$`items`, function(x) {
+      if (!is.null(GameMediaNHLTVObject$items)) {
+        self$items <- lapply(GameMediaNHLTVObject$items, function(x) {
           itemsObject <- GameMediaNHLTVItems$new()
           itemsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           itemsObject
@@ -73,16 +73,16 @@ GameMediaNHLTV <- R6::R6Class(
            "platform": %s,
            "items": [%s]
         }',
-        self$`title`,
-        self$`platform`,
-        lapply(self$`items`, function(x) paste(x$toJSON(), sep=","))
+        self$title,
+        self$platform,
+        lapply(self$items, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(GameMediaNHLTVJson) {
       GameMediaNHLTVObject <- jsonlite::fromJSON(GameMediaNHLTVJson)
-      self$`title` <- GameMediaNHLTVObject$`title`
-      self$`platform` <- GameMediaNHLTVObject$`platform`
-      self$`items` <- lapply(GameMediaNHLTVObject$`items`, function(x) GameMediaNHLTVItems$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$title <- GameMediaNHLTVObject$title
+      self$platform <- GameMediaNHLTVObject$platform
+      self$items <- lapply(GameMediaNHLTVObject$items, function(x) GameMediaNHLTVItems$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

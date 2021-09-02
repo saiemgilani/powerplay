@@ -21,89 +21,89 @@
 GameLinescoreTeam <- R6::R6Class(
   'GameLinescoreTeam',
   public = list(
-    `team` = NULL,
-    `goals` = NULL,
-    `shotsOnGoal` = NULL,
-    `goaliePulled` = NULL,
-    `numSkaters` = NULL,
-    `powerPlay` = NULL,
-    initialize = function(`team`, `goals`, `shotsOnGoal`, `goaliePulled`, `numSkaters`, `powerPlay`){
-      if (!missing(`team`)) {
-        stopifnot(R6::is.R6(`team`))
-        self$`team` <- `team`
+    team = NULL,
+    goals = NULL,
+    shotsOnGoal = NULL,
+    goaliePulled = NULL,
+    numSkaters = NULL,
+    powerPlay = NULL,
+    initialize = function(team, goals, shotsOnGoal, goaliePulled, numSkaters, powerPlay){
+      if (!missing(team)) {
+        stopifnot(R6::is.R6(team))
+        self$team <- team
       }
-      if (!missing(`goals`)) {
-        stopifnot(is.numeric(`goals`), length(`goals`) == 1)
-        stopifnot(R6::is.R6(`goals`))
-        self$`goals` <- `goals`
+      if (!missing(goals)) {
+        stopifnot(is.numeric(goals), length(goals) == 1)
+        stopifnot(R6::is.R6(goals))
+        self$goals <- goals
       }
-      if (!missing(`shotsOnGoal`)) {
-        stopifnot(is.numeric(`shotsOnGoal`), length(`shotsOnGoal`) == 1)
-        stopifnot(R6::is.R6(`shotsOnGoal`))
-        self$`shotsOnGoal` <- `shotsOnGoal`
+      if (!missing(shotsOnGoal)) {
+        stopifnot(is.numeric(shotsOnGoal), length(shotsOnGoal) == 1)
+        stopifnot(R6::is.R6(shotsOnGoal))
+        self$shotsOnGoal <- shotsOnGoal
       }
-      if (!missing(`goaliePulled`)) {
-        self$`goaliePulled` <- `goaliePulled`
+      if (!missing(goaliePulled)) {
+        self$goaliePulled <- goaliePulled
       }
-      if (!missing(`numSkaters`)) {
-        stopifnot(is.numeric(`numSkaters`), length(`numSkaters`) == 1)
-        stopifnot(R6::is.R6(`numSkaters`))
-        self$`numSkaters` <- `numSkaters`
+      if (!missing(numSkaters)) {
+        stopifnot(is.numeric(numSkaters), length(numSkaters) == 1)
+        stopifnot(R6::is.R6(numSkaters))
+        self$numSkaters <- numSkaters
       }
-      if (!missing(`powerPlay`)) {
-        self$`powerPlay` <- `powerPlay`
+      if (!missing(powerPlay)) {
+        self$powerPlay <- powerPlay
       }
     },
     toJSON = function() {
       GameLinescoreTeamObject <- list()
-      if (!is.null(self$`team`)) {
-        GameLinescoreTeamObject[['team']] <- self$`team`$toJSON()
+      if (!is.null(self$team)) {
+        GameLinescoreTeamObject[['team']] <- self$team$toJSON()
       }
-      if (!is.null(self$`goals`)) {
-        GameLinescoreTeamObject[['goals']] <- self$`goals`$toJSON()
+      if (!is.null(self$goals)) {
+        GameLinescoreTeamObject[['goals']] <- self$goals$toJSON()
       }
-      if (!is.null(self$`shotsOnGoal`)) {
-        GameLinescoreTeamObject[['shotsOnGoal']] <- self$`shotsOnGoal`$toJSON()
+      if (!is.null(self$shotsOnGoal)) {
+        GameLinescoreTeamObject[['shotsOnGoal']] <- self$shotsOnGoal$toJSON()
       }
-      if (!is.null(self$`goaliePulled`)) {
-        GameLinescoreTeamObject[['goaliePulled']] <- self$`goaliePulled`
+      if (!is.null(self$goaliePulled)) {
+        GameLinescoreTeamObject[['goaliePulled']] <- self$goaliePulled
       }
-      if (!is.null(self$`numSkaters`)) {
-        GameLinescoreTeamObject[['numSkaters']] <- self$`numSkaters`$toJSON()
+      if (!is.null(self$numSkaters)) {
+        GameLinescoreTeamObject[['numSkaters']] <- self$numSkaters$toJSON()
       }
-      if (!is.null(self$`powerPlay`)) {
-        GameLinescoreTeamObject[['powerPlay']] <- self$`powerPlay`
+      if (!is.null(self$powerPlay)) {
+        GameLinescoreTeamObject[['powerPlay']] <- self$powerPlay
       }
 
       GameLinescoreTeamObject
     },
     fromJSON = function(GameLinescoreTeamJson) {
       GameLinescoreTeamObject <- jsonlite::fromJSON(GameLinescoreTeamJson)
-      if (!is.null(GameLinescoreTeamObject$`team`)) {
+      if (!is.null(GameLinescoreTeamObject$team)) {
         teamObject <- GameBoxscoreTeamTeam$new()
         teamObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$team, auto_unbox = TRUE))
-        self$`team` <- teamObject
+        self$team <- teamObject
       }
-      if (!is.null(GameLinescoreTeamObject$`goals`)) {
+      if (!is.null(GameLinescoreTeamObject$goals)) {
         goalsObject <- BigDecimal$new()
         goalsObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$goals, auto_unbox = TRUE))
-        self$`goals` <- goalsObject
+        self$goals <- goalsObject
       }
-      if (!is.null(GameLinescoreTeamObject$`shotsOnGoal`)) {
+      if (!is.null(GameLinescoreTeamObject$shotsOnGoal)) {
         shotsOnGoalObject <- BigDecimal$new()
         shotsOnGoalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$shotsOnGoal, auto_unbox = TRUE))
-        self$`shotsOnGoal` <- shotsOnGoalObject
+        self$shotsOnGoal <- shotsOnGoalObject
       }
-      if (!is.null(GameLinescoreTeamObject$`goaliePulled`)) {
-        self$`goaliePulled` <- GameLinescoreTeamObject$`goaliePulled`
+      if (!is.null(GameLinescoreTeamObject$goaliePulled)) {
+        self$goaliePulled <- GameLinescoreTeamObject$goaliePulled
       }
-      if (!is.null(GameLinescoreTeamObject$`numSkaters`)) {
+      if (!is.null(GameLinescoreTeamObject$numSkaters)) {
         numSkatersObject <- BigDecimal$new()
         numSkatersObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$numSkaters, auto_unbox = TRUE))
-        self$`numSkaters` <- numSkatersObject
+        self$numSkaters <- numSkatersObject
       }
-      if (!is.null(GameLinescoreTeamObject$`powerPlay`)) {
-        self$`powerPlay` <- GameLinescoreTeamObject$`powerPlay`
+      if (!is.null(GameLinescoreTeamObject$powerPlay)) {
+        self$powerPlay <- GameLinescoreTeamObject$powerPlay
       }
     },
     toJSONString = function() {
@@ -116,26 +116,26 @@ GameLinescoreTeam <- R6::R6Class(
            "numSkaters": %s,
            "powerPlay": %s
         }',
-        self$`team`$toJSON(),
-        self$`goals`$toJSON(),
-        self$`shotsOnGoal`$toJSON(),
-        self$`goaliePulled`,
-        self$`numSkaters`$toJSON(),
-        self$`powerPlay`
+        self$team$toJSON(),
+        self$goals$toJSON(),
+        self$shotsOnGoal$toJSON(),
+        self$goaliePulled,
+        self$numSkaters$toJSON(),
+        self$powerPlay
       )
     },
     fromJSONString = function(GameLinescoreTeamJson) {
       GameLinescoreTeamObject <- jsonlite::fromJSON(GameLinescoreTeamJson)
       GameBoxscoreTeamTeamObject <- GameBoxscoreTeamTeam$new()
-      self$`team` <- GameBoxscoreTeamTeamObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$team, auto_unbox = TRUE))
+      self$team <- GameBoxscoreTeamTeamObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$team, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`goals` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$goals, auto_unbox = TRUE))
+      self$goals <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$goals, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`shotsOnGoal` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$shotsOnGoal, auto_unbox = TRUE))
-      self$`goaliePulled` <- GameLinescoreTeamObject$`goaliePulled`
+      self$shotsOnGoal <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$shotsOnGoal, auto_unbox = TRUE))
+      self$goaliePulled <- GameLinescoreTeamObject$goaliePulled
       BigDecimalObject <- BigDecimal$new()
-      self$`numSkaters` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$numSkaters, auto_unbox = TRUE))
-      self$`powerPlay` <- GameLinescoreTeamObject$`powerPlay`
+      self$numSkaters <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreTeamObject$numSkaters, auto_unbox = TRUE))
+      self$powerPlay <- GameLinescoreTeamObject$powerPlay
     }
   )
 )

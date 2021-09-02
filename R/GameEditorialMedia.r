@@ -17,38 +17,38 @@
 GameEditorialMedia <- R6::R6Class(
   'GameEditorialMedia',
   public = list(
-    `type` = NULL,
-    `image` = NULL,
-    initialize = function(`type`, `image`){
-      if (!missing(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
-        self$`type` <- `type`
+    type = NULL,
+    image = NULL,
+    initialize = function(type, image){
+      if (!missing(type)) {
+        stopifnot(is.character(type), length(type) == 1)
+        self$type <- type
       }
-      if (!missing(`image`)) {
-        stopifnot(R6::is.R6(`image`))
-        self$`image` <- `image`
+      if (!missing(image)) {
+        stopifnot(R6::is.R6(image))
+        self$image <- image
       }
     },
     toJSON = function() {
       GameEditorialMediaObject <- list()
-      if (!is.null(self$`type`)) {
-        GameEditorialMediaObject[['type']] <- self$`type`
+      if (!is.null(self$type)) {
+        GameEditorialMediaObject[['type']] <- self$type
       }
-      if (!is.null(self$`image`)) {
-        GameEditorialMediaObject[['image']] <- self$`image`$toJSON()
+      if (!is.null(self$image)) {
+        GameEditorialMediaObject[['image']] <- self$image$toJSON()
       }
 
       GameEditorialMediaObject
     },
     fromJSON = function(GameEditorialMediaJson) {
       GameEditorialMediaObject <- jsonlite::fromJSON(GameEditorialMediaJson)
-      if (!is.null(GameEditorialMediaObject$`type`)) {
-        self$`type` <- GameEditorialMediaObject$`type`
+      if (!is.null(GameEditorialMediaObject$type)) {
+        self$type <- GameEditorialMediaObject$type
       }
-      if (!is.null(GameEditorialMediaObject$`image`)) {
+      if (!is.null(GameEditorialMediaObject$image)) {
         imageObject <- Photo$new()
         imageObject$fromJSON(jsonlite::toJSON(GameEditorialMediaObject$image, auto_unbox = TRUE))
-        self$`image` <- imageObject
+        self$image <- imageObject
       }
     },
     toJSONString = function() {
@@ -57,15 +57,15 @@ GameEditorialMedia <- R6::R6Class(
            "type": %s,
            "image": %s
         }',
-        self$`type`,
-        self$`image`$toJSON()
+        self$type,
+        self$image$toJSON()
       )
     },
     fromJSONString = function(GameEditorialMediaJson) {
       GameEditorialMediaObject <- jsonlite::fromJSON(GameEditorialMediaJson)
-      self$`type` <- GameEditorialMediaObject$`type`
+      self$type <- GameEditorialMediaObject$type
       PhotoObject <- Photo$new()
-      self$`image` <- PhotoObject$fromJSON(jsonlite::toJSON(GameEditorialMediaObject$image, auto_unbox = TRUE))
+      self$image <- PhotoObject$fromJSON(jsonlite::toJSON(GameEditorialMediaObject$image, auto_unbox = TRUE))
     }
   )
 )

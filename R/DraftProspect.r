@@ -18,50 +18,50 @@
 DraftProspect <- R6::R6Class(
   'DraftProspect',
   public = list(
-    `id` = NULL,
-    `fullName` = NULL,
-    `link` = NULL,
-    initialize = function(`id`, `fullName`, `link`){
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        stopifnot(R6::is.R6(`id`))
-        self$`id` <- `id`
+    id = NULL,
+    fullName = NULL,
+    link = NULL,
+    initialize = function(id, fullName, link){
+      if (!missing(id)) {
+        stopifnot(is.numeric(id), length(id) == 1)
+        stopifnot(R6::is.R6(id))
+        self$id <- id
       }
-      if (!missing(`fullName`)) {
-        stopifnot(is.character(`fullName`), length(`fullName`) == 1)
-        self$`fullName` <- `fullName`
+      if (!missing(fullName)) {
+        stopifnot(is.character(fullName), length(fullName) == 1)
+        self$fullName <- fullName
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       DraftProspectObject <- list()
-      if (!is.null(self$`id`)) {
-        DraftProspectObject[['id']] <- self$`id`$toJSON()
+      if (!is.null(self$id)) {
+        DraftProspectObject[['id']] <- self$id$toJSON()
       }
-      if (!is.null(self$`fullName`)) {
-        DraftProspectObject[['fullName']] <- self$`fullName`
+      if (!is.null(self$fullName)) {
+        DraftProspectObject[['fullName']] <- self$fullName
       }
-      if (!is.null(self$`link`)) {
-        DraftProspectObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        DraftProspectObject[['link']] <- self$link
       }
 
       DraftProspectObject
     },
     fromJSON = function(DraftProspectJson) {
       DraftProspectObject <- jsonlite::fromJSON(DraftProspectJson)
-      if (!is.null(DraftProspectObject$`id`)) {
+      if (!is.null(DraftProspectObject$id)) {
         idObject <- BigDecimal$new()
         idObject$fromJSON(jsonlite::toJSON(DraftProspectObject$id, auto_unbox = TRUE))
-        self$`id` <- idObject
+        self$id <- idObject
       }
-      if (!is.null(DraftProspectObject$`fullName`)) {
-        self$`fullName` <- DraftProspectObject$`fullName`
+      if (!is.null(DraftProspectObject$fullName)) {
+        self$fullName <- DraftProspectObject$fullName
       }
-      if (!is.null(DraftProspectObject$`link`)) {
-        self$`link` <- DraftProspectObject$`link`
+      if (!is.null(DraftProspectObject$link)) {
+        self$link <- DraftProspectObject$link
       }
     },
     toJSONString = function() {
@@ -71,17 +71,17 @@ DraftProspect <- R6::R6Class(
            "fullName": %s,
            "link": %s
         }',
-        self$`id`$toJSON(),
-        self$`fullName`,
-        self$`link`
+        self$id$toJSON(),
+        self$fullName,
+        self$link
       )
     },
     fromJSONString = function(DraftProspectJson) {
       DraftProspectObject <- jsonlite::fromJSON(DraftProspectJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`id` <- BigDecimalObject$fromJSON(jsonlite::toJSON(DraftProspectObject$id, auto_unbox = TRUE))
-      self$`fullName` <- DraftProspectObject$`fullName`
-      self$`link` <- DraftProspectObject$`link`
+      self$id <- BigDecimalObject$fromJSON(jsonlite::toJSON(DraftProspectObject$id, auto_unbox = TRUE))
+      self$fullName <- DraftProspectObject$fullName
+      self$link <- DraftProspectObject$link
     }
   )
 )

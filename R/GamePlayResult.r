@@ -19,58 +19,58 @@
 GamePlayResult <- R6::R6Class(
   'GamePlayResult',
   public = list(
-    `event` = NULL,
-    `eventCode` = NULL,
-    `eventTypeId` = NULL,
-    `description` = NULL,
-    initialize = function(`event`, `eventCode`, `eventTypeId`, `description`){
-      if (!missing(`event`)) {
-        stopifnot(is.character(`event`), length(`event`) == 1)
-        self$`event` <- `event`
+    event = NULL,
+    eventCode = NULL,
+    eventTypeId = NULL,
+    description = NULL,
+    initialize = function(event, eventCode, eventTypeId, description){
+      if (!missing(event)) {
+        stopifnot(is.character(event), length(event) == 1)
+        self$event <- event
       }
-      if (!missing(`eventCode`)) {
-        stopifnot(is.character(`eventCode`), length(`eventCode`) == 1)
-        self$`eventCode` <- `eventCode`
+      if (!missing(eventCode)) {
+        stopifnot(is.character(eventCode), length(eventCode) == 1)
+        self$eventCode <- eventCode
       }
-      if (!missing(`eventTypeId`)) {
-        stopifnot(is.character(`eventTypeId`), length(`eventTypeId`) == 1)
-        self$`eventTypeId` <- `eventTypeId`
+      if (!missing(eventTypeId)) {
+        stopifnot(is.character(eventTypeId), length(eventTypeId) == 1)
+        self$eventTypeId <- eventTypeId
       }
-      if (!missing(`description`)) {
-        stopifnot(is.character(`description`), length(`description`) == 1)
-        self$`description` <- `description`
+      if (!missing(description)) {
+        stopifnot(is.character(description), length(description) == 1)
+        self$description <- description
       }
     },
     toJSON = function() {
       GamePlayResultObject <- list()
-      if (!is.null(self$`event`)) {
-        GamePlayResultObject[['event']] <- self$`event`
+      if (!is.null(self$event)) {
+        GamePlayResultObject[['event']] <- self$event
       }
-      if (!is.null(self$`eventCode`)) {
-        GamePlayResultObject[['eventCode']] <- self$`eventCode`
+      if (!is.null(self$eventCode)) {
+        GamePlayResultObject[['eventCode']] <- self$eventCode
       }
-      if (!is.null(self$`eventTypeId`)) {
-        GamePlayResultObject[['eventTypeId']] <- self$`eventTypeId`
+      if (!is.null(self$eventTypeId)) {
+        GamePlayResultObject[['eventTypeId']] <- self$eventTypeId
       }
-      if (!is.null(self$`description`)) {
-        GamePlayResultObject[['description']] <- self$`description`
+      if (!is.null(self$description)) {
+        GamePlayResultObject[['description']] <- self$description
       }
 
       GamePlayResultObject
     },
     fromJSON = function(GamePlayResultJson) {
       GamePlayResultObject <- jsonlite::fromJSON(GamePlayResultJson)
-      if (!is.null(GamePlayResultObject$`event`)) {
-        self$`event` <- GamePlayResultObject$`event`
+      if (!is.null(GamePlayResultObject$event)) {
+        self$event <- GamePlayResultObject$event
       }
-      if (!is.null(GamePlayResultObject$`eventCode`)) {
-        self$`eventCode` <- GamePlayResultObject$`eventCode`
+      if (!is.null(GamePlayResultObject$eventCode)) {
+        self$eventCode <- GamePlayResultObject$eventCode
       }
-      if (!is.null(GamePlayResultObject$`eventTypeId`)) {
-        self$`eventTypeId` <- GamePlayResultObject$`eventTypeId`
+      if (!is.null(GamePlayResultObject$eventTypeId)) {
+        self$eventTypeId <- GamePlayResultObject$eventTypeId
       }
-      if (!is.null(GamePlayResultObject$`description`)) {
-        self$`description` <- GamePlayResultObject$`description`
+      if (!is.null(GamePlayResultObject$description)) {
+        self$description <- GamePlayResultObject$description
       }
     },
     toJSONString = function() {
@@ -81,18 +81,18 @@ GamePlayResult <- R6::R6Class(
            "eventTypeId": %s,
            "description": %s
         }',
-        self$`event`,
-        self$`eventCode`,
-        self$`eventTypeId`,
-        self$`description`
+        self$event,
+        self$eventCode,
+        self$eventTypeId,
+        self$description
       )
     },
     fromJSONString = function(GamePlayResultJson) {
       GamePlayResultObject <- jsonlite::fromJSON(GamePlayResultJson)
-      self$`event` <- GamePlayResultObject$`event`
-      self$`eventCode` <- GamePlayResultObject$`eventCode`
-      self$`eventTypeId` <- GamePlayResultObject$`eventTypeId`
-      self$`description` <- GamePlayResultObject$`description`
+      self$event <- GamePlayResultObject$event
+      self$eventCode <- GamePlayResultObject$eventCode
+      self$eventTypeId <- GamePlayResultObject$eventTypeId
+      self$description <- GamePlayResultObject$description
     }
   )
 )

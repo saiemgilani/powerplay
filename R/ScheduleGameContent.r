@@ -16,25 +16,25 @@
 ScheduleGameContent <- R6::R6Class(
   'ScheduleGameContent',
   public = list(
-    `link` = NULL,
-    initialize = function(`link`){
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+    link = NULL,
+    initialize = function(link){
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       ScheduleGameContentObject <- list()
-      if (!is.null(self$`link`)) {
-        ScheduleGameContentObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        ScheduleGameContentObject[['link']] <- self$link
       }
 
       ScheduleGameContentObject
     },
     fromJSON = function(ScheduleGameContentJson) {
       ScheduleGameContentObject <- jsonlite::fromJSON(ScheduleGameContentJson)
-      if (!is.null(ScheduleGameContentObject$`link`)) {
-        self$`link` <- ScheduleGameContentObject$`link`
+      if (!is.null(ScheduleGameContentObject$link)) {
+        self$link <- ScheduleGameContentObject$link
       }
     },
     toJSONString = function() {
@@ -42,12 +42,12 @@ ScheduleGameContent <- R6::R6Class(
         '{
            "link": %s
         }',
-        self$`link`
+        self$link
       )
     },
     fromJSONString = function(ScheduleGameContentJson) {
       ScheduleGameContentObject <- jsonlite::fromJSON(ScheduleGameContentJson)
-      self$`link` <- ScheduleGameContentObject$`link`
+      self$link <- ScheduleGameContentObject$link
     }
   )
 )

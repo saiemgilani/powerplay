@@ -24,111 +24,111 @@
 GameMediaAudioItems <- R6::R6Class(
   'GameMediaAudioItems',
   public = list(
-    `mediaState` = NULL,
-    `mediaPlaybackId` = NULL,
-    `mediaFeedType` = NULL,
-    `callLetters` = NULL,
-    `eventId` = NULL,
-    `language` = NULL,
-    `freeGame` = NULL,
-    `feedName` = NULL,
-    `gamePlus` = NULL,
-    initialize = function(`mediaState`, `mediaPlaybackId`, `mediaFeedType`, `callLetters`, `eventId`, `language`, `freeGame`, `feedName`, `gamePlus`){
-      if (!missing(`mediaState`)) {
-        stopifnot(is.character(`mediaState`), length(`mediaState`) == 1)
-        self$`mediaState` <- `mediaState`
+    mediaState = NULL,
+    mediaPlaybackId = NULL,
+    mediaFeedType = NULL,
+    callLetters = NULL,
+    eventId = NULL,
+    language = NULL,
+    freeGame = NULL,
+    feedName = NULL,
+    gamePlus = NULL,
+    initialize = function(mediaState, mediaPlaybackId, mediaFeedType, callLetters, eventId, language, freeGame, feedName, gamePlus){
+      if (!missing(mediaState)) {
+        stopifnot(is.character(mediaState), length(mediaState) == 1)
+        self$mediaState <- mediaState
       }
-      if (!missing(`mediaPlaybackId`)) {
-        stopifnot(is.character(`mediaPlaybackId`), length(`mediaPlaybackId`) == 1)
-        self$`mediaPlaybackId` <- `mediaPlaybackId`
+      if (!missing(mediaPlaybackId)) {
+        stopifnot(is.character(mediaPlaybackId), length(mediaPlaybackId) == 1)
+        self$mediaPlaybackId <- mediaPlaybackId
       }
-      if (!missing(`mediaFeedType`)) {
-        stopifnot(is.character(`mediaFeedType`), length(`mediaFeedType`) == 1)
-        self$`mediaFeedType` <- `mediaFeedType`
+      if (!missing(mediaFeedType)) {
+        stopifnot(is.character(mediaFeedType), length(mediaFeedType) == 1)
+        self$mediaFeedType <- mediaFeedType
       }
-      if (!missing(`callLetters`)) {
-        stopifnot(is.character(`callLetters`), length(`callLetters`) == 1)
-        self$`callLetters` <- `callLetters`
+      if (!missing(callLetters)) {
+        stopifnot(is.character(callLetters), length(callLetters) == 1)
+        self$callLetters <- callLetters
       }
-      if (!missing(`eventId`)) {
-        stopifnot(is.character(`eventId`), length(`eventId`) == 1)
-        self$`eventId` <- `eventId`
+      if (!missing(eventId)) {
+        stopifnot(is.character(eventId), length(eventId) == 1)
+        self$eventId <- eventId
       }
-      if (!missing(`language`)) {
-        stopifnot(is.character(`language`), length(`language`) == 1)
-        self$`language` <- `language`
+      if (!missing(language)) {
+        stopifnot(is.character(language), length(language) == 1)
+        self$language <- language
       }
-      if (!missing(`freeGame`)) {
-        self$`freeGame` <- `freeGame`
+      if (!missing(freeGame)) {
+        self$freeGame <- freeGame
       }
-      if (!missing(`feedName`)) {
-        stopifnot(is.character(`feedName`), length(`feedName`) == 1)
-        self$`feedName` <- `feedName`
+      if (!missing(feedName)) {
+        stopifnot(is.character(feedName), length(feedName) == 1)
+        self$feedName <- feedName
       }
-      if (!missing(`gamePlus`)) {
-        self$`gamePlus` <- `gamePlus`
+      if (!missing(gamePlus)) {
+        self$gamePlus <- gamePlus
       }
     },
     toJSON = function() {
       GameMediaAudioItemsObject <- list()
-      if (!is.null(self$`mediaState`)) {
-        GameMediaAudioItemsObject[['mediaState']] <- self$`mediaState`
+      if (!is.null(self$mediaState)) {
+        GameMediaAudioItemsObject[['mediaState']] <- self$mediaState
       }
-      if (!is.null(self$`mediaPlaybackId`)) {
-        GameMediaAudioItemsObject[['mediaPlaybackId']] <- self$`mediaPlaybackId`
+      if (!is.null(self$mediaPlaybackId)) {
+        GameMediaAudioItemsObject[['mediaPlaybackId']] <- self$mediaPlaybackId
       }
-      if (!is.null(self$`mediaFeedType`)) {
-        GameMediaAudioItemsObject[['mediaFeedType']] <- self$`mediaFeedType`
+      if (!is.null(self$mediaFeedType)) {
+        GameMediaAudioItemsObject[['mediaFeedType']] <- self$mediaFeedType
       }
-      if (!is.null(self$`callLetters`)) {
-        GameMediaAudioItemsObject[['callLetters']] <- self$`callLetters`
+      if (!is.null(self$callLetters)) {
+        GameMediaAudioItemsObject[['callLetters']] <- self$callLetters
       }
-      if (!is.null(self$`eventId`)) {
-        GameMediaAudioItemsObject[['eventId']] <- self$`eventId`
+      if (!is.null(self$eventId)) {
+        GameMediaAudioItemsObject[['eventId']] <- self$eventId
       }
-      if (!is.null(self$`language`)) {
-        GameMediaAudioItemsObject[['language']] <- self$`language`
+      if (!is.null(self$language)) {
+        GameMediaAudioItemsObject[['language']] <- self$language
       }
-      if (!is.null(self$`freeGame`)) {
-        GameMediaAudioItemsObject[['freeGame']] <- self$`freeGame`
+      if (!is.null(self$freeGame)) {
+        GameMediaAudioItemsObject[['freeGame']] <- self$freeGame
       }
-      if (!is.null(self$`feedName`)) {
-        GameMediaAudioItemsObject[['feedName']] <- self$`feedName`
+      if (!is.null(self$feedName)) {
+        GameMediaAudioItemsObject[['feedName']] <- self$feedName
       }
-      if (!is.null(self$`gamePlus`)) {
-        GameMediaAudioItemsObject[['gamePlus']] <- self$`gamePlus`
+      if (!is.null(self$gamePlus)) {
+        GameMediaAudioItemsObject[['gamePlus']] <- self$gamePlus
       }
 
       GameMediaAudioItemsObject
     },
     fromJSON = function(GameMediaAudioItemsJson) {
       GameMediaAudioItemsObject <- jsonlite::fromJSON(GameMediaAudioItemsJson)
-      if (!is.null(GameMediaAudioItemsObject$`mediaState`)) {
-        self$`mediaState` <- GameMediaAudioItemsObject$`mediaState`
+      if (!is.null(GameMediaAudioItemsObject$mediaState)) {
+        self$mediaState <- GameMediaAudioItemsObject$mediaState
       }
-      if (!is.null(GameMediaAudioItemsObject$`mediaPlaybackId`)) {
-        self$`mediaPlaybackId` <- GameMediaAudioItemsObject$`mediaPlaybackId`
+      if (!is.null(GameMediaAudioItemsObject$mediaPlaybackId)) {
+        self$mediaPlaybackId <- GameMediaAudioItemsObject$mediaPlaybackId
       }
-      if (!is.null(GameMediaAudioItemsObject$`mediaFeedType`)) {
-        self$`mediaFeedType` <- GameMediaAudioItemsObject$`mediaFeedType`
+      if (!is.null(GameMediaAudioItemsObject$mediaFeedType)) {
+        self$mediaFeedType <- GameMediaAudioItemsObject$mediaFeedType
       }
-      if (!is.null(GameMediaAudioItemsObject$`callLetters`)) {
-        self$`callLetters` <- GameMediaAudioItemsObject$`callLetters`
+      if (!is.null(GameMediaAudioItemsObject$callLetters)) {
+        self$callLetters <- GameMediaAudioItemsObject$callLetters
       }
-      if (!is.null(GameMediaAudioItemsObject$`eventId`)) {
-        self$`eventId` <- GameMediaAudioItemsObject$`eventId`
+      if (!is.null(GameMediaAudioItemsObject$eventId)) {
+        self$eventId <- GameMediaAudioItemsObject$eventId
       }
-      if (!is.null(GameMediaAudioItemsObject$`language`)) {
-        self$`language` <- GameMediaAudioItemsObject$`language`
+      if (!is.null(GameMediaAudioItemsObject$language)) {
+        self$language <- GameMediaAudioItemsObject$language
       }
-      if (!is.null(GameMediaAudioItemsObject$`freeGame`)) {
-        self$`freeGame` <- GameMediaAudioItemsObject$`freeGame`
+      if (!is.null(GameMediaAudioItemsObject$freeGame)) {
+        self$freeGame <- GameMediaAudioItemsObject$freeGame
       }
-      if (!is.null(GameMediaAudioItemsObject$`feedName`)) {
-        self$`feedName` <- GameMediaAudioItemsObject$`feedName`
+      if (!is.null(GameMediaAudioItemsObject$feedName)) {
+        self$feedName <- GameMediaAudioItemsObject$feedName
       }
-      if (!is.null(GameMediaAudioItemsObject$`gamePlus`)) {
-        self$`gamePlus` <- GameMediaAudioItemsObject$`gamePlus`
+      if (!is.null(GameMediaAudioItemsObject$gamePlus)) {
+        self$gamePlus <- GameMediaAudioItemsObject$gamePlus
       }
     },
     toJSONString = function() {
@@ -144,28 +144,28 @@ GameMediaAudioItems <- R6::R6Class(
            "feedName": %s,
            "gamePlus": %s
         }',
-        self$`mediaState`,
-        self$`mediaPlaybackId`,
-        self$`mediaFeedType`,
-        self$`callLetters`,
-        self$`eventId`,
-        self$`language`,
-        self$`freeGame`,
-        self$`feedName`,
-        self$`gamePlus`
+        self$mediaState,
+        self$mediaPlaybackId,
+        self$mediaFeedType,
+        self$callLetters,
+        self$eventId,
+        self$language,
+        self$freeGame,
+        self$feedName,
+        self$gamePlus
       )
     },
     fromJSONString = function(GameMediaAudioItemsJson) {
       GameMediaAudioItemsObject <- jsonlite::fromJSON(GameMediaAudioItemsJson)
-      self$`mediaState` <- GameMediaAudioItemsObject$`mediaState`
-      self$`mediaPlaybackId` <- GameMediaAudioItemsObject$`mediaPlaybackId`
-      self$`mediaFeedType` <- GameMediaAudioItemsObject$`mediaFeedType`
-      self$`callLetters` <- GameMediaAudioItemsObject$`callLetters`
-      self$`eventId` <- GameMediaAudioItemsObject$`eventId`
-      self$`language` <- GameMediaAudioItemsObject$`language`
-      self$`freeGame` <- GameMediaAudioItemsObject$`freeGame`
-      self$`feedName` <- GameMediaAudioItemsObject$`feedName`
-      self$`gamePlus` <- GameMediaAudioItemsObject$`gamePlus`
+      self$mediaState <- GameMediaAudioItemsObject$mediaState
+      self$mediaPlaybackId <- GameMediaAudioItemsObject$mediaPlaybackId
+      self$mediaFeedType <- GameMediaAudioItemsObject$mediaFeedType
+      self$callLetters <- GameMediaAudioItemsObject$callLetters
+      self$eventId <- GameMediaAudioItemsObject$eventId
+      self$language <- GameMediaAudioItemsObject$language
+      self$freeGame <- GameMediaAudioItemsObject$freeGame
+      self$feedName <- GameMediaAudioItemsObject$feedName
+      self$gamePlus <- GameMediaAudioItemsObject$gamePlus
     }
   )
 )

@@ -44,8 +44,8 @@ PlayersApi <- R6::R6Class(
       headerParams <- character()
 
       urlPath <- "/people/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -65,23 +65,23 @@ PlayersApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_player_stats = function(id, stats, season, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`stats`)) {
+      if (!missing(stats)) {
         queryParams['stats'] <- stats
       }
 
-      if (!missing(`season`)) {
+      if (!missing(season)) {
         queryParams['season'] <- season
       }
 
       urlPath <- "/people/{id}/stats"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),

@@ -20,82 +20,82 @@
 TeamNextGameSchedule <- R6::R6Class(
   'TeamNextGameSchedule',
   public = list(
-    `totalItems` = NULL,
-    `totalEvents` = NULL,
-    `totalGames` = NULL,
-    `totalMatches` = NULL,
-    `dates` = NULL,
-    initialize = function(`totalItems`, `totalEvents`, `totalGames`, `totalMatches`, `dates`){
-      if (!missing(`totalItems`)) {
-        stopifnot(is.numeric(`totalItems`), length(`totalItems`) == 1)
-        stopifnot(R6::is.R6(`totalItems`))
-        self$`totalItems` <- `totalItems`
+    totalItems = NULL,
+    totalEvents = NULL,
+    totalGames = NULL,
+    totalMatches = NULL,
+    dates = NULL,
+    initialize = function(totalItems, totalEvents, totalGames, totalMatches, dates){
+      if (!missing(totalItems)) {
+        stopifnot(is.numeric(totalItems), length(totalItems) == 1)
+        stopifnot(R6::is.R6(totalItems))
+        self$totalItems <- totalItems
       }
-      if (!missing(`totalEvents`)) {
-        stopifnot(is.numeric(`totalEvents`), length(`totalEvents`) == 1)
-        stopifnot(R6::is.R6(`totalEvents`))
-        self$`totalEvents` <- `totalEvents`
+      if (!missing(totalEvents)) {
+        stopifnot(is.numeric(totalEvents), length(totalEvents) == 1)
+        stopifnot(R6::is.R6(totalEvents))
+        self$totalEvents <- totalEvents
       }
-      if (!missing(`totalGames`)) {
-        stopifnot(is.numeric(`totalGames`), length(`totalGames`) == 1)
-        stopifnot(R6::is.R6(`totalGames`))
-        self$`totalGames` <- `totalGames`
+      if (!missing(totalGames)) {
+        stopifnot(is.numeric(totalGames), length(totalGames) == 1)
+        stopifnot(R6::is.R6(totalGames))
+        self$totalGames <- totalGames
       }
-      if (!missing(`totalMatches`)) {
-        stopifnot(is.numeric(`totalMatches`), length(`totalMatches`) == 1)
-        stopifnot(R6::is.R6(`totalMatches`))
-        self$`totalMatches` <- `totalMatches`
+      if (!missing(totalMatches)) {
+        stopifnot(is.numeric(totalMatches), length(totalMatches) == 1)
+        stopifnot(R6::is.R6(totalMatches))
+        self$totalMatches <- totalMatches
       }
-      if (!missing(`dates`)) {
-        stopifnot(is.list(`dates`), length(`dates`) != 0)
-        lapply(`dates`, function(x) stopifnot(R6::is.R6(x)))
-        self$`dates` <- `dates`
+      if (!missing(dates)) {
+        stopifnot(is.list(dates), length(dates) != 0)
+        lapply(dates, function(x) stopifnot(R6::is.R6(x)))
+        self$dates <- dates
       }
     },
     toJSON = function() {
       TeamNextGameScheduleObject <- list()
-      if (!is.null(self$`totalItems`)) {
-        TeamNextGameScheduleObject[['totalItems']] <- self$`totalItems`$toJSON()
+      if (!is.null(self$totalItems)) {
+        TeamNextGameScheduleObject[['totalItems']] <- self$totalItems$toJSON()
       }
-      if (!is.null(self$`totalEvents`)) {
-        TeamNextGameScheduleObject[['totalEvents']] <- self$`totalEvents`$toJSON()
+      if (!is.null(self$totalEvents)) {
+        TeamNextGameScheduleObject[['totalEvents']] <- self$totalEvents$toJSON()
       }
-      if (!is.null(self$`totalGames`)) {
-        TeamNextGameScheduleObject[['totalGames']] <- self$`totalGames`$toJSON()
+      if (!is.null(self$totalGames)) {
+        TeamNextGameScheduleObject[['totalGames']] <- self$totalGames$toJSON()
       }
-      if (!is.null(self$`totalMatches`)) {
-        TeamNextGameScheduleObject[['totalMatches']] <- self$`totalMatches`$toJSON()
+      if (!is.null(self$totalMatches)) {
+        TeamNextGameScheduleObject[['totalMatches']] <- self$totalMatches$toJSON()
       }
-      if (!is.null(self$`dates`)) {
-        TeamNextGameScheduleObject[['dates']] <- lapply(self$`dates`, function(x) x$toJSON())
+      if (!is.null(self$dates)) {
+        TeamNextGameScheduleObject[['dates']] <- lapply(self$dates, function(x) x$toJSON())
       }
 
       TeamNextGameScheduleObject
     },
     fromJSON = function(TeamNextGameScheduleJson) {
       TeamNextGameScheduleObject <- jsonlite::fromJSON(TeamNextGameScheduleJson)
-      if (!is.null(TeamNextGameScheduleObject$`totalItems`)) {
+      if (!is.null(TeamNextGameScheduleObject$totalItems)) {
         totalItemsObject <- BigDecimal$new()
         totalItemsObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalItems, auto_unbox = TRUE))
-        self$`totalItems` <- totalItemsObject
+        self$totalItems <- totalItemsObject
       }
-      if (!is.null(TeamNextGameScheduleObject$`totalEvents`)) {
+      if (!is.null(TeamNextGameScheduleObject$totalEvents)) {
         totalEventsObject <- BigDecimal$new()
         totalEventsObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalEvents, auto_unbox = TRUE))
-        self$`totalEvents` <- totalEventsObject
+        self$totalEvents <- totalEventsObject
       }
-      if (!is.null(TeamNextGameScheduleObject$`totalGames`)) {
+      if (!is.null(TeamNextGameScheduleObject$totalGames)) {
         totalGamesObject <- BigDecimal$new()
         totalGamesObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalGames, auto_unbox = TRUE))
-        self$`totalGames` <- totalGamesObject
+        self$totalGames <- totalGamesObject
       }
-      if (!is.null(TeamNextGameScheduleObject$`totalMatches`)) {
+      if (!is.null(TeamNextGameScheduleObject$totalMatches)) {
         totalMatchesObject <- BigDecimal$new()
         totalMatchesObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalMatches, auto_unbox = TRUE))
-        self$`totalMatches` <- totalMatchesObject
+        self$totalMatches <- totalMatchesObject
       }
-      if (!is.null(TeamNextGameScheduleObject$`dates`)) {
-        self$`dates` <- lapply(TeamNextGameScheduleObject$`dates`, function(x) {
+      if (!is.null(TeamNextGameScheduleObject$dates)) {
+        self$dates <- lapply(TeamNextGameScheduleObject$dates, function(x) {
           datesObject <- TeamNextGameScheduleDates$new()
           datesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           datesObject
@@ -111,24 +111,24 @@ TeamNextGameSchedule <- R6::R6Class(
            "totalMatches": %s,
            "dates": [%s]
         }',
-        self$`totalItems`$toJSON(),
-        self$`totalEvents`$toJSON(),
-        self$`totalGames`$toJSON(),
-        self$`totalMatches`$toJSON(),
-        lapply(self$`dates`, function(x) paste(x$toJSON(), sep=","))
+        self$totalItems$toJSON(),
+        self$totalEvents$toJSON(),
+        self$totalGames$toJSON(),
+        self$totalMatches$toJSON(),
+        lapply(self$dates, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(TeamNextGameScheduleJson) {
       TeamNextGameScheduleObject <- jsonlite::fromJSON(TeamNextGameScheduleJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`totalItems` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalItems, auto_unbox = TRUE))
+      self$totalItems <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalItems, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`totalEvents` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalEvents, auto_unbox = TRUE))
+      self$totalEvents <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalEvents, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`totalGames` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalGames, auto_unbox = TRUE))
+      self$totalGames <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalGames, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`totalMatches` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalMatches, auto_unbox = TRUE))
-      self$`dates` <- lapply(TeamNextGameScheduleObject$`dates`, function(x) TeamNextGameScheduleDates$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$totalMatches <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleObject$totalMatches, auto_unbox = TRUE))
+      self$dates <- lapply(TeamNextGameScheduleObject$dates, function(x) TeamNextGameScheduleDates$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

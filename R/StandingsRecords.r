@@ -20,76 +20,76 @@
 StandingsRecords <- R6::R6Class(
   'StandingsRecords',
   public = list(
-    `standingsType` = NULL,
-    `league` = NULL,
-    `division` = NULL,
-    `conference` = NULL,
-    `teamRecords` = NULL,
-    initialize = function(`standingsType`, `league`, `division`, `conference`, `teamRecords`){
-      if (!missing(`standingsType`)) {
-        stopifnot(is.character(`standingsType`), length(`standingsType`) == 1)
-        self$`standingsType` <- `standingsType`
+    standingsType = NULL,
+    league = NULL,
+    division = NULL,
+    conference = NULL,
+    teamRecords = NULL,
+    initialize = function(standingsType, league, division, conference, teamRecords){
+      if (!missing(standingsType)) {
+        stopifnot(is.character(standingsType), length(standingsType) == 1)
+        self$standingsType <- standingsType
       }
-      if (!missing(`league`)) {
-        stopifnot(R6::is.R6(`league`))
-        self$`league` <- `league`
+      if (!missing(league)) {
+        stopifnot(R6::is.R6(league))
+        self$league <- league
       }
-      if (!missing(`division`)) {
-        stopifnot(R6::is.R6(`division`))
-        self$`division` <- `division`
+      if (!missing(division)) {
+        stopifnot(R6::is.R6(division))
+        self$division <- division
       }
-      if (!missing(`conference`)) {
-        stopifnot(R6::is.R6(`conference`))
-        self$`conference` <- `conference`
+      if (!missing(conference)) {
+        stopifnot(R6::is.R6(conference))
+        self$conference <- conference
       }
-      if (!missing(`teamRecords`)) {
-        stopifnot(is.list(`teamRecords`), length(`teamRecords`) != 0)
-        lapply(`teamRecords`, function(x) stopifnot(R6::is.R6(x)))
-        self$`teamRecords` <- `teamRecords`
+      if (!missing(teamRecords)) {
+        stopifnot(is.list(teamRecords), length(teamRecords) != 0)
+        lapply(teamRecords, function(x) stopifnot(R6::is.R6(x)))
+        self$teamRecords <- teamRecords
       }
     },
     toJSON = function() {
       StandingsRecordsObject <- list()
-      if (!is.null(self$`standingsType`)) {
-        StandingsRecordsObject[['standingsType']] <- self$`standingsType`
+      if (!is.null(self$standingsType)) {
+        StandingsRecordsObject[['standingsType']] <- self$standingsType
       }
-      if (!is.null(self$`league`)) {
-        StandingsRecordsObject[['league']] <- self$`league`$toJSON()
+      if (!is.null(self$league)) {
+        StandingsRecordsObject[['league']] <- self$league$toJSON()
       }
-      if (!is.null(self$`division`)) {
-        StandingsRecordsObject[['division']] <- self$`division`$toJSON()
+      if (!is.null(self$division)) {
+        StandingsRecordsObject[['division']] <- self$division$toJSON()
       }
-      if (!is.null(self$`conference`)) {
-        StandingsRecordsObject[['conference']] <- self$`conference`$toJSON()
+      if (!is.null(self$conference)) {
+        StandingsRecordsObject[['conference']] <- self$conference$toJSON()
       }
-      if (!is.null(self$`teamRecords`)) {
-        StandingsRecordsObject[['teamRecords']] <- lapply(self$`teamRecords`, function(x) x$toJSON())
+      if (!is.null(self$teamRecords)) {
+        StandingsRecordsObject[['teamRecords']] <- lapply(self$teamRecords, function(x) x$toJSON())
       }
 
       StandingsRecordsObject
     },
     fromJSON = function(StandingsRecordsJson) {
       StandingsRecordsObject <- jsonlite::fromJSON(StandingsRecordsJson)
-      if (!is.null(StandingsRecordsObject$`standingsType`)) {
-        self$`standingsType` <- StandingsRecordsObject$`standingsType`
+      if (!is.null(StandingsRecordsObject$standingsType)) {
+        self$standingsType <- StandingsRecordsObject$standingsType
       }
-      if (!is.null(StandingsRecordsObject$`league`)) {
+      if (!is.null(StandingsRecordsObject$league)) {
         leagueObject <- StandingsLeague$new()
         leagueObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$league, auto_unbox = TRUE))
-        self$`league` <- leagueObject
+        self$league <- leagueObject
       }
-      if (!is.null(StandingsRecordsObject$`division`)) {
+      if (!is.null(StandingsRecordsObject$division)) {
         divisionObject <- StandingsDivision$new()
         divisionObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$division, auto_unbox = TRUE))
-        self$`division` <- divisionObject
+        self$division <- divisionObject
       }
-      if (!is.null(StandingsRecordsObject$`conference`)) {
+      if (!is.null(StandingsRecordsObject$conference)) {
         conferenceObject <- DivisionConference$new()
         conferenceObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$conference, auto_unbox = TRUE))
-        self$`conference` <- conferenceObject
+        self$conference <- conferenceObject
       }
-      if (!is.null(StandingsRecordsObject$`teamRecords`)) {
-        self$`teamRecords` <- lapply(StandingsRecordsObject$`teamRecords`, function(x) {
+      if (!is.null(StandingsRecordsObject$teamRecords)) {
+        self$teamRecords <- lapply(StandingsRecordsObject$teamRecords, function(x) {
           teamRecordsObject <- StandingsTeamRecords$new()
           teamRecordsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           teamRecordsObject
@@ -105,23 +105,23 @@ StandingsRecords <- R6::R6Class(
            "conference": %s,
            "teamRecords": [%s]
         }',
-        self$`standingsType`,
-        self$`league`$toJSON(),
-        self$`division`$toJSON(),
-        self$`conference`$toJSON(),
-        lapply(self$`teamRecords`, function(x) paste(x$toJSON(), sep=","))
+        self$standingsType,
+        self$league$toJSON(),
+        self$division$toJSON(),
+        self$conference$toJSON(),
+        lapply(self$teamRecords, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(StandingsRecordsJson) {
       StandingsRecordsObject <- jsonlite::fromJSON(StandingsRecordsJson)
-      self$`standingsType` <- StandingsRecordsObject$`standingsType`
+      self$standingsType <- StandingsRecordsObject$standingsType
       StandingsLeagueObject <- StandingsLeague$new()
-      self$`league` <- StandingsLeagueObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$league, auto_unbox = TRUE))
+      self$league <- StandingsLeagueObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$league, auto_unbox = TRUE))
       StandingsDivisionObject <- StandingsDivision$new()
-      self$`division` <- StandingsDivisionObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$division, auto_unbox = TRUE))
+      self$division <- StandingsDivisionObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$division, auto_unbox = TRUE))
       DivisionConferenceObject <- DivisionConference$new()
-      self$`conference` <- DivisionConferenceObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$conference, auto_unbox = TRUE))
-      self$`teamRecords` <- lapply(StandingsRecordsObject$`teamRecords`, function(x) StandingsTeamRecords$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$conference <- DivisionConferenceObject$fromJSON(jsonlite::toJSON(StandingsRecordsObject$conference, auto_unbox = TRUE))
+      self$teamRecords <- lapply(StandingsRecordsObject$teamRecords, function(x) StandingsTeamRecords$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

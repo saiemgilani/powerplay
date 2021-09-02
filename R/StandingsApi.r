@@ -64,17 +64,17 @@ StandingsApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_standings = function(season, date, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`season`)) {
+      if (!missing(season)) {
         queryParams['season'] <- season
       }
 
-      if (!missing(`date`)) {
+      if (!missing(date)) {
         queryParams['date'] <- date
       }
 
@@ -96,15 +96,15 @@ StandingsApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_standings_by_type = function(type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/standings/{type}"
-      if (!missing(`type`)) {
-        urlPath <- gsub(paste0("\\{", "type", "\\}"), `type`, urlPath)
+      if (!missing(type)) {
+        urlPath <- gsub(paste0("\\{", "type", "\\}"), type, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),

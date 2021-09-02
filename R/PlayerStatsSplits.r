@@ -25,135 +25,135 @@
 PlayerStatsSplits <- R6::R6Class(
   'PlayerStatsSplits',
   public = list(
-    `season` = NULL,
-    `stat` = NULL,
-    `isHome` = NULL,
-    `isWin` = NULL,
-    `isOT` = NULL,
-    `month` = NULL,
-    `dayOfWeek` = NULL,
-    `opponent` = NULL,
-    `opponentDivision` = NULL,
-    `opponentConference` = NULL,
-    initialize = function(`season`, `stat`, `isHome`, `isWin`, `isOT`, `month`, `dayOfWeek`, `opponent`, `opponentDivision`, `opponentConference`){
-      if (!missing(`season`)) {
-        stopifnot(is.character(`season`), length(`season`) == 1)
-        self$`season` <- `season`
+    season = NULL,
+    stat = NULL,
+    isHome = NULL,
+    isWin = NULL,
+    isOT = NULL,
+    month = NULL,
+    dayOfWeek = NULL,
+    opponent = NULL,
+    opponentDivision = NULL,
+    opponentConference = NULL,
+    initialize = function(season, stat, isHome, isWin, isOT, month, dayOfWeek, opponent, opponentDivision, opponentConference){
+      if (!missing(season)) {
+        stopifnot(is.character(season), length(season) == 1)
+        self$season <- season
       }
-      if (!missing(`stat`)) {
-        stopifnot(R6::is.R6(`stat`))
-        self$`stat` <- `stat`
+      if (!missing(stat)) {
+        stopifnot(R6::is.R6(stat))
+        self$stat <- stat
       }
-      if (!missing(`isHome`)) {
-        self$`isHome` <- `isHome`
+      if (!missing(isHome)) {
+        self$isHome <- isHome
       }
-      if (!missing(`isWin`)) {
-        self$`isWin` <- `isWin`
+      if (!missing(isWin)) {
+        self$isWin <- isWin
       }
-      if (!missing(`isOT`)) {
-        self$`isOT` <- `isOT`
+      if (!missing(isOT)) {
+        self$isOT <- isOT
       }
-      if (!missing(`month`)) {
-        stopifnot(is.numeric(`month`), length(`month`) == 1)
-        stopifnot(R6::is.R6(`month`))
-        self$`month` <- `month`
+      if (!missing(month)) {
+        stopifnot(is.numeric(month), length(month) == 1)
+        stopifnot(R6::is.R6(month))
+        self$month <- month
       }
-      if (!missing(`dayOfWeek`)) {
-        stopifnot(is.numeric(`dayOfWeek`), length(`dayOfWeek`) == 1)
-        stopifnot(R6::is.R6(`dayOfWeek`))
-        self$`dayOfWeek` <- `dayOfWeek`
+      if (!missing(dayOfWeek)) {
+        stopifnot(is.numeric(dayOfWeek), length(dayOfWeek) == 1)
+        stopifnot(R6::is.R6(dayOfWeek))
+        self$dayOfWeek <- dayOfWeek
       }
-      if (!missing(`opponent`)) {
-        stopifnot(R6::is.R6(`opponent`))
-        self$`opponent` <- `opponent`
+      if (!missing(opponent)) {
+        stopifnot(R6::is.R6(opponent))
+        self$opponent <- opponent
       }
-      if (!missing(`opponentDivision`)) {
-        stopifnot(R6::is.R6(`opponentDivision`))
-        self$`opponentDivision` <- `opponentDivision`
+      if (!missing(opponentDivision)) {
+        stopifnot(R6::is.R6(opponentDivision))
+        self$opponentDivision <- opponentDivision
       }
-      if (!missing(`opponentConference`)) {
-        stopifnot(R6::is.R6(`opponentConference`))
-        self$`opponentConference` <- `opponentConference`
+      if (!missing(opponentConference)) {
+        stopifnot(R6::is.R6(opponentConference))
+        self$opponentConference <- opponentConference
       }
     },
     toJSON = function() {
       PlayerStatsSplitsObject <- list()
-      if (!is.null(self$`season`)) {
-        PlayerStatsSplitsObject[['season']] <- self$`season`
+      if (!is.null(self$season)) {
+        PlayerStatsSplitsObject[['season']] <- self$season
       }
-      if (!is.null(self$`stat`)) {
-        PlayerStatsSplitsObject[['stat']] <- self$`stat`$toJSON()
+      if (!is.null(self$stat)) {
+        PlayerStatsSplitsObject[['stat']] <- self$stat$toJSON()
       }
-      if (!is.null(self$`isHome`)) {
-        PlayerStatsSplitsObject[['isHome']] <- self$`isHome`
+      if (!is.null(self$isHome)) {
+        PlayerStatsSplitsObject[['isHome']] <- self$isHome
       }
-      if (!is.null(self$`isWin`)) {
-        PlayerStatsSplitsObject[['isWin']] <- self$`isWin`
+      if (!is.null(self$isWin)) {
+        PlayerStatsSplitsObject[['isWin']] <- self$isWin
       }
-      if (!is.null(self$`isOT`)) {
-        PlayerStatsSplitsObject[['isOT']] <- self$`isOT`
+      if (!is.null(self$isOT)) {
+        PlayerStatsSplitsObject[['isOT']] <- self$isOT
       }
-      if (!is.null(self$`month`)) {
-        PlayerStatsSplitsObject[['month']] <- self$`month`$toJSON()
+      if (!is.null(self$month)) {
+        PlayerStatsSplitsObject[['month']] <- self$month$toJSON()
       }
-      if (!is.null(self$`dayOfWeek`)) {
-        PlayerStatsSplitsObject[['dayOfWeek']] <- self$`dayOfWeek`$toJSON()
+      if (!is.null(self$dayOfWeek)) {
+        PlayerStatsSplitsObject[['dayOfWeek']] <- self$dayOfWeek$toJSON()
       }
-      if (!is.null(self$`opponent`)) {
-        PlayerStatsSplitsObject[['opponent']] <- self$`opponent`$toJSON()
+      if (!is.null(self$opponent)) {
+        PlayerStatsSplitsObject[['opponent']] <- self$opponent$toJSON()
       }
-      if (!is.null(self$`opponentDivision`)) {
-        PlayerStatsSplitsObject[['opponentDivision']] <- self$`opponentDivision`$toJSON()
+      if (!is.null(self$opponentDivision)) {
+        PlayerStatsSplitsObject[['opponentDivision']] <- self$opponentDivision$toJSON()
       }
-      if (!is.null(self$`opponentConference`)) {
-        PlayerStatsSplitsObject[['opponentConference']] <- self$`opponentConference`$toJSON()
+      if (!is.null(self$opponentConference)) {
+        PlayerStatsSplitsObject[['opponentConference']] <- self$opponentConference$toJSON()
       }
 
       PlayerStatsSplitsObject
     },
     fromJSON = function(PlayerStatsSplitsJson) {
       PlayerStatsSplitsObject <- jsonlite::fromJSON(PlayerStatsSplitsJson)
-      if (!is.null(PlayerStatsSplitsObject$`season`)) {
-        self$`season` <- PlayerStatsSplitsObject$`season`
+      if (!is.null(PlayerStatsSplitsObject$season)) {
+        self$season <- PlayerStatsSplitsObject$season
       }
-      if (!is.null(PlayerStatsSplitsObject$`stat`)) {
+      if (!is.null(PlayerStatsSplitsObject$stat)) {
         statObject <- PlayerStatsStat$new()
         statObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$stat, auto_unbox = TRUE))
-        self$`stat` <- statObject
+        self$stat <- statObject
       }
-      if (!is.null(PlayerStatsSplitsObject$`isHome`)) {
-        self$`isHome` <- PlayerStatsSplitsObject$`isHome`
+      if (!is.null(PlayerStatsSplitsObject$isHome)) {
+        self$isHome <- PlayerStatsSplitsObject$isHome
       }
-      if (!is.null(PlayerStatsSplitsObject$`isWin`)) {
-        self$`isWin` <- PlayerStatsSplitsObject$`isWin`
+      if (!is.null(PlayerStatsSplitsObject$isWin)) {
+        self$isWin <- PlayerStatsSplitsObject$isWin
       }
-      if (!is.null(PlayerStatsSplitsObject$`isOT`)) {
-        self$`isOT` <- PlayerStatsSplitsObject$`isOT`
+      if (!is.null(PlayerStatsSplitsObject$isOT)) {
+        self$isOT <- PlayerStatsSplitsObject$isOT
       }
-      if (!is.null(PlayerStatsSplitsObject$`month`)) {
+      if (!is.null(PlayerStatsSplitsObject$month)) {
         monthObject <- BigDecimal$new()
         monthObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$month, auto_unbox = TRUE))
-        self$`month` <- monthObject
+        self$month <- monthObject
       }
-      if (!is.null(PlayerStatsSplitsObject$`dayOfWeek`)) {
+      if (!is.null(PlayerStatsSplitsObject$dayOfWeek)) {
         dayOfWeekObject <- BigDecimal$new()
         dayOfWeekObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$dayOfWeek, auto_unbox = TRUE))
-        self$`dayOfWeek` <- dayOfWeekObject
+        self$dayOfWeek <- dayOfWeekObject
       }
-      if (!is.null(PlayerStatsSplitsObject$`opponent`)) {
+      if (!is.null(PlayerStatsSplitsObject$opponent)) {
         opponentObject <- DraftTeam$new()
         opponentObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponent, auto_unbox = TRUE))
-        self$`opponent` <- opponentObject
+        self$opponent <- opponentObject
       }
-      if (!is.null(PlayerStatsSplitsObject$`opponentDivision`)) {
+      if (!is.null(PlayerStatsSplitsObject$opponentDivision)) {
         opponentDivisionObject <- PlayerStatsOpponentDivision$new()
         opponentDivisionObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponentDivision, auto_unbox = TRUE))
-        self$`opponentDivision` <- opponentDivisionObject
+        self$opponentDivision <- opponentDivisionObject
       }
-      if (!is.null(PlayerStatsSplitsObject$`opponentConference`)) {
+      if (!is.null(PlayerStatsSplitsObject$opponentConference)) {
         opponentConferenceObject <- DivisionConference$new()
         opponentConferenceObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponentConference, auto_unbox = TRUE))
-        self$`opponentConference` <- opponentConferenceObject
+        self$opponentConference <- opponentConferenceObject
       }
     },
     toJSONString = function() {
@@ -170,36 +170,36 @@ PlayerStatsSplits <- R6::R6Class(
            "opponentDivision": %s,
            "opponentConference": %s
         }',
-        self$`season`,
-        self$`stat`$toJSON(),
-        self$`isHome`,
-        self$`isWin`,
-        self$`isOT`,
-        self$`month`$toJSON(),
-        self$`dayOfWeek`$toJSON(),
-        self$`opponent`$toJSON(),
-        self$`opponentDivision`$toJSON(),
-        self$`opponentConference`$toJSON()
+        self$season,
+        self$stat$toJSON(),
+        self$isHome,
+        self$isWin,
+        self$isOT,
+        self$month$toJSON(),
+        self$dayOfWeek$toJSON(),
+        self$opponent$toJSON(),
+        self$opponentDivision$toJSON(),
+        self$opponentConference$toJSON()
       )
     },
     fromJSONString = function(PlayerStatsSplitsJson) {
       PlayerStatsSplitsObject <- jsonlite::fromJSON(PlayerStatsSplitsJson)
-      self$`season` <- PlayerStatsSplitsObject$`season`
+      self$season <- PlayerStatsSplitsObject$season
       PlayerStatsStatObject <- PlayerStatsStat$new()
-      self$`stat` <- PlayerStatsStatObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$stat, auto_unbox = TRUE))
-      self$`isHome` <- PlayerStatsSplitsObject$`isHome`
-      self$`isWin` <- PlayerStatsSplitsObject$`isWin`
-      self$`isOT` <- PlayerStatsSplitsObject$`isOT`
+      self$stat <- PlayerStatsStatObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$stat, auto_unbox = TRUE))
+      self$isHome <- PlayerStatsSplitsObject$isHome
+      self$isWin <- PlayerStatsSplitsObject$isWin
+      self$isOT <- PlayerStatsSplitsObject$isOT
       BigDecimalObject <- BigDecimal$new()
-      self$`month` <- BigDecimalObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$month, auto_unbox = TRUE))
+      self$month <- BigDecimalObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$month, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`dayOfWeek` <- BigDecimalObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$dayOfWeek, auto_unbox = TRUE))
+      self$dayOfWeek <- BigDecimalObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$dayOfWeek, auto_unbox = TRUE))
       DraftTeamObject <- DraftTeam$new()
-      self$`opponent` <- DraftTeamObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponent, auto_unbox = TRUE))
+      self$opponent <- DraftTeamObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponent, auto_unbox = TRUE))
       PlayerStatsOpponentDivisionObject <- PlayerStatsOpponentDivision$new()
-      self$`opponentDivision` <- PlayerStatsOpponentDivisionObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponentDivision, auto_unbox = TRUE))
+      self$opponentDivision <- PlayerStatsOpponentDivisionObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponentDivision, auto_unbox = TRUE))
       DivisionConferenceObject <- DivisionConference$new()
-      self$`opponentConference` <- DivisionConferenceObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponentConference, auto_unbox = TRUE))
+      self$opponentConference <- DivisionConferenceObject$fromJSON(jsonlite::toJSON(PlayerStatsSplitsObject$opponentConference, auto_unbox = TRUE))
     }
   )
 )

@@ -20,79 +20,79 @@
 GameLiveDataDecisions <- R6::R6Class(
   'GameLiveDataDecisions',
   public = list(
-    `winner` = NULL,
-    `loser` = NULL,
-    `firstStar` = NULL,
-    `secondStar` = NULL,
-    `thirdStar` = NULL,
-    initialize = function(`winner`, `loser`, `firstStar`, `secondStar`, `thirdStar`){
-      if (!missing(`winner`)) {
-        stopifnot(R6::is.R6(`winner`))
-        self$`winner` <- `winner`
+    winner = NULL,
+    loser = NULL,
+    firstStar = NULL,
+    secondStar = NULL,
+    thirdStar = NULL,
+    initialize = function(winner, loser, firstStar, secondStar, thirdStar){
+      if (!missing(winner)) {
+        stopifnot(R6::is.R6(winner))
+        self$winner <- winner
       }
-      if (!missing(`loser`)) {
-        stopifnot(R6::is.R6(`loser`))
-        self$`loser` <- `loser`
+      if (!missing(loser)) {
+        stopifnot(R6::is.R6(loser))
+        self$loser <- loser
       }
-      if (!missing(`firstStar`)) {
-        stopifnot(R6::is.R6(`firstStar`))
-        self$`firstStar` <- `firstStar`
+      if (!missing(firstStar)) {
+        stopifnot(R6::is.R6(firstStar))
+        self$firstStar <- firstStar
       }
-      if (!missing(`secondStar`)) {
-        stopifnot(R6::is.R6(`secondStar`))
-        self$`secondStar` <- `secondStar`
+      if (!missing(secondStar)) {
+        stopifnot(R6::is.R6(secondStar))
+        self$secondStar <- secondStar
       }
-      if (!missing(`thirdStar`)) {
-        stopifnot(R6::is.R6(`thirdStar`))
-        self$`thirdStar` <- `thirdStar`
+      if (!missing(thirdStar)) {
+        stopifnot(R6::is.R6(thirdStar))
+        self$thirdStar <- thirdStar
       }
     },
     toJSON = function() {
       GameLiveDataDecisionsObject <- list()
-      if (!is.null(self$`winner`)) {
-        GameLiveDataDecisionsObject[['winner']] <- self$`winner`$toJSON()
+      if (!is.null(self$winner)) {
+        GameLiveDataDecisionsObject[['winner']] <- self$winner$toJSON()
       }
-      if (!is.null(self$`loser`)) {
-        GameLiveDataDecisionsObject[['loser']] <- self$`loser`$toJSON()
+      if (!is.null(self$loser)) {
+        GameLiveDataDecisionsObject[['loser']] <- self$loser$toJSON()
       }
-      if (!is.null(self$`firstStar`)) {
-        GameLiveDataDecisionsObject[['firstStar']] <- self$`firstStar`$toJSON()
+      if (!is.null(self$firstStar)) {
+        GameLiveDataDecisionsObject[['firstStar']] <- self$firstStar$toJSON()
       }
-      if (!is.null(self$`secondStar`)) {
-        GameLiveDataDecisionsObject[['secondStar']] <- self$`secondStar`$toJSON()
+      if (!is.null(self$secondStar)) {
+        GameLiveDataDecisionsObject[['secondStar']] <- self$secondStar$toJSON()
       }
-      if (!is.null(self$`thirdStar`)) {
-        GameLiveDataDecisionsObject[['thirdStar']] <- self$`thirdStar`$toJSON()
+      if (!is.null(self$thirdStar)) {
+        GameLiveDataDecisionsObject[['thirdStar']] <- self$thirdStar$toJSON()
       }
 
       GameLiveDataDecisionsObject
     },
     fromJSON = function(GameLiveDataDecisionsJson) {
       GameLiveDataDecisionsObject <- jsonlite::fromJSON(GameLiveDataDecisionsJson)
-      if (!is.null(GameLiveDataDecisionsObject$`winner`)) {
+      if (!is.null(GameLiveDataDecisionsObject$winner)) {
         winnerObject <- GameDecisionPlayer$new()
         winnerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$winner, auto_unbox = TRUE))
-        self$`winner` <- winnerObject
+        self$winner <- winnerObject
       }
-      if (!is.null(GameLiveDataDecisionsObject$`loser`)) {
+      if (!is.null(GameLiveDataDecisionsObject$loser)) {
         loserObject <- GameDecisionPlayer$new()
         loserObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$loser, auto_unbox = TRUE))
-        self$`loser` <- loserObject
+        self$loser <- loserObject
       }
-      if (!is.null(GameLiveDataDecisionsObject$`firstStar`)) {
+      if (!is.null(GameLiveDataDecisionsObject$firstStar)) {
         firstStarObject <- GameDecisionPlayer$new()
         firstStarObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$firstStar, auto_unbox = TRUE))
-        self$`firstStar` <- firstStarObject
+        self$firstStar <- firstStarObject
       }
-      if (!is.null(GameLiveDataDecisionsObject$`secondStar`)) {
+      if (!is.null(GameLiveDataDecisionsObject$secondStar)) {
         secondStarObject <- GameDecisionPlayer$new()
         secondStarObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$secondStar, auto_unbox = TRUE))
-        self$`secondStar` <- secondStarObject
+        self$secondStar <- secondStarObject
       }
-      if (!is.null(GameLiveDataDecisionsObject$`thirdStar`)) {
+      if (!is.null(GameLiveDataDecisionsObject$thirdStar)) {
         thirdStarObject <- GameDecisionPlayer$new()
         thirdStarObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$thirdStar, auto_unbox = TRUE))
-        self$`thirdStar` <- thirdStarObject
+        self$thirdStar <- thirdStarObject
       }
     },
     toJSONString = function() {
@@ -104,25 +104,25 @@ GameLiveDataDecisions <- R6::R6Class(
            "secondStar": %s,
            "thirdStar": %s
         }',
-        self$`winner`$toJSON(),
-        self$`loser`$toJSON(),
-        self$`firstStar`$toJSON(),
-        self$`secondStar`$toJSON(),
-        self$`thirdStar`$toJSON()
+        self$winner$toJSON(),
+        self$loser$toJSON(),
+        self$firstStar$toJSON(),
+        self$secondStar$toJSON(),
+        self$thirdStar$toJSON()
       )
     },
     fromJSONString = function(GameLiveDataDecisionsJson) {
       GameLiveDataDecisionsObject <- jsonlite::fromJSON(GameLiveDataDecisionsJson)
       GameDecisionPlayerObject <- GameDecisionPlayer$new()
-      self$`winner` <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$winner, auto_unbox = TRUE))
+      self$winner <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$winner, auto_unbox = TRUE))
       GameDecisionPlayerObject <- GameDecisionPlayer$new()
-      self$`loser` <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$loser, auto_unbox = TRUE))
+      self$loser <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$loser, auto_unbox = TRUE))
       GameDecisionPlayerObject <- GameDecisionPlayer$new()
-      self$`firstStar` <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$firstStar, auto_unbox = TRUE))
+      self$firstStar <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$firstStar, auto_unbox = TRUE))
       GameDecisionPlayerObject <- GameDecisionPlayer$new()
-      self$`secondStar` <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$secondStar, auto_unbox = TRUE))
+      self$secondStar <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$secondStar, auto_unbox = TRUE))
       GameDecisionPlayerObject <- GameDecisionPlayer$new()
-      self$`thirdStar` <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$thirdStar, auto_unbox = TRUE))
+      self$thirdStar <- GameDecisionPlayerObject$fromJSON(jsonlite::toJSON(GameLiveDataDecisionsObject$thirdStar, auto_unbox = TRUE))
     }
   )
 )

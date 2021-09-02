@@ -17,40 +17,40 @@
 GameLinescoreShootoutInfo <- R6::R6Class(
   'GameLinescoreShootoutInfo',
   public = list(
-    `away` = NULL,
-    `home` = NULL,
-    initialize = function(`away`, `home`){
-      if (!missing(`away`)) {
-        stopifnot(R6::is.R6(`away`))
-        self$`away` <- `away`
+    away = NULL,
+    home = NULL,
+    initialize = function(away, home){
+      if (!missing(away)) {
+        stopifnot(R6::is.R6(away))
+        self$away <- away
       }
-      if (!missing(`home`)) {
-        stopifnot(R6::is.R6(`home`))
-        self$`home` <- `home`
+      if (!missing(home)) {
+        stopifnot(R6::is.R6(home))
+        self$home <- home
       }
     },
     toJSON = function() {
       GameLinescoreShootoutInfoObject <- list()
-      if (!is.null(self$`away`)) {
-        GameLinescoreShootoutInfoObject[['away']] <- self$`away`$toJSON()
+      if (!is.null(self$away)) {
+        GameLinescoreShootoutInfoObject[['away']] <- self$away$toJSON()
       }
-      if (!is.null(self$`home`)) {
-        GameLinescoreShootoutInfoObject[['home']] <- self$`home`$toJSON()
+      if (!is.null(self$home)) {
+        GameLinescoreShootoutInfoObject[['home']] <- self$home$toJSON()
       }
 
       GameLinescoreShootoutInfoObject
     },
     fromJSON = function(GameLinescoreShootoutInfoJson) {
       GameLinescoreShootoutInfoObject <- jsonlite::fromJSON(GameLinescoreShootoutInfoJson)
-      if (!is.null(GameLinescoreShootoutInfoObject$`away`)) {
+      if (!is.null(GameLinescoreShootoutInfoObject$away)) {
         awayObject <- GameLinescoreShootoutInfoAway$new()
         awayObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoObject$away, auto_unbox = TRUE))
-        self$`away` <- awayObject
+        self$away <- awayObject
       }
-      if (!is.null(GameLinescoreShootoutInfoObject$`home`)) {
+      if (!is.null(GameLinescoreShootoutInfoObject$home)) {
         homeObject <- GameLinescoreShootoutInfoAway$new()
         homeObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoObject$home, auto_unbox = TRUE))
-        self$`home` <- homeObject
+        self$home <- homeObject
       }
     },
     toJSONString = function() {
@@ -59,16 +59,16 @@ GameLinescoreShootoutInfo <- R6::R6Class(
            "away": %s,
            "home": %s
         }',
-        self$`away`$toJSON(),
-        self$`home`$toJSON()
+        self$away$toJSON(),
+        self$home$toJSON()
       )
     },
     fromJSONString = function(GameLinescoreShootoutInfoJson) {
       GameLinescoreShootoutInfoObject <- jsonlite::fromJSON(GameLinescoreShootoutInfoJson)
       GameLinescoreShootoutInfoAwayObject <- GameLinescoreShootoutInfoAway$new()
-      self$`away` <- GameLinescoreShootoutInfoAwayObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoObject$away, auto_unbox = TRUE))
+      self$away <- GameLinescoreShootoutInfoAwayObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoObject$away, auto_unbox = TRUE))
       GameLinescoreShootoutInfoAwayObject <- GameLinescoreShootoutInfoAway$new()
-      self$`home` <- GameLinescoreShootoutInfoAwayObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoObject$home, auto_unbox = TRUE))
+      self$home <- GameLinescoreShootoutInfoAwayObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoObject$home, auto_unbox = TRUE))
     }
   )
 )

@@ -16,27 +16,27 @@
 GameBoxscoreTeamTeamStats <- R6::R6Class(
   'GameBoxscoreTeamTeamStats',
   public = list(
-    `teamSkaterStats` = NULL,
-    initialize = function(`teamSkaterStats`){
-      if (!missing(`teamSkaterStats`)) {
-        stopifnot(R6::is.R6(`teamSkaterStats`))
-        self$`teamSkaterStats` <- `teamSkaterStats`
+    teamSkaterStats = NULL,
+    initialize = function(teamSkaterStats){
+      if (!missing(teamSkaterStats)) {
+        stopifnot(R6::is.R6(teamSkaterStats))
+        self$teamSkaterStats <- teamSkaterStats
       }
     },
     toJSON = function() {
       GameBoxscoreTeamTeamStatsObject <- list()
-      if (!is.null(self$`teamSkaterStats`)) {
-        GameBoxscoreTeamTeamStatsObject[['teamSkaterStats']] <- self$`teamSkaterStats`$toJSON()
+      if (!is.null(self$teamSkaterStats)) {
+        GameBoxscoreTeamTeamStatsObject[['teamSkaterStats']] <- self$teamSkaterStats$toJSON()
       }
 
       GameBoxscoreTeamTeamStatsObject
     },
     fromJSON = function(GameBoxscoreTeamTeamStatsJson) {
       GameBoxscoreTeamTeamStatsObject <- jsonlite::fromJSON(GameBoxscoreTeamTeamStatsJson)
-      if (!is.null(GameBoxscoreTeamTeamStatsObject$`teamSkaterStats`)) {
+      if (!is.null(GameBoxscoreTeamTeamStatsObject$teamSkaterStats)) {
         teamSkaterStatsObject <- GameBoxscoreTeamTeamStatsTeamSkaterStats$new()
         teamSkaterStatsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamTeamStatsObject$teamSkaterStats, auto_unbox = TRUE))
-        self$`teamSkaterStats` <- teamSkaterStatsObject
+        self$teamSkaterStats <- teamSkaterStatsObject
       }
     },
     toJSONString = function() {
@@ -44,13 +44,13 @@ GameBoxscoreTeamTeamStats <- R6::R6Class(
         '{
            "teamSkaterStats": %s
         }',
-        self$`teamSkaterStats`$toJSON()
+        self$teamSkaterStats$toJSON()
       )
     },
     fromJSONString = function(GameBoxscoreTeamTeamStatsJson) {
       GameBoxscoreTeamTeamStatsObject <- jsonlite::fromJSON(GameBoxscoreTeamTeamStatsJson)
       GameBoxscoreTeamTeamStatsTeamSkaterStatsObject <- GameBoxscoreTeamTeamStatsTeamSkaterStats$new()
-      self$`teamSkaterStats` <- GameBoxscoreTeamTeamStatsTeamSkaterStatsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamTeamStatsObject$teamSkaterStats, auto_unbox = TRUE))
+      self$teamSkaterStats <- GameBoxscoreTeamTeamStatsTeamSkaterStatsObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamTeamStatsObject$teamSkaterStats, auto_unbox = TRUE))
     }
   )
 )

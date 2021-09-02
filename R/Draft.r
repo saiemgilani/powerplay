@@ -17,37 +17,37 @@
 Draft <- R6::R6Class(
   'Draft',
   public = list(
-    `copyright` = NULL,
-    `drafts` = NULL,
-    initialize = function(`copyright`, `drafts`){
-      if (!missing(`copyright`)) {
-        stopifnot(is.character(`copyright`), length(`copyright`) == 1)
-        self$`copyright` <- `copyright`
+    copyright = NULL,
+    drafts = NULL,
+    initialize = function(copyright, drafts){
+      if (!missing(copyright)) {
+        stopifnot(is.character(copyright), length(copyright) == 1)
+        self$copyright <- copyright
       }
-      if (!missing(`drafts`)) {
-        stopifnot(is.list(`drafts`), length(`drafts`) != 0)
-        lapply(`drafts`, function(x) stopifnot(R6::is.R6(x)))
-        self$`drafts` <- `drafts`
+      if (!missing(drafts)) {
+        stopifnot(is.list(drafts), length(drafts) != 0)
+        lapply(drafts, function(x) stopifnot(R6::is.R6(x)))
+        self$drafts <- drafts
       }
     },
     toJSON = function() {
       DraftObject <- list()
-      if (!is.null(self$`copyright`)) {
-        DraftObject[['copyright']] <- self$`copyright`
+      if (!is.null(self$copyright)) {
+        DraftObject[['copyright']] <- self$copyright
       }
-      if (!is.null(self$`drafts`)) {
-        DraftObject[['drafts']] <- lapply(self$`drafts`, function(x) x$toJSON())
+      if (!is.null(self$drafts)) {
+        DraftObject[['drafts']] <- lapply(self$drafts, function(x) x$toJSON())
       }
 
       DraftObject
     },
     fromJSON = function(DraftJson) {
       DraftObject <- jsonlite::fromJSON(DraftJson)
-      if (!is.null(DraftObject$`copyright`)) {
-        self$`copyright` <- DraftObject$`copyright`
+      if (!is.null(DraftObject$copyright)) {
+        self$copyright <- DraftObject$copyright
       }
-      if (!is.null(DraftObject$`drafts`)) {
-        self$`drafts` <- lapply(DraftObject$`drafts`, function(x) {
+      if (!is.null(DraftObject$drafts)) {
+        self$drafts <- lapply(DraftObject$drafts, function(x) {
           draftsObject <- DraftDrafts$new()
           draftsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           draftsObject
@@ -60,14 +60,14 @@ Draft <- R6::R6Class(
            "copyright": %s,
            "drafts": [%s]
         }',
-        self$`copyright`,
-        lapply(self$`drafts`, function(x) paste(x$toJSON(), sep=","))
+        self$copyright,
+        lapply(self$drafts, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(DraftJson) {
       DraftObject <- jsonlite::fromJSON(DraftJson)
-      self$`copyright` <- DraftObject$`copyright`
-      self$`drafts` <- lapply(DraftObject$`drafts`, function(x) DraftDrafts$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$copyright <- DraftObject$copyright
+      self$drafts <- lapply(DraftObject$drafts, function(x) DraftDrafts$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

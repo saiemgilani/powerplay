@@ -17,37 +17,37 @@
 Teams <- R6::R6Class(
   'Teams',
   public = list(
-    `copyright` = NULL,
-    `teams` = NULL,
-    initialize = function(`copyright`, `teams`){
-      if (!missing(`copyright`)) {
-        stopifnot(is.character(`copyright`), length(`copyright`) == 1)
-        self$`copyright` <- `copyright`
+    copyright = NULL,
+    teams = NULL,
+    initialize = function(copyright, teams){
+      if (!missing(copyright)) {
+        stopifnot(is.character(copyright), length(copyright) == 1)
+        self$copyright <- copyright
       }
-      if (!missing(`teams`)) {
-        stopifnot(is.list(`teams`), length(`teams`) != 0)
-        lapply(`teams`, function(x) stopifnot(R6::is.R6(x)))
-        self$`teams` <- `teams`
+      if (!missing(teams)) {
+        stopifnot(is.list(teams), length(teams) != 0)
+        lapply(teams, function(x) stopifnot(R6::is.R6(x)))
+        self$teams <- teams
       }
     },
     toJSON = function() {
       TeamsObject <- list()
-      if (!is.null(self$`copyright`)) {
-        TeamsObject[['copyright']] <- self$`copyright`
+      if (!is.null(self$copyright)) {
+        TeamsObject[['copyright']] <- self$copyright
       }
-      if (!is.null(self$`teams`)) {
-        TeamsObject[['teams']] <- lapply(self$`teams`, function(x) x$toJSON())
+      if (!is.null(self$teams)) {
+        TeamsObject[['teams']] <- lapply(self$teams, function(x) x$toJSON())
       }
 
       TeamsObject
     },
     fromJSON = function(TeamsJson) {
       TeamsObject <- jsonlite::fromJSON(TeamsJson)
-      if (!is.null(TeamsObject$`copyright`)) {
-        self$`copyright` <- TeamsObject$`copyright`
+      if (!is.null(TeamsObject$copyright)) {
+        self$copyright <- TeamsObject$copyright
       }
-      if (!is.null(TeamsObject$`teams`)) {
-        self$`teams` <- lapply(TeamsObject$`teams`, function(x) {
+      if (!is.null(TeamsObject$teams)) {
+        self$teams <- lapply(TeamsObject$teams, function(x) {
           teamsObject <- Team$new()
           teamsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           teamsObject
@@ -60,14 +60,14 @@ Teams <- R6::R6Class(
            "copyright": %s,
            "teams": [%s]
         }',
-        self$`copyright`,
-        lapply(self$`teams`, function(x) paste(x$toJSON(), sep=","))
+        self$copyright,
+        lapply(self$teams, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(TeamsJson) {
       TeamsObject <- jsonlite::fromJSON(TeamsJson)
-      self$`copyright` <- TeamsObject$`copyright`
-      self$`teams` <- lapply(TeamsObject$`teams`, function(x) Team$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$copyright <- TeamsObject$copyright
+      self$teams <- lapply(TeamsObject$teams, function(x) Team$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

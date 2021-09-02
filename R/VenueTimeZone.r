@@ -11,57 +11,57 @@
 #' @field id 
 #' @field offset 
 #' @field tz 
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
 VenueTimeZone <- R6::R6Class(
   'VenueTimeZone',
   public = list(
-    `id` = NULL,
-    `offset` = NULL,
-    `tz` = NULL,
-    initialize = function(`id`, `offset`, `tz`){
-      if (!missing(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
-        self$`id` <- `id`
+    id = NULL,
+    offset = NULL,
+    tz = NULL,
+    initialize = function(id, offset, tz){
+      if (!missing(id)) {
+        stopifnot(is.character(id), length(id) == 1)
+        self$id <- id
       }
-      if (!missing(`offset`)) {
-        stopifnot(is.numeric(`offset`), length(`offset`) == 1)
-        stopifnot(R6::is.R6(`offset`))
-        self$`offset` <- `offset`
+      if (!missing(offset)) {
+        stopifnot(is.numeric(offset), length(offset) == 1)
+        stopifnot(R6::is.R6(offset))
+        self$offset <- offset
       }
-      if (!missing(`tz`)) {
-        stopifnot(is.character(`tz`), length(`tz`) == 1)
-        self$`tz` <- `tz`
+      if (!missing(tz)) {
+        stopifnot(is.character(tz), length(tz) == 1)
+        self$tz <- tz
       }
     },
     toJSON = function() {
       VenueTimeZoneObject <- list()
-      if (!is.null(self$`id`)) {
-        VenueTimeZoneObject[['id']] <- self$`id`
+      if (!is.null(self$id)) {
+        VenueTimeZoneObject[['id']] <- self$id
       }
-      if (!is.null(self$`offset`)) {
-        VenueTimeZoneObject[['offset']] <- self$`offset`$toJSON()
+      if (!is.null(self$offset)) {
+        VenueTimeZoneObject[['offset']] <- self$offset$toJSON()
       }
-      if (!is.null(self$`tz`)) {
-        VenueTimeZoneObject[['tz']] <- self$`tz`
+      if (!is.null(self$tz)) {
+        VenueTimeZoneObject[['tz']] <- self$tz
       }
 
       VenueTimeZoneObject
     },
+    #' @field VenueTimeZoneJson
     fromJSON = function(VenueTimeZoneJson) {
       VenueTimeZoneObject <- jsonlite::fromJSON(VenueTimeZoneJson)
-      if (!is.null(VenueTimeZoneObject$`id`)) {
-        self$`id` <- VenueTimeZoneObject$`id`
+      if (!is.null(VenueTimeZoneObject$id)) {
+        self$id <- VenueTimeZoneObject$id
       }
-      if (!is.null(VenueTimeZoneObject$`offset`)) {
+      if (!is.null(VenueTimeZoneObject$offset)) {
         offsetObject <- BigDecimal$new()
         offsetObject$fromJSON(jsonlite::toJSON(VenueTimeZoneObject$offset, auto_unbox = TRUE))
-        self$`offset` <- offsetObject
+        self$offset <- offsetObject
       }
-      if (!is.null(VenueTimeZoneObject$`tz`)) {
-        self$`tz` <- VenueTimeZoneObject$`tz`
+      if (!is.null(VenueTimeZoneObject$tz)) {
+        self$tz <- VenueTimeZoneObject$tz
       }
     },
     toJSONString = function() {
@@ -71,17 +71,18 @@ VenueTimeZone <- R6::R6Class(
            "offset": %s,
            "tz": %s
         }',
-        self$`id`,
-        self$`offset`$toJSON(),
-        self$`tz`
+        self$id,
+        self$offset$toJSON(),
+        self$tz
       )
     },
+    #' @param VenueTimeZoneJson
     fromJSONString = function(VenueTimeZoneJson) {
       VenueTimeZoneObject <- jsonlite::fromJSON(VenueTimeZoneJson)
-      self$`id` <- VenueTimeZoneObject$`id`
+      self$id <- VenueTimeZoneObject$id
       BigDecimalObject <- BigDecimal$new()
-      self$`offset` <- BigDecimalObject$fromJSON(jsonlite::toJSON(VenueTimeZoneObject$offset, auto_unbox = TRUE))
-      self$`tz` <- VenueTimeZoneObject$`tz`
+      self$offset <- BigDecimalObject$fromJSON(jsonlite::toJSON(VenueTimeZoneObject$offset, auto_unbox = TRUE))
+      self$tz <- VenueTimeZoneObject$tz
     }
   )
 )

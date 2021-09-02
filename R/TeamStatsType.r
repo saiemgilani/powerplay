@@ -16,25 +16,25 @@
 TeamStatsType <- R6::R6Class(
   'TeamStatsType',
   public = list(
-    `displayName` = NULL,
-    initialize = function(`displayName`){
-      if (!missing(`displayName`)) {
-        stopifnot(is.character(`displayName`), length(`displayName`) == 1)
-        self$`displayName` <- `displayName`
+    displayName = NULL,
+    initialize = function(displayName){
+      if (!missing(displayName)) {
+        stopifnot(is.character(displayName), length(displayName) == 1)
+        self$displayName <- displayName
       }
     },
     toJSON = function() {
       TeamStatsTypeObject <- list()
-      if (!is.null(self$`displayName`)) {
-        TeamStatsTypeObject[['displayName']] <- self$`displayName`
+      if (!is.null(self$displayName)) {
+        TeamStatsTypeObject[['displayName']] <- self$displayName
       }
 
       TeamStatsTypeObject
     },
     fromJSON = function(TeamStatsTypeJson) {
       TeamStatsTypeObject <- jsonlite::fromJSON(TeamStatsTypeJson)
-      if (!is.null(TeamStatsTypeObject$`displayName`)) {
-        self$`displayName` <- TeamStatsTypeObject$`displayName`
+      if (!is.null(TeamStatsTypeObject$displayName)) {
+        self$displayName <- TeamStatsTypeObject$displayName
       }
     },
     toJSONString = function() {
@@ -42,12 +42,12 @@ TeamStatsType <- R6::R6Class(
         '{
            "displayName": %s
         }',
-        self$`displayName`
+        self$displayName
       )
     },
     fromJSONString = function(TeamStatsTypeJson) {
       TeamStatsTypeObject <- jsonlite::fromJSON(TeamStatsTypeJson)
-      self$`displayName` <- TeamStatsTypeObject$`displayName`
+      self$displayName <- TeamStatsTypeObject$displayName
     }
   )
 )

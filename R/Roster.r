@@ -18,54 +18,54 @@
 Roster <- R6::R6Class(
   'Roster',
   public = list(
-    `person` = NULL,
-    `jerseyNumber` = NULL,
-    `position` = NULL,
-    initialize = function(`person`, `jerseyNumber`, `position`){
-      if (!missing(`person`)) {
-        stopifnot(R6::is.R6(`person`))
-        self$`person` <- `person`
+    person = NULL,
+    jerseyNumber = NULL,
+    position = NULL,
+    initialize = function(person, jerseyNumber, position){
+      if (!missing(person)) {
+        stopifnot(R6::is.R6(person))
+        self$person <- person
       }
-      if (!missing(`jerseyNumber`)) {
-        stopifnot(is.numeric(`jerseyNumber`), length(`jerseyNumber`) == 1)
-        stopifnot(R6::is.R6(`jerseyNumber`))
-        self$`jerseyNumber` <- `jerseyNumber`
+      if (!missing(jerseyNumber)) {
+        stopifnot(is.numeric(jerseyNumber), length(jerseyNumber) == 1)
+        stopifnot(R6::is.R6(jerseyNumber))
+        self$jerseyNumber <- jerseyNumber
       }
-      if (!missing(`position`)) {
-        stopifnot(R6::is.R6(`position`))
-        self$`position` <- `position`
+      if (!missing(position)) {
+        stopifnot(R6::is.R6(position))
+        self$position <- position
       }
     },
     toJSON = function() {
       RosterObject <- list()
-      if (!is.null(self$`person`)) {
-        RosterObject[['person']] <- self$`person`$toJSON()
+      if (!is.null(self$person)) {
+        RosterObject[['person']] <- self$person$toJSON()
       }
-      if (!is.null(self$`jerseyNumber`)) {
-        RosterObject[['jerseyNumber']] <- self$`jerseyNumber`$toJSON()
+      if (!is.null(self$jerseyNumber)) {
+        RosterObject[['jerseyNumber']] <- self$jerseyNumber$toJSON()
       }
-      if (!is.null(self$`position`)) {
-        RosterObject[['position']] <- self$`position`$toJSON()
+      if (!is.null(self$position)) {
+        RosterObject[['position']] <- self$position$toJSON()
       }
 
       RosterObject
     },
     fromJSON = function(RosterJson) {
       RosterObject <- jsonlite::fromJSON(RosterJson)
-      if (!is.null(RosterObject$`person`)) {
+      if (!is.null(RosterObject$person)) {
         personObject <- RosterPerson$new()
         personObject$fromJSON(jsonlite::toJSON(RosterObject$person, auto_unbox = TRUE))
-        self$`person` <- personObject
+        self$person <- personObject
       }
-      if (!is.null(RosterObject$`jerseyNumber`)) {
+      if (!is.null(RosterObject$jerseyNumber)) {
         jerseyNumberObject <- BigDecimal$new()
         jerseyNumberObject$fromJSON(jsonlite::toJSON(RosterObject$jerseyNumber, auto_unbox = TRUE))
-        self$`jerseyNumber` <- jerseyNumberObject
+        self$jerseyNumber <- jerseyNumberObject
       }
-      if (!is.null(RosterObject$`position`)) {
+      if (!is.null(RosterObject$position)) {
         positionObject <- DraftProspectPrimaryPosition$new()
         positionObject$fromJSON(jsonlite::toJSON(RosterObject$position, auto_unbox = TRUE))
-        self$`position` <- positionObject
+        self$position <- positionObject
       }
     },
     toJSONString = function() {
@@ -75,19 +75,19 @@ Roster <- R6::R6Class(
            "jerseyNumber": %s,
            "position": %s
         }',
-        self$`person`$toJSON(),
-        self$`jerseyNumber`$toJSON(),
-        self$`position`$toJSON()
+        self$person$toJSON(),
+        self$jerseyNumber$toJSON(),
+        self$position$toJSON()
       )
     },
     fromJSONString = function(RosterJson) {
       RosterObject <- jsonlite::fromJSON(RosterJson)
       RosterPersonObject <- RosterPerson$new()
-      self$`person` <- RosterPersonObject$fromJSON(jsonlite::toJSON(RosterObject$person, auto_unbox = TRUE))
+      self$person <- RosterPersonObject$fromJSON(jsonlite::toJSON(RosterObject$person, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`jerseyNumber` <- BigDecimalObject$fromJSON(jsonlite::toJSON(RosterObject$jerseyNumber, auto_unbox = TRUE))
+      self$jerseyNumber <- BigDecimalObject$fromJSON(jsonlite::toJSON(RosterObject$jerseyNumber, auto_unbox = TRUE))
       DraftProspectPrimaryPositionObject <- DraftProspectPrimaryPosition$new()
-      self$`position` <- DraftProspectPrimaryPositionObject$fromJSON(jsonlite::toJSON(RosterObject$position, auto_unbox = TRUE))
+      self$position <- DraftProspectPrimaryPositionObject$fromJSON(jsonlite::toJSON(RosterObject$position, auto_unbox = TRUE))
     }
   )
 )

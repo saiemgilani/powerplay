@@ -50,8 +50,8 @@ GamesApi <- R6::R6Class(
       headerParams <- character()
 
       urlPath <- "/game/{id}/feed/live"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -71,15 +71,15 @@ GamesApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_game_boxscore = function(id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/game/{id}/boxscore"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -99,15 +99,15 @@ GamesApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_game_content = function(id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/game/{id}/content"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -127,19 +127,19 @@ GamesApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_game_diff = function(id, start_time_code, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`start_time_code`)) {
+      if (!missing(start_time_code)) {
         queryParams['startTimeCode'] <- start_time_code
       }
 
       urlPath <- "/game/{id}/feed/live/diffPatch"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),

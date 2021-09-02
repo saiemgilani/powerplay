@@ -20,68 +20,68 @@
 TeamNextGameScheduleStatus <- R6::R6Class(
   'TeamNextGameScheduleStatus',
   public = list(
-    `abstractGameState` = NULL,
-    `codedGameState` = NULL,
-    `detailedState` = NULL,
-    `statusCode` = NULL,
-    `startTimeTBD` = NULL,
-    initialize = function(`abstractGameState`, `codedGameState`, `detailedState`, `statusCode`, `startTimeTBD`){
-      if (!missing(`abstractGameState`)) {
-        stopifnot(is.character(`abstractGameState`), length(`abstractGameState`) == 1)
-        self$`abstractGameState` <- `abstractGameState`
+    abstractGameState = NULL,
+    codedGameState = NULL,
+    detailedState = NULL,
+    statusCode = NULL,
+    startTimeTBD = NULL,
+    initialize = function(abstractGameState, codedGameState, detailedState, statusCode, startTimeTBD){
+      if (!missing(abstractGameState)) {
+        stopifnot(is.character(abstractGameState), length(abstractGameState) == 1)
+        self$abstractGameState <- abstractGameState
       }
-      if (!missing(`codedGameState`)) {
-        stopifnot(is.character(`codedGameState`), length(`codedGameState`) == 1)
-        self$`codedGameState` <- `codedGameState`
+      if (!missing(codedGameState)) {
+        stopifnot(is.character(codedGameState), length(codedGameState) == 1)
+        self$codedGameState <- codedGameState
       }
-      if (!missing(`detailedState`)) {
-        stopifnot(is.character(`detailedState`), length(`detailedState`) == 1)
-        self$`detailedState` <- `detailedState`
+      if (!missing(detailedState)) {
+        stopifnot(is.character(detailedState), length(detailedState) == 1)
+        self$detailedState <- detailedState
       }
-      if (!missing(`statusCode`)) {
-        stopifnot(is.character(`statusCode`), length(`statusCode`) == 1)
-        self$`statusCode` <- `statusCode`
+      if (!missing(statusCode)) {
+        stopifnot(is.character(statusCode), length(statusCode) == 1)
+        self$statusCode <- statusCode
       }
-      if (!missing(`startTimeTBD`)) {
-        self$`startTimeTBD` <- `startTimeTBD`
+      if (!missing(startTimeTBD)) {
+        self$startTimeTBD <- startTimeTBD
       }
     },
     toJSON = function() {
       TeamNextGameScheduleStatusObject <- list()
-      if (!is.null(self$`abstractGameState`)) {
-        TeamNextGameScheduleStatusObject[['abstractGameState']] <- self$`abstractGameState`
+      if (!is.null(self$abstractGameState)) {
+        TeamNextGameScheduleStatusObject[['abstractGameState']] <- self$abstractGameState
       }
-      if (!is.null(self$`codedGameState`)) {
-        TeamNextGameScheduleStatusObject[['codedGameState']] <- self$`codedGameState`
+      if (!is.null(self$codedGameState)) {
+        TeamNextGameScheduleStatusObject[['codedGameState']] <- self$codedGameState
       }
-      if (!is.null(self$`detailedState`)) {
-        TeamNextGameScheduleStatusObject[['detailedState']] <- self$`detailedState`
+      if (!is.null(self$detailedState)) {
+        TeamNextGameScheduleStatusObject[['detailedState']] <- self$detailedState
       }
-      if (!is.null(self$`statusCode`)) {
-        TeamNextGameScheduleStatusObject[['statusCode']] <- self$`statusCode`
+      if (!is.null(self$statusCode)) {
+        TeamNextGameScheduleStatusObject[['statusCode']] <- self$statusCode
       }
-      if (!is.null(self$`startTimeTBD`)) {
-        TeamNextGameScheduleStatusObject[['startTimeTBD']] <- self$`startTimeTBD`
+      if (!is.null(self$startTimeTBD)) {
+        TeamNextGameScheduleStatusObject[['startTimeTBD']] <- self$startTimeTBD
       }
 
       TeamNextGameScheduleStatusObject
     },
     fromJSON = function(TeamNextGameScheduleStatusJson) {
       TeamNextGameScheduleStatusObject <- jsonlite::fromJSON(TeamNextGameScheduleStatusJson)
-      if (!is.null(TeamNextGameScheduleStatusObject$`abstractGameState`)) {
-        self$`abstractGameState` <- TeamNextGameScheduleStatusObject$`abstractGameState`
+      if (!is.null(TeamNextGameScheduleStatusObject$abstractGameState)) {
+        self$abstractGameState <- TeamNextGameScheduleStatusObject$abstractGameState
       }
-      if (!is.null(TeamNextGameScheduleStatusObject$`codedGameState`)) {
-        self$`codedGameState` <- TeamNextGameScheduleStatusObject$`codedGameState`
+      if (!is.null(TeamNextGameScheduleStatusObject$codedGameState)) {
+        self$codedGameState <- TeamNextGameScheduleStatusObject$codedGameState
       }
-      if (!is.null(TeamNextGameScheduleStatusObject$`detailedState`)) {
-        self$`detailedState` <- TeamNextGameScheduleStatusObject$`detailedState`
+      if (!is.null(TeamNextGameScheduleStatusObject$detailedState)) {
+        self$detailedState <- TeamNextGameScheduleStatusObject$detailedState
       }
-      if (!is.null(TeamNextGameScheduleStatusObject$`statusCode`)) {
-        self$`statusCode` <- TeamNextGameScheduleStatusObject$`statusCode`
+      if (!is.null(TeamNextGameScheduleStatusObject$statusCode)) {
+        self$statusCode <- TeamNextGameScheduleStatusObject$statusCode
       }
-      if (!is.null(TeamNextGameScheduleStatusObject$`startTimeTBD`)) {
-        self$`startTimeTBD` <- TeamNextGameScheduleStatusObject$`startTimeTBD`
+      if (!is.null(TeamNextGameScheduleStatusObject$startTimeTBD)) {
+        self$startTimeTBD <- TeamNextGameScheduleStatusObject$startTimeTBD
       }
     },
     toJSONString = function() {
@@ -93,20 +93,20 @@ TeamNextGameScheduleStatus <- R6::R6Class(
            "statusCode": %s,
            "startTimeTBD": %s
         }',
-        self$`abstractGameState`,
-        self$`codedGameState`,
-        self$`detailedState`,
-        self$`statusCode`,
-        self$`startTimeTBD`
+        self$abstractGameState,
+        self$codedGameState,
+        self$detailedState,
+        self$statusCode,
+        self$startTimeTBD
       )
     },
     fromJSONString = function(TeamNextGameScheduleStatusJson) {
       TeamNextGameScheduleStatusObject <- jsonlite::fromJSON(TeamNextGameScheduleStatusJson)
-      self$`abstractGameState` <- TeamNextGameScheduleStatusObject$`abstractGameState`
-      self$`codedGameState` <- TeamNextGameScheduleStatusObject$`codedGameState`
-      self$`detailedState` <- TeamNextGameScheduleStatusObject$`detailedState`
-      self$`statusCode` <- TeamNextGameScheduleStatusObject$`statusCode`
-      self$`startTimeTBD` <- TeamNextGameScheduleStatusObject$`startTimeTBD`
+      self$abstractGameState <- TeamNextGameScheduleStatusObject$abstractGameState
+      self$codedGameState <- TeamNextGameScheduleStatusObject$codedGameState
+      self$detailedState <- TeamNextGameScheduleStatusObject$detailedState
+      self$statusCode <- TeamNextGameScheduleStatusObject$statusCode
+      self$startTimeTBD <- TeamNextGameScheduleStatusObject$startTimeTBD
     }
   )
 )

@@ -18,47 +18,47 @@
 GameEditorialKeyword <- R6::R6Class(
   'GameEditorialKeyword',
   public = list(
-    `type` = NULL,
-    `value` = NULL,
-    `displayName` = NULL,
-    initialize = function(`type`, `value`, `displayName`){
-      if (!missing(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
-        self$`type` <- `type`
+    type = NULL,
+    value = NULL,
+    displayName = NULL,
+    initialize = function(type, value, displayName){
+      if (!missing(type)) {
+        stopifnot(is.character(type), length(type) == 1)
+        self$type <- type
       }
-      if (!missing(`value`)) {
-        stopifnot(is.character(`value`), length(`value`) == 1)
-        self$`value` <- `value`
+      if (!missing(value)) {
+        stopifnot(is.character(value), length(value) == 1)
+        self$value <- value
       }
-      if (!missing(`displayName`)) {
-        stopifnot(is.character(`displayName`), length(`displayName`) == 1)
-        self$`displayName` <- `displayName`
+      if (!missing(displayName)) {
+        stopifnot(is.character(displayName), length(displayName) == 1)
+        self$displayName <- displayName
       }
     },
     toJSON = function() {
       GameEditorialKeywordObject <- list()
-      if (!is.null(self$`type`)) {
-        GameEditorialKeywordObject[['type']] <- self$`type`
+      if (!is.null(self$type)) {
+        GameEditorialKeywordObject[['type']] <- self$type
       }
-      if (!is.null(self$`value`)) {
-        GameEditorialKeywordObject[['value']] <- self$`value`
+      if (!is.null(self$value)) {
+        GameEditorialKeywordObject[['value']] <- self$value
       }
-      if (!is.null(self$`displayName`)) {
-        GameEditorialKeywordObject[['displayName']] <- self$`displayName`
+      if (!is.null(self$displayName)) {
+        GameEditorialKeywordObject[['displayName']] <- self$displayName
       }
 
       GameEditorialKeywordObject
     },
     fromJSON = function(GameEditorialKeywordJson) {
       GameEditorialKeywordObject <- jsonlite::fromJSON(GameEditorialKeywordJson)
-      if (!is.null(GameEditorialKeywordObject$`type`)) {
-        self$`type` <- GameEditorialKeywordObject$`type`
+      if (!is.null(GameEditorialKeywordObject$type)) {
+        self$type <- GameEditorialKeywordObject$type
       }
-      if (!is.null(GameEditorialKeywordObject$`value`)) {
-        self$`value` <- GameEditorialKeywordObject$`value`
+      if (!is.null(GameEditorialKeywordObject$value)) {
+        self$value <- GameEditorialKeywordObject$value
       }
-      if (!is.null(GameEditorialKeywordObject$`displayName`)) {
-        self$`displayName` <- GameEditorialKeywordObject$`displayName`
+      if (!is.null(GameEditorialKeywordObject$displayName)) {
+        self$displayName <- GameEditorialKeywordObject$displayName
       }
     },
     toJSONString = function() {
@@ -68,16 +68,16 @@ GameEditorialKeyword <- R6::R6Class(
            "value": %s,
            "displayName": %s
         }',
-        self$`type`,
-        self$`value`,
-        self$`displayName`
+        self$type,
+        self$value,
+        self$displayName
       )
     },
     fromJSONString = function(GameEditorialKeywordJson) {
       GameEditorialKeywordObject <- jsonlite::fromJSON(GameEditorialKeywordJson)
-      self$`type` <- GameEditorialKeywordObject$`type`
-      self$`value` <- GameEditorialKeywordObject$`value`
-      self$`displayName` <- GameEditorialKeywordObject$`displayName`
+      self$type <- GameEditorialKeywordObject$type
+      self$value <- GameEditorialKeywordObject$value
+      self$displayName <- GameEditorialKeywordObject$displayName
     }
   )
 )

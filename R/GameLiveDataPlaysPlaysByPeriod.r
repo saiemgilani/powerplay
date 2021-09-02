@@ -18,58 +18,58 @@
 GameLiveDataPlaysPlaysByPeriod <- R6::R6Class(
   'GameLiveDataPlaysPlaysByPeriod',
   public = list(
-    `startIndex` = NULL,
-    `plays` = NULL,
-    `endIndex` = NULL,
-    initialize = function(`startIndex`, `plays`, `endIndex`){
-      if (!missing(`startIndex`)) {
-        stopifnot(is.numeric(`startIndex`), length(`startIndex`) == 1)
-        stopifnot(R6::is.R6(`startIndex`))
-        self$`startIndex` <- `startIndex`
+    startIndex = NULL,
+    plays = NULL,
+    endIndex = NULL,
+    initialize = function(startIndex, plays, endIndex){
+      if (!missing(startIndex)) {
+        stopifnot(is.numeric(startIndex), length(startIndex) == 1)
+        stopifnot(R6::is.R6(startIndex))
+        self$startIndex <- startIndex
       }
-      if (!missing(`plays`)) {
-        stopifnot(is.list(`plays`), length(`plays`) != 0)
-        lapply(`plays`, function(x) stopifnot(R6::is.R6(x)))
-        self$`plays` <- `plays`
+      if (!missing(plays)) {
+        stopifnot(is.list(plays), length(plays) != 0)
+        lapply(plays, function(x) stopifnot(R6::is.R6(x)))
+        self$plays <- plays
       }
-      if (!missing(`endIndex`)) {
-        stopifnot(is.numeric(`endIndex`), length(`endIndex`) == 1)
-        stopifnot(R6::is.R6(`endIndex`))
-        self$`endIndex` <- `endIndex`
+      if (!missing(endIndex)) {
+        stopifnot(is.numeric(endIndex), length(endIndex) == 1)
+        stopifnot(R6::is.R6(endIndex))
+        self$endIndex <- endIndex
       }
     },
     toJSON = function() {
       GameLiveDataPlaysPlaysByPeriodObject <- list()
-      if (!is.null(self$`startIndex`)) {
-        GameLiveDataPlaysPlaysByPeriodObject[['startIndex']] <- self$`startIndex`$toJSON()
+      if (!is.null(self$startIndex)) {
+        GameLiveDataPlaysPlaysByPeriodObject[['startIndex']] <- self$startIndex$toJSON()
       }
-      if (!is.null(self$`plays`)) {
-        GameLiveDataPlaysPlaysByPeriodObject[['plays']] <- lapply(self$`plays`, function(x) x$toJSON())
+      if (!is.null(self$plays)) {
+        GameLiveDataPlaysPlaysByPeriodObject[['plays']] <- lapply(self$plays, function(x) x$toJSON())
       }
-      if (!is.null(self$`endIndex`)) {
-        GameLiveDataPlaysPlaysByPeriodObject[['endIndex']] <- self$`endIndex`$toJSON()
+      if (!is.null(self$endIndex)) {
+        GameLiveDataPlaysPlaysByPeriodObject[['endIndex']] <- self$endIndex$toJSON()
       }
 
       GameLiveDataPlaysPlaysByPeriodObject
     },
     fromJSON = function(GameLiveDataPlaysPlaysByPeriodJson) {
       GameLiveDataPlaysPlaysByPeriodObject <- jsonlite::fromJSON(GameLiveDataPlaysPlaysByPeriodJson)
-      if (!is.null(GameLiveDataPlaysPlaysByPeriodObject$`startIndex`)) {
+      if (!is.null(GameLiveDataPlaysPlaysByPeriodObject$startIndex)) {
         startIndexObject <- BigDecimal$new()
         startIndexObject$fromJSON(jsonlite::toJSON(GameLiveDataPlaysPlaysByPeriodObject$startIndex, auto_unbox = TRUE))
-        self$`startIndex` <- startIndexObject
+        self$startIndex <- startIndexObject
       }
-      if (!is.null(GameLiveDataPlaysPlaysByPeriodObject$`plays`)) {
-        self$`plays` <- lapply(GameLiveDataPlaysPlaysByPeriodObject$`plays`, function(x) {
+      if (!is.null(GameLiveDataPlaysPlaysByPeriodObject$plays)) {
+        self$plays <- lapply(GameLiveDataPlaysPlaysByPeriodObject$plays, function(x) {
           playsObject <- BigDecimal$new()
           playsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           playsObject
         })
       }
-      if (!is.null(GameLiveDataPlaysPlaysByPeriodObject$`endIndex`)) {
+      if (!is.null(GameLiveDataPlaysPlaysByPeriodObject$endIndex)) {
         endIndexObject <- BigDecimal$new()
         endIndexObject$fromJSON(jsonlite::toJSON(GameLiveDataPlaysPlaysByPeriodObject$endIndex, auto_unbox = TRUE))
-        self$`endIndex` <- endIndexObject
+        self$endIndex <- endIndexObject
       }
     },
     toJSONString = function() {
@@ -79,18 +79,18 @@ GameLiveDataPlaysPlaysByPeriod <- R6::R6Class(
            "plays": [%s],
            "endIndex": %s
         }',
-        self$`startIndex`$toJSON(),
-        lapply(self$`plays`, function(x) paste(x$toJSON(), sep=",")),
-        self$`endIndex`$toJSON()
+        self$startIndex$toJSON(),
+        lapply(self$plays, function(x) paste(x$toJSON(), sep=",")),
+        self$endIndex$toJSON()
       )
     },
     fromJSONString = function(GameLiveDataPlaysPlaysByPeriodJson) {
       GameLiveDataPlaysPlaysByPeriodObject <- jsonlite::fromJSON(GameLiveDataPlaysPlaysByPeriodJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`startIndex` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLiveDataPlaysPlaysByPeriodObject$startIndex, auto_unbox = TRUE))
-      self$`plays` <- lapply(GameLiveDataPlaysPlaysByPeriodObject$`plays`, function(x) BigDecimal$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$startIndex <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLiveDataPlaysPlaysByPeriodObject$startIndex, auto_unbox = TRUE))
+      self$plays <- lapply(GameLiveDataPlaysPlaysByPeriodObject$plays, function(x) BigDecimal$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       BigDecimalObject <- BigDecimal$new()
-      self$`endIndex` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLiveDataPlaysPlaysByPeriodObject$endIndex, auto_unbox = TRUE))
+      self$endIndex <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLiveDataPlaysPlaysByPeriodObject$endIndex, auto_unbox = TRUE))
     }
   )
 )

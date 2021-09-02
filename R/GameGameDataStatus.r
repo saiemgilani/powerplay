@@ -20,68 +20,68 @@
 GameGameDataStatus <- R6::R6Class(
   'GameGameDataStatus',
   public = list(
-    `abstractGameState` = NULL,
-    `codedGameState` = NULL,
-    `detailedState` = NULL,
-    `statusCode` = NULL,
-    `startTimeTBD` = NULL,
-    initialize = function(`abstractGameState`, `codedGameState`, `detailedState`, `statusCode`, `startTimeTBD`){
-      if (!missing(`abstractGameState`)) {
-        stopifnot(is.character(`abstractGameState`), length(`abstractGameState`) == 1)
-        self$`abstractGameState` <- `abstractGameState`
+    abstractGameState = NULL,
+    codedGameState = NULL,
+    detailedState = NULL,
+    statusCode = NULL,
+    startTimeTBD = NULL,
+    initialize = function(abstractGameState, codedGameState, detailedState, statusCode, startTimeTBD){
+      if (!missing(abstractGameState)) {
+        stopifnot(is.character(abstractGameState), length(abstractGameState) == 1)
+        self$abstractGameState <- abstractGameState
       }
-      if (!missing(`codedGameState`)) {
-        stopifnot(is.character(`codedGameState`), length(`codedGameState`) == 1)
-        self$`codedGameState` <- `codedGameState`
+      if (!missing(codedGameState)) {
+        stopifnot(is.character(codedGameState), length(codedGameState) == 1)
+        self$codedGameState <- codedGameState
       }
-      if (!missing(`detailedState`)) {
-        stopifnot(is.character(`detailedState`), length(`detailedState`) == 1)
-        self$`detailedState` <- `detailedState`
+      if (!missing(detailedState)) {
+        stopifnot(is.character(detailedState), length(detailedState) == 1)
+        self$detailedState <- detailedState
       }
-      if (!missing(`statusCode`)) {
-        stopifnot(is.character(`statusCode`), length(`statusCode`) == 1)
-        self$`statusCode` <- `statusCode`
+      if (!missing(statusCode)) {
+        stopifnot(is.character(statusCode), length(statusCode) == 1)
+        self$statusCode <- statusCode
       }
-      if (!missing(`startTimeTBD`)) {
-        self$`startTimeTBD` <- `startTimeTBD`
+      if (!missing(startTimeTBD)) {
+        self$startTimeTBD <- startTimeTBD
       }
     },
     toJSON = function() {
       GameGameDataStatusObject <- list()
-      if (!is.null(self$`abstractGameState`)) {
-        GameGameDataStatusObject[['abstractGameState']] <- self$`abstractGameState`
+      if (!is.null(self$abstractGameState)) {
+        GameGameDataStatusObject[['abstractGameState']] <- self$abstractGameState
       }
-      if (!is.null(self$`codedGameState`)) {
-        GameGameDataStatusObject[['codedGameState']] <- self$`codedGameState`
+      if (!is.null(self$codedGameState)) {
+        GameGameDataStatusObject[['codedGameState']] <- self$codedGameState
       }
-      if (!is.null(self$`detailedState`)) {
-        GameGameDataStatusObject[['detailedState']] <- self$`detailedState`
+      if (!is.null(self$detailedState)) {
+        GameGameDataStatusObject[['detailedState']] <- self$detailedState
       }
-      if (!is.null(self$`statusCode`)) {
-        GameGameDataStatusObject[['statusCode']] <- self$`statusCode`
+      if (!is.null(self$statusCode)) {
+        GameGameDataStatusObject[['statusCode']] <- self$statusCode
       }
-      if (!is.null(self$`startTimeTBD`)) {
-        GameGameDataStatusObject[['startTimeTBD']] <- self$`startTimeTBD`
+      if (!is.null(self$startTimeTBD)) {
+        GameGameDataStatusObject[['startTimeTBD']] <- self$startTimeTBD
       }
 
       GameGameDataStatusObject
     },
     fromJSON = function(GameGameDataStatusJson) {
       GameGameDataStatusObject <- jsonlite::fromJSON(GameGameDataStatusJson)
-      if (!is.null(GameGameDataStatusObject$`abstractGameState`)) {
-        self$`abstractGameState` <- GameGameDataStatusObject$`abstractGameState`
+      if (!is.null(GameGameDataStatusObject$abstractGameState)) {
+        self$abstractGameState <- GameGameDataStatusObject$abstractGameState
       }
-      if (!is.null(GameGameDataStatusObject$`codedGameState`)) {
-        self$`codedGameState` <- GameGameDataStatusObject$`codedGameState`
+      if (!is.null(GameGameDataStatusObject$codedGameState)) {
+        self$codedGameState <- GameGameDataStatusObject$codedGameState
       }
-      if (!is.null(GameGameDataStatusObject$`detailedState`)) {
-        self$`detailedState` <- GameGameDataStatusObject$`detailedState`
+      if (!is.null(GameGameDataStatusObject$detailedState)) {
+        self$detailedState <- GameGameDataStatusObject$detailedState
       }
-      if (!is.null(GameGameDataStatusObject$`statusCode`)) {
-        self$`statusCode` <- GameGameDataStatusObject$`statusCode`
+      if (!is.null(GameGameDataStatusObject$statusCode)) {
+        self$statusCode <- GameGameDataStatusObject$statusCode
       }
-      if (!is.null(GameGameDataStatusObject$`startTimeTBD`)) {
-        self$`startTimeTBD` <- GameGameDataStatusObject$`startTimeTBD`
+      if (!is.null(GameGameDataStatusObject$startTimeTBD)) {
+        self$startTimeTBD <- GameGameDataStatusObject$startTimeTBD
       }
     },
     toJSONString = function() {
@@ -93,20 +93,20 @@ GameGameDataStatus <- R6::R6Class(
            "statusCode": %s,
            "startTimeTBD": %s
         }',
-        self$`abstractGameState`,
-        self$`codedGameState`,
-        self$`detailedState`,
-        self$`statusCode`,
-        self$`startTimeTBD`
+        self$abstractGameState,
+        self$codedGameState,
+        self$detailedState,
+        self$statusCode,
+        self$startTimeTBD
       )
     },
     fromJSONString = function(GameGameDataStatusJson) {
       GameGameDataStatusObject <- jsonlite::fromJSON(GameGameDataStatusJson)
-      self$`abstractGameState` <- GameGameDataStatusObject$`abstractGameState`
-      self$`codedGameState` <- GameGameDataStatusObject$`codedGameState`
-      self$`detailedState` <- GameGameDataStatusObject$`detailedState`
-      self$`statusCode` <- GameGameDataStatusObject$`statusCode`
-      self$`startTimeTBD` <- GameGameDataStatusObject$`startTimeTBD`
+      self$abstractGameState <- GameGameDataStatusObject$abstractGameState
+      self$codedGameState <- GameGameDataStatusObject$codedGameState
+      self$detailedState <- GameGameDataStatusObject$detailedState
+      self$statusCode <- GameGameDataStatusObject$statusCode
+      self$startTimeTBD <- GameGameDataStatusObject$startTimeTBD
     }
   )
 )

@@ -16,25 +16,25 @@
 StatTypesInner <- R6::R6Class(
   'StatTypesInner',
   public = list(
-    `displayName` = NULL,
-    initialize = function(`displayName`){
-      if (!missing(`displayName`)) {
-        stopifnot(is.character(`displayName`), length(`displayName`) == 1)
-        self$`displayName` <- `displayName`
+    displayName = NULL,
+    initialize = function(displayName){
+      if (!missing(displayName)) {
+        stopifnot(is.character(displayName), length(displayName) == 1)
+        self$displayName <- displayName
       }
     },
     toJSON = function() {
       StatTypesInnerObject <- list()
-      if (!is.null(self$`displayName`)) {
-        StatTypesInnerObject[['displayName']] <- self$`displayName`
+      if (!is.null(self$displayName)) {
+        StatTypesInnerObject[['displayName']] <- self$displayName
       }
 
       StatTypesInnerObject
     },
     fromJSON = function(StatTypesInnerJson) {
       StatTypesInnerObject <- jsonlite::fromJSON(StatTypesInnerJson)
-      if (!is.null(StatTypesInnerObject$`displayName`)) {
-        self$`displayName` <- StatTypesInnerObject$`displayName`
+      if (!is.null(StatTypesInnerObject$displayName)) {
+        self$displayName <- StatTypesInnerObject$displayName
       }
     },
     toJSONString = function() {
@@ -42,12 +42,12 @@ StatTypesInner <- R6::R6Class(
         '{
            "displayName": %s
         }',
-        self$`displayName`
+        self$displayName
       )
     },
     fromJSONString = function(StatTypesInnerJson) {
       StatTypesInnerObject <- jsonlite::fromJSON(StatTypesInnerJson)
-      self$`displayName` <- StatTypesInnerObject$`displayName`
+      self$displayName <- StatTypesInnerObject$displayName
     }
   )
 )

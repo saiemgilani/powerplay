@@ -18,56 +18,56 @@
 GameBoxscoreTeamOnIcePlus <- R6::R6Class(
   'GameBoxscoreTeamOnIcePlus',
   public = list(
-    `playerId` = NULL,
-    `shiftDuration` = NULL,
-    `stamina` = NULL,
-    initialize = function(`playerId`, `shiftDuration`, `stamina`){
-      if (!missing(`playerId`)) {
-        stopifnot(is.numeric(`playerId`), length(`playerId`) == 1)
-        stopifnot(R6::is.R6(`playerId`))
-        self$`playerId` <- `playerId`
+    playerId = NULL,
+    shiftDuration = NULL,
+    stamina = NULL,
+    initialize = function(playerId, shiftDuration, stamina){
+      if (!missing(playerId)) {
+        stopifnot(is.numeric(playerId), length(playerId) == 1)
+        stopifnot(R6::is.R6(playerId))
+        self$playerId <- playerId
       }
-      if (!missing(`shiftDuration`)) {
-        stopifnot(is.numeric(`shiftDuration`), length(`shiftDuration`) == 1)
-        stopifnot(R6::is.R6(`shiftDuration`))
-        self$`shiftDuration` <- `shiftDuration`
+      if (!missing(shiftDuration)) {
+        stopifnot(is.numeric(shiftDuration), length(shiftDuration) == 1)
+        stopifnot(R6::is.R6(shiftDuration))
+        self$shiftDuration <- shiftDuration
       }
-      if (!missing(`stamina`)) {
-        stopifnot(is.numeric(`stamina`), length(`stamina`) == 1)
-        stopifnot(R6::is.R6(`stamina`))
-        self$`stamina` <- `stamina`
+      if (!missing(stamina)) {
+        stopifnot(is.numeric(stamina), length(stamina) == 1)
+        stopifnot(R6::is.R6(stamina))
+        self$stamina <- stamina
       }
     },
     toJSON = function() {
       GameBoxscoreTeamOnIcePlusObject <- list()
-      if (!is.null(self$`playerId`)) {
-        GameBoxscoreTeamOnIcePlusObject[['playerId']] <- self$`playerId`$toJSON()
+      if (!is.null(self$playerId)) {
+        GameBoxscoreTeamOnIcePlusObject[['playerId']] <- self$playerId$toJSON()
       }
-      if (!is.null(self$`shiftDuration`)) {
-        GameBoxscoreTeamOnIcePlusObject[['shiftDuration']] <- self$`shiftDuration`$toJSON()
+      if (!is.null(self$shiftDuration)) {
+        GameBoxscoreTeamOnIcePlusObject[['shiftDuration']] <- self$shiftDuration$toJSON()
       }
-      if (!is.null(self$`stamina`)) {
-        GameBoxscoreTeamOnIcePlusObject[['stamina']] <- self$`stamina`$toJSON()
+      if (!is.null(self$stamina)) {
+        GameBoxscoreTeamOnIcePlusObject[['stamina']] <- self$stamina$toJSON()
       }
 
       GameBoxscoreTeamOnIcePlusObject
     },
     fromJSON = function(GameBoxscoreTeamOnIcePlusJson) {
       GameBoxscoreTeamOnIcePlusObject <- jsonlite::fromJSON(GameBoxscoreTeamOnIcePlusJson)
-      if (!is.null(GameBoxscoreTeamOnIcePlusObject$`playerId`)) {
+      if (!is.null(GameBoxscoreTeamOnIcePlusObject$playerId)) {
         playerIdObject <- BigDecimal$new()
         playerIdObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$playerId, auto_unbox = TRUE))
-        self$`playerId` <- playerIdObject
+        self$playerId <- playerIdObject
       }
-      if (!is.null(GameBoxscoreTeamOnIcePlusObject$`shiftDuration`)) {
+      if (!is.null(GameBoxscoreTeamOnIcePlusObject$shiftDuration)) {
         shiftDurationObject <- BigDecimal$new()
         shiftDurationObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$shiftDuration, auto_unbox = TRUE))
-        self$`shiftDuration` <- shiftDurationObject
+        self$shiftDuration <- shiftDurationObject
       }
-      if (!is.null(GameBoxscoreTeamOnIcePlusObject$`stamina`)) {
+      if (!is.null(GameBoxscoreTeamOnIcePlusObject$stamina)) {
         staminaObject <- BigDecimal$new()
         staminaObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$stamina, auto_unbox = TRUE))
-        self$`stamina` <- staminaObject
+        self$stamina <- staminaObject
       }
     },
     toJSONString = function() {
@@ -77,19 +77,19 @@ GameBoxscoreTeamOnIcePlus <- R6::R6Class(
            "shiftDuration": %s,
            "stamina": %s
         }',
-        self$`playerId`$toJSON(),
-        self$`shiftDuration`$toJSON(),
-        self$`stamina`$toJSON()
+        self$playerId$toJSON(),
+        self$shiftDuration$toJSON(),
+        self$stamina$toJSON()
       )
     },
     fromJSONString = function(GameBoxscoreTeamOnIcePlusJson) {
       GameBoxscoreTeamOnIcePlusObject <- jsonlite::fromJSON(GameBoxscoreTeamOnIcePlusJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`playerId` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$playerId, auto_unbox = TRUE))
+      self$playerId <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$playerId, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`shiftDuration` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$shiftDuration, auto_unbox = TRUE))
+      self$shiftDuration <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$shiftDuration, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`stamina` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$stamina, auto_unbox = TRUE))
+      self$stamina <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamOnIcePlusObject$stamina, auto_unbox = TRUE))
     }
   )
 )

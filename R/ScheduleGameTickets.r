@@ -17,36 +17,36 @@
 ScheduleGameTickets <- R6::R6Class(
   'ScheduleGameTickets',
   public = list(
-    `ticketType` = NULL,
-    `ticketLink` = NULL,
-    initialize = function(`ticketType`, `ticketLink`){
-      if (!missing(`ticketType`)) {
-        stopifnot(is.character(`ticketType`), length(`ticketType`) == 1)
-        self$`ticketType` <- `ticketType`
+    ticketType = NULL,
+    ticketLink = NULL,
+    initialize = function(ticketType, ticketLink){
+      if (!missing(ticketType)) {
+        stopifnot(is.character(ticketType), length(ticketType) == 1)
+        self$ticketType <- ticketType
       }
-      if (!missing(`ticketLink`)) {
-        stopifnot(is.character(`ticketLink`), length(`ticketLink`) == 1)
-        self$`ticketLink` <- `ticketLink`
+      if (!missing(ticketLink)) {
+        stopifnot(is.character(ticketLink), length(ticketLink) == 1)
+        self$ticketLink <- ticketLink
       }
     },
     toJSON = function() {
       ScheduleGameTicketsObject <- list()
-      if (!is.null(self$`ticketType`)) {
-        ScheduleGameTicketsObject[['ticketType']] <- self$`ticketType`
+      if (!is.null(self$ticketType)) {
+        ScheduleGameTicketsObject[['ticketType']] <- self$ticketType
       }
-      if (!is.null(self$`ticketLink`)) {
-        ScheduleGameTicketsObject[['ticketLink']] <- self$`ticketLink`
+      if (!is.null(self$ticketLink)) {
+        ScheduleGameTicketsObject[['ticketLink']] <- self$ticketLink
       }
 
       ScheduleGameTicketsObject
     },
     fromJSON = function(ScheduleGameTicketsJson) {
       ScheduleGameTicketsObject <- jsonlite::fromJSON(ScheduleGameTicketsJson)
-      if (!is.null(ScheduleGameTicketsObject$`ticketType`)) {
-        self$`ticketType` <- ScheduleGameTicketsObject$`ticketType`
+      if (!is.null(ScheduleGameTicketsObject$ticketType)) {
+        self$ticketType <- ScheduleGameTicketsObject$ticketType
       }
-      if (!is.null(ScheduleGameTicketsObject$`ticketLink`)) {
-        self$`ticketLink` <- ScheduleGameTicketsObject$`ticketLink`
+      if (!is.null(ScheduleGameTicketsObject$ticketLink)) {
+        self$ticketLink <- ScheduleGameTicketsObject$ticketLink
       }
     },
     toJSONString = function() {
@@ -55,14 +55,14 @@ ScheduleGameTickets <- R6::R6Class(
            "ticketType": %s,
            "ticketLink": %s
         }',
-        self$`ticketType`,
-        self$`ticketLink`
+        self$ticketType,
+        self$ticketLink
       )
     },
     fromJSONString = function(ScheduleGameTicketsJson) {
       ScheduleGameTicketsObject <- jsonlite::fromJSON(ScheduleGameTicketsJson)
-      self$`ticketType` <- ScheduleGameTicketsObject$`ticketType`
-      self$`ticketLink` <- ScheduleGameTicketsObject$`ticketLink`
+      self$ticketType <- ScheduleGameTicketsObject$ticketType
+      self$ticketLink <- ScheduleGameTicketsObject$ticketLink
     }
   )
 )

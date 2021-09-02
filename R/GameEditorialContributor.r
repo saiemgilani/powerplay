@@ -17,41 +17,41 @@
 GameEditorialContributor <- R6::R6Class(
   'GameEditorialContributor',
   public = list(
-    `contributors` = NULL,
-    `source` = NULL,
-    initialize = function(`contributors`, `source`){
-      if (!missing(`contributors`)) {
-        stopifnot(is.list(`contributors`), length(`contributors`) != 0)
-        lapply(`contributors`, function(x) stopifnot(R6::is.R6(x)))
-        self$`contributors` <- `contributors`
+    contributors = NULL,
+    source = NULL,
+    initialize = function(contributors, source){
+      if (!missing(contributors)) {
+        stopifnot(is.list(contributors), length(contributors) != 0)
+        lapply(contributors, function(x) stopifnot(R6::is.R6(x)))
+        self$contributors <- contributors
       }
-      if (!missing(`source`)) {
-        stopifnot(is.character(`source`), length(`source`) == 1)
-        self$`source` <- `source`
+      if (!missing(source)) {
+        stopifnot(is.character(source), length(source) == 1)
+        self$source <- source
       }
     },
     toJSON = function() {
       GameEditorialContributorObject <- list()
-      if (!is.null(self$`contributors`)) {
-        GameEditorialContributorObject[['contributors']] <- lapply(self$`contributors`, function(x) x$toJSON())
+      if (!is.null(self$contributors)) {
+        GameEditorialContributorObject[['contributors']] <- lapply(self$contributors, function(x) x$toJSON())
       }
-      if (!is.null(self$`source`)) {
-        GameEditorialContributorObject[['source']] <- self$`source`
+      if (!is.null(self$source)) {
+        GameEditorialContributorObject[['source']] <- self$source
       }
 
       GameEditorialContributorObject
     },
     fromJSON = function(GameEditorialContributorJson) {
       GameEditorialContributorObject <- jsonlite::fromJSON(GameEditorialContributorJson)
-      if (!is.null(GameEditorialContributorObject$`contributors`)) {
-        self$`contributors` <- lapply(GameEditorialContributorObject$`contributors`, function(x) {
+      if (!is.null(GameEditorialContributorObject$contributors)) {
+        self$contributors <- lapply(GameEditorialContributorObject$contributors, function(x) {
           contributorsObject <- GameEditorialContributorContributors$new()
           contributorsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           contributorsObject
         })
       }
-      if (!is.null(GameEditorialContributorObject$`source`)) {
-        self$`source` <- GameEditorialContributorObject$`source`
+      if (!is.null(GameEditorialContributorObject$source)) {
+        self$source <- GameEditorialContributorObject$source
       }
     },
     toJSONString = function() {
@@ -60,14 +60,14 @@ GameEditorialContributor <- R6::R6Class(
            "contributors": [%s],
            "source": %s
         }',
-        lapply(self$`contributors`, function(x) paste(x$toJSON(), sep=",")),
-        self$`source`
+        lapply(self$contributors, function(x) paste(x$toJSON(), sep=",")),
+        self$source
       )
     },
     fromJSONString = function(GameEditorialContributorJson) {
       GameEditorialContributorObject <- jsonlite::fromJSON(GameEditorialContributorJson)
-      self$`contributors` <- lapply(GameEditorialContributorObject$`contributors`, function(x) GameEditorialContributorContributors$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-      self$`source` <- GameEditorialContributorObject$`source`
+      self$contributors <- lapply(GameEditorialContributorObject$contributors, function(x) GameEditorialContributorContributors$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$source <- GameEditorialContributorObject$source
     }
   )
 )

@@ -17,40 +17,40 @@
 ScheduleGameTeams <- R6::R6Class(
   'ScheduleGameTeams',
   public = list(
-    `away` = NULL,
-    `home` = NULL,
-    initialize = function(`away`, `home`){
-      if (!missing(`away`)) {
-        stopifnot(R6::is.R6(`away`))
-        self$`away` <- `away`
+    away = NULL,
+    home = NULL,
+    initialize = function(away, home){
+      if (!missing(away)) {
+        stopifnot(R6::is.R6(away))
+        self$away <- away
       }
-      if (!missing(`home`)) {
-        stopifnot(R6::is.R6(`home`))
-        self$`home` <- `home`
+      if (!missing(home)) {
+        stopifnot(R6::is.R6(home))
+        self$home <- home
       }
     },
     toJSON = function() {
       ScheduleGameTeamsObject <- list()
-      if (!is.null(self$`away`)) {
-        ScheduleGameTeamsObject[['away']] <- self$`away`$toJSON()
+      if (!is.null(self$away)) {
+        ScheduleGameTeamsObject[['away']] <- self$away$toJSON()
       }
-      if (!is.null(self$`home`)) {
-        ScheduleGameTeamsObject[['home']] <- self$`home`$toJSON()
+      if (!is.null(self$home)) {
+        ScheduleGameTeamsObject[['home']] <- self$home$toJSON()
       }
 
       ScheduleGameTeamsObject
     },
     fromJSON = function(ScheduleGameTeamsJson) {
       ScheduleGameTeamsObject <- jsonlite::fromJSON(ScheduleGameTeamsJson)
-      if (!is.null(ScheduleGameTeamsObject$`away`)) {
+      if (!is.null(ScheduleGameTeamsObject$away)) {
         awayObject <- ScheduleGameTeamsAway$new()
         awayObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsObject$away, auto_unbox = TRUE))
-        self$`away` <- awayObject
+        self$away <- awayObject
       }
-      if (!is.null(ScheduleGameTeamsObject$`home`)) {
+      if (!is.null(ScheduleGameTeamsObject$home)) {
         homeObject <- ScheduleGameTeamsHome$new()
         homeObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsObject$home, auto_unbox = TRUE))
-        self$`home` <- homeObject
+        self$home <- homeObject
       }
     },
     toJSONString = function() {
@@ -59,16 +59,16 @@ ScheduleGameTeams <- R6::R6Class(
            "away": %s,
            "home": %s
         }',
-        self$`away`$toJSON(),
-        self$`home`$toJSON()
+        self$away$toJSON(),
+        self$home$toJSON()
       )
     },
     fromJSONString = function(ScheduleGameTeamsJson) {
       ScheduleGameTeamsObject <- jsonlite::fromJSON(ScheduleGameTeamsJson)
       ScheduleGameTeamsAwayObject <- ScheduleGameTeamsAway$new()
-      self$`away` <- ScheduleGameTeamsAwayObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsObject$away, auto_unbox = TRUE))
+      self$away <- ScheduleGameTeamsAwayObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsObject$away, auto_unbox = TRUE))
       ScheduleGameTeamsHomeObject <- ScheduleGameTeamsHome$new()
-      self$`home` <- ScheduleGameTeamsHomeObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsObject$home, auto_unbox = TRUE))
+      self$home <- ScheduleGameTeamsHomeObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsObject$home, auto_unbox = TRUE))
     }
   )
 )

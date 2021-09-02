@@ -1,12 +1,18 @@
-Package: swagger
-Title: R Package Client for NHL API
+Package: hockeyfastR
+Title: Swagger Generated Client for NHL API
 Version: 1.0.0
-Authors@R: person("Swagger Codegen community", email = "apiteam@swagger.io", role = c("aut", "cre"))
+Authors@R: 
+    person(given = "Saiem Gilani", email = "saiem.gilani@gmail.com", role = c("aut", "cre"))
 Description: Documenting the publicly accessible portions of the NHL API.
-Depends: R (>= 3.3.3)
+License: MIT + file License
+Depends: 
+    R (>= 3.6)
+Imports: 
+    httr,
+    jsonlite,
+    R6
+Suggests: 
+    testthat
 Encoding: UTF-8
-License: Unlicense
 LazyData: true
-Suggests: testthat
-Imports: jsonlite, httr, R6
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 7.1.1

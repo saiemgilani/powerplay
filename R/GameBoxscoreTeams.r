@@ -17,40 +17,40 @@
 GameBoxscoreTeams <- R6::R6Class(
   'GameBoxscoreTeams',
   public = list(
-    `away` = NULL,
-    `home` = NULL,
-    initialize = function(`away`, `home`){
-      if (!missing(`away`)) {
-        stopifnot(R6::is.R6(`away`))
-        self$`away` <- `away`
+    away = NULL,
+    home = NULL,
+    initialize = function(away, home){
+      if (!missing(away)) {
+        stopifnot(R6::is.R6(away))
+        self$away <- away
       }
-      if (!missing(`home`)) {
-        stopifnot(R6::is.R6(`home`))
-        self$`home` <- `home`
+      if (!missing(home)) {
+        stopifnot(R6::is.R6(home))
+        self$home <- home
       }
     },
     toJSON = function() {
       GameBoxscoreTeamsObject <- list()
-      if (!is.null(self$`away`)) {
-        GameBoxscoreTeamsObject[['away']] <- self$`away`$toJSON()
+      if (!is.null(self$away)) {
+        GameBoxscoreTeamsObject[['away']] <- self$away$toJSON()
       }
-      if (!is.null(self$`home`)) {
-        GameBoxscoreTeamsObject[['home']] <- self$`home`$toJSON()
+      if (!is.null(self$home)) {
+        GameBoxscoreTeamsObject[['home']] <- self$home$toJSON()
       }
 
       GameBoxscoreTeamsObject
     },
     fromJSON = function(GameBoxscoreTeamsJson) {
       GameBoxscoreTeamsObject <- jsonlite::fromJSON(GameBoxscoreTeamsJson)
-      if (!is.null(GameBoxscoreTeamsObject$`away`)) {
+      if (!is.null(GameBoxscoreTeamsObject$away)) {
         awayObject <- GameBoxscoreTeam$new()
         awayObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamsObject$away, auto_unbox = TRUE))
-        self$`away` <- awayObject
+        self$away <- awayObject
       }
-      if (!is.null(GameBoxscoreTeamsObject$`home`)) {
+      if (!is.null(GameBoxscoreTeamsObject$home)) {
         homeObject <- GameBoxscoreTeam$new()
         homeObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamsObject$home, auto_unbox = TRUE))
-        self$`home` <- homeObject
+        self$home <- homeObject
       }
     },
     toJSONString = function() {
@@ -59,16 +59,16 @@ GameBoxscoreTeams <- R6::R6Class(
            "away": %s,
            "home": %s
         }',
-        self$`away`$toJSON(),
-        self$`home`$toJSON()
+        self$away$toJSON(),
+        self$home$toJSON()
       )
     },
     fromJSONString = function(GameBoxscoreTeamsJson) {
       GameBoxscoreTeamsObject <- jsonlite::fromJSON(GameBoxscoreTeamsJson)
       GameBoxscoreTeamObject <- GameBoxscoreTeam$new()
-      self$`away` <- GameBoxscoreTeamObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamsObject$away, auto_unbox = TRUE))
+      self$away <- GameBoxscoreTeamObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamsObject$away, auto_unbox = TRUE))
       GameBoxscoreTeamObject <- GameBoxscoreTeam$new()
-      self$`home` <- GameBoxscoreTeamObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamsObject$home, auto_unbox = TRUE))
+      self$home <- GameBoxscoreTeamObject$fromJSON(jsonlite::toJSON(GameBoxscoreTeamsObject$home, auto_unbox = TRUE))
     }
   )
 )

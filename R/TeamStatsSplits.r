@@ -17,40 +17,40 @@
 TeamStatsSplits <- R6::R6Class(
   'TeamStatsSplits',
   public = list(
-    `stat` = NULL,
-    `team` = NULL,
-    initialize = function(`stat`, `team`){
-      if (!missing(`stat`)) {
-        stopifnot(R6::is.R6(`stat`))
-        self$`stat` <- `stat`
+    stat = NULL,
+    team = NULL,
+    initialize = function(stat, team){
+      if (!missing(stat)) {
+        stopifnot(R6::is.R6(stat))
+        self$stat <- stat
       }
-      if (!missing(`team`)) {
-        stopifnot(R6::is.R6(`team`))
-        self$`team` <- `team`
+      if (!missing(team)) {
+        stopifnot(R6::is.R6(team))
+        self$team <- team
       }
     },
     toJSON = function() {
       TeamStatsSplitsObject <- list()
-      if (!is.null(self$`stat`)) {
-        TeamStatsSplitsObject[['stat']] <- self$`stat`$toJSON()
+      if (!is.null(self$stat)) {
+        TeamStatsSplitsObject[['stat']] <- self$stat$toJSON()
       }
-      if (!is.null(self$`team`)) {
-        TeamStatsSplitsObject[['team']] <- self$`team`$toJSON()
+      if (!is.null(self$team)) {
+        TeamStatsSplitsObject[['team']] <- self$team$toJSON()
       }
 
       TeamStatsSplitsObject
     },
     fromJSON = function(TeamStatsSplitsJson) {
       TeamStatsSplitsObject <- jsonlite::fromJSON(TeamStatsSplitsJson)
-      if (!is.null(TeamStatsSplitsObject$`stat`)) {
+      if (!is.null(TeamStatsSplitsObject$stat)) {
         statObject <- TeamStatsStat$new()
         statObject$fromJSON(jsonlite::toJSON(TeamStatsSplitsObject$stat, auto_unbox = TRUE))
-        self$`stat` <- statObject
+        self$stat <- statObject
       }
-      if (!is.null(TeamStatsSplitsObject$`team`)) {
+      if (!is.null(TeamStatsSplitsObject$team)) {
         teamObject <- PlayerCurrentTeam$new()
         teamObject$fromJSON(jsonlite::toJSON(TeamStatsSplitsObject$team, auto_unbox = TRUE))
-        self$`team` <- teamObject
+        self$team <- teamObject
       }
     },
     toJSONString = function() {
@@ -59,16 +59,16 @@ TeamStatsSplits <- R6::R6Class(
            "stat": %s,
            "team": %s
         }',
-        self$`stat`$toJSON(),
-        self$`team`$toJSON()
+        self$stat$toJSON(),
+        self$team$toJSON()
       )
     },
     fromJSONString = function(TeamStatsSplitsJson) {
       TeamStatsSplitsObject <- jsonlite::fromJSON(TeamStatsSplitsJson)
       TeamStatsStatObject <- TeamStatsStat$new()
-      self$`stat` <- TeamStatsStatObject$fromJSON(jsonlite::toJSON(TeamStatsSplitsObject$stat, auto_unbox = TRUE))
+      self$stat <- TeamStatsStatObject$fromJSON(jsonlite::toJSON(TeamStatsSplitsObject$stat, auto_unbox = TRUE))
       PlayerCurrentTeamObject <- PlayerCurrentTeam$new()
-      self$`team` <- PlayerCurrentTeamObject$fromJSON(jsonlite::toJSON(TeamStatsSplitsObject$team, auto_unbox = TRUE))
+      self$team <- PlayerCurrentTeamObject$fromJSON(jsonlite::toJSON(TeamStatsSplitsObject$team, auto_unbox = TRUE))
     }
   )
 )

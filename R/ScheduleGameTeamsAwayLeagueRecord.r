@@ -19,67 +19,67 @@
 ScheduleGameTeamsAwayLeagueRecord <- R6::R6Class(
   'ScheduleGameTeamsAwayLeagueRecord',
   public = list(
-    `wins` = NULL,
-    `losses` = NULL,
-    `ot` = NULL,
-    `type` = NULL,
-    initialize = function(`wins`, `losses`, `ot`, `type`){
-      if (!missing(`wins`)) {
-        stopifnot(is.numeric(`wins`), length(`wins`) == 1)
-        stopifnot(R6::is.R6(`wins`))
-        self$`wins` <- `wins`
+    wins = NULL,
+    losses = NULL,
+    ot = NULL,
+    type = NULL,
+    initialize = function(wins, losses, ot, type){
+      if (!missing(wins)) {
+        stopifnot(is.numeric(wins), length(wins) == 1)
+        stopifnot(R6::is.R6(wins))
+        self$wins <- wins
       }
-      if (!missing(`losses`)) {
-        stopifnot(is.numeric(`losses`), length(`losses`) == 1)
-        stopifnot(R6::is.R6(`losses`))
-        self$`losses` <- `losses`
+      if (!missing(losses)) {
+        stopifnot(is.numeric(losses), length(losses) == 1)
+        stopifnot(R6::is.R6(losses))
+        self$losses <- losses
       }
-      if (!missing(`ot`)) {
-        stopifnot(is.numeric(`ot`), length(`ot`) == 1)
-        stopifnot(R6::is.R6(`ot`))
-        self$`ot` <- `ot`
+      if (!missing(ot)) {
+        stopifnot(is.numeric(ot), length(ot) == 1)
+        stopifnot(R6::is.R6(ot))
+        self$ot <- ot
       }
-      if (!missing(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
-        self$`type` <- `type`
+      if (!missing(type)) {
+        stopifnot(is.character(type), length(type) == 1)
+        self$type <- type
       }
     },
     toJSON = function() {
       ScheduleGameTeamsAwayLeagueRecordObject <- list()
-      if (!is.null(self$`wins`)) {
-        ScheduleGameTeamsAwayLeagueRecordObject[['wins']] <- self$`wins`$toJSON()
+      if (!is.null(self$wins)) {
+        ScheduleGameTeamsAwayLeagueRecordObject[['wins']] <- self$wins$toJSON()
       }
-      if (!is.null(self$`losses`)) {
-        ScheduleGameTeamsAwayLeagueRecordObject[['losses']] <- self$`losses`$toJSON()
+      if (!is.null(self$losses)) {
+        ScheduleGameTeamsAwayLeagueRecordObject[['losses']] <- self$losses$toJSON()
       }
-      if (!is.null(self$`ot`)) {
-        ScheduleGameTeamsAwayLeagueRecordObject[['ot']] <- self$`ot`$toJSON()
+      if (!is.null(self$ot)) {
+        ScheduleGameTeamsAwayLeagueRecordObject[['ot']] <- self$ot$toJSON()
       }
-      if (!is.null(self$`type`)) {
-        ScheduleGameTeamsAwayLeagueRecordObject[['type']] <- self$`type`
+      if (!is.null(self$type)) {
+        ScheduleGameTeamsAwayLeagueRecordObject[['type']] <- self$type
       }
 
       ScheduleGameTeamsAwayLeagueRecordObject
     },
     fromJSON = function(ScheduleGameTeamsAwayLeagueRecordJson) {
       ScheduleGameTeamsAwayLeagueRecordObject <- jsonlite::fromJSON(ScheduleGameTeamsAwayLeagueRecordJson)
-      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$`wins`)) {
+      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$wins)) {
         winsObject <- BigDecimal$new()
         winsObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$wins, auto_unbox = TRUE))
-        self$`wins` <- winsObject
+        self$wins <- winsObject
       }
-      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$`losses`)) {
+      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$losses)) {
         lossesObject <- BigDecimal$new()
         lossesObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$losses, auto_unbox = TRUE))
-        self$`losses` <- lossesObject
+        self$losses <- lossesObject
       }
-      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$`ot`)) {
+      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$ot)) {
         otObject <- BigDecimal$new()
         otObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$ot, auto_unbox = TRUE))
-        self$`ot` <- otObject
+        self$ot <- otObject
       }
-      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$`type`)) {
-        self$`type` <- ScheduleGameTeamsAwayLeagueRecordObject$`type`
+      if (!is.null(ScheduleGameTeamsAwayLeagueRecordObject$type)) {
+        self$type <- ScheduleGameTeamsAwayLeagueRecordObject$type
       }
     },
     toJSONString = function() {
@@ -90,21 +90,21 @@ ScheduleGameTeamsAwayLeagueRecord <- R6::R6Class(
            "ot": %s,
            "type": %s
         }',
-        self$`wins`$toJSON(),
-        self$`losses`$toJSON(),
-        self$`ot`$toJSON(),
-        self$`type`
+        self$wins$toJSON(),
+        self$losses$toJSON(),
+        self$ot$toJSON(),
+        self$type
       )
     },
     fromJSONString = function(ScheduleGameTeamsAwayLeagueRecordJson) {
       ScheduleGameTeamsAwayLeagueRecordObject <- jsonlite::fromJSON(ScheduleGameTeamsAwayLeagueRecordJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`wins` <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$wins, auto_unbox = TRUE))
+      self$wins <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$wins, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`losses` <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$losses, auto_unbox = TRUE))
+      self$losses <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$losses, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`ot` <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$ot, auto_unbox = TRUE))
-      self$`type` <- ScheduleGameTeamsAwayLeagueRecordObject$`type`
+      self$ot <- BigDecimalObject$fromJSON(jsonlite::toJSON(ScheduleGameTeamsAwayLeagueRecordObject$ot, auto_unbox = TRUE))
+      self$type <- ScheduleGameTeamsAwayLeagueRecordObject$type
     }
   )
 )

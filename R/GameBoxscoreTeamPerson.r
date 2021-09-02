@@ -17,36 +17,36 @@
 GameBoxscoreTeamPerson <- R6::R6Class(
   'GameBoxscoreTeamPerson',
   public = list(
-    `fullName` = NULL,
-    `link` = NULL,
-    initialize = function(`fullName`, `link`){
-      if (!missing(`fullName`)) {
-        stopifnot(is.character(`fullName`), length(`fullName`) == 1)
-        self$`fullName` <- `fullName`
+    fullName = NULL,
+    link = NULL,
+    initialize = function(fullName, link){
+      if (!missing(fullName)) {
+        stopifnot(is.character(fullName), length(fullName) == 1)
+        self$fullName <- fullName
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       GameBoxscoreTeamPersonObject <- list()
-      if (!is.null(self$`fullName`)) {
-        GameBoxscoreTeamPersonObject[['fullName']] <- self$`fullName`
+      if (!is.null(self$fullName)) {
+        GameBoxscoreTeamPersonObject[['fullName']] <- self$fullName
       }
-      if (!is.null(self$`link`)) {
-        GameBoxscoreTeamPersonObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        GameBoxscoreTeamPersonObject[['link']] <- self$link
       }
 
       GameBoxscoreTeamPersonObject
     },
     fromJSON = function(GameBoxscoreTeamPersonJson) {
       GameBoxscoreTeamPersonObject <- jsonlite::fromJSON(GameBoxscoreTeamPersonJson)
-      if (!is.null(GameBoxscoreTeamPersonObject$`fullName`)) {
-        self$`fullName` <- GameBoxscoreTeamPersonObject$`fullName`
+      if (!is.null(GameBoxscoreTeamPersonObject$fullName)) {
+        self$fullName <- GameBoxscoreTeamPersonObject$fullName
       }
-      if (!is.null(GameBoxscoreTeamPersonObject$`link`)) {
-        self$`link` <- GameBoxscoreTeamPersonObject$`link`
+      if (!is.null(GameBoxscoreTeamPersonObject$link)) {
+        self$link <- GameBoxscoreTeamPersonObject$link
       }
     },
     toJSONString = function() {
@@ -55,14 +55,14 @@ GameBoxscoreTeamPerson <- R6::R6Class(
            "fullName": %s,
            "link": %s
         }',
-        self$`fullName`,
-        self$`link`
+        self$fullName,
+        self$link
       )
     },
     fromJSONString = function(GameBoxscoreTeamPersonJson) {
       GameBoxscoreTeamPersonObject <- jsonlite::fromJSON(GameBoxscoreTeamPersonJson)
-      self$`fullName` <- GameBoxscoreTeamPersonObject$`fullName`
-      self$`link` <- GameBoxscoreTeamPersonObject$`link`
+      self$fullName <- GameBoxscoreTeamPersonObject$fullName
+      self$link <- GameBoxscoreTeamPersonObject$link
     }
   )
 )

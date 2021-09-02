@@ -18,48 +18,48 @@
 GameHighlightType <- R6::R6Class(
   'GameHighlightType',
   public = list(
-    `title` = NULL,
-    `topicList` = NULL,
-    `items` = NULL,
-    initialize = function(`title`, `topicList`, `items`){
-      if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
-        self$`title` <- `title`
+    title = NULL,
+    topicList = NULL,
+    items = NULL,
+    initialize = function(title, topicList, items){
+      if (!missing(title)) {
+        stopifnot(is.character(title), length(title) == 1)
+        self$title <- title
       }
-      if (!missing(`topicList`)) {
-        stopifnot(is.character(`topicList`), length(`topicList`) == 1)
-        self$`topicList` <- `topicList`
+      if (!missing(topicList)) {
+        stopifnot(is.character(topicList), length(topicList) == 1)
+        self$topicList <- topicList
       }
-      if (!missing(`items`)) {
-        stopifnot(is.list(`items`), length(`items`) != 0)
-        lapply(`items`, function(x) stopifnot(R6::is.R6(x)))
-        self$`items` <- `items`
+      if (!missing(items)) {
+        stopifnot(is.list(items), length(items) != 0)
+        lapply(items, function(x) stopifnot(R6::is.R6(x)))
+        self$items <- items
       }
     },
     toJSON = function() {
       GameHighlightTypeObject <- list()
-      if (!is.null(self$`title`)) {
-        GameHighlightTypeObject[['title']] <- self$`title`
+      if (!is.null(self$title)) {
+        GameHighlightTypeObject[['title']] <- self$title
       }
-      if (!is.null(self$`topicList`)) {
-        GameHighlightTypeObject[['topicList']] <- self$`topicList`
+      if (!is.null(self$topicList)) {
+        GameHighlightTypeObject[['topicList']] <- self$topicList
       }
-      if (!is.null(self$`items`)) {
-        GameHighlightTypeObject[['items']] <- lapply(self$`items`, function(x) x$toJSON())
+      if (!is.null(self$items)) {
+        GameHighlightTypeObject[['items']] <- lapply(self$items, function(x) x$toJSON())
       }
 
       GameHighlightTypeObject
     },
     fromJSON = function(GameHighlightTypeJson) {
       GameHighlightTypeObject <- jsonlite::fromJSON(GameHighlightTypeJson)
-      if (!is.null(GameHighlightTypeObject$`title`)) {
-        self$`title` <- GameHighlightTypeObject$`title`
+      if (!is.null(GameHighlightTypeObject$title)) {
+        self$title <- GameHighlightTypeObject$title
       }
-      if (!is.null(GameHighlightTypeObject$`topicList`)) {
-        self$`topicList` <- GameHighlightTypeObject$`topicList`
+      if (!is.null(GameHighlightTypeObject$topicList)) {
+        self$topicList <- GameHighlightTypeObject$topicList
       }
-      if (!is.null(GameHighlightTypeObject$`items`)) {
-        self$`items` <- lapply(GameHighlightTypeObject$`items`, function(x) {
+      if (!is.null(GameHighlightTypeObject$items)) {
+        self$items <- lapply(GameHighlightTypeObject$items, function(x) {
           itemsObject <- GameHighlight$new()
           itemsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           itemsObject
@@ -73,16 +73,16 @@ GameHighlightType <- R6::R6Class(
            "topicList": %s,
            "items": [%s]
         }',
-        self$`title`,
-        self$`topicList`,
-        lapply(self$`items`, function(x) paste(x$toJSON(), sep=","))
+        self$title,
+        self$topicList,
+        lapply(self$items, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(GameHighlightTypeJson) {
       GameHighlightTypeObject <- jsonlite::fromJSON(GameHighlightTypeJson)
-      self$`title` <- GameHighlightTypeObject$`title`
-      self$`topicList` <- GameHighlightTypeObject$`topicList`
-      self$`items` <- lapply(GameHighlightTypeObject$`items`, function(x) GameHighlight$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$title <- GameHighlightTypeObject$title
+      self$topicList <- GameHighlightTypeObject$topicList
+      self$items <- lapply(GameHighlightTypeObject$items, function(x) GameHighlight$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

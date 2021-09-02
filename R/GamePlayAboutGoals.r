@@ -17,42 +17,42 @@
 GamePlayAboutGoals <- R6::R6Class(
   'GamePlayAboutGoals',
   public = list(
-    `away` = NULL,
-    `home` = NULL,
-    initialize = function(`away`, `home`){
-      if (!missing(`away`)) {
-        stopifnot(is.numeric(`away`), length(`away`) == 1)
-        stopifnot(R6::is.R6(`away`))
-        self$`away` <- `away`
+    away = NULL,
+    home = NULL,
+    initialize = function(away, home){
+      if (!missing(away)) {
+        stopifnot(is.numeric(away), length(away) == 1)
+        stopifnot(R6::is.R6(away))
+        self$away <- away
       }
-      if (!missing(`home`)) {
-        stopifnot(is.numeric(`home`), length(`home`) == 1)
-        stopifnot(R6::is.R6(`home`))
-        self$`home` <- `home`
+      if (!missing(home)) {
+        stopifnot(is.numeric(home), length(home) == 1)
+        stopifnot(R6::is.R6(home))
+        self$home <- home
       }
     },
     toJSON = function() {
       GamePlayAboutGoalsObject <- list()
-      if (!is.null(self$`away`)) {
-        GamePlayAboutGoalsObject[['away']] <- self$`away`$toJSON()
+      if (!is.null(self$away)) {
+        GamePlayAboutGoalsObject[['away']] <- self$away$toJSON()
       }
-      if (!is.null(self$`home`)) {
-        GamePlayAboutGoalsObject[['home']] <- self$`home`$toJSON()
+      if (!is.null(self$home)) {
+        GamePlayAboutGoalsObject[['home']] <- self$home$toJSON()
       }
 
       GamePlayAboutGoalsObject
     },
     fromJSON = function(GamePlayAboutGoalsJson) {
       GamePlayAboutGoalsObject <- jsonlite::fromJSON(GamePlayAboutGoalsJson)
-      if (!is.null(GamePlayAboutGoalsObject$`away`)) {
+      if (!is.null(GamePlayAboutGoalsObject$away)) {
         awayObject <- BigDecimal$new()
         awayObject$fromJSON(jsonlite::toJSON(GamePlayAboutGoalsObject$away, auto_unbox = TRUE))
-        self$`away` <- awayObject
+        self$away <- awayObject
       }
-      if (!is.null(GamePlayAboutGoalsObject$`home`)) {
+      if (!is.null(GamePlayAboutGoalsObject$home)) {
         homeObject <- BigDecimal$new()
         homeObject$fromJSON(jsonlite::toJSON(GamePlayAboutGoalsObject$home, auto_unbox = TRUE))
-        self$`home` <- homeObject
+        self$home <- homeObject
       }
     },
     toJSONString = function() {
@@ -61,16 +61,16 @@ GamePlayAboutGoals <- R6::R6Class(
            "away": %s,
            "home": %s
         }',
-        self$`away`$toJSON(),
-        self$`home`$toJSON()
+        self$away$toJSON(),
+        self$home$toJSON()
       )
     },
     fromJSONString = function(GamePlayAboutGoalsJson) {
       GamePlayAboutGoalsObject <- jsonlite::fromJSON(GamePlayAboutGoalsJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`away` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayAboutGoalsObject$away, auto_unbox = TRUE))
+      self$away <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayAboutGoalsObject$away, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`home` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayAboutGoalsObject$home, auto_unbox = TRUE))
+      self$home <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayAboutGoalsObject$home, auto_unbox = TRUE))
     }
   )
 )

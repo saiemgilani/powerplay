@@ -40,19 +40,19 @@ ScheduleApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`expand`)) {
+      if (!missing(expand)) {
         queryParams['expand'] <- expand
       }
 
-      if (!missing(`team_id`)) {
+      if (!missing(team_id)) {
         queryParams['teamId'] <- team_id
       }
 
-      if (!missing(`start_date`)) {
+      if (!missing(start_date)) {
         queryParams['startDate'] <- start_date
       }
 
-      if (!missing(`end_date`)) {
+      if (!missing(end_date)) {
         queryParams['endDate'] <- end_date
       }
 

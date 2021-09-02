@@ -18,48 +18,48 @@
 GameContentMediaMilestones <- R6::R6Class(
   'GameContentMediaMilestones',
   public = list(
-    `title` = NULL,
-    `streamStart` = NULL,
-    `items` = NULL,
-    initialize = function(`title`, `streamStart`, `items`){
-      if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
-        self$`title` <- `title`
+    title = NULL,
+    streamStart = NULL,
+    items = NULL,
+    initialize = function(title, streamStart, items){
+      if (!missing(title)) {
+        stopifnot(is.character(title), length(title) == 1)
+        self$title <- title
       }
-      if (!missing(`streamStart`)) {
-        stopifnot(is.character(`streamStart`), length(`streamStart`) == 1)
-        self$`streamStart` <- `streamStart`
+      if (!missing(streamStart)) {
+        stopifnot(is.character(streamStart), length(streamStart) == 1)
+        self$streamStart <- streamStart
       }
-      if (!missing(`items`)) {
-        stopifnot(is.list(`items`), length(`items`) != 0)
-        lapply(`items`, function(x) stopifnot(R6::is.R6(x)))
-        self$`items` <- `items`
+      if (!missing(items)) {
+        stopifnot(is.list(items), length(items) != 0)
+        lapply(items, function(x) stopifnot(R6::is.R6(x)))
+        self$items <- items
       }
     },
     toJSON = function() {
       GameContentMediaMilestonesObject <- list()
-      if (!is.null(self$`title`)) {
-        GameContentMediaMilestonesObject[['title']] <- self$`title`
+      if (!is.null(self$title)) {
+        GameContentMediaMilestonesObject[['title']] <- self$title
       }
-      if (!is.null(self$`streamStart`)) {
-        GameContentMediaMilestonesObject[['streamStart']] <- self$`streamStart`
+      if (!is.null(self$streamStart)) {
+        GameContentMediaMilestonesObject[['streamStart']] <- self$streamStart
       }
-      if (!is.null(self$`items`)) {
-        GameContentMediaMilestonesObject[['items']] <- lapply(self$`items`, function(x) x$toJSON())
+      if (!is.null(self$items)) {
+        GameContentMediaMilestonesObject[['items']] <- lapply(self$items, function(x) x$toJSON())
       }
 
       GameContentMediaMilestonesObject
     },
     fromJSON = function(GameContentMediaMilestonesJson) {
       GameContentMediaMilestonesObject <- jsonlite::fromJSON(GameContentMediaMilestonesJson)
-      if (!is.null(GameContentMediaMilestonesObject$`title`)) {
-        self$`title` <- GameContentMediaMilestonesObject$`title`
+      if (!is.null(GameContentMediaMilestonesObject$title)) {
+        self$title <- GameContentMediaMilestonesObject$title
       }
-      if (!is.null(GameContentMediaMilestonesObject$`streamStart`)) {
-        self$`streamStart` <- GameContentMediaMilestonesObject$`streamStart`
+      if (!is.null(GameContentMediaMilestonesObject$streamStart)) {
+        self$streamStart <- GameContentMediaMilestonesObject$streamStart
       }
-      if (!is.null(GameContentMediaMilestonesObject$`items`)) {
-        self$`items` <- lapply(GameContentMediaMilestonesObject$`items`, function(x) {
+      if (!is.null(GameContentMediaMilestonesObject$items)) {
+        self$items <- lapply(GameContentMediaMilestonesObject$items, function(x) {
           itemsObject <- GameContentMediaMilestonesItems$new()
           itemsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           itemsObject
@@ -73,16 +73,16 @@ GameContentMediaMilestones <- R6::R6Class(
            "streamStart": %s,
            "items": [%s]
         }',
-        self$`title`,
-        self$`streamStart`,
-        lapply(self$`items`, function(x) paste(x$toJSON(), sep=","))
+        self$title,
+        self$streamStart,
+        lapply(self$items, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(GameContentMediaMilestonesJson) {
       GameContentMediaMilestonesObject <- jsonlite::fromJSON(GameContentMediaMilestonesJson)
-      self$`title` <- GameContentMediaMilestonesObject$`title`
-      self$`streamStart` <- GameContentMediaMilestonesObject$`streamStart`
-      self$`items` <- lapply(GameContentMediaMilestonesObject$`items`, function(x) GameContentMediaMilestonesItems$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$title <- GameContentMediaMilestonesObject$title
+      self$streamStart <- GameContentMediaMilestonesObject$streamStart
+      self$items <- lapply(GameContentMediaMilestonesObject$items, function(x) GameContentMediaMilestonesItems$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

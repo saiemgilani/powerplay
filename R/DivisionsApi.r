@@ -44,8 +44,8 @@ DivisionsApi <- R6::R6Class(
       headerParams <- character()
 
       urlPath <- "/divisions/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -65,7 +65,7 @@ DivisionsApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_divisions = function(...){
       args <- list(...)
       queryParams <- list()

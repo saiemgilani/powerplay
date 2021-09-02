@@ -17,42 +17,42 @@
 GameLinescoreShootoutInfoAway <- R6::R6Class(
   'GameLinescoreShootoutInfoAway',
   public = list(
-    `scores` = NULL,
-    `attempts` = NULL,
-    initialize = function(`scores`, `attempts`){
-      if (!missing(`scores`)) {
-        stopifnot(is.numeric(`scores`), length(`scores`) == 1)
-        stopifnot(R6::is.R6(`scores`))
-        self$`scores` <- `scores`
+    scores = NULL,
+    attempts = NULL,
+    initialize = function(scores, attempts){
+      if (!missing(scores)) {
+        stopifnot(is.numeric(scores), length(scores) == 1)
+        stopifnot(R6::is.R6(scores))
+        self$scores <- scores
       }
-      if (!missing(`attempts`)) {
-        stopifnot(is.numeric(`attempts`), length(`attempts`) == 1)
-        stopifnot(R6::is.R6(`attempts`))
-        self$`attempts` <- `attempts`
+      if (!missing(attempts)) {
+        stopifnot(is.numeric(attempts), length(attempts) == 1)
+        stopifnot(R6::is.R6(attempts))
+        self$attempts <- attempts
       }
     },
     toJSON = function() {
       GameLinescoreShootoutInfoAwayObject <- list()
-      if (!is.null(self$`scores`)) {
-        GameLinescoreShootoutInfoAwayObject[['scores']] <- self$`scores`$toJSON()
+      if (!is.null(self$scores)) {
+        GameLinescoreShootoutInfoAwayObject[['scores']] <- self$scores$toJSON()
       }
-      if (!is.null(self$`attempts`)) {
-        GameLinescoreShootoutInfoAwayObject[['attempts']] <- self$`attempts`$toJSON()
+      if (!is.null(self$attempts)) {
+        GameLinescoreShootoutInfoAwayObject[['attempts']] <- self$attempts$toJSON()
       }
 
       GameLinescoreShootoutInfoAwayObject
     },
     fromJSON = function(GameLinescoreShootoutInfoAwayJson) {
       GameLinescoreShootoutInfoAwayObject <- jsonlite::fromJSON(GameLinescoreShootoutInfoAwayJson)
-      if (!is.null(GameLinescoreShootoutInfoAwayObject$`scores`)) {
+      if (!is.null(GameLinescoreShootoutInfoAwayObject$scores)) {
         scoresObject <- BigDecimal$new()
         scoresObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoAwayObject$scores, auto_unbox = TRUE))
-        self$`scores` <- scoresObject
+        self$scores <- scoresObject
       }
-      if (!is.null(GameLinescoreShootoutInfoAwayObject$`attempts`)) {
+      if (!is.null(GameLinescoreShootoutInfoAwayObject$attempts)) {
         attemptsObject <- BigDecimal$new()
         attemptsObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoAwayObject$attempts, auto_unbox = TRUE))
-        self$`attempts` <- attemptsObject
+        self$attempts <- attemptsObject
       }
     },
     toJSONString = function() {
@@ -61,16 +61,16 @@ GameLinescoreShootoutInfoAway <- R6::R6Class(
            "scores": %s,
            "attempts": %s
         }',
-        self$`scores`$toJSON(),
-        self$`attempts`$toJSON()
+        self$scores$toJSON(),
+        self$attempts$toJSON()
       )
     },
     fromJSONString = function(GameLinescoreShootoutInfoAwayJson) {
       GameLinescoreShootoutInfoAwayObject <- jsonlite::fromJSON(GameLinescoreShootoutInfoAwayJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`scores` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoAwayObject$scores, auto_unbox = TRUE))
+      self$scores <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoAwayObject$scores, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`attempts` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoAwayObject$attempts, auto_unbox = TRUE))
+      self$attempts <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreShootoutInfoAwayObject$attempts, auto_unbox = TRUE))
     }
   )
 )

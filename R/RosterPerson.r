@@ -18,50 +18,50 @@
 RosterPerson <- R6::R6Class(
   'RosterPerson',
   public = list(
-    `id` = NULL,
-    `fullName` = NULL,
-    `link` = NULL,
-    initialize = function(`id`, `fullName`, `link`){
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        stopifnot(R6::is.R6(`id`))
-        self$`id` <- `id`
+    id = NULL,
+    fullName = NULL,
+    link = NULL,
+    initialize = function(id, fullName, link){
+      if (!missing(id)) {
+        stopifnot(is.numeric(id), length(id) == 1)
+        stopifnot(R6::is.R6(id))
+        self$id <- id
       }
-      if (!missing(`fullName`)) {
-        stopifnot(is.character(`fullName`), length(`fullName`) == 1)
-        self$`fullName` <- `fullName`
+      if (!missing(fullName)) {
+        stopifnot(is.character(fullName), length(fullName) == 1)
+        self$fullName <- fullName
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       RosterPersonObject <- list()
-      if (!is.null(self$`id`)) {
-        RosterPersonObject[['id']] <- self$`id`$toJSON()
+      if (!is.null(self$id)) {
+        RosterPersonObject[['id']] <- self$id$toJSON()
       }
-      if (!is.null(self$`fullName`)) {
-        RosterPersonObject[['fullName']] <- self$`fullName`
+      if (!is.null(self$fullName)) {
+        RosterPersonObject[['fullName']] <- self$fullName
       }
-      if (!is.null(self$`link`)) {
-        RosterPersonObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        RosterPersonObject[['link']] <- self$link
       }
 
       RosterPersonObject
     },
     fromJSON = function(RosterPersonJson) {
       RosterPersonObject <- jsonlite::fromJSON(RosterPersonJson)
-      if (!is.null(RosterPersonObject$`id`)) {
+      if (!is.null(RosterPersonObject$id)) {
         idObject <- BigDecimal$new()
         idObject$fromJSON(jsonlite::toJSON(RosterPersonObject$id, auto_unbox = TRUE))
-        self$`id` <- idObject
+        self$id <- idObject
       }
-      if (!is.null(RosterPersonObject$`fullName`)) {
-        self$`fullName` <- RosterPersonObject$`fullName`
+      if (!is.null(RosterPersonObject$fullName)) {
+        self$fullName <- RosterPersonObject$fullName
       }
-      if (!is.null(RosterPersonObject$`link`)) {
-        self$`link` <- RosterPersonObject$`link`
+      if (!is.null(RosterPersonObject$link)) {
+        self$link <- RosterPersonObject$link
       }
     },
     toJSONString = function() {
@@ -71,17 +71,17 @@ RosterPerson <- R6::R6Class(
            "fullName": %s,
            "link": %s
         }',
-        self$`id`$toJSON(),
-        self$`fullName`,
-        self$`link`
+        self$id$toJSON(),
+        self$fullName,
+        self$link
       )
     },
     fromJSONString = function(RosterPersonJson) {
       RosterPersonObject <- jsonlite::fromJSON(RosterPersonJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`id` <- BigDecimalObject$fromJSON(jsonlite::toJSON(RosterPersonObject$id, auto_unbox = TRUE))
-      self$`fullName` <- RosterPersonObject$`fullName`
-      self$`link` <- RosterPersonObject$`link`
+      self$id <- BigDecimalObject$fromJSON(jsonlite::toJSON(RosterPersonObject$id, auto_unbox = TRUE))
+      self$fullName <- RosterPersonObject$fullName
+      self$link <- RosterPersonObject$link
     }
   )
 )

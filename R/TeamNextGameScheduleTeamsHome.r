@@ -18,54 +18,54 @@
 TeamNextGameScheduleTeamsHome <- R6::R6Class(
   'TeamNextGameScheduleTeamsHome',
   public = list(
-    `leagueRecord` = NULL,
-    `score` = NULL,
-    `team` = NULL,
-    initialize = function(`leagueRecord`, `score`, `team`){
-      if (!missing(`leagueRecord`)) {
-        stopifnot(R6::is.R6(`leagueRecord`))
-        self$`leagueRecord` <- `leagueRecord`
+    leagueRecord = NULL,
+    score = NULL,
+    team = NULL,
+    initialize = function(leagueRecord, score, team){
+      if (!missing(leagueRecord)) {
+        stopifnot(R6::is.R6(leagueRecord))
+        self$leagueRecord <- leagueRecord
       }
-      if (!missing(`score`)) {
-        stopifnot(is.numeric(`score`), length(`score`) == 1)
-        stopifnot(R6::is.R6(`score`))
-        self$`score` <- `score`
+      if (!missing(score)) {
+        stopifnot(is.numeric(score), length(score) == 1)
+        stopifnot(R6::is.R6(score))
+        self$score <- score
       }
-      if (!missing(`team`)) {
-        stopifnot(R6::is.R6(`team`))
-        self$`team` <- `team`
+      if (!missing(team)) {
+        stopifnot(R6::is.R6(team))
+        self$team <- team
       }
     },
     toJSON = function() {
       TeamNextGameScheduleTeamsHomeObject <- list()
-      if (!is.null(self$`leagueRecord`)) {
-        TeamNextGameScheduleTeamsHomeObject[['leagueRecord']] <- self$`leagueRecord`$toJSON()
+      if (!is.null(self$leagueRecord)) {
+        TeamNextGameScheduleTeamsHomeObject[['leagueRecord']] <- self$leagueRecord$toJSON()
       }
-      if (!is.null(self$`score`)) {
-        TeamNextGameScheduleTeamsHomeObject[['score']] <- self$`score`$toJSON()
+      if (!is.null(self$score)) {
+        TeamNextGameScheduleTeamsHomeObject[['score']] <- self$score$toJSON()
       }
-      if (!is.null(self$`team`)) {
-        TeamNextGameScheduleTeamsHomeObject[['team']] <- self$`team`$toJSON()
+      if (!is.null(self$team)) {
+        TeamNextGameScheduleTeamsHomeObject[['team']] <- self$team$toJSON()
       }
 
       TeamNextGameScheduleTeamsHomeObject
     },
     fromJSON = function(TeamNextGameScheduleTeamsHomeJson) {
       TeamNextGameScheduleTeamsHomeObject <- jsonlite::fromJSON(TeamNextGameScheduleTeamsHomeJson)
-      if (!is.null(TeamNextGameScheduleTeamsHomeObject$`leagueRecord`)) {
+      if (!is.null(TeamNextGameScheduleTeamsHomeObject$leagueRecord)) {
         leagueRecordObject <- TeamNextGameScheduleTeamsHomeLeagueRecord$new()
         leagueRecordObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$leagueRecord, auto_unbox = TRUE))
-        self$`leagueRecord` <- leagueRecordObject
+        self$leagueRecord <- leagueRecordObject
       }
-      if (!is.null(TeamNextGameScheduleTeamsHomeObject$`score`)) {
+      if (!is.null(TeamNextGameScheduleTeamsHomeObject$score)) {
         scoreObject <- BigDecimal$new()
         scoreObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$score, auto_unbox = TRUE))
-        self$`score` <- scoreObject
+        self$score <- scoreObject
       }
-      if (!is.null(TeamNextGameScheduleTeamsHomeObject$`team`)) {
+      if (!is.null(TeamNextGameScheduleTeamsHomeObject$team)) {
         teamObject <- PlayerCurrentTeam$new()
         teamObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$team, auto_unbox = TRUE))
-        self$`team` <- teamObject
+        self$team <- teamObject
       }
     },
     toJSONString = function() {
@@ -75,19 +75,19 @@ TeamNextGameScheduleTeamsHome <- R6::R6Class(
            "score": %s,
            "team": %s
         }',
-        self$`leagueRecord`$toJSON(),
-        self$`score`$toJSON(),
-        self$`team`$toJSON()
+        self$leagueRecord$toJSON(),
+        self$score$toJSON(),
+        self$team$toJSON()
       )
     },
     fromJSONString = function(TeamNextGameScheduleTeamsHomeJson) {
       TeamNextGameScheduleTeamsHomeObject <- jsonlite::fromJSON(TeamNextGameScheduleTeamsHomeJson)
       TeamNextGameScheduleTeamsHomeLeagueRecordObject <- TeamNextGameScheduleTeamsHomeLeagueRecord$new()
-      self$`leagueRecord` <- TeamNextGameScheduleTeamsHomeLeagueRecordObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$leagueRecord, auto_unbox = TRUE))
+      self$leagueRecord <- TeamNextGameScheduleTeamsHomeLeagueRecordObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$leagueRecord, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`score` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$score, auto_unbox = TRUE))
+      self$score <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$score, auto_unbox = TRUE))
       PlayerCurrentTeamObject <- PlayerCurrentTeam$new()
-      self$`team` <- PlayerCurrentTeamObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$team, auto_unbox = TRUE))
+      self$team <- PlayerCurrentTeamObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsHomeObject$team, auto_unbox = TRUE))
     }
   )
 )

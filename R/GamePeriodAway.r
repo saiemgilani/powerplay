@@ -18,53 +18,53 @@
 GamePeriodAway <- R6::R6Class(
   'GamePeriodAway',
   public = list(
-    `goals` = NULL,
-    `shotsOnGoal` = NULL,
-    `rinkSide` = NULL,
-    initialize = function(`goals`, `shotsOnGoal`, `rinkSide`){
-      if (!missing(`goals`)) {
-        stopifnot(is.numeric(`goals`), length(`goals`) == 1)
-        stopifnot(R6::is.R6(`goals`))
-        self$`goals` <- `goals`
+    goals = NULL,
+    shotsOnGoal = NULL,
+    rinkSide = NULL,
+    initialize = function(goals, shotsOnGoal, rinkSide){
+      if (!missing(goals)) {
+        stopifnot(is.numeric(goals), length(goals) == 1)
+        stopifnot(R6::is.R6(goals))
+        self$goals <- goals
       }
-      if (!missing(`shotsOnGoal`)) {
-        stopifnot(is.numeric(`shotsOnGoal`), length(`shotsOnGoal`) == 1)
-        stopifnot(R6::is.R6(`shotsOnGoal`))
-        self$`shotsOnGoal` <- `shotsOnGoal`
+      if (!missing(shotsOnGoal)) {
+        stopifnot(is.numeric(shotsOnGoal), length(shotsOnGoal) == 1)
+        stopifnot(R6::is.R6(shotsOnGoal))
+        self$shotsOnGoal <- shotsOnGoal
       }
-      if (!missing(`rinkSide`)) {
-        stopifnot(is.character(`rinkSide`), length(`rinkSide`) == 1)
-        self$`rinkSide` <- `rinkSide`
+      if (!missing(rinkSide)) {
+        stopifnot(is.character(rinkSide), length(rinkSide) == 1)
+        self$rinkSide <- rinkSide
       }
     },
     toJSON = function() {
       GamePeriodAwayObject <- list()
-      if (!is.null(self$`goals`)) {
-        GamePeriodAwayObject[['goals']] <- self$`goals`$toJSON()
+      if (!is.null(self$goals)) {
+        GamePeriodAwayObject[['goals']] <- self$goals$toJSON()
       }
-      if (!is.null(self$`shotsOnGoal`)) {
-        GamePeriodAwayObject[['shotsOnGoal']] <- self$`shotsOnGoal`$toJSON()
+      if (!is.null(self$shotsOnGoal)) {
+        GamePeriodAwayObject[['shotsOnGoal']] <- self$shotsOnGoal$toJSON()
       }
-      if (!is.null(self$`rinkSide`)) {
-        GamePeriodAwayObject[['rinkSide']] <- self$`rinkSide`
+      if (!is.null(self$rinkSide)) {
+        GamePeriodAwayObject[['rinkSide']] <- self$rinkSide
       }
 
       GamePeriodAwayObject
     },
     fromJSON = function(GamePeriodAwayJson) {
       GamePeriodAwayObject <- jsonlite::fromJSON(GamePeriodAwayJson)
-      if (!is.null(GamePeriodAwayObject$`goals`)) {
+      if (!is.null(GamePeriodAwayObject$goals)) {
         goalsObject <- BigDecimal$new()
         goalsObject$fromJSON(jsonlite::toJSON(GamePeriodAwayObject$goals, auto_unbox = TRUE))
-        self$`goals` <- goalsObject
+        self$goals <- goalsObject
       }
-      if (!is.null(GamePeriodAwayObject$`shotsOnGoal`)) {
+      if (!is.null(GamePeriodAwayObject$shotsOnGoal)) {
         shotsOnGoalObject <- BigDecimal$new()
         shotsOnGoalObject$fromJSON(jsonlite::toJSON(GamePeriodAwayObject$shotsOnGoal, auto_unbox = TRUE))
-        self$`shotsOnGoal` <- shotsOnGoalObject
+        self$shotsOnGoal <- shotsOnGoalObject
       }
-      if (!is.null(GamePeriodAwayObject$`rinkSide`)) {
-        self$`rinkSide` <- GamePeriodAwayObject$`rinkSide`
+      if (!is.null(GamePeriodAwayObject$rinkSide)) {
+        self$rinkSide <- GamePeriodAwayObject$rinkSide
       }
     },
     toJSONString = function() {
@@ -74,18 +74,18 @@ GamePeriodAway <- R6::R6Class(
            "shotsOnGoal": %s,
            "rinkSide": %s
         }',
-        self$`goals`$toJSON(),
-        self$`shotsOnGoal`$toJSON(),
-        self$`rinkSide`
+        self$goals$toJSON(),
+        self$shotsOnGoal$toJSON(),
+        self$rinkSide
       )
     },
     fromJSONString = function(GamePeriodAwayJson) {
       GamePeriodAwayObject <- jsonlite::fromJSON(GamePeriodAwayJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`goals` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePeriodAwayObject$goals, auto_unbox = TRUE))
+      self$goals <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePeriodAwayObject$goals, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`shotsOnGoal` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePeriodAwayObject$shotsOnGoal, auto_unbox = TRUE))
-      self$`rinkSide` <- GamePeriodAwayObject$`rinkSide`
+      self$shotsOnGoal <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePeriodAwayObject$shotsOnGoal, auto_unbox = TRUE))
+      self$rinkSide <- GamePeriodAwayObject$rinkSide
     }
   )
 )

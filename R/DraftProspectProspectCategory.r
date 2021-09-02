@@ -18,50 +18,50 @@
 DraftProspectProspectCategory <- R6::R6Class(
   'DraftProspectProspectCategory',
   public = list(
-    `id` = NULL,
-    `shortName` = NULL,
-    `name` = NULL,
-    initialize = function(`id`, `shortName`, `name`){
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        stopifnot(R6::is.R6(`id`))
-        self$`id` <- `id`
+    id = NULL,
+    shortName = NULL,
+    name = NULL,
+    initialize = function(id, shortName, name){
+      if (!missing(id)) {
+        stopifnot(is.numeric(id), length(id) == 1)
+        stopifnot(R6::is.R6(id))
+        self$id <- id
       }
-      if (!missing(`shortName`)) {
-        stopifnot(is.character(`shortName`), length(`shortName`) == 1)
-        self$`shortName` <- `shortName`
+      if (!missing(shortName)) {
+        stopifnot(is.character(shortName), length(shortName) == 1)
+        self$shortName <- shortName
       }
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
     },
     toJSON = function() {
       DraftProspectProspectCategoryObject <- list()
-      if (!is.null(self$`id`)) {
-        DraftProspectProspectCategoryObject[['id']] <- self$`id`$toJSON()
+      if (!is.null(self$id)) {
+        DraftProspectProspectCategoryObject[['id']] <- self$id$toJSON()
       }
-      if (!is.null(self$`shortName`)) {
-        DraftProspectProspectCategoryObject[['shortName']] <- self$`shortName`
+      if (!is.null(self$shortName)) {
+        DraftProspectProspectCategoryObject[['shortName']] <- self$shortName
       }
-      if (!is.null(self$`name`)) {
-        DraftProspectProspectCategoryObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        DraftProspectProspectCategoryObject[['name']] <- self$name
       }
 
       DraftProspectProspectCategoryObject
     },
     fromJSON = function(DraftProspectProspectCategoryJson) {
       DraftProspectProspectCategoryObject <- jsonlite::fromJSON(DraftProspectProspectCategoryJson)
-      if (!is.null(DraftProspectProspectCategoryObject$`id`)) {
+      if (!is.null(DraftProspectProspectCategoryObject$id)) {
         idObject <- BigDecimal$new()
         idObject$fromJSON(jsonlite::toJSON(DraftProspectProspectCategoryObject$id, auto_unbox = TRUE))
-        self$`id` <- idObject
+        self$id <- idObject
       }
-      if (!is.null(DraftProspectProspectCategoryObject$`shortName`)) {
-        self$`shortName` <- DraftProspectProspectCategoryObject$`shortName`
+      if (!is.null(DraftProspectProspectCategoryObject$shortName)) {
+        self$shortName <- DraftProspectProspectCategoryObject$shortName
       }
-      if (!is.null(DraftProspectProspectCategoryObject$`name`)) {
-        self$`name` <- DraftProspectProspectCategoryObject$`name`
+      if (!is.null(DraftProspectProspectCategoryObject$name)) {
+        self$name <- DraftProspectProspectCategoryObject$name
       }
     },
     toJSONString = function() {
@@ -71,17 +71,17 @@ DraftProspectProspectCategory <- R6::R6Class(
            "shortName": %s,
            "name": %s
         }',
-        self$`id`$toJSON(),
-        self$`shortName`,
-        self$`name`
+        self$id$toJSON(),
+        self$shortName,
+        self$name
       )
     },
     fromJSONString = function(DraftProspectProspectCategoryJson) {
       DraftProspectProspectCategoryObject <- jsonlite::fromJSON(DraftProspectProspectCategoryJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`id` <- BigDecimalObject$fromJSON(jsonlite::toJSON(DraftProspectProspectCategoryObject$id, auto_unbox = TRUE))
-      self$`shortName` <- DraftProspectProspectCategoryObject$`shortName`
-      self$`name` <- DraftProspectProspectCategoryObject$`name`
+      self$id <- BigDecimalObject$fromJSON(jsonlite::toJSON(DraftProspectProspectCategoryObject$id, auto_unbox = TRUE))
+      self$shortName <- DraftProspectProspectCategoryObject$shortName
+      self$name <- DraftProspectProspectCategoryObject$name
     }
   )
 )

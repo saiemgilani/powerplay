@@ -17,36 +17,36 @@
 GameEditorialContributorContributors <- R6::R6Class(
   'GameEditorialContributorContributors',
   public = list(
-    `name` = NULL,
-    `twitter` = NULL,
-    initialize = function(`name`, `twitter`){
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+    name = NULL,
+    twitter = NULL,
+    initialize = function(name, twitter){
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
-      if (!missing(`twitter`)) {
-        stopifnot(is.character(`twitter`), length(`twitter`) == 1)
-        self$`twitter` <- `twitter`
+      if (!missing(twitter)) {
+        stopifnot(is.character(twitter), length(twitter) == 1)
+        self$twitter <- twitter
       }
     },
     toJSON = function() {
       GameEditorialContributorContributorsObject <- list()
-      if (!is.null(self$`name`)) {
-        GameEditorialContributorContributorsObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        GameEditorialContributorContributorsObject[['name']] <- self$name
       }
-      if (!is.null(self$`twitter`)) {
-        GameEditorialContributorContributorsObject[['twitter']] <- self$`twitter`
+      if (!is.null(self$twitter)) {
+        GameEditorialContributorContributorsObject[['twitter']] <- self$twitter
       }
 
       GameEditorialContributorContributorsObject
     },
     fromJSON = function(GameEditorialContributorContributorsJson) {
       GameEditorialContributorContributorsObject <- jsonlite::fromJSON(GameEditorialContributorContributorsJson)
-      if (!is.null(GameEditorialContributorContributorsObject$`name`)) {
-        self$`name` <- GameEditorialContributorContributorsObject$`name`
+      if (!is.null(GameEditorialContributorContributorsObject$name)) {
+        self$name <- GameEditorialContributorContributorsObject$name
       }
-      if (!is.null(GameEditorialContributorContributorsObject$`twitter`)) {
-        self$`twitter` <- GameEditorialContributorContributorsObject$`twitter`
+      if (!is.null(GameEditorialContributorContributorsObject$twitter)) {
+        self$twitter <- GameEditorialContributorContributorsObject$twitter
       }
     },
     toJSONString = function() {
@@ -55,14 +55,14 @@ GameEditorialContributorContributors <- R6::R6Class(
            "name": %s,
            "twitter": %s
         }',
-        self$`name`,
-        self$`twitter`
+        self$name,
+        self$twitter
       )
     },
     fromJSONString = function(GameEditorialContributorContributorsJson) {
       GameEditorialContributorContributorsObject <- jsonlite::fromJSON(GameEditorialContributorContributorsJson)
-      self$`name` <- GameEditorialContributorContributorsObject$`name`
-      self$`twitter` <- GameEditorialContributorContributorsObject$`twitter`
+      self$name <- GameEditorialContributorContributorsObject$name
+      self$twitter <- GameEditorialContributorContributorsObject$twitter
     }
   )
 )

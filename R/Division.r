@@ -21,84 +21,84 @@
 Division <- R6::R6Class(
   'Division',
   public = list(
-    `id` = NULL,
-    `name` = NULL,
-    `link` = NULL,
-    `abbreviation` = NULL,
-    `conference` = NULL,
-    `active` = NULL,
-    initialize = function(`id`, `name`, `link`, `abbreviation`, `conference`, `active`){
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        stopifnot(R6::is.R6(`id`))
-        self$`id` <- `id`
+    id = NULL,
+    name = NULL,
+    link = NULL,
+    abbreviation = NULL,
+    conference = NULL,
+    active = NULL,
+    initialize = function(id, name, link, abbreviation, conference, active){
+      if (!missing(id)) {
+        stopifnot(is.numeric(id), length(id) == 1)
+        stopifnot(R6::is.R6(id))
+        self$id <- id
       }
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
-      if (!missing(`abbreviation`)) {
-        stopifnot(is.character(`abbreviation`), length(`abbreviation`) == 1)
-        self$`abbreviation` <- `abbreviation`
+      if (!missing(abbreviation)) {
+        stopifnot(is.character(abbreviation), length(abbreviation) == 1)
+        self$abbreviation <- abbreviation
       }
-      if (!missing(`conference`)) {
-        stopifnot(R6::is.R6(`conference`))
-        self$`conference` <- `conference`
+      if (!missing(conference)) {
+        stopifnot(R6::is.R6(conference))
+        self$conference <- conference
       }
-      if (!missing(`active`)) {
-        self$`active` <- `active`
+      if (!missing(active)) {
+        self$active <- active
       }
     },
     toJSON = function() {
       DivisionObject <- list()
-      if (!is.null(self$`id`)) {
-        DivisionObject[['id']] <- self$`id`$toJSON()
+      if (!is.null(self$id)) {
+        DivisionObject[['id']] <- self$id$toJSON()
       }
-      if (!is.null(self$`name`)) {
-        DivisionObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        DivisionObject[['name']] <- self$name
       }
-      if (!is.null(self$`link`)) {
-        DivisionObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        DivisionObject[['link']] <- self$link
       }
-      if (!is.null(self$`abbreviation`)) {
-        DivisionObject[['abbreviation']] <- self$`abbreviation`
+      if (!is.null(self$abbreviation)) {
+        DivisionObject[['abbreviation']] <- self$abbreviation
       }
-      if (!is.null(self$`conference`)) {
-        DivisionObject[['conference']] <- self$`conference`$toJSON()
+      if (!is.null(self$conference)) {
+        DivisionObject[['conference']] <- self$conference$toJSON()
       }
-      if (!is.null(self$`active`)) {
-        DivisionObject[['active']] <- self$`active`
+      if (!is.null(self$active)) {
+        DivisionObject[['active']] <- self$active
       }
 
       DivisionObject
     },
     fromJSON = function(DivisionJson) {
       DivisionObject <- jsonlite::fromJSON(DivisionJson)
-      if (!is.null(DivisionObject$`id`)) {
+      if (!is.null(DivisionObject$id)) {
         idObject <- BigDecimal$new()
         idObject$fromJSON(jsonlite::toJSON(DivisionObject$id, auto_unbox = TRUE))
-        self$`id` <- idObject
+        self$id <- idObject
       }
-      if (!is.null(DivisionObject$`name`)) {
-        self$`name` <- DivisionObject$`name`
+      if (!is.null(DivisionObject$name)) {
+        self$name <- DivisionObject$name
       }
-      if (!is.null(DivisionObject$`link`)) {
-        self$`link` <- DivisionObject$`link`
+      if (!is.null(DivisionObject$link)) {
+        self$link <- DivisionObject$link
       }
-      if (!is.null(DivisionObject$`abbreviation`)) {
-        self$`abbreviation` <- DivisionObject$`abbreviation`
+      if (!is.null(DivisionObject$abbreviation)) {
+        self$abbreviation <- DivisionObject$abbreviation
       }
-      if (!is.null(DivisionObject$`conference`)) {
+      if (!is.null(DivisionObject$conference)) {
         conferenceObject <- DivisionConference$new()
         conferenceObject$fromJSON(jsonlite::toJSON(DivisionObject$conference, auto_unbox = TRUE))
-        self$`conference` <- conferenceObject
+        self$conference <- conferenceObject
       }
-      if (!is.null(DivisionObject$`active`)) {
-        self$`active` <- DivisionObject$`active`
+      if (!is.null(DivisionObject$active)) {
+        self$active <- DivisionObject$active
       }
     },
     toJSONString = function() {
@@ -111,24 +111,24 @@ Division <- R6::R6Class(
            "conference": %s,
            "active": %s
         }',
-        self$`id`$toJSON(),
-        self$`name`,
-        self$`link`,
-        self$`abbreviation`,
-        self$`conference`$toJSON(),
-        self$`active`
+        self$id$toJSON(),
+        self$name,
+        self$link,
+        self$abbreviation,
+        self$conference$toJSON(),
+        self$active
       )
     },
     fromJSONString = function(DivisionJson) {
       DivisionObject <- jsonlite::fromJSON(DivisionJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`id` <- BigDecimalObject$fromJSON(jsonlite::toJSON(DivisionObject$id, auto_unbox = TRUE))
-      self$`name` <- DivisionObject$`name`
-      self$`link` <- DivisionObject$`link`
-      self$`abbreviation` <- DivisionObject$`abbreviation`
+      self$id <- BigDecimalObject$fromJSON(jsonlite::toJSON(DivisionObject$id, auto_unbox = TRUE))
+      self$name <- DivisionObject$name
+      self$link <- DivisionObject$link
+      self$abbreviation <- DivisionObject$abbreviation
       DivisionConferenceObject <- DivisionConference$new()
-      self$`conference` <- DivisionConferenceObject$fromJSON(jsonlite::toJSON(DivisionObject$conference, auto_unbox = TRUE))
-      self$`active` <- DivisionObject$`active`
+      self$conference <- DivisionConferenceObject$fromJSON(jsonlite::toJSON(DivisionObject$conference, auto_unbox = TRUE))
+      self$active <- DivisionObject$active
     }
   )
 )

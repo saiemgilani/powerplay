@@ -21,92 +21,92 @@
 GameGameData <- R6::R6Class(
   'GameGameData',
   public = list(
-    `game` = NULL,
-    `datetime` = NULL,
-    `status` = NULL,
-    `teams` = NULL,
-    `players` = NULL,
-    `venue` = NULL,
-    initialize = function(`game`, `datetime`, `status`, `teams`, `players`, `venue`){
-      if (!missing(`game`)) {
-        stopifnot(R6::is.R6(`game`))
-        self$`game` <- `game`
+    game = NULL,
+    datetime = NULL,
+    status = NULL,
+    teams = NULL,
+    players = NULL,
+    venue = NULL,
+    initialize = function(game, datetime, status, teams, players, venue){
+      if (!missing(game)) {
+        stopifnot(R6::is.R6(game))
+        self$game <- game
       }
-      if (!missing(`datetime`)) {
-        stopifnot(R6::is.R6(`datetime`))
-        self$`datetime` <- `datetime`
+      if (!missing(datetime)) {
+        stopifnot(R6::is.R6(datetime))
+        self$datetime <- datetime
       }
-      if (!missing(`status`)) {
-        stopifnot(R6::is.R6(`status`))
-        self$`status` <- `status`
+      if (!missing(status)) {
+        stopifnot(R6::is.R6(status))
+        self$status <- status
       }
-      if (!missing(`teams`)) {
-        stopifnot(R6::is.R6(`teams`))
-        self$`teams` <- `teams`
+      if (!missing(teams)) {
+        stopifnot(R6::is.R6(teams))
+        self$teams <- teams
       }
-      if (!missing(`players`)) {
-        stopifnot(R6::is.R6(`players`))
-        self$`players` <- `players`
+      if (!missing(players)) {
+        stopifnot(R6::is.R6(players))
+        self$players <- players
       }
-      if (!missing(`venue`)) {
-        stopifnot(R6::is.R6(`venue`))
-        self$`venue` <- `venue`
+      if (!missing(venue)) {
+        stopifnot(R6::is.R6(venue))
+        self$venue <- venue
       }
     },
     toJSON = function() {
       GameGameDataObject <- list()
-      if (!is.null(self$`game`)) {
-        GameGameDataObject[['game']] <- self$`game`$toJSON()
+      if (!is.null(self$game)) {
+        GameGameDataObject[['game']] <- self$game$toJSON()
       }
-      if (!is.null(self$`datetime`)) {
-        GameGameDataObject[['datetime']] <- self$`datetime`$toJSON()
+      if (!is.null(self$datetime)) {
+        GameGameDataObject[['datetime']] <- self$datetime$toJSON()
       }
-      if (!is.null(self$`status`)) {
-        GameGameDataObject[['status']] <- self$`status`$toJSON()
+      if (!is.null(self$status)) {
+        GameGameDataObject[['status']] <- self$status$toJSON()
       }
-      if (!is.null(self$`teams`)) {
-        GameGameDataObject[['teams']] <- self$`teams`$toJSON()
+      if (!is.null(self$teams)) {
+        GameGameDataObject[['teams']] <- self$teams$toJSON()
       }
-      if (!is.null(self$`players`)) {
-        GameGameDataObject[['players']] <- self$`players`$toJSON()
+      if (!is.null(self$players)) {
+        GameGameDataObject[['players']] <- self$players$toJSON()
       }
-      if (!is.null(self$`venue`)) {
-        GameGameDataObject[['venue']] <- self$`venue`$toJSON()
+      if (!is.null(self$venue)) {
+        GameGameDataObject[['venue']] <- self$venue$toJSON()
       }
 
       GameGameDataObject
     },
     fromJSON = function(GameGameDataJson) {
       GameGameDataObject <- jsonlite::fromJSON(GameGameDataJson)
-      if (!is.null(GameGameDataObject$`game`)) {
+      if (!is.null(GameGameDataObject$game)) {
         gameObject <- GameGameDataGame$new()
         gameObject$fromJSON(jsonlite::toJSON(GameGameDataObject$game, auto_unbox = TRUE))
-        self$`game` <- gameObject
+        self$game <- gameObject
       }
-      if (!is.null(GameGameDataObject$`datetime`)) {
+      if (!is.null(GameGameDataObject$datetime)) {
         datetimeObject <- GameGameDataDatetime$new()
         datetimeObject$fromJSON(jsonlite::toJSON(GameGameDataObject$datetime, auto_unbox = TRUE))
-        self$`datetime` <- datetimeObject
+        self$datetime <- datetimeObject
       }
-      if (!is.null(GameGameDataObject$`status`)) {
+      if (!is.null(GameGameDataObject$status)) {
         statusObject <- GameGameDataStatus$new()
         statusObject$fromJSON(jsonlite::toJSON(GameGameDataObject$status, auto_unbox = TRUE))
-        self$`status` <- statusObject
+        self$status <- statusObject
       }
-      if (!is.null(GameGameDataObject$`teams`)) {
+      if (!is.null(GameGameDataObject$teams)) {
         teamsObject <- GameGameDataTeams$new()
         teamsObject$fromJSON(jsonlite::toJSON(GameGameDataObject$teams, auto_unbox = TRUE))
-        self$`teams` <- teamsObject
+        self$teams <- teamsObject
       }
-      if (!is.null(GameGameDataObject$`players`)) {
+      if (!is.null(GameGameDataObject$players)) {
         playersObject <- Player$new()
         playersObject$fromJSON(jsonlite::toJSON(GameGameDataObject$players, auto_unbox = TRUE))
-        self$`players` <- playersObject
+        self$players <- playersObject
       }
-      if (!is.null(GameGameDataObject$`venue`)) {
+      if (!is.null(GameGameDataObject$venue)) {
         venueObject <- GameGameDataVenue$new()
         venueObject$fromJSON(jsonlite::toJSON(GameGameDataObject$venue, auto_unbox = TRUE))
-        self$`venue` <- venueObject
+        self$venue <- venueObject
       }
     },
     toJSONString = function() {
@@ -119,28 +119,28 @@ GameGameData <- R6::R6Class(
            "players": %s,
            "venue": %s
         }',
-        self$`game`$toJSON(),
-        self$`datetime`$toJSON(),
-        self$`status`$toJSON(),
-        self$`teams`$toJSON(),
-        self$`players`$toJSON(),
-        self$`venue`$toJSON()
+        self$game$toJSON(),
+        self$datetime$toJSON(),
+        self$status$toJSON(),
+        self$teams$toJSON(),
+        self$players$toJSON(),
+        self$venue$toJSON()
       )
     },
     fromJSONString = function(GameGameDataJson) {
       GameGameDataObject <- jsonlite::fromJSON(GameGameDataJson)
       GameGameDataGameObject <- GameGameDataGame$new()
-      self$`game` <- GameGameDataGameObject$fromJSON(jsonlite::toJSON(GameGameDataObject$game, auto_unbox = TRUE))
+      self$game <- GameGameDataGameObject$fromJSON(jsonlite::toJSON(GameGameDataObject$game, auto_unbox = TRUE))
       GameGameDataDatetimeObject <- GameGameDataDatetime$new()
-      self$`datetime` <- GameGameDataDatetimeObject$fromJSON(jsonlite::toJSON(GameGameDataObject$datetime, auto_unbox = TRUE))
+      self$datetime <- GameGameDataDatetimeObject$fromJSON(jsonlite::toJSON(GameGameDataObject$datetime, auto_unbox = TRUE))
       GameGameDataStatusObject <- GameGameDataStatus$new()
-      self$`status` <- GameGameDataStatusObject$fromJSON(jsonlite::toJSON(GameGameDataObject$status, auto_unbox = TRUE))
+      self$status <- GameGameDataStatusObject$fromJSON(jsonlite::toJSON(GameGameDataObject$status, auto_unbox = TRUE))
       GameGameDataTeamsObject <- GameGameDataTeams$new()
-      self$`teams` <- GameGameDataTeamsObject$fromJSON(jsonlite::toJSON(GameGameDataObject$teams, auto_unbox = TRUE))
+      self$teams <- GameGameDataTeamsObject$fromJSON(jsonlite::toJSON(GameGameDataObject$teams, auto_unbox = TRUE))
       PlayerObject <- Player$new()
-      self$`players` <- PlayerObject$fromJSON(jsonlite::toJSON(GameGameDataObject$players, auto_unbox = TRUE))
+      self$players <- PlayerObject$fromJSON(jsonlite::toJSON(GameGameDataObject$players, auto_unbox = TRUE))
       GameGameDataVenueObject <- GameGameDataVenue$new()
-      self$`venue` <- GameGameDataVenueObject$fromJSON(jsonlite::toJSON(GameGameDataObject$venue, auto_unbox = TRUE))
+      self$venue <- GameGameDataVenueObject$fromJSON(jsonlite::toJSON(GameGameDataObject$venue, auto_unbox = TRUE))
     }
   )
 )

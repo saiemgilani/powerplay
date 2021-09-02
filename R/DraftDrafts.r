@@ -17,40 +17,40 @@
 DraftDrafts <- R6::R6Class(
   'DraftDrafts',
   public = list(
-    `draftYear` = NULL,
-    `rounds` = NULL,
-    initialize = function(`draftYear`, `rounds`){
-      if (!missing(`draftYear`)) {
-        stopifnot(is.numeric(`draftYear`), length(`draftYear`) == 1)
-        stopifnot(R6::is.R6(`draftYear`))
-        self$`draftYear` <- `draftYear`
+    draftYear = NULL,
+    rounds = NULL,
+    initialize = function(draftYear, rounds){
+      if (!missing(draftYear)) {
+        stopifnot(is.numeric(draftYear), length(draftYear) == 1)
+        stopifnot(R6::is.R6(draftYear))
+        self$draftYear <- draftYear
       }
-      if (!missing(`rounds`)) {
-        stopifnot(is.list(`rounds`), length(`rounds`) != 0)
-        lapply(`rounds`, function(x) stopifnot(R6::is.R6(x)))
-        self$`rounds` <- `rounds`
+      if (!missing(rounds)) {
+        stopifnot(is.list(rounds), length(rounds) != 0)
+        lapply(rounds, function(x) stopifnot(R6::is.R6(x)))
+        self$rounds <- rounds
       }
     },
     toJSON = function() {
       DraftDraftsObject <- list()
-      if (!is.null(self$`draftYear`)) {
-        DraftDraftsObject[['draftYear']] <- self$`draftYear`$toJSON()
+      if (!is.null(self$draftYear)) {
+        DraftDraftsObject[['draftYear']] <- self$draftYear$toJSON()
       }
-      if (!is.null(self$`rounds`)) {
-        DraftDraftsObject[['rounds']] <- lapply(self$`rounds`, function(x) x$toJSON())
+      if (!is.null(self$rounds)) {
+        DraftDraftsObject[['rounds']] <- lapply(self$rounds, function(x) x$toJSON())
       }
 
       DraftDraftsObject
     },
     fromJSON = function(DraftDraftsJson) {
       DraftDraftsObject <- jsonlite::fromJSON(DraftDraftsJson)
-      if (!is.null(DraftDraftsObject$`draftYear`)) {
+      if (!is.null(DraftDraftsObject$draftYear)) {
         draftYearObject <- BigDecimal$new()
         draftYearObject$fromJSON(jsonlite::toJSON(DraftDraftsObject$draftYear, auto_unbox = TRUE))
-        self$`draftYear` <- draftYearObject
+        self$draftYear <- draftYearObject
       }
-      if (!is.null(DraftDraftsObject$`rounds`)) {
-        self$`rounds` <- lapply(DraftDraftsObject$`rounds`, function(x) {
+      if (!is.null(DraftDraftsObject$rounds)) {
+        self$rounds <- lapply(DraftDraftsObject$rounds, function(x) {
           roundsObject <- DraftRounds$new()
           roundsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           roundsObject
@@ -63,15 +63,15 @@ DraftDrafts <- R6::R6Class(
            "draftYear": %s,
            "rounds": [%s]
         }',
-        self$`draftYear`$toJSON(),
-        lapply(self$`rounds`, function(x) paste(x$toJSON(), sep=","))
+        self$draftYear$toJSON(),
+        lapply(self$rounds, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(DraftDraftsJson) {
       DraftDraftsObject <- jsonlite::fromJSON(DraftDraftsJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`draftYear` <- BigDecimalObject$fromJSON(jsonlite::toJSON(DraftDraftsObject$draftYear, auto_unbox = TRUE))
-      self$`rounds` <- lapply(DraftDraftsObject$`rounds`, function(x) DraftRounds$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$draftYear <- BigDecimalObject$fromJSON(jsonlite::toJSON(DraftDraftsObject$draftYear, auto_unbox = TRUE))
+      self$rounds <- lapply(DraftDraftsObject$rounds, function(x) DraftRounds$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

@@ -17,37 +17,37 @@
 GameMediaAudio <- R6::R6Class(
   'GameMediaAudio',
   public = list(
-    `title` = NULL,
-    `items` = NULL,
-    initialize = function(`title`, `items`){
-      if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
-        self$`title` <- `title`
+    title = NULL,
+    items = NULL,
+    initialize = function(title, items){
+      if (!missing(title)) {
+        stopifnot(is.character(title), length(title) == 1)
+        self$title <- title
       }
-      if (!missing(`items`)) {
-        stopifnot(is.list(`items`), length(`items`) != 0)
-        lapply(`items`, function(x) stopifnot(R6::is.R6(x)))
-        self$`items` <- `items`
+      if (!missing(items)) {
+        stopifnot(is.list(items), length(items) != 0)
+        lapply(items, function(x) stopifnot(R6::is.R6(x)))
+        self$items <- items
       }
     },
     toJSON = function() {
       GameMediaAudioObject <- list()
-      if (!is.null(self$`title`)) {
-        GameMediaAudioObject[['title']] <- self$`title`
+      if (!is.null(self$title)) {
+        GameMediaAudioObject[['title']] <- self$title
       }
-      if (!is.null(self$`items`)) {
-        GameMediaAudioObject[['items']] <- lapply(self$`items`, function(x) x$toJSON())
+      if (!is.null(self$items)) {
+        GameMediaAudioObject[['items']] <- lapply(self$items, function(x) x$toJSON())
       }
 
       GameMediaAudioObject
     },
     fromJSON = function(GameMediaAudioJson) {
       GameMediaAudioObject <- jsonlite::fromJSON(GameMediaAudioJson)
-      if (!is.null(GameMediaAudioObject$`title`)) {
-        self$`title` <- GameMediaAudioObject$`title`
+      if (!is.null(GameMediaAudioObject$title)) {
+        self$title <- GameMediaAudioObject$title
       }
-      if (!is.null(GameMediaAudioObject$`items`)) {
-        self$`items` <- lapply(GameMediaAudioObject$`items`, function(x) {
+      if (!is.null(GameMediaAudioObject$items)) {
+        self$items <- lapply(GameMediaAudioObject$items, function(x) {
           itemsObject <- GameMediaAudioItems$new()
           itemsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           itemsObject
@@ -60,14 +60,14 @@ GameMediaAudio <- R6::R6Class(
            "title": %s,
            "items": [%s]
         }',
-        self$`title`,
-        lapply(self$`items`, function(x) paste(x$toJSON(), sep=","))
+        self$title,
+        lapply(self$items, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(GameMediaAudioJson) {
       GameMediaAudioObject <- jsonlite::fromJSON(GameMediaAudioJson)
-      self$`title` <- GameMediaAudioObject$`title`
-      self$`items` <- lapply(GameMediaAudioObject$`items`, function(x) GameMediaAudioItems$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$title <- GameMediaAudioObject$title
+      self$items <- lapply(GameMediaAudioObject$items, function(x) GameMediaAudioItems$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

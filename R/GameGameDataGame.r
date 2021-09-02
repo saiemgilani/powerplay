@@ -18,50 +18,50 @@
 GameGameDataGame <- R6::R6Class(
   'GameGameDataGame',
   public = list(
-    `pk` = NULL,
-    `season` = NULL,
-    `type` = NULL,
-    initialize = function(`pk`, `season`, `type`){
-      if (!missing(`pk`)) {
-        stopifnot(is.numeric(`pk`), length(`pk`) == 1)
-        stopifnot(R6::is.R6(`pk`))
-        self$`pk` <- `pk`
+    pk = NULL,
+    season = NULL,
+    type = NULL,
+    initialize = function(pk, season, type){
+      if (!missing(pk)) {
+        stopifnot(is.numeric(pk), length(pk) == 1)
+        stopifnot(R6::is.R6(pk))
+        self$pk <- pk
       }
-      if (!missing(`season`)) {
-        stopifnot(is.character(`season`), length(`season`) == 1)
-        self$`season` <- `season`
+      if (!missing(season)) {
+        stopifnot(is.character(season), length(season) == 1)
+        self$season <- season
       }
-      if (!missing(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
-        self$`type` <- `type`
+      if (!missing(type)) {
+        stopifnot(is.character(type), length(type) == 1)
+        self$type <- type
       }
     },
     toJSON = function() {
       GameGameDataGameObject <- list()
-      if (!is.null(self$`pk`)) {
-        GameGameDataGameObject[['pk']] <- self$`pk`$toJSON()
+      if (!is.null(self$pk)) {
+        GameGameDataGameObject[['pk']] <- self$pk$toJSON()
       }
-      if (!is.null(self$`season`)) {
-        GameGameDataGameObject[['season']] <- self$`season`
+      if (!is.null(self$season)) {
+        GameGameDataGameObject[['season']] <- self$season
       }
-      if (!is.null(self$`type`)) {
-        GameGameDataGameObject[['type']] <- self$`type`
+      if (!is.null(self$type)) {
+        GameGameDataGameObject[['type']] <- self$type
       }
 
       GameGameDataGameObject
     },
     fromJSON = function(GameGameDataGameJson) {
       GameGameDataGameObject <- jsonlite::fromJSON(GameGameDataGameJson)
-      if (!is.null(GameGameDataGameObject$`pk`)) {
+      if (!is.null(GameGameDataGameObject$pk)) {
         pkObject <- BigDecimal$new()
         pkObject$fromJSON(jsonlite::toJSON(GameGameDataGameObject$pk, auto_unbox = TRUE))
-        self$`pk` <- pkObject
+        self$pk <- pkObject
       }
-      if (!is.null(GameGameDataGameObject$`season`)) {
-        self$`season` <- GameGameDataGameObject$`season`
+      if (!is.null(GameGameDataGameObject$season)) {
+        self$season <- GameGameDataGameObject$season
       }
-      if (!is.null(GameGameDataGameObject$`type`)) {
-        self$`type` <- GameGameDataGameObject$`type`
+      if (!is.null(GameGameDataGameObject$type)) {
+        self$type <- GameGameDataGameObject$type
       }
     },
     toJSONString = function() {
@@ -71,17 +71,17 @@ GameGameDataGame <- R6::R6Class(
            "season": %s,
            "type": %s
         }',
-        self$`pk`$toJSON(),
-        self$`season`,
-        self$`type`
+        self$pk$toJSON(),
+        self$season,
+        self$type
       )
     },
     fromJSONString = function(GameGameDataGameJson) {
       GameGameDataGameObject <- jsonlite::fromJSON(GameGameDataGameJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`pk` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameGameDataGameObject$pk, auto_unbox = TRUE))
-      self$`season` <- GameGameDataGameObject$`season`
-      self$`type` <- GameGameDataGameObject$`type`
+      self$pk <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameGameDataGameObject$pk, auto_unbox = TRUE))
+      self$season <- GameGameDataGameObject$season
+      self$type <- GameGameDataGameObject$type
     }
   )
 )

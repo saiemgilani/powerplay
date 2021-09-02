@@ -21,89 +21,89 @@
 Game <- R6::R6Class(
   'Game',
   public = list(
-    `copyright` = NULL,
-    `gamePk` = NULL,
-    `link` = NULL,
-    `metaData` = NULL,
-    `gameData` = NULL,
-    `liveData` = NULL,
-    initialize = function(`copyright`, `gamePk`, `link`, `metaData`, `gameData`, `liveData`){
-      if (!missing(`copyright`)) {
-        stopifnot(is.character(`copyright`), length(`copyright`) == 1)
-        self$`copyright` <- `copyright`
+    copyright = NULL,
+    gamePk = NULL,
+    link = NULL,
+    metaData = NULL,
+    gameData = NULL,
+    liveData = NULL,
+    initialize = function(copyright, gamePk, link, metaData, gameData, liveData){
+      if (!missing(copyright)) {
+        stopifnot(is.character(copyright), length(copyright) == 1)
+        self$copyright <- copyright
       }
-      if (!missing(`gamePk`)) {
-        stopifnot(is.numeric(`gamePk`), length(`gamePk`) == 1)
-        stopifnot(R6::is.R6(`gamePk`))
-        self$`gamePk` <- `gamePk`
+      if (!missing(gamePk)) {
+        stopifnot(is.numeric(gamePk), length(gamePk) == 1)
+        stopifnot(R6::is.R6(gamePk))
+        self$gamePk <- gamePk
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
-      if (!missing(`metaData`)) {
-        stopifnot(R6::is.R6(`metaData`))
-        self$`metaData` <- `metaData`
+      if (!missing(metaData)) {
+        stopifnot(R6::is.R6(metaData))
+        self$metaData <- metaData
       }
-      if (!missing(`gameData`)) {
-        stopifnot(R6::is.R6(`gameData`))
-        self$`gameData` <- `gameData`
+      if (!missing(gameData)) {
+        stopifnot(R6::is.R6(gameData))
+        self$gameData <- gameData
       }
-      if (!missing(`liveData`)) {
-        stopifnot(R6::is.R6(`liveData`))
-        self$`liveData` <- `liveData`
+      if (!missing(liveData)) {
+        stopifnot(R6::is.R6(liveData))
+        self$liveData <- liveData
       }
     },
     toJSON = function() {
       GameObject <- list()
-      if (!is.null(self$`copyright`)) {
-        GameObject[['copyright']] <- self$`copyright`
+      if (!is.null(self$copyright)) {
+        GameObject[['copyright']] <- self$copyright
       }
-      if (!is.null(self$`gamePk`)) {
-        GameObject[['gamePk']] <- self$`gamePk`$toJSON()
+      if (!is.null(self$gamePk)) {
+        GameObject[['gamePk']] <- self$gamePk$toJSON()
       }
-      if (!is.null(self$`link`)) {
-        GameObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        GameObject[['link']] <- self$link
       }
-      if (!is.null(self$`metaData`)) {
-        GameObject[['metaData']] <- self$`metaData`$toJSON()
+      if (!is.null(self$metaData)) {
+        GameObject[['metaData']] <- self$metaData$toJSON()
       }
-      if (!is.null(self$`gameData`)) {
-        GameObject[['gameData']] <- self$`gameData`$toJSON()
+      if (!is.null(self$gameData)) {
+        GameObject[['gameData']] <- self$gameData$toJSON()
       }
-      if (!is.null(self$`liveData`)) {
-        GameObject[['liveData']] <- self$`liveData`$toJSON()
+      if (!is.null(self$liveData)) {
+        GameObject[['liveData']] <- self$liveData$toJSON()
       }
 
       GameObject
     },
     fromJSON = function(GameJson) {
       GameObject <- jsonlite::fromJSON(GameJson)
-      if (!is.null(GameObject$`copyright`)) {
-        self$`copyright` <- GameObject$`copyright`
+      if (!is.null(GameObject$copyright)) {
+        self$copyright <- GameObject$copyright
       }
-      if (!is.null(GameObject$`gamePk`)) {
+      if (!is.null(GameObject$gamePk)) {
         gamePkObject <- BigDecimal$new()
         gamePkObject$fromJSON(jsonlite::toJSON(GameObject$gamePk, auto_unbox = TRUE))
-        self$`gamePk` <- gamePkObject
+        self$gamePk <- gamePkObject
       }
-      if (!is.null(GameObject$`link`)) {
-        self$`link` <- GameObject$`link`
+      if (!is.null(GameObject$link)) {
+        self$link <- GameObject$link
       }
-      if (!is.null(GameObject$`metaData`)) {
+      if (!is.null(GameObject$metaData)) {
         metaDataObject <- GameMetaData$new()
         metaDataObject$fromJSON(jsonlite::toJSON(GameObject$metaData, auto_unbox = TRUE))
-        self$`metaData` <- metaDataObject
+        self$metaData <- metaDataObject
       }
-      if (!is.null(GameObject$`gameData`)) {
+      if (!is.null(GameObject$gameData)) {
         gameDataObject <- GameGameData$new()
         gameDataObject$fromJSON(jsonlite::toJSON(GameObject$gameData, auto_unbox = TRUE))
-        self$`gameData` <- gameDataObject
+        self$gameData <- gameDataObject
       }
-      if (!is.null(GameObject$`liveData`)) {
+      if (!is.null(GameObject$liveData)) {
         liveDataObject <- GameLiveData$new()
         liveDataObject$fromJSON(jsonlite::toJSON(GameObject$liveData, auto_unbox = TRUE))
-        self$`liveData` <- liveDataObject
+        self$liveData <- liveDataObject
       }
     },
     toJSONString = function() {
@@ -116,26 +116,26 @@ Game <- R6::R6Class(
            "gameData": %s,
            "liveData": %s
         }',
-        self$`copyright`,
-        self$`gamePk`$toJSON(),
-        self$`link`,
-        self$`metaData`$toJSON(),
-        self$`gameData`$toJSON(),
-        self$`liveData`$toJSON()
+        self$copyright,
+        self$gamePk$toJSON(),
+        self$link,
+        self$metaData$toJSON(),
+        self$gameData$toJSON(),
+        self$liveData$toJSON()
       )
     },
     fromJSONString = function(GameJson) {
       GameObject <- jsonlite::fromJSON(GameJson)
-      self$`copyright` <- GameObject$`copyright`
+      self$copyright <- GameObject$copyright
       BigDecimalObject <- BigDecimal$new()
-      self$`gamePk` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameObject$gamePk, auto_unbox = TRUE))
-      self$`link` <- GameObject$`link`
+      self$gamePk <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameObject$gamePk, auto_unbox = TRUE))
+      self$link <- GameObject$link
       GameMetaDataObject <- GameMetaData$new()
-      self$`metaData` <- GameMetaDataObject$fromJSON(jsonlite::toJSON(GameObject$metaData, auto_unbox = TRUE))
+      self$metaData <- GameMetaDataObject$fromJSON(jsonlite::toJSON(GameObject$metaData, auto_unbox = TRUE))
       GameGameDataObject <- GameGameData$new()
-      self$`gameData` <- GameGameDataObject$fromJSON(jsonlite::toJSON(GameObject$gameData, auto_unbox = TRUE))
+      self$gameData <- GameGameDataObject$fromJSON(jsonlite::toJSON(GameObject$gameData, auto_unbox = TRUE))
       GameLiveDataObject <- GameLiveData$new()
-      self$`liveData` <- GameLiveDataObject$fromJSON(jsonlite::toJSON(GameObject$liveData, auto_unbox = TRUE))
+      self$liveData <- GameLiveDataObject$fromJSON(jsonlite::toJSON(GameObject$liveData, auto_unbox = TRUE))
     }
   )
 )

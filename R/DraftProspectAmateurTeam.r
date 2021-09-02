@@ -16,25 +16,25 @@
 DraftProspectAmateurTeam <- R6::R6Class(
   'DraftProspectAmateurTeam',
   public = list(
-    `link` = NULL,
-    initialize = function(`link`){
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+    link = NULL,
+    initialize = function(link){
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       DraftProspectAmateurTeamObject <- list()
-      if (!is.null(self$`link`)) {
-        DraftProspectAmateurTeamObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        DraftProspectAmateurTeamObject[['link']] <- self$link
       }
 
       DraftProspectAmateurTeamObject
     },
     fromJSON = function(DraftProspectAmateurTeamJson) {
       DraftProspectAmateurTeamObject <- jsonlite::fromJSON(DraftProspectAmateurTeamJson)
-      if (!is.null(DraftProspectAmateurTeamObject$`link`)) {
-        self$`link` <- DraftProspectAmateurTeamObject$`link`
+      if (!is.null(DraftProspectAmateurTeamObject$link)) {
+        self$link <- DraftProspectAmateurTeamObject$link
       }
     },
     toJSONString = function() {
@@ -42,12 +42,12 @@ DraftProspectAmateurTeam <- R6::R6Class(
         '{
            "link": %s
         }',
-        self$`link`
+        self$link
       )
     },
     fromJSONString = function(DraftProspectAmateurTeamJson) {
       DraftProspectAmateurTeamObject <- jsonlite::fromJSON(DraftProspectAmateurTeamJson)
-      self$`link` <- DraftProspectAmateurTeamObject$`link`
+      self$link <- DraftProspectAmateurTeamObject$link
     }
   )
 )

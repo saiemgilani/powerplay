@@ -18,48 +18,48 @@
 GameEditorials <- R6::R6Class(
   'GameEditorials',
   public = list(
-    `title` = NULL,
-    `topicList` = NULL,
-    `items` = NULL,
-    initialize = function(`title`, `topicList`, `items`){
-      if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
-        self$`title` <- `title`
+    title = NULL,
+    topicList = NULL,
+    items = NULL,
+    initialize = function(title, topicList, items){
+      if (!missing(title)) {
+        stopifnot(is.character(title), length(title) == 1)
+        self$title <- title
       }
-      if (!missing(`topicList`)) {
-        stopifnot(is.character(`topicList`), length(`topicList`) == 1)
-        self$`topicList` <- `topicList`
+      if (!missing(topicList)) {
+        stopifnot(is.character(topicList), length(topicList) == 1)
+        self$topicList <- topicList
       }
-      if (!missing(`items`)) {
-        stopifnot(is.list(`items`), length(`items`) != 0)
-        lapply(`items`, function(x) stopifnot(R6::is.R6(x)))
-        self$`items` <- `items`
+      if (!missing(items)) {
+        stopifnot(is.list(items), length(items) != 0)
+        lapply(items, function(x) stopifnot(R6::is.R6(x)))
+        self$items <- items
       }
     },
     toJSON = function() {
       GameEditorialsObject <- list()
-      if (!is.null(self$`title`)) {
-        GameEditorialsObject[['title']] <- self$`title`
+      if (!is.null(self$title)) {
+        GameEditorialsObject[['title']] <- self$title
       }
-      if (!is.null(self$`topicList`)) {
-        GameEditorialsObject[['topicList']] <- self$`topicList`
+      if (!is.null(self$topicList)) {
+        GameEditorialsObject[['topicList']] <- self$topicList
       }
-      if (!is.null(self$`items`)) {
-        GameEditorialsObject[['items']] <- lapply(self$`items`, function(x) x$toJSON())
+      if (!is.null(self$items)) {
+        GameEditorialsObject[['items']] <- lapply(self$items, function(x) x$toJSON())
       }
 
       GameEditorialsObject
     },
     fromJSON = function(GameEditorialsJson) {
       GameEditorialsObject <- jsonlite::fromJSON(GameEditorialsJson)
-      if (!is.null(GameEditorialsObject$`title`)) {
-        self$`title` <- GameEditorialsObject$`title`
+      if (!is.null(GameEditorialsObject$title)) {
+        self$title <- GameEditorialsObject$title
       }
-      if (!is.null(GameEditorialsObject$`topicList`)) {
-        self$`topicList` <- GameEditorialsObject$`topicList`
+      if (!is.null(GameEditorialsObject$topicList)) {
+        self$topicList <- GameEditorialsObject$topicList
       }
-      if (!is.null(GameEditorialsObject$`items`)) {
-        self$`items` <- lapply(GameEditorialsObject$`items`, function(x) {
+      if (!is.null(GameEditorialsObject$items)) {
+        self$items <- lapply(GameEditorialsObject$items, function(x) {
           itemsObject <- GameEditorial$new()
           itemsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           itemsObject
@@ -73,16 +73,16 @@ GameEditorials <- R6::R6Class(
            "topicList": %s,
            "items": [%s]
         }',
-        self$`title`,
-        self$`topicList`,
-        lapply(self$`items`, function(x) paste(x$toJSON(), sep=","))
+        self$title,
+        self$topicList,
+        lapply(self$items, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(GameEditorialsJson) {
       GameEditorialsObject <- jsonlite::fromJSON(GameEditorialsJson)
-      self$`title` <- GameEditorialsObject$`title`
-      self$`topicList` <- GameEditorialsObject$`topicList`
-      self$`items` <- lapply(GameEditorialsObject$`items`, function(x) GameEditorial$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$title <- GameEditorialsObject$title
+      self$topicList <- GameEditorialsObject$topicList
+      self$items <- lapply(GameEditorialsObject$items, function(x) GameEditorial$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

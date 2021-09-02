@@ -17,36 +17,36 @@
 GameGameDataVenue <- R6::R6Class(
   'GameGameDataVenue',
   public = list(
-    `name` = NULL,
-    `link` = NULL,
-    initialize = function(`name`, `link`){
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+    name = NULL,
+    link = NULL,
+    initialize = function(name, link){
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       GameGameDataVenueObject <- list()
-      if (!is.null(self$`name`)) {
-        GameGameDataVenueObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        GameGameDataVenueObject[['name']] <- self$name
       }
-      if (!is.null(self$`link`)) {
-        GameGameDataVenueObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        GameGameDataVenueObject[['link']] <- self$link
       }
 
       GameGameDataVenueObject
     },
     fromJSON = function(GameGameDataVenueJson) {
       GameGameDataVenueObject <- jsonlite::fromJSON(GameGameDataVenueJson)
-      if (!is.null(GameGameDataVenueObject$`name`)) {
-        self$`name` <- GameGameDataVenueObject$`name`
+      if (!is.null(GameGameDataVenueObject$name)) {
+        self$name <- GameGameDataVenueObject$name
       }
-      if (!is.null(GameGameDataVenueObject$`link`)) {
-        self$`link` <- GameGameDataVenueObject$`link`
+      if (!is.null(GameGameDataVenueObject$link)) {
+        self$link <- GameGameDataVenueObject$link
       }
     },
     toJSONString = function() {
@@ -55,14 +55,14 @@ GameGameDataVenue <- R6::R6Class(
            "name": %s,
            "link": %s
         }',
-        self$`name`,
-        self$`link`
+        self$name,
+        self$link
       )
     },
     fromJSONString = function(GameGameDataVenueJson) {
       GameGameDataVenueObject <- jsonlite::fromJSON(GameGameDataVenueJson)
-      self$`name` <- GameGameDataVenueObject$`name`
-      self$`link` <- GameGameDataVenueObject$`link`
+      self$name <- GameGameDataVenueObject$name
+      self$link <- GameGameDataVenueObject$link
     }
   )
 )

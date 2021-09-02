@@ -18,50 +18,50 @@
 GameDecisionPlayer <- R6::R6Class(
   'GameDecisionPlayer',
   public = list(
-    `id` = NULL,
-    `fullName` = NULL,
-    `link` = NULL,
-    initialize = function(`id`, `fullName`, `link`){
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        stopifnot(R6::is.R6(`id`))
-        self$`id` <- `id`
+    id = NULL,
+    fullName = NULL,
+    link = NULL,
+    initialize = function(id, fullName, link){
+      if (!missing(id)) {
+        stopifnot(is.numeric(id), length(id) == 1)
+        stopifnot(R6::is.R6(id))
+        self$id <- id
       }
-      if (!missing(`fullName`)) {
-        stopifnot(is.character(`fullName`), length(`fullName`) == 1)
-        self$`fullName` <- `fullName`
+      if (!missing(fullName)) {
+        stopifnot(is.character(fullName), length(fullName) == 1)
+        self$fullName <- fullName
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
     },
     toJSON = function() {
       GameDecisionPlayerObject <- list()
-      if (!is.null(self$`id`)) {
-        GameDecisionPlayerObject[['id']] <- self$`id`$toJSON()
+      if (!is.null(self$id)) {
+        GameDecisionPlayerObject[['id']] <- self$id$toJSON()
       }
-      if (!is.null(self$`fullName`)) {
-        GameDecisionPlayerObject[['fullName']] <- self$`fullName`
+      if (!is.null(self$fullName)) {
+        GameDecisionPlayerObject[['fullName']] <- self$fullName
       }
-      if (!is.null(self$`link`)) {
-        GameDecisionPlayerObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        GameDecisionPlayerObject[['link']] <- self$link
       }
 
       GameDecisionPlayerObject
     },
     fromJSON = function(GameDecisionPlayerJson) {
       GameDecisionPlayerObject <- jsonlite::fromJSON(GameDecisionPlayerJson)
-      if (!is.null(GameDecisionPlayerObject$`id`)) {
+      if (!is.null(GameDecisionPlayerObject$id)) {
         idObject <- BigDecimal$new()
         idObject$fromJSON(jsonlite::toJSON(GameDecisionPlayerObject$id, auto_unbox = TRUE))
-        self$`id` <- idObject
+        self$id <- idObject
       }
-      if (!is.null(GameDecisionPlayerObject$`fullName`)) {
-        self$`fullName` <- GameDecisionPlayerObject$`fullName`
+      if (!is.null(GameDecisionPlayerObject$fullName)) {
+        self$fullName <- GameDecisionPlayerObject$fullName
       }
-      if (!is.null(GameDecisionPlayerObject$`link`)) {
-        self$`link` <- GameDecisionPlayerObject$`link`
+      if (!is.null(GameDecisionPlayerObject$link)) {
+        self$link <- GameDecisionPlayerObject$link
       }
     },
     toJSONString = function() {
@@ -71,17 +71,17 @@ GameDecisionPlayer <- R6::R6Class(
            "fullName": %s,
            "link": %s
         }',
-        self$`id`$toJSON(),
-        self$`fullName`,
-        self$`link`
+        self$id$toJSON(),
+        self$fullName,
+        self$link
       )
     },
     fromJSONString = function(GameDecisionPlayerJson) {
       GameDecisionPlayerObject <- jsonlite::fromJSON(GameDecisionPlayerJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`id` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameDecisionPlayerObject$id, auto_unbox = TRUE))
-      self$`fullName` <- GameDecisionPlayerObject$`fullName`
-      self$`link` <- GameDecisionPlayerObject$`link`
+      self$id <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameDecisionPlayerObject$id, auto_unbox = TRUE))
+      self$fullName <- GameDecisionPlayerObject$fullName
+      self$link <- GameDecisionPlayerObject$link
     }
   )
 )

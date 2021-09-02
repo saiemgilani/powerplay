@@ -25,139 +25,139 @@
 GameLinescore <- R6::R6Class(
   'GameLinescore',
   public = list(
-    `currentPeriod` = NULL,
-    `currentPeriodOrdinal` = NULL,
-    `currentPeriodTimeRemaining` = NULL,
-    `periods` = NULL,
-    `shootoutInfo` = NULL,
-    `teams` = NULL,
-    `powerPlayStrength` = NULL,
-    `hasShootout` = NULL,
-    `intermissionInfo` = NULL,
-    `powerPlayInfo` = NULL,
-    initialize = function(`currentPeriod`, `currentPeriodOrdinal`, `currentPeriodTimeRemaining`, `periods`, `shootoutInfo`, `teams`, `powerPlayStrength`, `hasShootout`, `intermissionInfo`, `powerPlayInfo`){
-      if (!missing(`currentPeriod`)) {
-        stopifnot(is.numeric(`currentPeriod`), length(`currentPeriod`) == 1)
-        stopifnot(R6::is.R6(`currentPeriod`))
-        self$`currentPeriod` <- `currentPeriod`
+    currentPeriod = NULL,
+    currentPeriodOrdinal = NULL,
+    currentPeriodTimeRemaining = NULL,
+    periods = NULL,
+    shootoutInfo = NULL,
+    teams = NULL,
+    powerPlayStrength = NULL,
+    hasShootout = NULL,
+    intermissionInfo = NULL,
+    powerPlayInfo = NULL,
+    initialize = function(currentPeriod, currentPeriodOrdinal, currentPeriodTimeRemaining, periods, shootoutInfo, teams, powerPlayStrength, hasShootout, intermissionInfo, powerPlayInfo){
+      if (!missing(currentPeriod)) {
+        stopifnot(is.numeric(currentPeriod), length(currentPeriod) == 1)
+        stopifnot(R6::is.R6(currentPeriod))
+        self$currentPeriod <- currentPeriod
       }
-      if (!missing(`currentPeriodOrdinal`)) {
-        stopifnot(is.character(`currentPeriodOrdinal`), length(`currentPeriodOrdinal`) == 1)
-        self$`currentPeriodOrdinal` <- `currentPeriodOrdinal`
+      if (!missing(currentPeriodOrdinal)) {
+        stopifnot(is.character(currentPeriodOrdinal), length(currentPeriodOrdinal) == 1)
+        self$currentPeriodOrdinal <- currentPeriodOrdinal
       }
-      if (!missing(`currentPeriodTimeRemaining`)) {
-        stopifnot(is.character(`currentPeriodTimeRemaining`), length(`currentPeriodTimeRemaining`) == 1)
-        self$`currentPeriodTimeRemaining` <- `currentPeriodTimeRemaining`
+      if (!missing(currentPeriodTimeRemaining)) {
+        stopifnot(is.character(currentPeriodTimeRemaining), length(currentPeriodTimeRemaining) == 1)
+        self$currentPeriodTimeRemaining <- currentPeriodTimeRemaining
       }
-      if (!missing(`periods`)) {
-        stopifnot(is.list(`periods`), length(`periods`) != 0)
-        lapply(`periods`, function(x) stopifnot(R6::is.R6(x)))
-        self$`periods` <- `periods`
+      if (!missing(periods)) {
+        stopifnot(is.list(periods), length(periods) != 0)
+        lapply(periods, function(x) stopifnot(R6::is.R6(x)))
+        self$periods <- periods
       }
-      if (!missing(`shootoutInfo`)) {
-        stopifnot(R6::is.R6(`shootoutInfo`))
-        self$`shootoutInfo` <- `shootoutInfo`
+      if (!missing(shootoutInfo)) {
+        stopifnot(R6::is.R6(shootoutInfo))
+        self$shootoutInfo <- shootoutInfo
       }
-      if (!missing(`teams`)) {
-        stopifnot(R6::is.R6(`teams`))
-        self$`teams` <- `teams`
+      if (!missing(teams)) {
+        stopifnot(R6::is.R6(teams))
+        self$teams <- teams
       }
-      if (!missing(`powerPlayStrength`)) {
-        stopifnot(is.character(`powerPlayStrength`), length(`powerPlayStrength`) == 1)
-        self$`powerPlayStrength` <- `powerPlayStrength`
+      if (!missing(powerPlayStrength)) {
+        stopifnot(is.character(powerPlayStrength), length(powerPlayStrength) == 1)
+        self$powerPlayStrength <- powerPlayStrength
       }
-      if (!missing(`hasShootout`)) {
-        self$`hasShootout` <- `hasShootout`
+      if (!missing(hasShootout)) {
+        self$hasShootout <- hasShootout
       }
-      if (!missing(`intermissionInfo`)) {
-        stopifnot(R6::is.R6(`intermissionInfo`))
-        self$`intermissionInfo` <- `intermissionInfo`
+      if (!missing(intermissionInfo)) {
+        stopifnot(R6::is.R6(intermissionInfo))
+        self$intermissionInfo <- intermissionInfo
       }
-      if (!missing(`powerPlayInfo`)) {
-        stopifnot(R6::is.R6(`powerPlayInfo`))
-        self$`powerPlayInfo` <- `powerPlayInfo`
+      if (!missing(powerPlayInfo)) {
+        stopifnot(R6::is.R6(powerPlayInfo))
+        self$powerPlayInfo <- powerPlayInfo
       }
     },
     toJSON = function() {
       GameLinescoreObject <- list()
-      if (!is.null(self$`currentPeriod`)) {
-        GameLinescoreObject[['currentPeriod']] <- self$`currentPeriod`$toJSON()
+      if (!is.null(self$currentPeriod)) {
+        GameLinescoreObject[['currentPeriod']] <- self$currentPeriod$toJSON()
       }
-      if (!is.null(self$`currentPeriodOrdinal`)) {
-        GameLinescoreObject[['currentPeriodOrdinal']] <- self$`currentPeriodOrdinal`
+      if (!is.null(self$currentPeriodOrdinal)) {
+        GameLinescoreObject[['currentPeriodOrdinal']] <- self$currentPeriodOrdinal
       }
-      if (!is.null(self$`currentPeriodTimeRemaining`)) {
-        GameLinescoreObject[['currentPeriodTimeRemaining']] <- self$`currentPeriodTimeRemaining`
+      if (!is.null(self$currentPeriodTimeRemaining)) {
+        GameLinescoreObject[['currentPeriodTimeRemaining']] <- self$currentPeriodTimeRemaining
       }
-      if (!is.null(self$`periods`)) {
-        GameLinescoreObject[['periods']] <- lapply(self$`periods`, function(x) x$toJSON())
+      if (!is.null(self$periods)) {
+        GameLinescoreObject[['periods']] <- lapply(self$periods, function(x) x$toJSON())
       }
-      if (!is.null(self$`shootoutInfo`)) {
-        GameLinescoreObject[['shootoutInfo']] <- self$`shootoutInfo`$toJSON()
+      if (!is.null(self$shootoutInfo)) {
+        GameLinescoreObject[['shootoutInfo']] <- self$shootoutInfo$toJSON()
       }
-      if (!is.null(self$`teams`)) {
-        GameLinescoreObject[['teams']] <- self$`teams`$toJSON()
+      if (!is.null(self$teams)) {
+        GameLinescoreObject[['teams']] <- self$teams$toJSON()
       }
-      if (!is.null(self$`powerPlayStrength`)) {
-        GameLinescoreObject[['powerPlayStrength']] <- self$`powerPlayStrength`
+      if (!is.null(self$powerPlayStrength)) {
+        GameLinescoreObject[['powerPlayStrength']] <- self$powerPlayStrength
       }
-      if (!is.null(self$`hasShootout`)) {
-        GameLinescoreObject[['hasShootout']] <- self$`hasShootout`
+      if (!is.null(self$hasShootout)) {
+        GameLinescoreObject[['hasShootout']] <- self$hasShootout
       }
-      if (!is.null(self$`intermissionInfo`)) {
-        GameLinescoreObject[['intermissionInfo']] <- self$`intermissionInfo`$toJSON()
+      if (!is.null(self$intermissionInfo)) {
+        GameLinescoreObject[['intermissionInfo']] <- self$intermissionInfo$toJSON()
       }
-      if (!is.null(self$`powerPlayInfo`)) {
-        GameLinescoreObject[['powerPlayInfo']] <- self$`powerPlayInfo`$toJSON()
+      if (!is.null(self$powerPlayInfo)) {
+        GameLinescoreObject[['powerPlayInfo']] <- self$powerPlayInfo$toJSON()
       }
 
       GameLinescoreObject
     },
     fromJSON = function(GameLinescoreJson) {
       GameLinescoreObject <- jsonlite::fromJSON(GameLinescoreJson)
-      if (!is.null(GameLinescoreObject$`currentPeriod`)) {
+      if (!is.null(GameLinescoreObject$currentPeriod)) {
         currentPeriodObject <- BigDecimal$new()
         currentPeriodObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$currentPeriod, auto_unbox = TRUE))
-        self$`currentPeriod` <- currentPeriodObject
+        self$currentPeriod <- currentPeriodObject
       }
-      if (!is.null(GameLinescoreObject$`currentPeriodOrdinal`)) {
-        self$`currentPeriodOrdinal` <- GameLinescoreObject$`currentPeriodOrdinal`
+      if (!is.null(GameLinescoreObject$currentPeriodOrdinal)) {
+        self$currentPeriodOrdinal <- GameLinescoreObject$currentPeriodOrdinal
       }
-      if (!is.null(GameLinescoreObject$`currentPeriodTimeRemaining`)) {
-        self$`currentPeriodTimeRemaining` <- GameLinescoreObject$`currentPeriodTimeRemaining`
+      if (!is.null(GameLinescoreObject$currentPeriodTimeRemaining)) {
+        self$currentPeriodTimeRemaining <- GameLinescoreObject$currentPeriodTimeRemaining
       }
-      if (!is.null(GameLinescoreObject$`periods`)) {
-        self$`periods` <- lapply(GameLinescoreObject$`periods`, function(x) {
+      if (!is.null(GameLinescoreObject$periods)) {
+        self$periods <- lapply(GameLinescoreObject$periods, function(x) {
           periodsObject <- GamePeriod$new()
           periodsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           periodsObject
         })
       }
-      if (!is.null(GameLinescoreObject$`shootoutInfo`)) {
+      if (!is.null(GameLinescoreObject$shootoutInfo)) {
         shootoutInfoObject <- GameLinescoreShootoutInfo$new()
         shootoutInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$shootoutInfo, auto_unbox = TRUE))
-        self$`shootoutInfo` <- shootoutInfoObject
+        self$shootoutInfo <- shootoutInfoObject
       }
-      if (!is.null(GameLinescoreObject$`teams`)) {
+      if (!is.null(GameLinescoreObject$teams)) {
         teamsObject <- GameLinescoreTeams$new()
         teamsObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$teams, auto_unbox = TRUE))
-        self$`teams` <- teamsObject
+        self$teams <- teamsObject
       }
-      if (!is.null(GameLinescoreObject$`powerPlayStrength`)) {
-        self$`powerPlayStrength` <- GameLinescoreObject$`powerPlayStrength`
+      if (!is.null(GameLinescoreObject$powerPlayStrength)) {
+        self$powerPlayStrength <- GameLinescoreObject$powerPlayStrength
       }
-      if (!is.null(GameLinescoreObject$`hasShootout`)) {
-        self$`hasShootout` <- GameLinescoreObject$`hasShootout`
+      if (!is.null(GameLinescoreObject$hasShootout)) {
+        self$hasShootout <- GameLinescoreObject$hasShootout
       }
-      if (!is.null(GameLinescoreObject$`intermissionInfo`)) {
+      if (!is.null(GameLinescoreObject$intermissionInfo)) {
         intermissionInfoObject <- GameLinescoreIntermissionInfo$new()
         intermissionInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$intermissionInfo, auto_unbox = TRUE))
-        self$`intermissionInfo` <- intermissionInfoObject
+        self$intermissionInfo <- intermissionInfoObject
       }
-      if (!is.null(GameLinescoreObject$`powerPlayInfo`)) {
+      if (!is.null(GameLinescoreObject$powerPlayInfo)) {
         powerPlayInfoObject <- GameLinescorePowerPlayInfo$new()
         powerPlayInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$powerPlayInfo, auto_unbox = TRUE))
-        self$`powerPlayInfo` <- powerPlayInfoObject
+        self$powerPlayInfo <- powerPlayInfoObject
       }
     },
     toJSONString = function() {
@@ -174,35 +174,35 @@ GameLinescore <- R6::R6Class(
            "intermissionInfo": %s,
            "powerPlayInfo": %s
         }',
-        self$`currentPeriod`$toJSON(),
-        self$`currentPeriodOrdinal`,
-        self$`currentPeriodTimeRemaining`,
-        lapply(self$`periods`, function(x) paste(x$toJSON(), sep=",")),
-        self$`shootoutInfo`$toJSON(),
-        self$`teams`$toJSON(),
-        self$`powerPlayStrength`,
-        self$`hasShootout`,
-        self$`intermissionInfo`$toJSON(),
-        self$`powerPlayInfo`$toJSON()
+        self$currentPeriod$toJSON(),
+        self$currentPeriodOrdinal,
+        self$currentPeriodTimeRemaining,
+        lapply(self$periods, function(x) paste(x$toJSON(), sep=",")),
+        self$shootoutInfo$toJSON(),
+        self$teams$toJSON(),
+        self$powerPlayStrength,
+        self$hasShootout,
+        self$intermissionInfo$toJSON(),
+        self$powerPlayInfo$toJSON()
       )
     },
     fromJSONString = function(GameLinescoreJson) {
       GameLinescoreObject <- jsonlite::fromJSON(GameLinescoreJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`currentPeriod` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$currentPeriod, auto_unbox = TRUE))
-      self$`currentPeriodOrdinal` <- GameLinescoreObject$`currentPeriodOrdinal`
-      self$`currentPeriodTimeRemaining` <- GameLinescoreObject$`currentPeriodTimeRemaining`
-      self$`periods` <- lapply(GameLinescoreObject$`periods`, function(x) GamePeriod$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$currentPeriod <- BigDecimalObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$currentPeriod, auto_unbox = TRUE))
+      self$currentPeriodOrdinal <- GameLinescoreObject$currentPeriodOrdinal
+      self$currentPeriodTimeRemaining <- GameLinescoreObject$currentPeriodTimeRemaining
+      self$periods <- lapply(GameLinescoreObject$periods, function(x) GamePeriod$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       GameLinescoreShootoutInfoObject <- GameLinescoreShootoutInfo$new()
-      self$`shootoutInfo` <- GameLinescoreShootoutInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$shootoutInfo, auto_unbox = TRUE))
+      self$shootoutInfo <- GameLinescoreShootoutInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$shootoutInfo, auto_unbox = TRUE))
       GameLinescoreTeamsObject <- GameLinescoreTeams$new()
-      self$`teams` <- GameLinescoreTeamsObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$teams, auto_unbox = TRUE))
-      self$`powerPlayStrength` <- GameLinescoreObject$`powerPlayStrength`
-      self$`hasShootout` <- GameLinescoreObject$`hasShootout`
+      self$teams <- GameLinescoreTeamsObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$teams, auto_unbox = TRUE))
+      self$powerPlayStrength <- GameLinescoreObject$powerPlayStrength
+      self$hasShootout <- GameLinescoreObject$hasShootout
       GameLinescoreIntermissionInfoObject <- GameLinescoreIntermissionInfo$new()
-      self$`intermissionInfo` <- GameLinescoreIntermissionInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$intermissionInfo, auto_unbox = TRUE))
+      self$intermissionInfo <- GameLinescoreIntermissionInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$intermissionInfo, auto_unbox = TRUE))
       GameLinescorePowerPlayInfoObject <- GameLinescorePowerPlayInfo$new()
-      self$`powerPlayInfo` <- GameLinescorePowerPlayInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$powerPlayInfo, auto_unbox = TRUE))
+      self$powerPlayInfo <- GameLinescorePowerPlayInfoObject$fromJSON(jsonlite::toJSON(GameLinescoreObject$powerPlayInfo, auto_unbox = TRUE))
     }
   )
 )

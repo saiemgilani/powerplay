@@ -17,37 +17,37 @@
 PlayerStats <- R6::R6Class(
   'PlayerStats',
   public = list(
-    `copyright` = NULL,
-    `stats` = NULL,
-    initialize = function(`copyright`, `stats`){
-      if (!missing(`copyright`)) {
-        stopifnot(is.character(`copyright`), length(`copyright`) == 1)
-        self$`copyright` <- `copyright`
+    copyright = NULL,
+    stats = NULL,
+    initialize = function(copyright, stats){
+      if (!missing(copyright)) {
+        stopifnot(is.character(copyright), length(copyright) == 1)
+        self$copyright <- copyright
       }
-      if (!missing(`stats`)) {
-        stopifnot(is.list(`stats`), length(`stats`) != 0)
-        lapply(`stats`, function(x) stopifnot(R6::is.R6(x)))
-        self$`stats` <- `stats`
+      if (!missing(stats)) {
+        stopifnot(is.list(stats), length(stats) != 0)
+        lapply(stats, function(x) stopifnot(R6::is.R6(x)))
+        self$stats <- stats
       }
     },
     toJSON = function() {
       PlayerStatsObject <- list()
-      if (!is.null(self$`copyright`)) {
-        PlayerStatsObject[['copyright']] <- self$`copyright`
+      if (!is.null(self$copyright)) {
+        PlayerStatsObject[['copyright']] <- self$copyright
       }
-      if (!is.null(self$`stats`)) {
-        PlayerStatsObject[['stats']] <- lapply(self$`stats`, function(x) x$toJSON())
+      if (!is.null(self$stats)) {
+        PlayerStatsObject[['stats']] <- lapply(self$stats, function(x) x$toJSON())
       }
 
       PlayerStatsObject
     },
     fromJSON = function(PlayerStatsJson) {
       PlayerStatsObject <- jsonlite::fromJSON(PlayerStatsJson)
-      if (!is.null(PlayerStatsObject$`copyright`)) {
-        self$`copyright` <- PlayerStatsObject$`copyright`
+      if (!is.null(PlayerStatsObject$copyright)) {
+        self$copyright <- PlayerStatsObject$copyright
       }
-      if (!is.null(PlayerStatsObject$`stats`)) {
-        self$`stats` <- lapply(PlayerStatsObject$`stats`, function(x) {
+      if (!is.null(PlayerStatsObject$stats)) {
+        self$stats <- lapply(PlayerStatsObject$stats, function(x) {
           statsObject <- PlayerStatsStats$new()
           statsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           statsObject
@@ -60,14 +60,14 @@ PlayerStats <- R6::R6Class(
            "copyright": %s,
            "stats": [%s]
         }',
-        self$`copyright`,
-        lapply(self$`stats`, function(x) paste(x$toJSON(), sep=","))
+        self$copyright,
+        lapply(self$stats, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(PlayerStatsJson) {
       PlayerStatsObject <- jsonlite::fromJSON(PlayerStatsJson)
-      self$`copyright` <- PlayerStatsObject$`copyright`
-      self$`stats` <- lapply(PlayerStatsObject$`stats`, function(x) PlayerStatsStats$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$copyright <- PlayerStatsObject$copyright
+      self$stats <- lapply(PlayerStatsObject$stats, function(x) PlayerStatsStats$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

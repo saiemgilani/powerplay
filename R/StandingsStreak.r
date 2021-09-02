@@ -18,50 +18,50 @@
 StandingsStreak <- R6::R6Class(
   'StandingsStreak',
   public = list(
-    `streakType` = NULL,
-    `streakNumber` = NULL,
-    `streakCode` = NULL,
-    initialize = function(`streakType`, `streakNumber`, `streakCode`){
-      if (!missing(`streakType`)) {
-        stopifnot(is.character(`streakType`), length(`streakType`) == 1)
-        self$`streakType` <- `streakType`
+    streakType = NULL,
+    streakNumber = NULL,
+    streakCode = NULL,
+    initialize = function(streakType, streakNumber, streakCode){
+      if (!missing(streakType)) {
+        stopifnot(is.character(streakType), length(streakType) == 1)
+        self$streakType <- streakType
       }
-      if (!missing(`streakNumber`)) {
-        stopifnot(is.numeric(`streakNumber`), length(`streakNumber`) == 1)
-        stopifnot(R6::is.R6(`streakNumber`))
-        self$`streakNumber` <- `streakNumber`
+      if (!missing(streakNumber)) {
+        stopifnot(is.numeric(streakNumber), length(streakNumber) == 1)
+        stopifnot(R6::is.R6(streakNumber))
+        self$streakNumber <- streakNumber
       }
-      if (!missing(`streakCode`)) {
-        stopifnot(is.character(`streakCode`), length(`streakCode`) == 1)
-        self$`streakCode` <- `streakCode`
+      if (!missing(streakCode)) {
+        stopifnot(is.character(streakCode), length(streakCode) == 1)
+        self$streakCode <- streakCode
       }
     },
     toJSON = function() {
       StandingsStreakObject <- list()
-      if (!is.null(self$`streakType`)) {
-        StandingsStreakObject[['streakType']] <- self$`streakType`
+      if (!is.null(self$streakType)) {
+        StandingsStreakObject[['streakType']] <- self$streakType
       }
-      if (!is.null(self$`streakNumber`)) {
-        StandingsStreakObject[['streakNumber']] <- self$`streakNumber`$toJSON()
+      if (!is.null(self$streakNumber)) {
+        StandingsStreakObject[['streakNumber']] <- self$streakNumber$toJSON()
       }
-      if (!is.null(self$`streakCode`)) {
-        StandingsStreakObject[['streakCode']] <- self$`streakCode`
+      if (!is.null(self$streakCode)) {
+        StandingsStreakObject[['streakCode']] <- self$streakCode
       }
 
       StandingsStreakObject
     },
     fromJSON = function(StandingsStreakJson) {
       StandingsStreakObject <- jsonlite::fromJSON(StandingsStreakJson)
-      if (!is.null(StandingsStreakObject$`streakType`)) {
-        self$`streakType` <- StandingsStreakObject$`streakType`
+      if (!is.null(StandingsStreakObject$streakType)) {
+        self$streakType <- StandingsStreakObject$streakType
       }
-      if (!is.null(StandingsStreakObject$`streakNumber`)) {
+      if (!is.null(StandingsStreakObject$streakNumber)) {
         streakNumberObject <- BigDecimal$new()
         streakNumberObject$fromJSON(jsonlite::toJSON(StandingsStreakObject$streakNumber, auto_unbox = TRUE))
-        self$`streakNumber` <- streakNumberObject
+        self$streakNumber <- streakNumberObject
       }
-      if (!is.null(StandingsStreakObject$`streakCode`)) {
-        self$`streakCode` <- StandingsStreakObject$`streakCode`
+      if (!is.null(StandingsStreakObject$streakCode)) {
+        self$streakCode <- StandingsStreakObject$streakCode
       }
     },
     toJSONString = function() {
@@ -71,17 +71,17 @@ StandingsStreak <- R6::R6Class(
            "streakNumber": %s,
            "streakCode": %s
         }',
-        self$`streakType`,
-        self$`streakNumber`$toJSON(),
-        self$`streakCode`
+        self$streakType,
+        self$streakNumber$toJSON(),
+        self$streakCode
       )
     },
     fromJSONString = function(StandingsStreakJson) {
       StandingsStreakObject <- jsonlite::fromJSON(StandingsStreakJson)
-      self$`streakType` <- StandingsStreakObject$`streakType`
+      self$streakType <- StandingsStreakObject$streakType
       BigDecimalObject <- BigDecimal$new()
-      self$`streakNumber` <- BigDecimalObject$fromJSON(jsonlite::toJSON(StandingsStreakObject$streakNumber, auto_unbox = TRUE))
-      self$`streakCode` <- StandingsStreakObject$`streakCode`
+      self$streakNumber <- BigDecimalObject$fromJSON(jsonlite::toJSON(StandingsStreakObject$streakNumber, auto_unbox = TRUE))
+      self$streakCode <- StandingsStreakObject$streakCode
     }
   )
 )

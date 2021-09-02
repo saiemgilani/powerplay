@@ -17,36 +17,36 @@
 StandingTypesInner <- R6::R6Class(
   'StandingTypesInner',
   public = list(
-    `name` = NULL,
-    `description` = NULL,
-    initialize = function(`name`, `description`){
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+    name = NULL,
+    description = NULL,
+    initialize = function(name, description){
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
-      if (!missing(`description`)) {
-        stopifnot(is.character(`description`), length(`description`) == 1)
-        self$`description` <- `description`
+      if (!missing(description)) {
+        stopifnot(is.character(description), length(description) == 1)
+        self$description <- description
       }
     },
     toJSON = function() {
       StandingTypesInnerObject <- list()
-      if (!is.null(self$`name`)) {
-        StandingTypesInnerObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        StandingTypesInnerObject[['name']] <- self$name
       }
-      if (!is.null(self$`description`)) {
-        StandingTypesInnerObject[['description']] <- self$`description`
+      if (!is.null(self$description)) {
+        StandingTypesInnerObject[['description']] <- self$description
       }
 
       StandingTypesInnerObject
     },
     fromJSON = function(StandingTypesInnerJson) {
       StandingTypesInnerObject <- jsonlite::fromJSON(StandingTypesInnerJson)
-      if (!is.null(StandingTypesInnerObject$`name`)) {
-        self$`name` <- StandingTypesInnerObject$`name`
+      if (!is.null(StandingTypesInnerObject$name)) {
+        self$name <- StandingTypesInnerObject$name
       }
-      if (!is.null(StandingTypesInnerObject$`description`)) {
-        self$`description` <- StandingTypesInnerObject$`description`
+      if (!is.null(StandingTypesInnerObject$description)) {
+        self$description <- StandingTypesInnerObject$description
       }
     },
     toJSONString = function() {
@@ -55,14 +55,14 @@ StandingTypesInner <- R6::R6Class(
            "name": %s,
            "description": %s
         }',
-        self$`name`,
-        self$`description`
+        self$name,
+        self$description
       )
     },
     fromJSONString = function(StandingTypesInnerJson) {
       StandingTypesInnerObject <- jsonlite::fromJSON(StandingTypesInnerJson)
-      self$`name` <- StandingTypesInnerObject$`name`
-      self$`description` <- StandingTypesInnerObject$`description`
+      self$name <- StandingTypesInnerObject$name
+      self$description <- StandingTypesInnerObject$description
     }
   )
 )

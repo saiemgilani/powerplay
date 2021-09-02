@@ -17,42 +17,42 @@
 GamePlayCoordinates <- R6::R6Class(
   'GamePlayCoordinates',
   public = list(
-    `x` = NULL,
-    `y` = NULL,
-    initialize = function(`x`, `y`){
-      if (!missing(`x`)) {
-        stopifnot(is.numeric(`x`), length(`x`) == 1)
-        stopifnot(R6::is.R6(`x`))
-        self$`x` <- `x`
+    x = NULL,
+    y = NULL,
+    initialize = function(x, y){
+      if (!missing(x)) {
+        stopifnot(is.numeric(x), length(x) == 1)
+        stopifnot(R6::is.R6(x))
+        self$x <- x
       }
-      if (!missing(`y`)) {
-        stopifnot(is.numeric(`y`), length(`y`) == 1)
-        stopifnot(R6::is.R6(`y`))
-        self$`y` <- `y`
+      if (!missing(y)) {
+        stopifnot(is.numeric(y), length(y) == 1)
+        stopifnot(R6::is.R6(y))
+        self$y <- y
       }
     },
     toJSON = function() {
       GamePlayCoordinatesObject <- list()
-      if (!is.null(self$`x`)) {
-        GamePlayCoordinatesObject[['x']] <- self$`x`$toJSON()
+      if (!is.null(self$x)) {
+        GamePlayCoordinatesObject[['x']] <- self$x$toJSON()
       }
-      if (!is.null(self$`y`)) {
-        GamePlayCoordinatesObject[['y']] <- self$`y`$toJSON()
+      if (!is.null(self$y)) {
+        GamePlayCoordinatesObject[['y']] <- self$y$toJSON()
       }
 
       GamePlayCoordinatesObject
     },
     fromJSON = function(GamePlayCoordinatesJson) {
       GamePlayCoordinatesObject <- jsonlite::fromJSON(GamePlayCoordinatesJson)
-      if (!is.null(GamePlayCoordinatesObject$`x`)) {
+      if (!is.null(GamePlayCoordinatesObject$x)) {
         xObject <- BigDecimal$new()
         xObject$fromJSON(jsonlite::toJSON(GamePlayCoordinatesObject$x, auto_unbox = TRUE))
-        self$`x` <- xObject
+        self$x <- xObject
       }
-      if (!is.null(GamePlayCoordinatesObject$`y`)) {
+      if (!is.null(GamePlayCoordinatesObject$y)) {
         yObject <- BigDecimal$new()
         yObject$fromJSON(jsonlite::toJSON(GamePlayCoordinatesObject$y, auto_unbox = TRUE))
-        self$`y` <- yObject
+        self$y <- yObject
       }
     },
     toJSONString = function() {
@@ -61,16 +61,16 @@ GamePlayCoordinates <- R6::R6Class(
            "x": %s,
            "y": %s
         }',
-        self$`x`$toJSON(),
-        self$`y`$toJSON()
+        self$x$toJSON(),
+        self$y$toJSON()
       )
     },
     fromJSONString = function(GamePlayCoordinatesJson) {
       GamePlayCoordinatesObject <- jsonlite::fromJSON(GamePlayCoordinatesJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`x` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayCoordinatesObject$x, auto_unbox = TRUE))
+      self$x <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayCoordinatesObject$x, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`y` <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayCoordinatesObject$y, auto_unbox = TRUE))
+      self$y <- BigDecimalObject$fromJSON(jsonlite::toJSON(GamePlayCoordinatesObject$y, auto_unbox = TRUE))
     }
   )
 )

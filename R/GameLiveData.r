@@ -19,66 +19,66 @@
 GameLiveData <- R6::R6Class(
   'GameLiveData',
   public = list(
-    `plays` = NULL,
-    `linescore` = NULL,
-    `boxscore` = NULL,
-    `decisions` = NULL,
-    initialize = function(`plays`, `linescore`, `boxscore`, `decisions`){
-      if (!missing(`plays`)) {
-        stopifnot(R6::is.R6(`plays`))
-        self$`plays` <- `plays`
+    plays = NULL,
+    linescore = NULL,
+    boxscore = NULL,
+    decisions = NULL,
+    initialize = function(plays, linescore, boxscore, decisions){
+      if (!missing(plays)) {
+        stopifnot(R6::is.R6(plays))
+        self$plays <- plays
       }
-      if (!missing(`linescore`)) {
-        stopifnot(R6::is.R6(`linescore`))
-        self$`linescore` <- `linescore`
+      if (!missing(linescore)) {
+        stopifnot(R6::is.R6(linescore))
+        self$linescore <- linescore
       }
-      if (!missing(`boxscore`)) {
-        stopifnot(R6::is.R6(`boxscore`))
-        self$`boxscore` <- `boxscore`
+      if (!missing(boxscore)) {
+        stopifnot(R6::is.R6(boxscore))
+        self$boxscore <- boxscore
       }
-      if (!missing(`decisions`)) {
-        stopifnot(R6::is.R6(`decisions`))
-        self$`decisions` <- `decisions`
+      if (!missing(decisions)) {
+        stopifnot(R6::is.R6(decisions))
+        self$decisions <- decisions
       }
     },
     toJSON = function() {
       GameLiveDataObject <- list()
-      if (!is.null(self$`plays`)) {
-        GameLiveDataObject[['plays']] <- self$`plays`$toJSON()
+      if (!is.null(self$plays)) {
+        GameLiveDataObject[['plays']] <- self$plays$toJSON()
       }
-      if (!is.null(self$`linescore`)) {
-        GameLiveDataObject[['linescore']] <- self$`linescore`$toJSON()
+      if (!is.null(self$linescore)) {
+        GameLiveDataObject[['linescore']] <- self$linescore$toJSON()
       }
-      if (!is.null(self$`boxscore`)) {
-        GameLiveDataObject[['boxscore']] <- self$`boxscore`$toJSON()
+      if (!is.null(self$boxscore)) {
+        GameLiveDataObject[['boxscore']] <- self$boxscore$toJSON()
       }
-      if (!is.null(self$`decisions`)) {
-        GameLiveDataObject[['decisions']] <- self$`decisions`$toJSON()
+      if (!is.null(self$decisions)) {
+        GameLiveDataObject[['decisions']] <- self$decisions$toJSON()
       }
 
       GameLiveDataObject
     },
     fromJSON = function(GameLiveDataJson) {
       GameLiveDataObject <- jsonlite::fromJSON(GameLiveDataJson)
-      if (!is.null(GameLiveDataObject$`plays`)) {
+      if (!is.null(GameLiveDataObject$plays)) {
         playsObject <- GameLiveDataPlays$new()
         playsObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$plays, auto_unbox = TRUE))
-        self$`plays` <- playsObject
+        self$plays <- playsObject
       }
-      if (!is.null(GameLiveDataObject$`linescore`)) {
+      if (!is.null(GameLiveDataObject$linescore)) {
         linescoreObject <- GameLinescore$new()
         linescoreObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$linescore, auto_unbox = TRUE))
-        self$`linescore` <- linescoreObject
+        self$linescore <- linescoreObject
       }
-      if (!is.null(GameLiveDataObject$`boxscore`)) {
+      if (!is.null(GameLiveDataObject$boxscore)) {
         boxscoreObject <- GameBoxscore$new()
         boxscoreObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$boxscore, auto_unbox = TRUE))
-        self$`boxscore` <- boxscoreObject
+        self$boxscore <- boxscoreObject
       }
-      if (!is.null(GameLiveDataObject$`decisions`)) {
+      if (!is.null(GameLiveDataObject$decisions)) {
         decisionsObject <- GameLiveDataDecisions$new()
         decisionsObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$decisions, auto_unbox = TRUE))
-        self$`decisions` <- decisionsObject
+        self$decisions <- decisionsObject
       }
     },
     toJSONString = function() {
@@ -89,22 +89,22 @@ GameLiveData <- R6::R6Class(
            "boxscore": %s,
            "decisions": %s
         }',
-        self$`plays`$toJSON(),
-        self$`linescore`$toJSON(),
-        self$`boxscore`$toJSON(),
-        self$`decisions`$toJSON()
+        self$plays$toJSON(),
+        self$linescore$toJSON(),
+        self$boxscore$toJSON(),
+        self$decisions$toJSON()
       )
     },
     fromJSONString = function(GameLiveDataJson) {
       GameLiveDataObject <- jsonlite::fromJSON(GameLiveDataJson)
       GameLiveDataPlaysObject <- GameLiveDataPlays$new()
-      self$`plays` <- GameLiveDataPlaysObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$plays, auto_unbox = TRUE))
+      self$plays <- GameLiveDataPlaysObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$plays, auto_unbox = TRUE))
       GameLinescoreObject <- GameLinescore$new()
-      self$`linescore` <- GameLinescoreObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$linescore, auto_unbox = TRUE))
+      self$linescore <- GameLinescoreObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$linescore, auto_unbox = TRUE))
       GameBoxscoreObject <- GameBoxscore$new()
-      self$`boxscore` <- GameBoxscoreObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$boxscore, auto_unbox = TRUE))
+      self$boxscore <- GameBoxscoreObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$boxscore, auto_unbox = TRUE))
       GameLiveDataDecisionsObject <- GameLiveDataDecisions$new()
-      self$`decisions` <- GameLiveDataDecisionsObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$decisions, auto_unbox = TRUE))
+      self$decisions <- GameLiveDataDecisionsObject$fromJSON(jsonlite::toJSON(GameLiveDataObject$decisions, auto_unbox = TRUE))
     }
   )
 )

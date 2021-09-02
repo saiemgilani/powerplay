@@ -17,36 +17,36 @@
 GameGameDataDatetime <- R6::R6Class(
   'GameGameDataDatetime',
   public = list(
-    `dateTime` = NULL,
-    `endDateTime` = NULL,
-    initialize = function(`dateTime`, `endDateTime`){
-      if (!missing(`dateTime`)) {
-        stopifnot(is.character(`dateTime`), length(`dateTime`) == 1)
-        self$`dateTime` <- `dateTime`
+    dateTime = NULL,
+    endDateTime = NULL,
+    initialize = function(dateTime, endDateTime){
+      if (!missing(dateTime)) {
+        stopifnot(is.character(dateTime), length(dateTime) == 1)
+        self$dateTime <- dateTime
       }
-      if (!missing(`endDateTime`)) {
-        stopifnot(is.character(`endDateTime`), length(`endDateTime`) == 1)
-        self$`endDateTime` <- `endDateTime`
+      if (!missing(endDateTime)) {
+        stopifnot(is.character(endDateTime), length(endDateTime) == 1)
+        self$endDateTime <- endDateTime
       }
     },
     toJSON = function() {
       GameGameDataDatetimeObject <- list()
-      if (!is.null(self$`dateTime`)) {
-        GameGameDataDatetimeObject[['dateTime']] <- self$`dateTime`
+      if (!is.null(self$dateTime)) {
+        GameGameDataDatetimeObject[['dateTime']] <- self$dateTime
       }
-      if (!is.null(self$`endDateTime`)) {
-        GameGameDataDatetimeObject[['endDateTime']] <- self$`endDateTime`
+      if (!is.null(self$endDateTime)) {
+        GameGameDataDatetimeObject[['endDateTime']] <- self$endDateTime
       }
 
       GameGameDataDatetimeObject
     },
     fromJSON = function(GameGameDataDatetimeJson) {
       GameGameDataDatetimeObject <- jsonlite::fromJSON(GameGameDataDatetimeJson)
-      if (!is.null(GameGameDataDatetimeObject$`dateTime`)) {
-        self$`dateTime` <- GameGameDataDatetimeObject$`dateTime`
+      if (!is.null(GameGameDataDatetimeObject$dateTime)) {
+        self$dateTime <- GameGameDataDatetimeObject$dateTime
       }
-      if (!is.null(GameGameDataDatetimeObject$`endDateTime`)) {
-        self$`endDateTime` <- GameGameDataDatetimeObject$`endDateTime`
+      if (!is.null(GameGameDataDatetimeObject$endDateTime)) {
+        self$endDateTime <- GameGameDataDatetimeObject$endDateTime
       }
     },
     toJSONString = function() {
@@ -55,14 +55,14 @@ GameGameDataDatetime <- R6::R6Class(
            "dateTime": %s,
            "endDateTime": %s
         }',
-        self$`dateTime`,
-        self$`endDateTime`
+        self$dateTime,
+        self$endDateTime
       )
     },
     fromJSONString = function(GameGameDataDatetimeJson) {
       GameGameDataDatetimeObject <- jsonlite::fromJSON(GameGameDataDatetimeJson)
-      self$`dateTime` <- GameGameDataDatetimeObject$`dateTime`
-      self$`endDateTime` <- GameGameDataDatetimeObject$`endDateTime`
+      self$dateTime <- GameGameDataDatetimeObject$dateTime
+      self$endDateTime <- GameGameDataDatetimeObject$endDateTime
     }
   )
 )

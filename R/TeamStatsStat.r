@@ -43,355 +43,355 @@
 TeamStatsStat <- R6::R6Class(
   'TeamStatsStat',
   public = list(
-    `gamesPlayed` = NULL,
-    `wins` = NULL,
-    `losses` = NULL,
-    `ot` = NULL,
-    `pts` = NULL,
-    `ptPctg` = NULL,
-    `goalsPerGame` = NULL,
-    `goalsAgainstPerGame` = NULL,
-    `evGGARatio` = NULL,
-    `powerPlayPercentage` = NULL,
-    `powerPlayGoals` = NULL,
-    `powerPlayGoalsAgainst` = NULL,
-    `powerPlayOpportunities` = NULL,
-    `penaltyKillPercentage` = NULL,
-    `shotsPerGame` = NULL,
-    `shotsAllowed` = NULL,
-    `winScoreFirst` = NULL,
-    `winOppScoreFirst` = NULL,
-    `winLeadFirstPer` = NULL,
-    `winLeadSecondPer` = NULL,
-    `winOutshootOpp` = NULL,
-    `winOutshotByOpp` = NULL,
-    `faceOffsTaken` = NULL,
-    `faceOffsWon` = NULL,
-    `faceOffsLost` = NULL,
-    `faceOffWinPercentage` = NULL,
-    `shootingPctg` = NULL,
-    `savePctg` = NULL,
-    initialize = function(`gamesPlayed`, `wins`, `losses`, `ot`, `pts`, `ptPctg`, `goalsPerGame`, `goalsAgainstPerGame`, `evGGARatio`, `powerPlayPercentage`, `powerPlayGoals`, `powerPlayGoalsAgainst`, `powerPlayOpportunities`, `penaltyKillPercentage`, `shotsPerGame`, `shotsAllowed`, `winScoreFirst`, `winOppScoreFirst`, `winLeadFirstPer`, `winLeadSecondPer`, `winOutshootOpp`, `winOutshotByOpp`, `faceOffsTaken`, `faceOffsWon`, `faceOffsLost`, `faceOffWinPercentage`, `shootingPctg`, `savePctg`){
-      if (!missing(`gamesPlayed`)) {
-        stopifnot(is.numeric(`gamesPlayed`), length(`gamesPlayed`) == 1)
-        stopifnot(R6::is.R6(`gamesPlayed`))
-        self$`gamesPlayed` <- `gamesPlayed`
+    gamesPlayed = NULL,
+    wins = NULL,
+    losses = NULL,
+    ot = NULL,
+    pts = NULL,
+    ptPctg = NULL,
+    goalsPerGame = NULL,
+    goalsAgainstPerGame = NULL,
+    evGGARatio = NULL,
+    powerPlayPercentage = NULL,
+    powerPlayGoals = NULL,
+    powerPlayGoalsAgainst = NULL,
+    powerPlayOpportunities = NULL,
+    penaltyKillPercentage = NULL,
+    shotsPerGame = NULL,
+    shotsAllowed = NULL,
+    winScoreFirst = NULL,
+    winOppScoreFirst = NULL,
+    winLeadFirstPer = NULL,
+    winLeadSecondPer = NULL,
+    winOutshootOpp = NULL,
+    winOutshotByOpp = NULL,
+    faceOffsTaken = NULL,
+    faceOffsWon = NULL,
+    faceOffsLost = NULL,
+    faceOffWinPercentage = NULL,
+    shootingPctg = NULL,
+    savePctg = NULL,
+    initialize = function(gamesPlayed, wins, losses, ot, pts, ptPctg, goalsPerGame, goalsAgainstPerGame, evGGARatio, powerPlayPercentage, powerPlayGoals, powerPlayGoalsAgainst, powerPlayOpportunities, penaltyKillPercentage, shotsPerGame, shotsAllowed, winScoreFirst, winOppScoreFirst, winLeadFirstPer, winLeadSecondPer, winOutshootOpp, winOutshotByOpp, faceOffsTaken, faceOffsWon, faceOffsLost, faceOffWinPercentage, shootingPctg, savePctg){
+      if (!missing(gamesPlayed)) {
+        stopifnot(is.numeric(gamesPlayed), length(gamesPlayed) == 1)
+        stopifnot(R6::is.R6(gamesPlayed))
+        self$gamesPlayed <- gamesPlayed
       }
-      if (!missing(`wins`)) {
-        stopifnot(is.numeric(`wins`), length(`wins`) == 1)
-        stopifnot(R6::is.R6(`wins`))
-        self$`wins` <- `wins`
+      if (!missing(wins)) {
+        stopifnot(is.numeric(wins), length(wins) == 1)
+        stopifnot(R6::is.R6(wins))
+        self$wins <- wins
       }
-      if (!missing(`losses`)) {
-        stopifnot(is.numeric(`losses`), length(`losses`) == 1)
-        stopifnot(R6::is.R6(`losses`))
-        self$`losses` <- `losses`
+      if (!missing(losses)) {
+        stopifnot(is.numeric(losses), length(losses) == 1)
+        stopifnot(R6::is.R6(losses))
+        self$losses <- losses
       }
-      if (!missing(`ot`)) {
-        stopifnot(is.numeric(`ot`), length(`ot`) == 1)
-        stopifnot(R6::is.R6(`ot`))
-        self$`ot` <- `ot`
+      if (!missing(ot)) {
+        stopifnot(is.numeric(ot), length(ot) == 1)
+        stopifnot(R6::is.R6(ot))
+        self$ot <- ot
       }
-      if (!missing(`pts`)) {
-        stopifnot(is.numeric(`pts`), length(`pts`) == 1)
-        stopifnot(R6::is.R6(`pts`))
-        self$`pts` <- `pts`
+      if (!missing(pts)) {
+        stopifnot(is.numeric(pts), length(pts) == 1)
+        stopifnot(R6::is.R6(pts))
+        self$pts <- pts
       }
-      if (!missing(`ptPctg`)) {
-        stopifnot(is.character(`ptPctg`), length(`ptPctg`) == 1)
-        self$`ptPctg` <- `ptPctg`
+      if (!missing(ptPctg)) {
+        stopifnot(is.character(ptPctg), length(ptPctg) == 1)
+        self$ptPctg <- ptPctg
       }
-      if (!missing(`goalsPerGame`)) {
-        stopifnot(is.numeric(`goalsPerGame`), length(`goalsPerGame`) == 1)
-        self$`goalsPerGame` <- `goalsPerGame`
+      if (!missing(goalsPerGame)) {
+        stopifnot(is.numeric(goalsPerGame), length(goalsPerGame) == 1)
+        self$goalsPerGame <- goalsPerGame
       }
-      if (!missing(`goalsAgainstPerGame`)) {
-        stopifnot(is.numeric(`goalsAgainstPerGame`), length(`goalsAgainstPerGame`) == 1)
-        self$`goalsAgainstPerGame` <- `goalsAgainstPerGame`
+      if (!missing(goalsAgainstPerGame)) {
+        stopifnot(is.numeric(goalsAgainstPerGame), length(goalsAgainstPerGame) == 1)
+        self$goalsAgainstPerGame <- goalsAgainstPerGame
       }
-      if (!missing(`evGGARatio`)) {
-        stopifnot(is.numeric(`evGGARatio`), length(`evGGARatio`) == 1)
-        self$`evGGARatio` <- `evGGARatio`
+      if (!missing(evGGARatio)) {
+        stopifnot(is.numeric(evGGARatio), length(evGGARatio) == 1)
+        self$evGGARatio <- evGGARatio
       }
-      if (!missing(`powerPlayPercentage`)) {
-        stopifnot(is.character(`powerPlayPercentage`), length(`powerPlayPercentage`) == 1)
-        self$`powerPlayPercentage` <- `powerPlayPercentage`
+      if (!missing(powerPlayPercentage)) {
+        stopifnot(is.character(powerPlayPercentage), length(powerPlayPercentage) == 1)
+        self$powerPlayPercentage <- powerPlayPercentage
       }
-      if (!missing(`powerPlayGoals`)) {
-        stopifnot(is.numeric(`powerPlayGoals`), length(`powerPlayGoals`) == 1)
-        stopifnot(R6::is.R6(`powerPlayGoals`))
-        self$`powerPlayGoals` <- `powerPlayGoals`
+      if (!missing(powerPlayGoals)) {
+        stopifnot(is.numeric(powerPlayGoals), length(powerPlayGoals) == 1)
+        stopifnot(R6::is.R6(powerPlayGoals))
+        self$powerPlayGoals <- powerPlayGoals
       }
-      if (!missing(`powerPlayGoalsAgainst`)) {
-        stopifnot(is.numeric(`powerPlayGoalsAgainst`), length(`powerPlayGoalsAgainst`) == 1)
-        stopifnot(R6::is.R6(`powerPlayGoalsAgainst`))
-        self$`powerPlayGoalsAgainst` <- `powerPlayGoalsAgainst`
+      if (!missing(powerPlayGoalsAgainst)) {
+        stopifnot(is.numeric(powerPlayGoalsAgainst), length(powerPlayGoalsAgainst) == 1)
+        stopifnot(R6::is.R6(powerPlayGoalsAgainst))
+        self$powerPlayGoalsAgainst <- powerPlayGoalsAgainst
       }
-      if (!missing(`powerPlayOpportunities`)) {
-        stopifnot(is.numeric(`powerPlayOpportunities`), length(`powerPlayOpportunities`) == 1)
-        stopifnot(R6::is.R6(`powerPlayOpportunities`))
-        self$`powerPlayOpportunities` <- `powerPlayOpportunities`
+      if (!missing(powerPlayOpportunities)) {
+        stopifnot(is.numeric(powerPlayOpportunities), length(powerPlayOpportunities) == 1)
+        stopifnot(R6::is.R6(powerPlayOpportunities))
+        self$powerPlayOpportunities <- powerPlayOpportunities
       }
-      if (!missing(`penaltyKillPercentage`)) {
-        stopifnot(is.character(`penaltyKillPercentage`), length(`penaltyKillPercentage`) == 1)
-        self$`penaltyKillPercentage` <- `penaltyKillPercentage`
+      if (!missing(penaltyKillPercentage)) {
+        stopifnot(is.character(penaltyKillPercentage), length(penaltyKillPercentage) == 1)
+        self$penaltyKillPercentage <- penaltyKillPercentage
       }
-      if (!missing(`shotsPerGame`)) {
-        stopifnot(is.numeric(`shotsPerGame`), length(`shotsPerGame`) == 1)
-        self$`shotsPerGame` <- `shotsPerGame`
+      if (!missing(shotsPerGame)) {
+        stopifnot(is.numeric(shotsPerGame), length(shotsPerGame) == 1)
+        self$shotsPerGame <- shotsPerGame
       }
-      if (!missing(`shotsAllowed`)) {
-        stopifnot(is.numeric(`shotsAllowed`), length(`shotsAllowed`) == 1)
-        self$`shotsAllowed` <- `shotsAllowed`
+      if (!missing(shotsAllowed)) {
+        stopifnot(is.numeric(shotsAllowed), length(shotsAllowed) == 1)
+        self$shotsAllowed <- shotsAllowed
       }
-      if (!missing(`winScoreFirst`)) {
-        stopifnot(is.numeric(`winScoreFirst`), length(`winScoreFirst`) == 1)
-        self$`winScoreFirst` <- `winScoreFirst`
+      if (!missing(winScoreFirst)) {
+        stopifnot(is.numeric(winScoreFirst), length(winScoreFirst) == 1)
+        self$winScoreFirst <- winScoreFirst
       }
-      if (!missing(`winOppScoreFirst`)) {
-        stopifnot(is.numeric(`winOppScoreFirst`), length(`winOppScoreFirst`) == 1)
-        self$`winOppScoreFirst` <- `winOppScoreFirst`
+      if (!missing(winOppScoreFirst)) {
+        stopifnot(is.numeric(winOppScoreFirst), length(winOppScoreFirst) == 1)
+        self$winOppScoreFirst <- winOppScoreFirst
       }
-      if (!missing(`winLeadFirstPer`)) {
-        stopifnot(is.numeric(`winLeadFirstPer`), length(`winLeadFirstPer`) == 1)
-        self$`winLeadFirstPer` <- `winLeadFirstPer`
+      if (!missing(winLeadFirstPer)) {
+        stopifnot(is.numeric(winLeadFirstPer), length(winLeadFirstPer) == 1)
+        self$winLeadFirstPer <- winLeadFirstPer
       }
-      if (!missing(`winLeadSecondPer`)) {
-        stopifnot(is.numeric(`winLeadSecondPer`), length(`winLeadSecondPer`) == 1)
-        self$`winLeadSecondPer` <- `winLeadSecondPer`
+      if (!missing(winLeadSecondPer)) {
+        stopifnot(is.numeric(winLeadSecondPer), length(winLeadSecondPer) == 1)
+        self$winLeadSecondPer <- winLeadSecondPer
       }
-      if (!missing(`winOutshootOpp`)) {
-        stopifnot(is.numeric(`winOutshootOpp`), length(`winOutshootOpp`) == 1)
-        self$`winOutshootOpp` <- `winOutshootOpp`
+      if (!missing(winOutshootOpp)) {
+        stopifnot(is.numeric(winOutshootOpp), length(winOutshootOpp) == 1)
+        self$winOutshootOpp <- winOutshootOpp
       }
-      if (!missing(`winOutshotByOpp`)) {
-        stopifnot(is.numeric(`winOutshotByOpp`), length(`winOutshotByOpp`) == 1)
-        self$`winOutshotByOpp` <- `winOutshotByOpp`
+      if (!missing(winOutshotByOpp)) {
+        stopifnot(is.numeric(winOutshotByOpp), length(winOutshotByOpp) == 1)
+        self$winOutshotByOpp <- winOutshotByOpp
       }
-      if (!missing(`faceOffsTaken`)) {
-        stopifnot(is.numeric(`faceOffsTaken`), length(`faceOffsTaken`) == 1)
-        stopifnot(R6::is.R6(`faceOffsTaken`))
-        self$`faceOffsTaken` <- `faceOffsTaken`
+      if (!missing(faceOffsTaken)) {
+        stopifnot(is.numeric(faceOffsTaken), length(faceOffsTaken) == 1)
+        stopifnot(R6::is.R6(faceOffsTaken))
+        self$faceOffsTaken <- faceOffsTaken
       }
-      if (!missing(`faceOffsWon`)) {
-        stopifnot(is.numeric(`faceOffsWon`), length(`faceOffsWon`) == 1)
-        stopifnot(R6::is.R6(`faceOffsWon`))
-        self$`faceOffsWon` <- `faceOffsWon`
+      if (!missing(faceOffsWon)) {
+        stopifnot(is.numeric(faceOffsWon), length(faceOffsWon) == 1)
+        stopifnot(R6::is.R6(faceOffsWon))
+        self$faceOffsWon <- faceOffsWon
       }
-      if (!missing(`faceOffsLost`)) {
-        stopifnot(is.numeric(`faceOffsLost`), length(`faceOffsLost`) == 1)
-        stopifnot(R6::is.R6(`faceOffsLost`))
-        self$`faceOffsLost` <- `faceOffsLost`
+      if (!missing(faceOffsLost)) {
+        stopifnot(is.numeric(faceOffsLost), length(faceOffsLost) == 1)
+        stopifnot(R6::is.R6(faceOffsLost))
+        self$faceOffsLost <- faceOffsLost
       }
-      if (!missing(`faceOffWinPercentage`)) {
-        stopifnot(is.character(`faceOffWinPercentage`), length(`faceOffWinPercentage`) == 1)
-        self$`faceOffWinPercentage` <- `faceOffWinPercentage`
+      if (!missing(faceOffWinPercentage)) {
+        stopifnot(is.character(faceOffWinPercentage), length(faceOffWinPercentage) == 1)
+        self$faceOffWinPercentage <- faceOffWinPercentage
       }
-      if (!missing(`shootingPctg`)) {
-        stopifnot(is.numeric(`shootingPctg`), length(`shootingPctg`) == 1)
-        self$`shootingPctg` <- `shootingPctg`
+      if (!missing(shootingPctg)) {
+        stopifnot(is.numeric(shootingPctg), length(shootingPctg) == 1)
+        self$shootingPctg <- shootingPctg
       }
-      if (!missing(`savePctg`)) {
-        stopifnot(is.numeric(`savePctg`), length(`savePctg`) == 1)
-        self$`savePctg` <- `savePctg`
+      if (!missing(savePctg)) {
+        stopifnot(is.numeric(savePctg), length(savePctg) == 1)
+        self$savePctg <- savePctg
       }
     },
     toJSON = function() {
       TeamStatsStatObject <- list()
-      if (!is.null(self$`gamesPlayed`)) {
-        TeamStatsStatObject[['gamesPlayed']] <- self$`gamesPlayed`$toJSON()
+      if (!is.null(self$gamesPlayed)) {
+        TeamStatsStatObject[['gamesPlayed']] <- self$gamesPlayed$toJSON()
       }
-      if (!is.null(self$`wins`)) {
-        TeamStatsStatObject[['wins']] <- self$`wins`$toJSON()
+      if (!is.null(self$wins)) {
+        TeamStatsStatObject[['wins']] <- self$wins$toJSON()
       }
-      if (!is.null(self$`losses`)) {
-        TeamStatsStatObject[['losses']] <- self$`losses`$toJSON()
+      if (!is.null(self$losses)) {
+        TeamStatsStatObject[['losses']] <- self$losses$toJSON()
       }
-      if (!is.null(self$`ot`)) {
-        TeamStatsStatObject[['ot']] <- self$`ot`$toJSON()
+      if (!is.null(self$ot)) {
+        TeamStatsStatObject[['ot']] <- self$ot$toJSON()
       }
-      if (!is.null(self$`pts`)) {
-        TeamStatsStatObject[['pts']] <- self$`pts`$toJSON()
+      if (!is.null(self$pts)) {
+        TeamStatsStatObject[['pts']] <- self$pts$toJSON()
       }
-      if (!is.null(self$`ptPctg`)) {
-        TeamStatsStatObject[['ptPctg']] <- self$`ptPctg`
+      if (!is.null(self$ptPctg)) {
+        TeamStatsStatObject[['ptPctg']] <- self$ptPctg
       }
-      if (!is.null(self$`goalsPerGame`)) {
-        TeamStatsStatObject[['goalsPerGame']] <- self$`goalsPerGame`
+      if (!is.null(self$goalsPerGame)) {
+        TeamStatsStatObject[['goalsPerGame']] <- self$goalsPerGame
       }
-      if (!is.null(self$`goalsAgainstPerGame`)) {
-        TeamStatsStatObject[['goalsAgainstPerGame']] <- self$`goalsAgainstPerGame`
+      if (!is.null(self$goalsAgainstPerGame)) {
+        TeamStatsStatObject[['goalsAgainstPerGame']] <- self$goalsAgainstPerGame
       }
-      if (!is.null(self$`evGGARatio`)) {
-        TeamStatsStatObject[['evGGARatio']] <- self$`evGGARatio`
+      if (!is.null(self$evGGARatio)) {
+        TeamStatsStatObject[['evGGARatio']] <- self$evGGARatio
       }
-      if (!is.null(self$`powerPlayPercentage`)) {
-        TeamStatsStatObject[['powerPlayPercentage']] <- self$`powerPlayPercentage`
+      if (!is.null(self$powerPlayPercentage)) {
+        TeamStatsStatObject[['powerPlayPercentage']] <- self$powerPlayPercentage
       }
-      if (!is.null(self$`powerPlayGoals`)) {
-        TeamStatsStatObject[['powerPlayGoals']] <- self$`powerPlayGoals`$toJSON()
+      if (!is.null(self$powerPlayGoals)) {
+        TeamStatsStatObject[['powerPlayGoals']] <- self$powerPlayGoals$toJSON()
       }
-      if (!is.null(self$`powerPlayGoalsAgainst`)) {
-        TeamStatsStatObject[['powerPlayGoalsAgainst']] <- self$`powerPlayGoalsAgainst`$toJSON()
+      if (!is.null(self$powerPlayGoalsAgainst)) {
+        TeamStatsStatObject[['powerPlayGoalsAgainst']] <- self$powerPlayGoalsAgainst$toJSON()
       }
-      if (!is.null(self$`powerPlayOpportunities`)) {
-        TeamStatsStatObject[['powerPlayOpportunities']] <- self$`powerPlayOpportunities`$toJSON()
+      if (!is.null(self$powerPlayOpportunities)) {
+        TeamStatsStatObject[['powerPlayOpportunities']] <- self$powerPlayOpportunities$toJSON()
       }
-      if (!is.null(self$`penaltyKillPercentage`)) {
-        TeamStatsStatObject[['penaltyKillPercentage']] <- self$`penaltyKillPercentage`
+      if (!is.null(self$penaltyKillPercentage)) {
+        TeamStatsStatObject[['penaltyKillPercentage']] <- self$penaltyKillPercentage
       }
-      if (!is.null(self$`shotsPerGame`)) {
-        TeamStatsStatObject[['shotsPerGame']] <- self$`shotsPerGame`
+      if (!is.null(self$shotsPerGame)) {
+        TeamStatsStatObject[['shotsPerGame']] <- self$shotsPerGame
       }
-      if (!is.null(self$`shotsAllowed`)) {
-        TeamStatsStatObject[['shotsAllowed']] <- self$`shotsAllowed`
+      if (!is.null(self$shotsAllowed)) {
+        TeamStatsStatObject[['shotsAllowed']] <- self$shotsAllowed
       }
-      if (!is.null(self$`winScoreFirst`)) {
-        TeamStatsStatObject[['winScoreFirst']] <- self$`winScoreFirst`
+      if (!is.null(self$winScoreFirst)) {
+        TeamStatsStatObject[['winScoreFirst']] <- self$winScoreFirst
       }
-      if (!is.null(self$`winOppScoreFirst`)) {
-        TeamStatsStatObject[['winOppScoreFirst']] <- self$`winOppScoreFirst`
+      if (!is.null(self$winOppScoreFirst)) {
+        TeamStatsStatObject[['winOppScoreFirst']] <- self$winOppScoreFirst
       }
-      if (!is.null(self$`winLeadFirstPer`)) {
-        TeamStatsStatObject[['winLeadFirstPer']] <- self$`winLeadFirstPer`
+      if (!is.null(self$winLeadFirstPer)) {
+        TeamStatsStatObject[['winLeadFirstPer']] <- self$winLeadFirstPer
       }
-      if (!is.null(self$`winLeadSecondPer`)) {
-        TeamStatsStatObject[['winLeadSecondPer']] <- self$`winLeadSecondPer`
+      if (!is.null(self$winLeadSecondPer)) {
+        TeamStatsStatObject[['winLeadSecondPer']] <- self$winLeadSecondPer
       }
-      if (!is.null(self$`winOutshootOpp`)) {
-        TeamStatsStatObject[['winOutshootOpp']] <- self$`winOutshootOpp`
+      if (!is.null(self$winOutshootOpp)) {
+        TeamStatsStatObject[['winOutshootOpp']] <- self$winOutshootOpp
       }
-      if (!is.null(self$`winOutshotByOpp`)) {
-        TeamStatsStatObject[['winOutshotByOpp']] <- self$`winOutshotByOpp`
+      if (!is.null(self$winOutshotByOpp)) {
+        TeamStatsStatObject[['winOutshotByOpp']] <- self$winOutshotByOpp
       }
-      if (!is.null(self$`faceOffsTaken`)) {
-        TeamStatsStatObject[['faceOffsTaken']] <- self$`faceOffsTaken`$toJSON()
+      if (!is.null(self$faceOffsTaken)) {
+        TeamStatsStatObject[['faceOffsTaken']] <- self$faceOffsTaken$toJSON()
       }
-      if (!is.null(self$`faceOffsWon`)) {
-        TeamStatsStatObject[['faceOffsWon']] <- self$`faceOffsWon`$toJSON()
+      if (!is.null(self$faceOffsWon)) {
+        TeamStatsStatObject[['faceOffsWon']] <- self$faceOffsWon$toJSON()
       }
-      if (!is.null(self$`faceOffsLost`)) {
-        TeamStatsStatObject[['faceOffsLost']] <- self$`faceOffsLost`$toJSON()
+      if (!is.null(self$faceOffsLost)) {
+        TeamStatsStatObject[['faceOffsLost']] <- self$faceOffsLost$toJSON()
       }
-      if (!is.null(self$`faceOffWinPercentage`)) {
-        TeamStatsStatObject[['faceOffWinPercentage']] <- self$`faceOffWinPercentage`
+      if (!is.null(self$faceOffWinPercentage)) {
+        TeamStatsStatObject[['faceOffWinPercentage']] <- self$faceOffWinPercentage
       }
-      if (!is.null(self$`shootingPctg`)) {
-        TeamStatsStatObject[['shootingPctg']] <- self$`shootingPctg`
+      if (!is.null(self$shootingPctg)) {
+        TeamStatsStatObject[['shootingPctg']] <- self$shootingPctg
       }
-      if (!is.null(self$`savePctg`)) {
-        TeamStatsStatObject[['savePctg']] <- self$`savePctg`
+      if (!is.null(self$savePctg)) {
+        TeamStatsStatObject[['savePctg']] <- self$savePctg
       }
 
       TeamStatsStatObject
     },
     fromJSON = function(TeamStatsStatJson) {
       TeamStatsStatObject <- jsonlite::fromJSON(TeamStatsStatJson)
-      if (!is.null(TeamStatsStatObject$`gamesPlayed`)) {
+      if (!is.null(TeamStatsStatObject$gamesPlayed)) {
         gamesPlayedObject <- BigDecimal$new()
         gamesPlayedObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$gamesPlayed, auto_unbox = TRUE))
-        self$`gamesPlayed` <- gamesPlayedObject
+        self$gamesPlayed <- gamesPlayedObject
       }
-      if (!is.null(TeamStatsStatObject$`wins`)) {
+      if (!is.null(TeamStatsStatObject$wins)) {
         winsObject <- BigDecimal$new()
         winsObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$wins, auto_unbox = TRUE))
-        self$`wins` <- winsObject
+        self$wins <- winsObject
       }
-      if (!is.null(TeamStatsStatObject$`losses`)) {
+      if (!is.null(TeamStatsStatObject$losses)) {
         lossesObject <- BigDecimal$new()
         lossesObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$losses, auto_unbox = TRUE))
-        self$`losses` <- lossesObject
+        self$losses <- lossesObject
       }
-      if (!is.null(TeamStatsStatObject$`ot`)) {
+      if (!is.null(TeamStatsStatObject$ot)) {
         otObject <- BigDecimal$new()
         otObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$ot, auto_unbox = TRUE))
-        self$`ot` <- otObject
+        self$ot <- otObject
       }
-      if (!is.null(TeamStatsStatObject$`pts`)) {
+      if (!is.null(TeamStatsStatObject$pts)) {
         ptsObject <- BigDecimal$new()
         ptsObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$pts, auto_unbox = TRUE))
-        self$`pts` <- ptsObject
+        self$pts <- ptsObject
       }
-      if (!is.null(TeamStatsStatObject$`ptPctg`)) {
-        self$`ptPctg` <- TeamStatsStatObject$`ptPctg`
+      if (!is.null(TeamStatsStatObject$ptPctg)) {
+        self$ptPctg <- TeamStatsStatObject$ptPctg
       }
-      if (!is.null(TeamStatsStatObject$`goalsPerGame`)) {
-        self$`goalsPerGame` <- TeamStatsStatObject$`goalsPerGame`
+      if (!is.null(TeamStatsStatObject$goalsPerGame)) {
+        self$goalsPerGame <- TeamStatsStatObject$goalsPerGame
       }
-      if (!is.null(TeamStatsStatObject$`goalsAgainstPerGame`)) {
-        self$`goalsAgainstPerGame` <- TeamStatsStatObject$`goalsAgainstPerGame`
+      if (!is.null(TeamStatsStatObject$goalsAgainstPerGame)) {
+        self$goalsAgainstPerGame <- TeamStatsStatObject$goalsAgainstPerGame
       }
-      if (!is.null(TeamStatsStatObject$`evGGARatio`)) {
-        self$`evGGARatio` <- TeamStatsStatObject$`evGGARatio`
+      if (!is.null(TeamStatsStatObject$evGGARatio)) {
+        self$evGGARatio <- TeamStatsStatObject$evGGARatio
       }
-      if (!is.null(TeamStatsStatObject$`powerPlayPercentage`)) {
-        self$`powerPlayPercentage` <- TeamStatsStatObject$`powerPlayPercentage`
+      if (!is.null(TeamStatsStatObject$powerPlayPercentage)) {
+        self$powerPlayPercentage <- TeamStatsStatObject$powerPlayPercentage
       }
-      if (!is.null(TeamStatsStatObject$`powerPlayGoals`)) {
+      if (!is.null(TeamStatsStatObject$powerPlayGoals)) {
         powerPlayGoalsObject <- BigDecimal$new()
         powerPlayGoalsObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayGoals, auto_unbox = TRUE))
-        self$`powerPlayGoals` <- powerPlayGoalsObject
+        self$powerPlayGoals <- powerPlayGoalsObject
       }
-      if (!is.null(TeamStatsStatObject$`powerPlayGoalsAgainst`)) {
+      if (!is.null(TeamStatsStatObject$powerPlayGoalsAgainst)) {
         powerPlayGoalsAgainstObject <- BigDecimal$new()
         powerPlayGoalsAgainstObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayGoalsAgainst, auto_unbox = TRUE))
-        self$`powerPlayGoalsAgainst` <- powerPlayGoalsAgainstObject
+        self$powerPlayGoalsAgainst <- powerPlayGoalsAgainstObject
       }
-      if (!is.null(TeamStatsStatObject$`powerPlayOpportunities`)) {
+      if (!is.null(TeamStatsStatObject$powerPlayOpportunities)) {
         powerPlayOpportunitiesObject <- BigDecimal$new()
         powerPlayOpportunitiesObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayOpportunities, auto_unbox = TRUE))
-        self$`powerPlayOpportunities` <- powerPlayOpportunitiesObject
+        self$powerPlayOpportunities <- powerPlayOpportunitiesObject
       }
-      if (!is.null(TeamStatsStatObject$`penaltyKillPercentage`)) {
-        self$`penaltyKillPercentage` <- TeamStatsStatObject$`penaltyKillPercentage`
+      if (!is.null(TeamStatsStatObject$penaltyKillPercentage)) {
+        self$penaltyKillPercentage <- TeamStatsStatObject$penaltyKillPercentage
       }
-      if (!is.null(TeamStatsStatObject$`shotsPerGame`)) {
-        self$`shotsPerGame` <- TeamStatsStatObject$`shotsPerGame`
+      if (!is.null(TeamStatsStatObject$shotsPerGame)) {
+        self$shotsPerGame <- TeamStatsStatObject$shotsPerGame
       }
-      if (!is.null(TeamStatsStatObject$`shotsAllowed`)) {
-        self$`shotsAllowed` <- TeamStatsStatObject$`shotsAllowed`
+      if (!is.null(TeamStatsStatObject$shotsAllowed)) {
+        self$shotsAllowed <- TeamStatsStatObject$shotsAllowed
       }
-      if (!is.null(TeamStatsStatObject$`winScoreFirst`)) {
-        self$`winScoreFirst` <- TeamStatsStatObject$`winScoreFirst`
+      if (!is.null(TeamStatsStatObject$winScoreFirst)) {
+        self$winScoreFirst <- TeamStatsStatObject$winScoreFirst
       }
-      if (!is.null(TeamStatsStatObject$`winOppScoreFirst`)) {
-        self$`winOppScoreFirst` <- TeamStatsStatObject$`winOppScoreFirst`
+      if (!is.null(TeamStatsStatObject$winOppScoreFirst)) {
+        self$winOppScoreFirst <- TeamStatsStatObject$winOppScoreFirst
       }
-      if (!is.null(TeamStatsStatObject$`winLeadFirstPer`)) {
-        self$`winLeadFirstPer` <- TeamStatsStatObject$`winLeadFirstPer`
+      if (!is.null(TeamStatsStatObject$winLeadFirstPer)) {
+        self$winLeadFirstPer <- TeamStatsStatObject$winLeadFirstPer
       }
-      if (!is.null(TeamStatsStatObject$`winLeadSecondPer`)) {
-        self$`winLeadSecondPer` <- TeamStatsStatObject$`winLeadSecondPer`
+      if (!is.null(TeamStatsStatObject$winLeadSecondPer)) {
+        self$winLeadSecondPer <- TeamStatsStatObject$winLeadSecondPer
       }
-      if (!is.null(TeamStatsStatObject$`winOutshootOpp`)) {
-        self$`winOutshootOpp` <- TeamStatsStatObject$`winOutshootOpp`
+      if (!is.null(TeamStatsStatObject$winOutshootOpp)) {
+        self$winOutshootOpp <- TeamStatsStatObject$winOutshootOpp
       }
-      if (!is.null(TeamStatsStatObject$`winOutshotByOpp`)) {
-        self$`winOutshotByOpp` <- TeamStatsStatObject$`winOutshotByOpp`
+      if (!is.null(TeamStatsStatObject$winOutshotByOpp)) {
+        self$winOutshotByOpp <- TeamStatsStatObject$winOutshotByOpp
       }
-      if (!is.null(TeamStatsStatObject$`faceOffsTaken`)) {
+      if (!is.null(TeamStatsStatObject$faceOffsTaken)) {
         faceOffsTakenObject <- BigDecimal$new()
         faceOffsTakenObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsTaken, auto_unbox = TRUE))
-        self$`faceOffsTaken` <- faceOffsTakenObject
+        self$faceOffsTaken <- faceOffsTakenObject
       }
-      if (!is.null(TeamStatsStatObject$`faceOffsWon`)) {
+      if (!is.null(TeamStatsStatObject$faceOffsWon)) {
         faceOffsWonObject <- BigDecimal$new()
         faceOffsWonObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsWon, auto_unbox = TRUE))
-        self$`faceOffsWon` <- faceOffsWonObject
+        self$faceOffsWon <- faceOffsWonObject
       }
-      if (!is.null(TeamStatsStatObject$`faceOffsLost`)) {
+      if (!is.null(TeamStatsStatObject$faceOffsLost)) {
         faceOffsLostObject <- BigDecimal$new()
         faceOffsLostObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsLost, auto_unbox = TRUE))
-        self$`faceOffsLost` <- faceOffsLostObject
+        self$faceOffsLost <- faceOffsLostObject
       }
-      if (!is.null(TeamStatsStatObject$`faceOffWinPercentage`)) {
-        self$`faceOffWinPercentage` <- TeamStatsStatObject$`faceOffWinPercentage`
+      if (!is.null(TeamStatsStatObject$faceOffWinPercentage)) {
+        self$faceOffWinPercentage <- TeamStatsStatObject$faceOffWinPercentage
       }
-      if (!is.null(TeamStatsStatObject$`shootingPctg`)) {
-        self$`shootingPctg` <- TeamStatsStatObject$`shootingPctg`
+      if (!is.null(TeamStatsStatObject$shootingPctg)) {
+        self$shootingPctg <- TeamStatsStatObject$shootingPctg
       }
-      if (!is.null(TeamStatsStatObject$`savePctg`)) {
-        self$`savePctg` <- TeamStatsStatObject$`savePctg`
+      if (!is.null(TeamStatsStatObject$savePctg)) {
+        self$savePctg <- TeamStatsStatObject$savePctg
       }
     },
     toJSONString = function() {
@@ -426,77 +426,77 @@ TeamStatsStat <- R6::R6Class(
            "shootingPctg": %d,
            "savePctg": %d
         }',
-        self$`gamesPlayed`$toJSON(),
-        self$`wins`$toJSON(),
-        self$`losses`$toJSON(),
-        self$`ot`$toJSON(),
-        self$`pts`$toJSON(),
-        self$`ptPctg`,
-        self$`goalsPerGame`,
-        self$`goalsAgainstPerGame`,
-        self$`evGGARatio`,
-        self$`powerPlayPercentage`,
-        self$`powerPlayGoals`$toJSON(),
-        self$`powerPlayGoalsAgainst`$toJSON(),
-        self$`powerPlayOpportunities`$toJSON(),
-        self$`penaltyKillPercentage`,
-        self$`shotsPerGame`,
-        self$`shotsAllowed`,
-        self$`winScoreFirst`,
-        self$`winOppScoreFirst`,
-        self$`winLeadFirstPer`,
-        self$`winLeadSecondPer`,
-        self$`winOutshootOpp`,
-        self$`winOutshotByOpp`,
-        self$`faceOffsTaken`$toJSON(),
-        self$`faceOffsWon`$toJSON(),
-        self$`faceOffsLost`$toJSON(),
-        self$`faceOffWinPercentage`,
-        self$`shootingPctg`,
-        self$`savePctg`
+        self$gamesPlayed$toJSON(),
+        self$wins$toJSON(),
+        self$losses$toJSON(),
+        self$ot$toJSON(),
+        self$pts$toJSON(),
+        self$ptPctg,
+        self$goalsPerGame,
+        self$goalsAgainstPerGame,
+        self$evGGARatio,
+        self$powerPlayPercentage,
+        self$powerPlayGoals$toJSON(),
+        self$powerPlayGoalsAgainst$toJSON(),
+        self$powerPlayOpportunities$toJSON(),
+        self$penaltyKillPercentage,
+        self$shotsPerGame,
+        self$shotsAllowed,
+        self$winScoreFirst,
+        self$winOppScoreFirst,
+        self$winLeadFirstPer,
+        self$winLeadSecondPer,
+        self$winOutshootOpp,
+        self$winOutshotByOpp,
+        self$faceOffsTaken$toJSON(),
+        self$faceOffsWon$toJSON(),
+        self$faceOffsLost$toJSON(),
+        self$faceOffWinPercentage,
+        self$shootingPctg,
+        self$savePctg
       )
     },
     fromJSONString = function(TeamStatsStatJson) {
       TeamStatsStatObject <- jsonlite::fromJSON(TeamStatsStatJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`gamesPlayed` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$gamesPlayed, auto_unbox = TRUE))
+      self$gamesPlayed <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$gamesPlayed, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`wins` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$wins, auto_unbox = TRUE))
+      self$wins <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$wins, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`losses` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$losses, auto_unbox = TRUE))
+      self$losses <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$losses, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`ot` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$ot, auto_unbox = TRUE))
+      self$ot <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$ot, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`pts` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$pts, auto_unbox = TRUE))
-      self$`ptPctg` <- TeamStatsStatObject$`ptPctg`
-      self$`goalsPerGame` <- TeamStatsStatObject$`goalsPerGame`
-      self$`goalsAgainstPerGame` <- TeamStatsStatObject$`goalsAgainstPerGame`
-      self$`evGGARatio` <- TeamStatsStatObject$`evGGARatio`
-      self$`powerPlayPercentage` <- TeamStatsStatObject$`powerPlayPercentage`
+      self$pts <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$pts, auto_unbox = TRUE))
+      self$ptPctg <- TeamStatsStatObject$ptPctg
+      self$goalsPerGame <- TeamStatsStatObject$goalsPerGame
+      self$goalsAgainstPerGame <- TeamStatsStatObject$goalsAgainstPerGame
+      self$evGGARatio <- TeamStatsStatObject$evGGARatio
+      self$powerPlayPercentage <- TeamStatsStatObject$powerPlayPercentage
       BigDecimalObject <- BigDecimal$new()
-      self$`powerPlayGoals` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayGoals, auto_unbox = TRUE))
+      self$powerPlayGoals <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayGoals, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`powerPlayGoalsAgainst` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayGoalsAgainst, auto_unbox = TRUE))
+      self$powerPlayGoalsAgainst <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayGoalsAgainst, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`powerPlayOpportunities` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayOpportunities, auto_unbox = TRUE))
-      self$`penaltyKillPercentage` <- TeamStatsStatObject$`penaltyKillPercentage`
-      self$`shotsPerGame` <- TeamStatsStatObject$`shotsPerGame`
-      self$`shotsAllowed` <- TeamStatsStatObject$`shotsAllowed`
-      self$`winScoreFirst` <- TeamStatsStatObject$`winScoreFirst`
-      self$`winOppScoreFirst` <- TeamStatsStatObject$`winOppScoreFirst`
-      self$`winLeadFirstPer` <- TeamStatsStatObject$`winLeadFirstPer`
-      self$`winLeadSecondPer` <- TeamStatsStatObject$`winLeadSecondPer`
-      self$`winOutshootOpp` <- TeamStatsStatObject$`winOutshootOpp`
-      self$`winOutshotByOpp` <- TeamStatsStatObject$`winOutshotByOpp`
+      self$powerPlayOpportunities <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$powerPlayOpportunities, auto_unbox = TRUE))
+      self$penaltyKillPercentage <- TeamStatsStatObject$penaltyKillPercentage
+      self$shotsPerGame <- TeamStatsStatObject$shotsPerGame
+      self$shotsAllowed <- TeamStatsStatObject$shotsAllowed
+      self$winScoreFirst <- TeamStatsStatObject$winScoreFirst
+      self$winOppScoreFirst <- TeamStatsStatObject$winOppScoreFirst
+      self$winLeadFirstPer <- TeamStatsStatObject$winLeadFirstPer
+      self$winLeadSecondPer <- TeamStatsStatObject$winLeadSecondPer
+      self$winOutshootOpp <- TeamStatsStatObject$winOutshootOpp
+      self$winOutshotByOpp <- TeamStatsStatObject$winOutshotByOpp
       BigDecimalObject <- BigDecimal$new()
-      self$`faceOffsTaken` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsTaken, auto_unbox = TRUE))
+      self$faceOffsTaken <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsTaken, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`faceOffsWon` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsWon, auto_unbox = TRUE))
+      self$faceOffsWon <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsWon, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`faceOffsLost` <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsLost, auto_unbox = TRUE))
-      self$`faceOffWinPercentage` <- TeamStatsStatObject$`faceOffWinPercentage`
-      self$`shootingPctg` <- TeamStatsStatObject$`shootingPctg`
-      self$`savePctg` <- TeamStatsStatObject$`savePctg`
+      self$faceOffsLost <- BigDecimalObject$fromJSON(jsonlite::toJSON(TeamStatsStatObject$faceOffsLost, auto_unbox = TRUE))
+      self$faceOffWinPercentage <- TeamStatsStatObject$faceOffWinPercentage
+      self$shootingPctg <- TeamStatsStatObject$shootingPctg
+      self$savePctg <- TeamStatsStatObject$savePctg
     }
   )
 )

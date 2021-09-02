@@ -17,39 +17,39 @@
 TeamStatsStats <- R6::R6Class(
   'TeamStatsStats',
   public = list(
-    `type` = NULL,
-    `splits` = NULL,
-    initialize = function(`type`, `splits`){
-      if (!missing(`type`)) {
-        stopifnot(R6::is.R6(`type`))
-        self$`type` <- `type`
+    type = NULL,
+    splits = NULL,
+    initialize = function(type, splits){
+      if (!missing(type)) {
+        stopifnot(R6::is.R6(type))
+        self$type <- type
       }
-      if (!missing(`splits`)) {
-        stopifnot(is.list(`splits`), length(`splits`) != 0)
-        lapply(`splits`, function(x) stopifnot(R6::is.R6(x)))
-        self$`splits` <- `splits`
+      if (!missing(splits)) {
+        stopifnot(is.list(splits), length(splits) != 0)
+        lapply(splits, function(x) stopifnot(R6::is.R6(x)))
+        self$splits <- splits
       }
     },
     toJSON = function() {
       TeamStatsStatsObject <- list()
-      if (!is.null(self$`type`)) {
-        TeamStatsStatsObject[['type']] <- self$`type`$toJSON()
+      if (!is.null(self$type)) {
+        TeamStatsStatsObject[['type']] <- self$type$toJSON()
       }
-      if (!is.null(self$`splits`)) {
-        TeamStatsStatsObject[['splits']] <- lapply(self$`splits`, function(x) x$toJSON())
+      if (!is.null(self$splits)) {
+        TeamStatsStatsObject[['splits']] <- lapply(self$splits, function(x) x$toJSON())
       }
 
       TeamStatsStatsObject
     },
     fromJSON = function(TeamStatsStatsJson) {
       TeamStatsStatsObject <- jsonlite::fromJSON(TeamStatsStatsJson)
-      if (!is.null(TeamStatsStatsObject$`type`)) {
+      if (!is.null(TeamStatsStatsObject$type)) {
         typeObject <- TeamStatsType$new()
         typeObject$fromJSON(jsonlite::toJSON(TeamStatsStatsObject$type, auto_unbox = TRUE))
-        self$`type` <- typeObject
+        self$type <- typeObject
       }
-      if (!is.null(TeamStatsStatsObject$`splits`)) {
-        self$`splits` <- lapply(TeamStatsStatsObject$`splits`, function(x) {
+      if (!is.null(TeamStatsStatsObject$splits)) {
+        self$splits <- lapply(TeamStatsStatsObject$splits, function(x) {
           splitsObject <- TeamStatsSplits$new()
           splitsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           splitsObject
@@ -62,15 +62,15 @@ TeamStatsStats <- R6::R6Class(
            "type": %s,
            "splits": [%s]
         }',
-        self$`type`$toJSON(),
-        lapply(self$`splits`, function(x) paste(x$toJSON(), sep=","))
+        self$type$toJSON(),
+        lapply(self$splits, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(TeamStatsStatsJson) {
       TeamStatsStatsObject <- jsonlite::fromJSON(TeamStatsStatsJson)
       TeamStatsTypeObject <- TeamStatsType$new()
-      self$`type` <- TeamStatsTypeObject$fromJSON(jsonlite::toJSON(TeamStatsStatsObject$type, auto_unbox = TRUE))
-      self$`splits` <- lapply(TeamStatsStatsObject$`splits`, function(x) TeamStatsSplits$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$type <- TeamStatsTypeObject$fromJSON(jsonlite::toJSON(TeamStatsStatsObject$type, auto_unbox = TRUE))
+      self$splits <- lapply(TeamStatsStatsObject$splits, function(x) TeamStatsSplits$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

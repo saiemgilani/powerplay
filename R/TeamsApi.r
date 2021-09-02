@@ -20,7 +20,7 @@
 #' get_team Get an NHL team.
 #'
 #'
-#' get_team_roster Get an NHL team&#x27;s roster.
+#' get_team_roster Get an NHL team's roster.
 #'
 #'
 #' get_team_stats Get all statistics for an NHL team.
@@ -49,17 +49,17 @@ TeamsApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`expand`)) {
+      if (!missing(expand)) {
         queryParams['expand'] <- expand
       }
 
-      if (!missing(`season`)) {
+      if (!missing(season)) {
         queryParams['season'] <- season
       }
 
       urlPath <- "/teams/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -79,19 +79,19 @@ TeamsApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_team_roster = function(id, season, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`season`)) {
+      if (!missing(season)) {
         queryParams['season'] <- season
       }
 
       urlPath <- "/teams/{id}/roster"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -111,15 +111,15 @@ TeamsApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_team_stats = function(id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/teams/{id}/stats"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -139,17 +139,17 @@ TeamsApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_teams = function(expand, season, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`expand`)) {
+      if (!missing(expand)) {
         queryParams['expand'] <- expand
       }
 
-      if (!missing(`season`)) {
+      if (!missing(season)) {
         queryParams['season'] <- season
       }
 

@@ -17,38 +17,38 @@
 GameOfficial <- R6::R6Class(
   'GameOfficial',
   public = list(
-    `official` = NULL,
-    `officialType` = NULL,
-    initialize = function(`official`, `officialType`){
-      if (!missing(`official`)) {
-        stopifnot(R6::is.R6(`official`))
-        self$`official` <- `official`
+    official = NULL,
+    officialType = NULL,
+    initialize = function(official, officialType){
+      if (!missing(official)) {
+        stopifnot(R6::is.R6(official))
+        self$official <- official
       }
-      if (!missing(`officialType`)) {
-        stopifnot(is.character(`officialType`), length(`officialType`) == 1)
-        self$`officialType` <- `officialType`
+      if (!missing(officialType)) {
+        stopifnot(is.character(officialType), length(officialType) == 1)
+        self$officialType <- officialType
       }
     },
     toJSON = function() {
       GameOfficialObject <- list()
-      if (!is.null(self$`official`)) {
-        GameOfficialObject[['official']] <- self$`official`$toJSON()
+      if (!is.null(self$official)) {
+        GameOfficialObject[['official']] <- self$official$toJSON()
       }
-      if (!is.null(self$`officialType`)) {
-        GameOfficialObject[['officialType']] <- self$`officialType`
+      if (!is.null(self$officialType)) {
+        GameOfficialObject[['officialType']] <- self$officialType
       }
 
       GameOfficialObject
     },
     fromJSON = function(GameOfficialJson) {
       GameOfficialObject <- jsonlite::fromJSON(GameOfficialJson)
-      if (!is.null(GameOfficialObject$`official`)) {
+      if (!is.null(GameOfficialObject$official)) {
         officialObject <- GameOfficialOfficial$new()
         officialObject$fromJSON(jsonlite::toJSON(GameOfficialObject$official, auto_unbox = TRUE))
-        self$`official` <- officialObject
+        self$official <- officialObject
       }
-      if (!is.null(GameOfficialObject$`officialType`)) {
-        self$`officialType` <- GameOfficialObject$`officialType`
+      if (!is.null(GameOfficialObject$officialType)) {
+        self$officialType <- GameOfficialObject$officialType
       }
     },
     toJSONString = function() {
@@ -57,15 +57,15 @@ GameOfficial <- R6::R6Class(
            "official": %s,
            "officialType": %s
         }',
-        self$`official`$toJSON(),
-        self$`officialType`
+        self$official$toJSON(),
+        self$officialType
       )
     },
     fromJSONString = function(GameOfficialJson) {
       GameOfficialObject <- jsonlite::fromJSON(GameOfficialJson)
       GameOfficialOfficialObject <- GameOfficialOfficial$new()
-      self$`official` <- GameOfficialOfficialObject$fromJSON(jsonlite::toJSON(GameOfficialObject$official, auto_unbox = TRUE))
-      self$`officialType` <- GameOfficialObject$`officialType`
+      self$official <- GameOfficialOfficialObject$fromJSON(jsonlite::toJSON(GameOfficialObject$official, auto_unbox = TRUE))
+      self$officialType <- GameOfficialObject$officialType
     }
   )
 )

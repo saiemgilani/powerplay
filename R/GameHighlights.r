@@ -17,40 +17,40 @@
 GameHighlights <- R6::R6Class(
   'GameHighlights',
   public = list(
-    `scoreboard` = NULL,
-    `gameCenter` = NULL,
-    initialize = function(`scoreboard`, `gameCenter`){
-      if (!missing(`scoreboard`)) {
-        stopifnot(R6::is.R6(`scoreboard`))
-        self$`scoreboard` <- `scoreboard`
+    scoreboard = NULL,
+    gameCenter = NULL,
+    initialize = function(scoreboard, gameCenter){
+      if (!missing(scoreboard)) {
+        stopifnot(R6::is.R6(scoreboard))
+        self$scoreboard <- scoreboard
       }
-      if (!missing(`gameCenter`)) {
-        stopifnot(R6::is.R6(`gameCenter`))
-        self$`gameCenter` <- `gameCenter`
+      if (!missing(gameCenter)) {
+        stopifnot(R6::is.R6(gameCenter))
+        self$gameCenter <- gameCenter
       }
     },
     toJSON = function() {
       GameHighlightsObject <- list()
-      if (!is.null(self$`scoreboard`)) {
-        GameHighlightsObject[['scoreboard']] <- self$`scoreboard`$toJSON()
+      if (!is.null(self$scoreboard)) {
+        GameHighlightsObject[['scoreboard']] <- self$scoreboard$toJSON()
       }
-      if (!is.null(self$`gameCenter`)) {
-        GameHighlightsObject[['gameCenter']] <- self$`gameCenter`$toJSON()
+      if (!is.null(self$gameCenter)) {
+        GameHighlightsObject[['gameCenter']] <- self$gameCenter$toJSON()
       }
 
       GameHighlightsObject
     },
     fromJSON = function(GameHighlightsJson) {
       GameHighlightsObject <- jsonlite::fromJSON(GameHighlightsJson)
-      if (!is.null(GameHighlightsObject$`scoreboard`)) {
+      if (!is.null(GameHighlightsObject$scoreboard)) {
         scoreboardObject <- GameHighlightType$new()
         scoreboardObject$fromJSON(jsonlite::toJSON(GameHighlightsObject$scoreboard, auto_unbox = TRUE))
-        self$`scoreboard` <- scoreboardObject
+        self$scoreboard <- scoreboardObject
       }
-      if (!is.null(GameHighlightsObject$`gameCenter`)) {
+      if (!is.null(GameHighlightsObject$gameCenter)) {
         gameCenterObject <- GameHighlightType$new()
         gameCenterObject$fromJSON(jsonlite::toJSON(GameHighlightsObject$gameCenter, auto_unbox = TRUE))
-        self$`gameCenter` <- gameCenterObject
+        self$gameCenter <- gameCenterObject
       }
     },
     toJSONString = function() {
@@ -59,16 +59,16 @@ GameHighlights <- R6::R6Class(
            "scoreboard": %s,
            "gameCenter": %s
         }',
-        self$`scoreboard`$toJSON(),
-        self$`gameCenter`$toJSON()
+        self$scoreboard$toJSON(),
+        self$gameCenter$toJSON()
       )
     },
     fromJSONString = function(GameHighlightsJson) {
       GameHighlightsObject <- jsonlite::fromJSON(GameHighlightsJson)
       GameHighlightTypeObject <- GameHighlightType$new()
-      self$`scoreboard` <- GameHighlightTypeObject$fromJSON(jsonlite::toJSON(GameHighlightsObject$scoreboard, auto_unbox = TRUE))
+      self$scoreboard <- GameHighlightTypeObject$fromJSON(jsonlite::toJSON(GameHighlightsObject$scoreboard, auto_unbox = TRUE))
       GameHighlightTypeObject <- GameHighlightType$new()
-      self$`gameCenter` <- GameHighlightTypeObject$fromJSON(jsonlite::toJSON(GameHighlightsObject$gameCenter, auto_unbox = TRUE))
+      self$gameCenter <- GameHighlightTypeObject$fromJSON(jsonlite::toJSON(GameHighlightsObject$gameCenter, auto_unbox = TRUE))
     }
   )
 )

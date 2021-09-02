@@ -21,86 +21,86 @@
 PhotoCuts <- R6::R6Class(
   'PhotoCuts',
   public = list(
-    `aspectRatio` = NULL,
-    `width` = NULL,
-    `height` = NULL,
-    `src` = NULL,
-    `at2x` = NULL,
-    `at3x` = NULL,
-    initialize = function(`aspectRatio`, `width`, `height`, `src`, `at2x`, `at3x`){
-      if (!missing(`aspectRatio`)) {
-        stopifnot(is.character(`aspectRatio`), length(`aspectRatio`) == 1)
-        self$`aspectRatio` <- `aspectRatio`
+    aspectRatio = NULL,
+    width = NULL,
+    height = NULL,
+    src = NULL,
+    at2x = NULL,
+    at3x = NULL,
+    initialize = function(aspectRatio, width, height, src, at2x, at3x){
+      if (!missing(aspectRatio)) {
+        stopifnot(is.character(aspectRatio), length(aspectRatio) == 1)
+        self$aspectRatio <- aspectRatio
       }
-      if (!missing(`width`)) {
-        stopifnot(is.numeric(`width`), length(`width`) == 1)
-        stopifnot(R6::is.R6(`width`))
-        self$`width` <- `width`
+      if (!missing(width)) {
+        stopifnot(is.numeric(width), length(width) == 1)
+        stopifnot(R6::is.R6(width))
+        self$width <- width
       }
-      if (!missing(`height`)) {
-        stopifnot(is.numeric(`height`), length(`height`) == 1)
-        stopifnot(R6::is.R6(`height`))
-        self$`height` <- `height`
+      if (!missing(height)) {
+        stopifnot(is.numeric(height), length(height) == 1)
+        stopifnot(R6::is.R6(height))
+        self$height <- height
       }
-      if (!missing(`src`)) {
-        stopifnot(is.character(`src`), length(`src`) == 1)
-        self$`src` <- `src`
+      if (!missing(src)) {
+        stopifnot(is.character(src), length(src) == 1)
+        self$src <- src
       }
-      if (!missing(`at2x`)) {
-        stopifnot(is.character(`at2x`), length(`at2x`) == 1)
-        self$`at2x` <- `at2x`
+      if (!missing(at2x)) {
+        stopifnot(is.character(at2x), length(at2x) == 1)
+        self$at2x <- at2x
       }
-      if (!missing(`at3x`)) {
-        stopifnot(is.character(`at3x`), length(`at3x`) == 1)
-        self$`at3x` <- `at3x`
+      if (!missing(at3x)) {
+        stopifnot(is.character(at3x), length(at3x) == 1)
+        self$at3x <- at3x
       }
     },
     toJSON = function() {
       PhotoCutsObject <- list()
-      if (!is.null(self$`aspectRatio`)) {
-        PhotoCutsObject[['aspectRatio']] <- self$`aspectRatio`
+      if (!is.null(self$aspectRatio)) {
+        PhotoCutsObject[['aspectRatio']] <- self$aspectRatio
       }
-      if (!is.null(self$`width`)) {
-        PhotoCutsObject[['width']] <- self$`width`$toJSON()
+      if (!is.null(self$width)) {
+        PhotoCutsObject[['width']] <- self$width$toJSON()
       }
-      if (!is.null(self$`height`)) {
-        PhotoCutsObject[['height']] <- self$`height`$toJSON()
+      if (!is.null(self$height)) {
+        PhotoCutsObject[['height']] <- self$height$toJSON()
       }
-      if (!is.null(self$`src`)) {
-        PhotoCutsObject[['src']] <- self$`src`
+      if (!is.null(self$src)) {
+        PhotoCutsObject[['src']] <- self$src
       }
-      if (!is.null(self$`at2x`)) {
-        PhotoCutsObject[['at2x']] <- self$`at2x`
+      if (!is.null(self$at2x)) {
+        PhotoCutsObject[['at2x']] <- self$at2x
       }
-      if (!is.null(self$`at3x`)) {
-        PhotoCutsObject[['at3x']] <- self$`at3x`
+      if (!is.null(self$at3x)) {
+        PhotoCutsObject[['at3x']] <- self$at3x
       }
 
       PhotoCutsObject
     },
     fromJSON = function(PhotoCutsJson) {
       PhotoCutsObject <- jsonlite::fromJSON(PhotoCutsJson)
-      if (!is.null(PhotoCutsObject$`aspectRatio`)) {
-        self$`aspectRatio` <- PhotoCutsObject$`aspectRatio`
+      if (!is.null(PhotoCutsObject$aspectRatio)) {
+        self$aspectRatio <- PhotoCutsObject$aspectRatio
       }
-      if (!is.null(PhotoCutsObject$`width`)) {
+      if (!is.null(PhotoCutsObject$width)) {
         widthObject <- BigDecimal$new()
         widthObject$fromJSON(jsonlite::toJSON(PhotoCutsObject$width, auto_unbox = TRUE))
-        self$`width` <- widthObject
+        self$width <- widthObject
       }
-      if (!is.null(PhotoCutsObject$`height`)) {
+      if (!is.null(PhotoCutsObject$height)) {
         heightObject <- BigDecimal$new()
         heightObject$fromJSON(jsonlite::toJSON(PhotoCutsObject$height, auto_unbox = TRUE))
-        self$`height` <- heightObject
+        self$height <- heightObject
       }
-      if (!is.null(PhotoCutsObject$`src`)) {
-        self$`src` <- PhotoCutsObject$`src`
+      if (!is.null(PhotoCutsObject$src)) {
+        self$src <- PhotoCutsObject$src
       }
-      if (!is.null(PhotoCutsObject$`at2x`)) {
-        self$`at2x` <- PhotoCutsObject$`at2x`
+      if (!is.null(PhotoCutsObject$at2x)) {
+        self$at2x <- PhotoCutsObject$at2x
       }
-      if (!is.null(PhotoCutsObject$`at3x`)) {
-        self$`at3x` <- PhotoCutsObject$`at3x`
+      if (!is.null(PhotoCutsObject$at3x)) {
+        self$at3x <- PhotoCutsObject$at3x
       }
     },
     toJSONString = function() {
@@ -113,24 +113,24 @@ PhotoCuts <- R6::R6Class(
            "at2x": %s,
            "at3x": %s
         }',
-        self$`aspectRatio`,
-        self$`width`$toJSON(),
-        self$`height`$toJSON(),
-        self$`src`,
-        self$`at2x`,
-        self$`at3x`
+        self$aspectRatio,
+        self$width$toJSON(),
+        self$height$toJSON(),
+        self$src,
+        self$at2x,
+        self$at3x
       )
     },
     fromJSONString = function(PhotoCutsJson) {
       PhotoCutsObject <- jsonlite::fromJSON(PhotoCutsJson)
-      self$`aspectRatio` <- PhotoCutsObject$`aspectRatio`
+      self$aspectRatio <- PhotoCutsObject$aspectRatio
       BigDecimalObject <- BigDecimal$new()
-      self$`width` <- BigDecimalObject$fromJSON(jsonlite::toJSON(PhotoCutsObject$width, auto_unbox = TRUE))
+      self$width <- BigDecimalObject$fromJSON(jsonlite::toJSON(PhotoCutsObject$width, auto_unbox = TRUE))
       BigDecimalObject <- BigDecimal$new()
-      self$`height` <- BigDecimalObject$fromJSON(jsonlite::toJSON(PhotoCutsObject$height, auto_unbox = TRUE))
-      self$`src` <- PhotoCutsObject$`src`
-      self$`at2x` <- PhotoCutsObject$`at2x`
-      self$`at3x` <- PhotoCutsObject$`at3x`
+      self$height <- BigDecimalObject$fromJSON(jsonlite::toJSON(PhotoCutsObject$height, auto_unbox = TRUE))
+      self$src <- PhotoCutsObject$src
+      self$at2x <- PhotoCutsObject$at2x
+      self$at3x <- PhotoCutsObject$at3x
     }
   )
 )

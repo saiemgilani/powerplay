@@ -21,82 +21,82 @@
 Conference <- R6::R6Class(
   'Conference',
   public = list(
-    `id` = NULL,
-    `name` = NULL,
-    `link` = NULL,
-    `abbreviation` = NULL,
-    `shortName` = NULL,
-    `active` = NULL,
-    initialize = function(`id`, `name`, `link`, `abbreviation`, `shortName`, `active`){
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        stopifnot(R6::is.R6(`id`))
-        self$`id` <- `id`
+    id = NULL,
+    name = NULL,
+    link = NULL,
+    abbreviation = NULL,
+    shortName = NULL,
+    active = NULL,
+    initialize = function(id, name, link, abbreviation, shortName, active){
+      if (!missing(id)) {
+        stopifnot(is.numeric(id), length(id) == 1)
+        stopifnot(R6::is.R6(id))
+        self$id <- id
       }
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
-      if (!missing(`link`)) {
-        stopifnot(is.character(`link`), length(`link`) == 1)
-        self$`link` <- `link`
+      if (!missing(link)) {
+        stopifnot(is.character(link), length(link) == 1)
+        self$link <- link
       }
-      if (!missing(`abbreviation`)) {
-        stopifnot(is.character(`abbreviation`), length(`abbreviation`) == 1)
-        self$`abbreviation` <- `abbreviation`
+      if (!missing(abbreviation)) {
+        stopifnot(is.character(abbreviation), length(abbreviation) == 1)
+        self$abbreviation <- abbreviation
       }
-      if (!missing(`shortName`)) {
-        stopifnot(is.character(`shortName`), length(`shortName`) == 1)
-        self$`shortName` <- `shortName`
+      if (!missing(shortName)) {
+        stopifnot(is.character(shortName), length(shortName) == 1)
+        self$shortName <- shortName
       }
-      if (!missing(`active`)) {
-        self$`active` <- `active`
+      if (!missing(active)) {
+        self$active <- active
       }
     },
     toJSON = function() {
       ConferenceObject <- list()
-      if (!is.null(self$`id`)) {
-        ConferenceObject[['id']] <- self$`id`$toJSON()
+      if (!is.null(self$id)) {
+        ConferenceObject[['id']] <- self$id$toJSON()
       }
-      if (!is.null(self$`name`)) {
-        ConferenceObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        ConferenceObject[['name']] <- self$name
       }
-      if (!is.null(self$`link`)) {
-        ConferenceObject[['link']] <- self$`link`
+      if (!is.null(self$link)) {
+        ConferenceObject[['link']] <- self$link
       }
-      if (!is.null(self$`abbreviation`)) {
-        ConferenceObject[['abbreviation']] <- self$`abbreviation`
+      if (!is.null(self$abbreviation)) {
+        ConferenceObject[['abbreviation']] <- self$abbreviation
       }
-      if (!is.null(self$`shortName`)) {
-        ConferenceObject[['shortName']] <- self$`shortName`
+      if (!is.null(self$shortName)) {
+        ConferenceObject[['shortName']] <- self$shortName
       }
-      if (!is.null(self$`active`)) {
-        ConferenceObject[['active']] <- self$`active`
+      if (!is.null(self$active)) {
+        ConferenceObject[['active']] <- self$active
       }
 
       ConferenceObject
     },
     fromJSON = function(ConferenceJson) {
       ConferenceObject <- jsonlite::fromJSON(ConferenceJson)
-      if (!is.null(ConferenceObject$`id`)) {
+      if (!is.null(ConferenceObject$id)) {
         idObject <- BigDecimal$new()
         idObject$fromJSON(jsonlite::toJSON(ConferenceObject$id, auto_unbox = TRUE))
-        self$`id` <- idObject
+        self$id <- idObject
       }
-      if (!is.null(ConferenceObject$`name`)) {
-        self$`name` <- ConferenceObject$`name`
+      if (!is.null(ConferenceObject$name)) {
+        self$name <- ConferenceObject$name
       }
-      if (!is.null(ConferenceObject$`link`)) {
-        self$`link` <- ConferenceObject$`link`
+      if (!is.null(ConferenceObject$link)) {
+        self$link <- ConferenceObject$link
       }
-      if (!is.null(ConferenceObject$`abbreviation`)) {
-        self$`abbreviation` <- ConferenceObject$`abbreviation`
+      if (!is.null(ConferenceObject$abbreviation)) {
+        self$abbreviation <- ConferenceObject$abbreviation
       }
-      if (!is.null(ConferenceObject$`shortName`)) {
-        self$`shortName` <- ConferenceObject$`shortName`
+      if (!is.null(ConferenceObject$shortName)) {
+        self$shortName <- ConferenceObject$shortName
       }
-      if (!is.null(ConferenceObject$`active`)) {
-        self$`active` <- ConferenceObject$`active`
+      if (!is.null(ConferenceObject$active)) {
+        self$active <- ConferenceObject$active
       }
     },
     toJSONString = function() {
@@ -109,23 +109,23 @@ Conference <- R6::R6Class(
            "shortName": %s,
            "active": %s
         }',
-        self$`id`$toJSON(),
-        self$`name`,
-        self$`link`,
-        self$`abbreviation`,
-        self$`shortName`,
-        self$`active`
+        self$id$toJSON(),
+        self$name,
+        self$link,
+        self$abbreviation,
+        self$shortName,
+        self$active
       )
     },
     fromJSONString = function(ConferenceJson) {
       ConferenceObject <- jsonlite::fromJSON(ConferenceJson)
       BigDecimalObject <- BigDecimal$new()
-      self$`id` <- BigDecimalObject$fromJSON(jsonlite::toJSON(ConferenceObject$id, auto_unbox = TRUE))
-      self$`name` <- ConferenceObject$`name`
-      self$`link` <- ConferenceObject$`link`
-      self$`abbreviation` <- ConferenceObject$`abbreviation`
-      self$`shortName` <- ConferenceObject$`shortName`
-      self$`active` <- ConferenceObject$`active`
+      self$id <- BigDecimalObject$fromJSON(jsonlite::toJSON(ConferenceObject$id, auto_unbox = TRUE))
+      self$name <- ConferenceObject$name
+      self$link <- ConferenceObject$link
+      self$abbreviation <- ConferenceObject$abbreviation
+      self$shortName <- ConferenceObject$shortName
+      self$active <- ConferenceObject$active
     }
   )
 )

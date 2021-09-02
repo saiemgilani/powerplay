@@ -17,40 +17,40 @@
 TeamNextGameScheduleTeams <- R6::R6Class(
   'TeamNextGameScheduleTeams',
   public = list(
-    `away` = NULL,
-    `home` = NULL,
-    initialize = function(`away`, `home`){
-      if (!missing(`away`)) {
-        stopifnot(R6::is.R6(`away`))
-        self$`away` <- `away`
+    away = NULL,
+    home = NULL,
+    initialize = function(away, home){
+      if (!missing(away)) {
+        stopifnot(R6::is.R6(away))
+        self$away <- away
       }
-      if (!missing(`home`)) {
-        stopifnot(R6::is.R6(`home`))
-        self$`home` <- `home`
+      if (!missing(home)) {
+        stopifnot(R6::is.R6(home))
+        self$home <- home
       }
     },
     toJSON = function() {
       TeamNextGameScheduleTeamsObject <- list()
-      if (!is.null(self$`away`)) {
-        TeamNextGameScheduleTeamsObject[['away']] <- self$`away`$toJSON()
+      if (!is.null(self$away)) {
+        TeamNextGameScheduleTeamsObject[['away']] <- self$away$toJSON()
       }
-      if (!is.null(self$`home`)) {
-        TeamNextGameScheduleTeamsObject[['home']] <- self$`home`$toJSON()
+      if (!is.null(self$home)) {
+        TeamNextGameScheduleTeamsObject[['home']] <- self$home$toJSON()
       }
 
       TeamNextGameScheduleTeamsObject
     },
     fromJSON = function(TeamNextGameScheduleTeamsJson) {
       TeamNextGameScheduleTeamsObject <- jsonlite::fromJSON(TeamNextGameScheduleTeamsJson)
-      if (!is.null(TeamNextGameScheduleTeamsObject$`away`)) {
+      if (!is.null(TeamNextGameScheduleTeamsObject$away)) {
         awayObject <- TeamNextGameScheduleTeamsAway$new()
         awayObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsObject$away, auto_unbox = TRUE))
-        self$`away` <- awayObject
+        self$away <- awayObject
       }
-      if (!is.null(TeamNextGameScheduleTeamsObject$`home`)) {
+      if (!is.null(TeamNextGameScheduleTeamsObject$home)) {
         homeObject <- TeamNextGameScheduleTeamsHome$new()
         homeObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsObject$home, auto_unbox = TRUE))
-        self$`home` <- homeObject
+        self$home <- homeObject
       }
     },
     toJSONString = function() {
@@ -59,16 +59,16 @@ TeamNextGameScheduleTeams <- R6::R6Class(
            "away": %s,
            "home": %s
         }',
-        self$`away`$toJSON(),
-        self$`home`$toJSON()
+        self$away$toJSON(),
+        self$home$toJSON()
       )
     },
     fromJSONString = function(TeamNextGameScheduleTeamsJson) {
       TeamNextGameScheduleTeamsObject <- jsonlite::fromJSON(TeamNextGameScheduleTeamsJson)
       TeamNextGameScheduleTeamsAwayObject <- TeamNextGameScheduleTeamsAway$new()
-      self$`away` <- TeamNextGameScheduleTeamsAwayObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsObject$away, auto_unbox = TRUE))
+      self$away <- TeamNextGameScheduleTeamsAwayObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsObject$away, auto_unbox = TRUE))
       TeamNextGameScheduleTeamsHomeObject <- TeamNextGameScheduleTeamsHome$new()
-      self$`home` <- TeamNextGameScheduleTeamsHomeObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsObject$home, auto_unbox = TRUE))
+      self$home <- TeamNextGameScheduleTeamsHomeObject$fromJSON(jsonlite::toJSON(TeamNextGameScheduleTeamsObject$home, auto_unbox = TRUE))
     }
   )
 )

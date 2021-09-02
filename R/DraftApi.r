@@ -67,15 +67,15 @@ DraftApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_draft_by_year = function(year, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/draft/{year}"
-      if (!missing(`year`)) {
-        urlPath <- gsub(paste0("\\{", "year", "\\}"), `year`, urlPath)
+      if (!missing(year)) {
+        urlPath <- gsub(paste0("\\{", "year", "\\}"), year, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -95,15 +95,15 @@ DraftApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_draft_prospect = function(id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/draft/prospects/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
+      if (!missing(id)) {
+        urlPath <- gsub(paste0("\\{", "id", "\\}"), id, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -123,7 +123,7 @@ DraftApi <- R6::R6Class(
         Response$new("API server error", resp)
       }
 
-    }
+    },
     get_draft_prospects = function(...){
       args <- list(...)
       queryParams <- list()

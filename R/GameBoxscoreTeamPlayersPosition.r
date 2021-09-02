@@ -19,58 +19,58 @@
 GameBoxscoreTeamPlayersPosition <- R6::R6Class(
   'GameBoxscoreTeamPlayersPosition',
   public = list(
-    `code` = NULL,
-    `name` = NULL,
-    `type` = NULL,
-    `abbreviation` = NULL,
-    initialize = function(`code`, `name`, `type`, `abbreviation`){
-      if (!missing(`code`)) {
-        stopifnot(is.character(`code`), length(`code`) == 1)
-        self$`code` <- `code`
+    code = NULL,
+    name = NULL,
+    type = NULL,
+    abbreviation = NULL,
+    initialize = function(code, name, type, abbreviation){
+      if (!missing(code)) {
+        stopifnot(is.character(code), length(code) == 1)
+        self$code <- code
       }
-      if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
+      if (!missing(name)) {
+        stopifnot(is.character(name), length(name) == 1)
+        self$name <- name
       }
-      if (!missing(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
-        self$`type` <- `type`
+      if (!missing(type)) {
+        stopifnot(is.character(type), length(type) == 1)
+        self$type <- type
       }
-      if (!missing(`abbreviation`)) {
-        stopifnot(is.character(`abbreviation`), length(`abbreviation`) == 1)
-        self$`abbreviation` <- `abbreviation`
+      if (!missing(abbreviation)) {
+        stopifnot(is.character(abbreviation), length(abbreviation) == 1)
+        self$abbreviation <- abbreviation
       }
     },
     toJSON = function() {
       GameBoxscoreTeamPlayersPositionObject <- list()
-      if (!is.null(self$`code`)) {
-        GameBoxscoreTeamPlayersPositionObject[['code']] <- self$`code`
+      if (!is.null(self$code)) {
+        GameBoxscoreTeamPlayersPositionObject[['code']] <- self$code
       }
-      if (!is.null(self$`name`)) {
-        GameBoxscoreTeamPlayersPositionObject[['name']] <- self$`name`
+      if (!is.null(self$name)) {
+        GameBoxscoreTeamPlayersPositionObject[['name']] <- self$name
       }
-      if (!is.null(self$`type`)) {
-        GameBoxscoreTeamPlayersPositionObject[['type']] <- self$`type`
+      if (!is.null(self$type)) {
+        GameBoxscoreTeamPlayersPositionObject[['type']] <- self$type
       }
-      if (!is.null(self$`abbreviation`)) {
-        GameBoxscoreTeamPlayersPositionObject[['abbreviation']] <- self$`abbreviation`
+      if (!is.null(self$abbreviation)) {
+        GameBoxscoreTeamPlayersPositionObject[['abbreviation']] <- self$abbreviation
       }
 
       GameBoxscoreTeamPlayersPositionObject
     },
     fromJSON = function(GameBoxscoreTeamPlayersPositionJson) {
       GameBoxscoreTeamPlayersPositionObject <- jsonlite::fromJSON(GameBoxscoreTeamPlayersPositionJson)
-      if (!is.null(GameBoxscoreTeamPlayersPositionObject$`code`)) {
-        self$`code` <- GameBoxscoreTeamPlayersPositionObject$`code`
+      if (!is.null(GameBoxscoreTeamPlayersPositionObject$code)) {
+        self$code <- GameBoxscoreTeamPlayersPositionObject$code
       }
-      if (!is.null(GameBoxscoreTeamPlayersPositionObject$`name`)) {
-        self$`name` <- GameBoxscoreTeamPlayersPositionObject$`name`
+      if (!is.null(GameBoxscoreTeamPlayersPositionObject$name)) {
+        self$name <- GameBoxscoreTeamPlayersPositionObject$name
       }
-      if (!is.null(GameBoxscoreTeamPlayersPositionObject$`type`)) {
-        self$`type` <- GameBoxscoreTeamPlayersPositionObject$`type`
+      if (!is.null(GameBoxscoreTeamPlayersPositionObject$type)) {
+        self$type <- GameBoxscoreTeamPlayersPositionObject$type
       }
-      if (!is.null(GameBoxscoreTeamPlayersPositionObject$`abbreviation`)) {
-        self$`abbreviation` <- GameBoxscoreTeamPlayersPositionObject$`abbreviation`
+      if (!is.null(GameBoxscoreTeamPlayersPositionObject$abbreviation)) {
+        self$abbreviation <- GameBoxscoreTeamPlayersPositionObject$abbreviation
       }
     },
     toJSONString = function() {
@@ -81,18 +81,18 @@ GameBoxscoreTeamPlayersPosition <- R6::R6Class(
            "type": %s,
            "abbreviation": %s
         }',
-        self$`code`,
-        self$`name`,
-        self$`type`,
-        self$`abbreviation`
+        self$code,
+        self$name,
+        self$type,
+        self$abbreviation
       )
     },
     fromJSONString = function(GameBoxscoreTeamPlayersPositionJson) {
       GameBoxscoreTeamPlayersPositionObject <- jsonlite::fromJSON(GameBoxscoreTeamPlayersPositionJson)
-      self$`code` <- GameBoxscoreTeamPlayersPositionObject$`code`
-      self$`name` <- GameBoxscoreTeamPlayersPositionObject$`name`
-      self$`type` <- GameBoxscoreTeamPlayersPositionObject$`type`
-      self$`abbreviation` <- GameBoxscoreTeamPlayersPositionObject$`abbreviation`
+      self$code <- GameBoxscoreTeamPlayersPositionObject$code
+      self$name <- GameBoxscoreTeamPlayersPositionObject$name
+      self$type <- GameBoxscoreTeamPlayersPositionObject$type
+      self$abbreviation <- GameBoxscoreTeamPlayersPositionObject$abbreviation
     }
   )
 )

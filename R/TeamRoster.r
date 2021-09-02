@@ -16,26 +16,26 @@
 TeamRoster <- R6::R6Class(
   'TeamRoster',
   public = list(
-    `roster` = NULL,
-    initialize = function(`roster`){
-      if (!missing(`roster`)) {
-        stopifnot(is.list(`roster`), length(`roster`) != 0)
-        lapply(`roster`, function(x) stopifnot(R6::is.R6(x)))
-        self$`roster` <- `roster`
+    roster = NULL,
+    initialize = function(roster){
+      if (!missing(roster)) {
+        stopifnot(is.list(roster), length(roster) != 0)
+        lapply(roster, function(x) stopifnot(R6::is.R6(x)))
+        self$roster <- roster
       }
     },
     toJSON = function() {
       TeamRosterObject <- list()
-      if (!is.null(self$`roster`)) {
-        TeamRosterObject[['roster']] <- lapply(self$`roster`, function(x) x$toJSON())
+      if (!is.null(self$roster)) {
+        TeamRosterObject[['roster']] <- lapply(self$roster, function(x) x$toJSON())
       }
 
       TeamRosterObject
     },
     fromJSON = function(TeamRosterJson) {
       TeamRosterObject <- jsonlite::fromJSON(TeamRosterJson)
-      if (!is.null(TeamRosterObject$`roster`)) {
-        self$`roster` <- lapply(TeamRosterObject$`roster`, function(x) {
+      if (!is.null(TeamRosterObject$roster)) {
+        self$roster <- lapply(TeamRosterObject$roster, function(x) {
           rosterObject <- Roster$new()
           rosterObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           rosterObject
@@ -47,12 +47,12 @@ TeamRoster <- R6::R6Class(
         '{
            "roster": [%s]
         }',
-        lapply(self$`roster`, function(x) paste(x$toJSON(), sep=","))
+        lapply(self$roster, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(TeamRosterJson) {
       TeamRosterObject <- jsonlite::fromJSON(TeamRosterJson)
-      self$`roster` <- lapply(TeamRosterObject$`roster`, function(x) Roster$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$roster <- lapply(TeamRosterObject$roster, function(x) Roster$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )
