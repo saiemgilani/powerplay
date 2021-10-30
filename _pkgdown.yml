@@ -54,7 +54,7 @@ navbar:
         href: articles/index.html
     network:
       icon: "fas fa-project-diagram"
-      text: SDV
+      text: " SDV"
       menu:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
@@ -69,27 +69,31 @@ navbar:
       - text: recruitR
         href: https://saiemgilani.github.io/recruitR/
       - text: puntr
-        href: https://puntalytics.github.io/puntr
+        href: https://puntalytics.github.io/puntr/
       - text: gamezoneR
         href: https://jacklich10.github.io/gamezoneR/
-      # - text: baseballr
-      #   href: https://saiemgilani.github.io/baseballr/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: cfb4th
+        href: https://kazink36.github.io/cfb4th/
+      - text: worldfootballR
+        href: https://jaseziv.github.io/worldfootballR/
+      - text: baseballr
+        href: https://BillPetti.github.io/baseballr/
+      - text: hockeyR
+        href: https://hockeyr.netlify.app/
+      - text: fastRhockey
+        href: https://BenHowell71.github.io/fastRhockey/
       - text: --------------------------------
       - text: Python Packages
-      - text: cfbfastR-py
-        href: https://cfbfastR-py.sportsdataverse.org/
-      - text: hoopR-py
-        href: https://hoopR-py.sportsdataverse.org/
-      - text: wehoop-py
-        href: https://wehoop-py.sportsdataverse.org/
+      - text: sportsdataverse-py
+        href: https://py.sportsdataverse.org/
       - text: --------------------------------
       - text: Node.js Packages
       - text: sportsdataverse.js
         href: https://saiemgilani.github.io/sportsdataverse/
-      - text: "@sportsdataverse/nhl"
-        href: https://saiemgilani.github.io/sportsdataverse-nhl/     
       - text: nfl-nerd
-        href: https://github.com/nntrn/nfl-nerd/      
+        href: https://github.com/nntrn/nfl-nerd/    
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/saiemgilani/powerplay/
