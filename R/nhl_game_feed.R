@@ -15,7 +15,7 @@
 #' @export
 #' @examples 
 #' \donttest{
-#'   nhl_game_feed(game_id=2021020182)
+#'   nhl_game_feed(game_id=2020020007)
 #' }
 nhl_game_feed <- function(game_id){
   
@@ -148,14 +148,10 @@ nhl_game_feed <- function(game_id){
       ###---onIce----
       away_onIce <- data.frame("onIce" = away_boxscore$onIce)
       home_onIce <- data.frame("onIce" = home_boxscore$onIce)
-      away_onIce$home_away <- "Away"
-      home_onIce$home_away <- "Home"
       onIce <- dplyr::bind_rows(away_onIce,home_onIce)
       ###---onIcePlus----
       away_onIcePlus <- data.frame("onIcePlus" = away_boxscore$onIcePlus)
       home_onIcePlus <- data.frame("onIcePlus" = home_boxscore$onIcePlus)
-      away_onIcePlus$home_away <- "Away"
-      home_onIcePlus$home_away <- "Home"
       onIcePlus <- dplyr::bind_rows(away_onIcePlus,home_onIcePlus)
       ###---penaltyBox----
       away_penaltyBox <- data.frame("penaltyBox" = away_boxscore$penaltyBox)
@@ -164,8 +160,6 @@ nhl_game_feed <- function(game_id){
       ###---scratches----
       away_scratches <- data.frame("scratches" = away_boxscore$scratches)
       home_scratches <- data.frame("scratches" = home_boxscore$scratches)
-      away_scratches$home_away <- "Away"
-      home_scratches$home_away <- "Home"
       scratches <- dplyr::bind_rows(away_scratches,home_scratches)
       ###---coaches----
       away_coaches <- away_boxscore$coaches
