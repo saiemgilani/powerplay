@@ -50,7 +50,7 @@ website](https://saiemgilani.github.io/powerplay/).
 [**Full News on
 Releases**](https://saiemgilani.github.io/powerplay/news/index.html)
 
-# Follow the [sportsdataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
+## Follow the [sportsdataverse](https://twitter.com/sportsdataverse) on Twitter and star this repo
 
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%40sportsdataverse&logo=twitter&style=for-the-badge)](https://twitter.com/sportsdataverse)
@@ -58,7 +58,7 @@ Follow](https://img.shields.io/twitter/follow/sportsdataverse?color=blue&label=%
 [![GitHub
 stars](https://img.shields.io/github/stars/saiemgilani/powerplay.svg?color=eee&logo=github&style=for-the-badge&label=Star%20powerplay&maxAge=2592000)](https://github.com/saiemgilani/powerplay/stargazers/)
 
-# **Our Authors**
+## **Our Authors**
 
 -   [Saiem Gilani](https://twitter.com/saiemgilani)  
     <a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
