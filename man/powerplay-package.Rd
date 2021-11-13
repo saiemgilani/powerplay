@@ -8,11 +8,11 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-An R package to quickly obtain clean and tidy hockey play by play data.
+A utility to quickly obtain clean and tidy hockey play by play data.
 
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-An R package to quickly obtain clean and tidy hockey play by play data.
+A utility to quickly obtain clean and tidy hockey play by play data.
 }
 \seealso{
 Useful links:

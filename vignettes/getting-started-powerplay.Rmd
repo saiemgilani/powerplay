@@ -1,0 +1,64 @@
+---
+title: "Getting Started with powerplay"
+description: "Getting started with using <code>powerplay</code> and NHL data."
+author: "Saiem Gilani <br><a href='https://twitter.com/saiemgilani' target='blank'><img src='https://img.shields.io/twitter/follow/saiemgilani?color=blue&amp;label=%40saiemgilani&amp;logo=twitter&amp;style=for-the-badge' alt='@saiemgilani'/></a> <a href='https://github.com/saiemgilani' target='blank'><img src='https://img.shields.io/github/followers/saiemgilani?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@saiemgilani'/></a>"
+opengraph:
+  image: 
+    src: "https://github.com/saiemgilani/wehoop-data/blob/master/themes/wehoop_gh.png?raw=true"
+  twitter:
+    card: summary_large_image
+    creator: "@saiemgilani"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pacman::p_load_current_gh("r-lib/pkgapi")
+pacman::p_load_current_gh("hadley/emo")
+library(pkgapi)
+pkg <- pkgapi::map_package(path = "../")
+library(dplyr)
+exported <- pkg$defs %>% dplyr::filter(exported == TRUE)
+
+pkg_name <- "saiemgilani/wehoop"
+url <- paste0("https://raw.githubusercontent.com/", pkg_name, "/master/DESCRIPTION")
+
+
+x <- readLines(url)
+remote_version <- gsub("Version:\\s*", "", x[grep('Version:', x)])
+```
+
+Welcome folks,
+
+I'm Saiem Gilani, one of the [authors](https://saiemgilani.github.io/powerplay/authors.html "Authors and contributors to powerplay") of [`powerplay`](https://saiemgilani.github.io/powerplay/), and I hope to give the community a high-quality resource for accessing NHL data for statistical analysis, hockey research, and more. I am excited to show you some of what you can do with this edition of the package.
+
+### **Installing R and RStudio**
+
+1.  Head to <https://cran.r-project.org>
+2.  Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)
+
+-   **Windows** - Select base and download the most recent version
+-   **Mac OS X** - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release
+-   **Linux** - Select the appropriate distro and follow the installation instructions
+
+3.  Head to [RStudio.com](https://www.rstudio.com/products/rstudio/download/#download "Download the appropriate version of RStudio (Free) for your operating system to use with R")
+4.  Follow the associated download and installation instructions for RStudio.
+5.  Start peering over the [RStudio IDE Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf). *An IDE is an integrated development environment.*
+
+
+## **Install** [**`powerplay`**](https://saiemgilani.github.io/powerplay/)
+```{r install_wehoop_gs, message=FALSE,eval=FALSE}
+# You can install using the pacman package using the following code:
+if (!requireNamespace('pacman', quietly = TRUE)){
+  install.packages('pacman')
+}
+pacman::p_load_current_gh("saiemgilani/powerplay")
+pacman::p_load(tidyverse, zoo, ggimage, gt)
+```
+
+# **Our Authors**
+
+-   [Saiem Gilani](https://twitter.com/saiemgilani)       
+<a href="https://twitter.com/saiemgilani" target="blank"><img src="https://img.shields.io/twitter/follow/saiemgilani?color=blue&label=%40saiemgilani&logo=twitter&style=for-the-badge" alt="@saiemgilani" /></a>
+<a href="https://github.com/saiemgilani" target="blank"><img src="https://img.shields.io/github/followers/saiemgilani?color=eee&logo=Github&style=for-the-badge" alt="@saiemgilani" /></a>
+
+
