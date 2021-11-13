@@ -1,13 +1,3 @@
-# Workflow derived from https://github.com/r-lib/actions/tree/master/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-on:
-  push:
-    branches: [main, master]
-    tags: ['*']
-  workflow_dispatch:
-
-name: pkgdown
-
 jobs:
   pkgdown:
     runs-on: ubuntu-latest
@@ -24,7 +14,19 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: pkgdown
+          extra-packages: |
+            pkgdown
+            animation
+            ggimage
+            hadley/emo
+            knitr
+            pacman
+            ragg
+            r-lib/pkgapi
+            rsconnect
+            tictoc
+            tidyverse
+            zoo
           needs: website
 
       - name: Deploy package
