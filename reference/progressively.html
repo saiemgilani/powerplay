@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • powerplay</title>
+<title>Progressively — progressively • powerplay</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Progressively — progressively" />
+<meta property="og:description" content="This function helps add progress-reporting to any function - given function f() and progressor p(), it will return a new function that calls f() and then (on-exiting) will call p() after every iteration." />
 <meta property="og:image" content="https://saiemgilani.github.io/powerplay/logo.png" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@saiemgilani" />
@@ -71,7 +72,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -238,186 +239,40 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Progressively</h1>
+    
+    <div class="hidden name"><code>progressively.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function helps add progress-reporting to any function - given function <code>f()</code> and progressor <code>p()</code>, it will return a new function that calls <code>f()</code> and then (on-exiting) will call <code>p()</code> after every iteration.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>progressively</span><span class='op'>(</span><span class='va'>f</span>, p <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="check_status.html">check_status()</a></code> </p>
-        </td>
-        <td><p>Check Status function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="csv_from_url.html">csv_from_url()</a></code> </p>
-        </td>
-        <td><p><strong>Load .csv / .csv.gz file from a remote connection</strong></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="most_recent_nhl_season.html">most_recent_nhl_season()</a></code> </p>
-        </td>
-        <td><p><strong>Most Recent NHL Season</strong></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_conferences.html">nhl_conferences()</a></code> </p>
-        </td>
-        <td><p>NHL Conferences</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_conferences_info.html">nhl_conferences_info()</a></code> </p>
-        </td>
-        <td><p>NHL Conference Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_divisions.html">nhl_divisions()</a></code> </p>
-        </td>
-        <td><p>NHL Divisions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_divisions_info.html">nhl_divisions_info()</a></code> </p>
-        </td>
-        <td><p>NHL Divisions Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft.html">nhl_draft()</a></code> </p>
-        </td>
-        <td><p>NHL Draft</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft_prospects.html">nhl_draft_prospects()</a></code> </p>
-        </td>
-        <td><p>NHL Draft Prospects</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft_prospects_info.html">nhl_draft_prospects_info()</a></code> </p>
-        </td>
-        <td><p>NHL Draft Prospects Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft_year.html">nhl_draft_year()</a></code> </p>
-        </td>
-        <td><p>NHL Draft by Year</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_boxscore.html">nhl_game_boxscore()</a></code> </p>
-        </td>
-        <td><p>NHL Game Boxscore</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_content.html">nhl_game_content()</a></code> </p>
-        </td>
-        <td><p>NHL Game Content</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_feed.html">nhl_game_feed()</a></code> </p>
-        </td>
-        <td><p>NHL Game Feed</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_shifts.html">nhl_game_shifts()</a></code> </p>
-        </td>
-        <td><p>NHL Game Shifts</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_player_info.html">nhl_player_info()</a></code> </p>
-        </td>
-        <td><p>NHL Player Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_player_stats.html">nhl_player_stats()</a></code> </p>
-        </td>
-        <td><p>NHL Player Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_schedule.html">nhl_schedule()</a></code> </p>
-        </td>
-        <td><p>NHL Schedule</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams.html">nhl_teams()</a></code> </p>
-        </td>
-        <td><p>NHL Teams</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams_info.html">nhl_teams_info()</a></code> </p>
-        </td>
-        <td><p>NHL Teams Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams_roster.html">nhl_teams_roster()</a></code> </p>
-        </td>
-        <td><p>NHL Teams Roster</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams_stats.html">nhl_teams_stats()</a></code> </p>
-        </td>
-        <td><p>NHL Teams Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="progressively.html">progressively()</a></code> </p>
-        </td>
-        <td><p>Progressively</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rds_from_url.html">rds_from_url()</a></code> </p>
-        </td>
-        <td><p><strong>Load .rds file from a remote connection</strong></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="year_to_season.html">year_to_season()</a></code> </p>
-        </td>
-        <td><p>year to season (XXXX -&gt; XXXX-YY)</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>f</th>
+      <td><p>a function to add progressr functionality to.</p></td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td><p>a progressor function as created by <code>progressr::progressor()</code></p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a function that does the same as <code>f</code> but it calls <code>p()</code> after iteration.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This is inspired by purrr's <code>safely</code>, <code>quietly</code>, and <code>possibly</code> function decorators.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

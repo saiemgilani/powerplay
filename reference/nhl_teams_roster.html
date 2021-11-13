@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • powerplay</title>
+<title>NHL Teams Roster — nhl_teams_roster • powerplay</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="NHL Teams Roster — nhl_teams_roster" />
+<meta property="og:description" content="Returns NHL Teams roster information for a given team ID" />
 <meta property="og:image" content="https://saiemgilani.github.io/powerplay/logo.png" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@saiemgilani" />
@@ -71,7 +72,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -238,186 +239,90 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>NHL Teams Roster</h1>
+    
+    <div class="hidden name"><code>nhl_teams_roster.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Returns NHL Teams roster information for a given team ID</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>nhl_teams_roster</span><span class='op'>(</span><span class='va'>team_id</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="check_status.html">check_status()</a></code> </p>
-        </td>
-        <td><p>Check Status function</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="csv_from_url.html">csv_from_url()</a></code> </p>
-        </td>
-        <td><p><strong>Load .csv / .csv.gz file from a remote connection</strong></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="most_recent_nhl_season.html">most_recent_nhl_season()</a></code> </p>
-        </td>
-        <td><p><strong>Most Recent NHL Season</strong></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_conferences.html">nhl_conferences()</a></code> </p>
-        </td>
-        <td><p>NHL Conferences</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_conferences_info.html">nhl_conferences_info()</a></code> </p>
-        </td>
-        <td><p>NHL Conference Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_divisions.html">nhl_divisions()</a></code> </p>
-        </td>
-        <td><p>NHL Divisions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_divisions_info.html">nhl_divisions_info()</a></code> </p>
-        </td>
-        <td><p>NHL Divisions Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft.html">nhl_draft()</a></code> </p>
-        </td>
-        <td><p>NHL Draft</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft_prospects.html">nhl_draft_prospects()</a></code> </p>
-        </td>
-        <td><p>NHL Draft Prospects</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft_prospects_info.html">nhl_draft_prospects_info()</a></code> </p>
-        </td>
-        <td><p>NHL Draft Prospects Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_draft_year.html">nhl_draft_year()</a></code> </p>
-        </td>
-        <td><p>NHL Draft by Year</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_boxscore.html">nhl_game_boxscore()</a></code> </p>
-        </td>
-        <td><p>NHL Game Boxscore</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_content.html">nhl_game_content()</a></code> </p>
-        </td>
-        <td><p>NHL Game Content</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_feed.html">nhl_game_feed()</a></code> </p>
-        </td>
-        <td><p>NHL Game Feed</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_game_shifts.html">nhl_game_shifts()</a></code> </p>
-        </td>
-        <td><p>NHL Game Shifts</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_player_info.html">nhl_player_info()</a></code> </p>
-        </td>
-        <td><p>NHL Player Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_player_stats.html">nhl_player_stats()</a></code> </p>
-        </td>
-        <td><p>NHL Player Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_schedule.html">nhl_schedule()</a></code> </p>
-        </td>
-        <td><p>NHL Schedule</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams.html">nhl_teams()</a></code> </p>
-        </td>
-        <td><p>NHL Teams</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams_info.html">nhl_teams_info()</a></code> </p>
-        </td>
-        <td><p>NHL Teams Info</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams_roster.html">nhl_teams_roster()</a></code> </p>
-        </td>
-        <td><p>NHL Teams Roster</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nhl_teams_stats.html">nhl_teams_stats()</a></code> </p>
-        </td>
-        <td><p>NHL Teams Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="progressively.html">progressively()</a></code> </p>
-        </td>
-        <td><p>Progressively</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rds_from_url.html">rds_from_url()</a></code> </p>
-        </td>
-        <td><p><strong>Load .rds file from a remote connection</strong></p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="year_to_season.html">year_to_season()</a></code> </p>
-        </td>
-        <td><p>year to season (XXXX -&gt; XXXX-YY)</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>team_id</th>
+      <td><p>A unique team ID</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Returns a tibble</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'>  <span class='fu'>nhl_teams_roster</span><span class='op'>(</span>team_id <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    jersey_number player_id         player_full_name            player_link</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1             24   8474567            Zach Bogosian /api/v1/people/8474567</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2             86   8476453          Nikita Kucherov /api/v1/people/8476453</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3             46   8476966              Gemel Smith /api/v1/people/8476966</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4             29   8477205             Andrej Sustr /api/v1/people/8477205</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5             10   8470621              Corey Perry /api/v1/people/8470621</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6              1   8470880            Brian Elliott /api/v1/people/8470880</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7             17   8473986             Alex Killorn /api/v1/people/8473986</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8             14   8474034               Pat Maroon /api/v1/people/8474034</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9             27   8474151            Ryan McDonagh /api/v1/people/8474151</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10            91   8474564           Steven Stamkos /api/v1/people/8474564</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11            77   8475167            Victor Hedman /api/v1/people/8475167</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12            18   8476292             Ondrej Palat /api/v1/people/8476292</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13            88   8476883       Andrei Vasilevskiy /api/v1/people/8476883</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14            41   8477930 Pierre-Edouard Bellemare /api/v1/people/8477930</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15            21   8478010            Brayden Point /api/v1/people/8478010</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16            81   8478416              Erik Cernak /api/v1/people/8478416</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             7   8478472           Mathieu Joseph /api/v1/people/8478472</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18            71   8478519          Anthony Cirelli /api/v1/people/8478519</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19            13   8479383           Boris Katchouk /api/v1/people/8479383</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20            16   8479390           Taylor Raddysh /api/v1/people/8479390</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21            98   8479410        Mikhail Sergachev /api/v1/people/8479410</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22            79   8479525              Ross Colton /api/v1/people/8479525</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23            12   8479718        Alex Barré-Boulet /api/v1/people/8479718</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24            52   8479984                Cal Foote /api/v1/people/8479984</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25            44   8480172                Jan Rutta /api/v1/people/8480172</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    position_code position_name position_type position_abbreviation</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1              D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              R    Right Wing       Forward                    RW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3              C        Center       Forward                     C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4              D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5              R    Right Wing       Forward                    RW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6              G        Goalie        Goalie                     G</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7              L     Left Wing       Forward                    LW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8              L     Left Wing       Forward                    LW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9              D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10             C        Center       Forward                     C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11             D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12             L     Left Wing       Forward                    LW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13             G        Goalie        Goalie                     G</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14             L     Left Wing       Forward                    LW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15             C        Center       Forward                     C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16             D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             R    Right Wing       Forward                    RW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18             C        Center       Forward                     C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19             L     Left Wing       Forward                    LW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20             R    Right Wing       Forward                    RW</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21             D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22             C        Center       Forward                     C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23             C        Center       Forward                     C</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24             D    Defenseman    Defenseman                     D</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25             D    Defenseman    Defenseman                     D</span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
