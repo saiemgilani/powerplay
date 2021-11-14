@@ -43,9 +43,6 @@ navbar:
       icon: "fas fa-code"
       text: "Funcs"
       href: reference/index.html
-      menu:
-      - text: "Function Index"
-        href: reference/index.html
     articles:
       icon: "fas fa-book-reader"
       text: "Articles"
