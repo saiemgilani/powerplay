@@ -1,7 +1,7 @@
 #' @title NHL Player Stats
 #' @description Returns player stats for a given player ID
 #' @param player_id Player unique ID 
-#' @return Returns a named list of data frames: player, stats
+#' @return Returns a tibble
 #' @keywords NHL Player stats
 #' @import rvest
 #' @importFrom rlang .data
@@ -38,8 +38,17 @@ nhl_player_stats <- function(player_id){
         dplyr::rename(player_id = .data$id) %>% 
         janitor::clean_names()
       stats <- player_df$stats[[1]]
-      player <- c(list(player_df),list(stats))
-      names(player) <- c("player","stats")
+      stats_lst <- purrr::map(1:length(stats$splits),function(x){
+        stats$splits[[x]]$split_type <-  stats$type.displayName[x]
+        return(stats$splits[[x]])
+      })
+      stats_df <- data.table::rbindlist(stats_lst,fill=TRUE)
+      player_df <- player_df %>% 
+        dplyr::select(-.data$stats)
+      player_stats <- player_df %>% 
+        dplyr::bind_cols(stats_df)
+      player_stats <- player_stats %>% 
+        janitor::clean_names()
                 
     },
     error = function(e) {
@@ -50,5 +59,5 @@ nhl_player_stats <- function(player_id){
     finally = {
     }
   )
-  return(player)
+  return(player_stats)
 }

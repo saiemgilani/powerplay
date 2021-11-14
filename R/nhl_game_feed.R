@@ -15,7 +15,7 @@
 #' @export
 #' @examples 
 #' \donttest{
-#'   nhl_game_feed(game_id=2020020007)
+#'   nhl_game_feed(game_id=2018020561)
 #' }
 nhl_game_feed <- function(game_id){
   
@@ -89,8 +89,10 @@ nhl_game_feed <- function(game_id){
       ##-- boxscore ----
       ###---officials----
       officials_df <- live_data_df$boxscore[["officials"]]
-      officials_df <- jsonlite::fromJSON(jsonlite::toJSON(officials_df),flatten=TRUE) %>% 
-        janitor::clean_names()
+      if(length(officials_df) > 1){
+        officials_df <- jsonlite::fromJSON(jsonlite::toJSON(officials_df),flatten=TRUE) %>% 
+          janitor::clean_names()
+      }
       game_boxscore_df <- live_data_df$boxscore[["teams"]]
       game_boxscore_df <- jsonlite::fromJSON(jsonlite::toJSON(game_boxscore_df),flatten=TRUE)
       ###---team_box----

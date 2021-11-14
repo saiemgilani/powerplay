@@ -1,8 +1,9 @@
 #' @title NHL Game Boxscore
 #' @description Returns information on game boxscore for a given game id
 #' @param game_id Game unique ID 
-#' @return Returns a named list of data frames: team_box, players_box,skaters,goalies, on_ice, on_ice_plus,
-#' penalty_box, scratches, team_coaches
+#' @return Returns a named list of data frames: team_box, players_box, 
+#' skaters, goalies, on_ice, on_ice_plus, penalty_box, 
+#' scratches, team_coaches
 #' @keywords NHL Game Boxscore
 #' @import rvest
 #' @importFrom rlang .data

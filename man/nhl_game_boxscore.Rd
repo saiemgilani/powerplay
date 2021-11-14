@@ -10,8 +10,9 @@ nhl_game_boxscore(game_id)
 \item{game_id}{Game unique ID}
 }
 \value{
-Returns a named list of data frames: team_box, players_box,skaters,goalies, on_ice, on_ice_plus,
-penalty_box, scratches, team_coaches
+Returns a named list of data frames: team_box, players_box,
+skaters, goalies, on_ice, on_ice_plus, penalty_box,
+scratches, team_coaches
 }
 \description{
 Returns information on game boxscore for a given game id

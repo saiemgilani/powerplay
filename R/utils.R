@@ -10,6 +10,7 @@
 #' @param p a progressor function as created by `progressr::progressor()`
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
+#' @keywords Internal
 #'
 progressively <- function(f, p = NULL){
   if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
@@ -29,6 +30,7 @@ progressively <- function(f, p = NULL){
 #' @description
 #' This is a thin wrapper on data.table::fread
 #' @param ... passed to data.table::fread
+#' @keywords Internal
 #' @importFrom data.table fread
 #' @return a dataframe as created by [`data.table::fread()`]
 csv_from_url <- function(...){
@@ -42,6 +44,7 @@ csv_from_url <- function(...){
 #' **Load .rds file from a remote connection**
 #' @param url a character url
 #' @return a dataframe as created by [`readRDS()`]
+#' @keywords Internal
 #' @importFrom data.table data.table setDT
 #' @import rvest
 rds_from_url <- function(url) {
@@ -81,20 +84,58 @@ most_recent_nhl_season <- function() {
   )
 }
 
+# The function `message_completed` to create the green "...completed" message
+# only exists to hide the option `in_builder` in dots
+message_completed <- function(x, in_builder = FALSE) {
+  if (isFALSE(in_builder)) {
+    str <- paste0(my_time(), " | ", x)
+    cli::cli_alert_success("{{.field {str}}}")
+  } else if (in_builder) {
+    cli::cli_alert_success("{my_time()} | {x}")
+  }
+}
+
+user_message <- function(x, type) {
+  if (type == "done") {
+    cli::cli_alert_success("{my_time()} | {x}")
+  } else if (type == "todo") {
+    cli::cli_ul("{my_time()} | {x}")
+  } else if (type == "info") {
+    cli::cli_alert_info("{my_time()} | {x}")
+  } else if (type == "oops") {
+    cli::cli_alert_danger("{my_time()} | {x}")
+  }
+}
 
 my_time <- function() strftime(Sys.time(), format = "%H:%M:%S")
 
+
+
+rule_header <- function(x) {
+  rlang::inform(
+    cli::rule(
+      left = ifelse(is_installed("crayon"), crayon::bold(x), glue::glue("\033[1m{x}\033[22m")),
+      right = paste0("powerplay version ", utils::packageVersion("powerplay")),
+      width = getOption("width")
+    )
+  )
+}
+
+rule_footer <- function(x) {
+  rlang::inform(
+    cli::rule(
+      left = ifelse(is_installed("crayon"), crayon::bold(x), glue::glue("\033[1m{x}\033[22m")),
+      width = getOption("width")
+    )
+  )
+}
 #' Check Status function
 #' @param res Response from API
 #' @keywords Internal
 #' @import rvest
-#'
 check_status <- function(res) {
-
   x = httr::status_code(res)
-
   if(x != 200) stop("The API returned an error", call. = FALSE)
-
 }
 
 #' @importFrom magrittr %>%

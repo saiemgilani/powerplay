@@ -103,3 +103,59 @@ navbar:
       source: https://github.com/saiemgilani/powerplay/blob/master/
       issue: https://github.com/saiemgilani/powerplay/issues/issues/
       user: https://github.com/saiemgilani/
+reference:
+  - title: "powerplay Data"
+  - subtitle: Full Seasons PBP Data
+    desc: Functions exported by powerplay which load full seasons of powerplay data
+    contents:
+      - '`load_nhl_pbp`'
+  - subtitle: "Update or Create Database"
+    desc: Functions exported by powerplay which update and create a database of powerplay play-by-play data
+    contents:
+      - '`update_nhl_db`'
+  - subtitle: Games Data
+    desc: Functions exported by powerplay sourced from games endpoint of the NHL Stats API
+    contents:
+      - '`nhl_game_feed`'
+      - '`nhl_game_boxscore`'
+      - '`nhl_game_shifts`'
+      - '`nhl_game_content`'
+  - subtitle: Schedule Data
+    desc: Functions exported by powerplay sourced from the schedule endpoint of the NHL Stats API
+    contents:
+      - '`nhl_schedule`'
+  - subtitle: Players Data
+    desc: Functions exported by powerplay sourced from the players endpoint of the NHL Stats API
+    contents:
+      - starts_with("nhl_player")
+  - subtitle: Teams Data
+    desc: Functions exported by powerplay sourced from the teams endpoint of the NHL Stats API
+    contents:
+      - '`nhl_teams`'
+      - starts_with("nhl_teams")
+  - subtitle: Conferences Data
+    desc: Functions exported by powerplay sourced from the conferences endpoint of the NHL Stats API
+    contents:
+      - '`nhl_conferences`'
+      - starts_with("nhl_conferences")
+  - subtitle: Divisions Data
+    desc: Functions exported by powerplay sourced from the divisions endpoint of the NHL Stats API
+    contents:
+      - '`nhl_divisions`'
+      - starts_with("nhl_divisions")
+  - subtitle: NHL Draft Data
+    desc: Functions exported by powerplay sourced from the draft endpoints of the NHL Stats API
+    contents:
+      - '`nhl_draft`'
+      - starts_with("nhl_draft")
+  - title: "ESPN Data"
+  - subtitle: Functions with ESPN connections
+    desc: Functions exported by powerplay which allow access to ESPN data
+    contents:
+      - starts_with("espn_")
+  - title: Helper Functions and Data
+  - subtitle: Included data
+    desc: Data included within the package
+    contents:
+      - '`most_recent_nhl_season`'
+      - '`team_logos_colors`'

@@ -12,16 +12,15 @@ nhl_schedule(season = NULL, day = as.Date(Sys.Date(), "\%Y-\%m-\%d"))
 \item{day}{Date}
 }
 \value{
-Returns a named list of data frames: player, stats
+Returns a tibble
 }
 \description{
 Returns NHL Schedule data
 }
 \examples{
 \donttest{
-  nhl_schedule(season = 2020)
+  nhl_schedule(season = 2021)
 }
 }
 \keyword{NHL}
-\keyword{Player}
-\keyword{stats}
+\keyword{Schedule}

@@ -10,7 +10,7 @@ nhl_player_stats(player_id)
 \item{player_id}{Player unique ID}
 }
 \value{
-Returns a named list of data frames: player, stats
+Returns a tibble
 }
 \description{
 Returns player stats for a given player ID

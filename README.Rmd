@@ -8,7 +8,8 @@ require(knitr)
 if (!requireNamespace('pacman')){
   install.packages('pacman')
 }
-pacman::p_load(wehoop, magick, grid, dplyr, lubridate)
+
+pacman::p_load(magick, grid, dplyr, lubridate)
 # You can install using the pacman package using the following code:
 
 ```
@@ -23,7 +24,7 @@ pacman::p_load(wehoop, magick, grid, dplyr, lubridate)
 ## **Installation**
 
 You can install the released version of [**```powerplay```**](https://github.com/saiemgilani/powerplay/) from [GitHub](https://github.com/saiemgilani/powerplay) with:
-``` r
+```r
 # You can install using the pacman package using the following code:
 if (!requireNamespace('pacman', quietly = TRUE)){
   install.packages('pacman')
