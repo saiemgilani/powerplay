@@ -281,9 +281,26 @@ the season data into a database (used by <code><a href='update_nhl_db.html'>upda
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='fu'>load_nhl_pbp</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>cannot open URL 'https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/pbp/rds/play_by_play_2021.rds': HTTP status was '404 Not Found'</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Failed to readRDS from &lt;https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/pbp/rds/play_by_play_2021.rds&gt;</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 0 × 0</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 294,936 × 35</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    result_event   result_event_code result_event_type_id result_description     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Game Scheduled PHI1              GAME_SCHEDULED       Game Scheduled         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Period Ready   PHI5              PERIOD_READY         Period Ready           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Period Start   PHI51             PERIOD_START         Period Start           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Faceoff        PHI52             FACEOFF              Sidney Crosby faceoff …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Shot           PHI53             SHOT                 Travis Konecny Wrist S…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Takeaway       PHI8              TAKEAWAY             Takeaway by Ivan Provo…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Blocked Shot   PHI54             BLOCKED_SHOT         Sean Couturier shot bl…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Shot           PHI9              SHOT                 Evan Rodrigues Wrist S…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Hit            PHI10             HIT                  Kevin Hayes hit John M…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Hit            PHI11             HIT                  Joel Farabee hit John …</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 294,926 more rows, and 31 more variables: about_event_idx &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   about_event_id &lt;int&gt;, about_period &lt;int&gt;, about_period_type &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   about_ordinal_num &lt;chr&gt;, about_period_time &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   about_period_time_remaining &lt;chr&gt;, about_date_time &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   about_goals_away &lt;int&gt;, about_goals_home &lt;int&gt;, coordinates_x &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   coordinates_y &lt;int&gt;, team_id &lt;int&gt;, team_name &lt;chr&gt;, team_link &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   team_tri_code &lt;chr&gt;, player_type_1 &lt;chr&gt;, player_id_1 &lt;int&gt;, …</span></span>
 <span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
