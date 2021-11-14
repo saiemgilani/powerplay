@@ -281,9 +281,23 @@ the season data into a database (used by <code><a href='update_nhl_db.html'>upda
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='fu'>load_nhl_team_box</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>cannot open URL 'https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/team_box/rds/team_box_2021.rds': HTTP status was '404 Not Found'</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Failed to readRDS from &lt;https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/team_box/rds/team_box_2021.rds&gt;</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 0 × 0</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1,904 × 16</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    team_id team_name           link       abbreviation triCode goals   pim shots</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>       5 Pittsburgh Penguins /api/v1/t… PIT          PIT         3     6    34</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>       4 Philadelphia Flyers /api/v1/t… PHI          PHI         6     6    27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>       8 Montréal Canadiens  /api/v1/t… MTL          MTL         4    13    32</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>      10 Toronto Maple Leafs /api/v1/t… TOR          TOR         5    11    34</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>      16 Chicago Blackhawks  /api/v1/t… CHI          CHI         1     8    23</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>      14 Tampa Bay Lightning /api/v1/t… TBL          TBL         5     6    33</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>      23 Vancouver Canucks   /api/v1/t… VAN          VAN         5     8    35</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>      22 Edmonton Oilers     /api/v1/t… EDM          EDM         3     4    31</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>      19 St. Louis Blues     /api/v1/t… STL          STL         4     8    32</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>      21 Colorado Avalanche  /api/v1/t… COL          COL         1     4    27</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 1,894 more rows, and 8 more variables: powerPlayPercentage &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   powerPlayGoals &lt;int&gt;, powerPlayOpportunities &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   faceOffWinPercentage &lt;chr&gt;, blocked &lt;int&gt;, takeaways &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   giveaways &lt;int&gt;, hits &lt;int&gt;</span></span>
 <span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>

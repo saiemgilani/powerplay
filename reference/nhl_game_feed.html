@@ -256,9 +256,9 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a named list of data frames: all_plays, scoring_plays, penalty_plays, plays_by_period,
-current_play, linescore, decisions,
-team_box, players_box, skaters,goalies, on_ice, on_ice_plus,
+    <p>Returns a named list of data frames: all_plays, scoring_plays,
+penalty_plays, plays_by_period, current_play, linescore, decisions,
+team_box, player_box, skaters, goalies, on_ice, on_ice_plus,
 penalty_box, scratches, team_coaches</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -4632,171 +4632,171 @@ penalty_box, scratches, team_coaches</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> $team_box</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 16</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>   team_id team_name           link        abbreviation triCode goals   pim shots</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>       4 Philadelphia Flyers /api/v1/te… PHI          PHI         2     4    31</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>       3 New York Rangers    /api/v1/te… NYR          NYR         2     4    34</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 8 more variables: powerPlayPercentage &lt;chr&gt;, powerPlayGoals &lt;int&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   powerPlayOpportunities &lt;int&gt;, faceOffWinPercentage &lt;chr&gt;, blocked &lt;int&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   takeaways &lt;int&gt;, giveaways &lt;int&gt;, hits &lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   team_id team_name           link       abbreviation tri_code goals   pim shots</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>       4 Philadelphia Flyers /api/v1/t… PHI          PHI          2     4    31</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>       3 New York Rangers    /api/v1/t… NYR          NYR          2     4    34</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 8 more variables: power_play_percentage &lt;chr&gt;, power_play_goals &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   power_play_opportunities &lt;int&gt;, face_off_win_percentage &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   blocked &lt;int&gt;, takeaways &lt;int&gt;, giveaways &lt;int&gt;, hits &lt;int&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> $players_box</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>         id             full_name                   link shoots_catches</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1  8473607       Michal Neuvirth /api/v1/people/8473607              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2  8476906   Shayne Gostisbehere /api/v1/people/8476906              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3  8474668            Dale Weise /api/v1/people/8474668              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4  8473512         Claude Giroux /api/v1/people/8473512              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5  8477948        Travis Sanheim /api/v1/people/8477948              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  8474037    James van Riemsdyk /api/v1/people/8474037              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7  8478439        Travis Konecny /api/v1/people/8478439              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8  8478500         Ivan Provorov /api/v1/people/8478500              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9  8476872        Scott Laughton /api/v1/people/8476872              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 8475321           Phil Varone /api/v1/people/8475321              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11 8479974         Nolan Patrick /api/v1/people/8479974              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 8474161         Jakub Voracek /api/v1/people/8474161              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13 8477462           Robert Hagg /api/v1/people/8477462              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 8478067        Oskar Lindblom /api/v1/people/8478067              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15 8476461        Sean Couturier /api/v1/people/8476461              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16 8473584      Andrew MacDonald /api/v1/people/8473584              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 8475462           Radko Gudas /api/v1/people/8475462              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 8477290         Michael Raffl /api/v1/people/8477290              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19 8474190        Wayne Simmonds /api/v1/people/8474190              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20 8480072        Lias Andersson /api/v1/people/8480072              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21 8468685      Henrik Lundqvist /api/v1/people/8468685              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22 8476918           Jimmy Vesey /api/v1/people/8476918              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23 8471717          Adam McQuaid /api/v1/people/8471717              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24 8471686            Marc Staal /api/v1/people/8471686              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25 8476869           Brady Skjei /api/v1/people/8476869              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 26 8476458           Ryan Strome /api/v1/people/8476458              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 27 8476459        Mika Zibanejad /api/v1/people/8476459              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 28 8476922            Boo Nieves /api/v1/people/8476922              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 29 8477402      Pavel Buchnevich /api/v1/people/8477402              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 30 8475763           Kevin Hayes /api/v1/people/8475763              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 31 8476368      Fredrik Claesson /api/v1/people/8476368              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 32 8475184         Chris Kreider /api/v1/people/8475184              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 33 8479353          Brett Howden /api/v1/people/8479353              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 34 8475692       Mats Zuccarello /api/v1/people/8475692              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 35 8474090         Brendan Smith /api/v1/people/8474090              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 36 8480078          Filip Chytil /api/v1/people/8480078              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 37 8476480 Vladislav Namestnikov /api/v1/people/8476480              L</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 38 8480145            Neal Pionk /api/v1/people/8480145              R</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    roster_status jersey_number code       name       type abbreviation</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1              N            30    G     Goalie     Goalie            G</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              Y            53    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3              Y            22    R Right Wing    Forward           RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4              Y            28    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5              Y             6    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6              Y            25    L  Left Wing    Forward           LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7              Y            11    R Right Wing    Forward           RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8              Y             9    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9              Y            21    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10             Y            44    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11             I            19    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12             Y            93    R Right Wing    Forward           RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13             Y             8    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14             Y            23    L  Left Wing    Forward           LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15             Y            14    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16             N            47    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             Y             3    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18             Y            12    L  Left Wing    Forward           LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19             Y            17    R Right Wing    Forward           RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20             Y            50    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21             N            30    G     Goalie     Goalie            G</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22             Y            26    L  Left Wing    Forward           LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23             Y            54    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24             Y            18    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25             Y            76    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 26             Y            16    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 27             Y            93    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 28             N            24    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 29             Y            89    R Right Wing    Forward           RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 30             Y            13    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 31             N            33    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 32             Y            20    L  Left Wing    Forward           LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 33             Y            21    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 34             Y            36    R Right Wing    Forward           RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 35             Y            42    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 36             I            72    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 37             Y            90    C     Center    Forward            C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 38             Y            44    D Defenseman Defenseman            D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_time_on_ice goalie_stats_assists goalie_stats_goals</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                     64:46                    0                  0</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                      &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                    64:58                    0                  0</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                     &lt;NA&gt;                   NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_pim goalie_stats_shots goalie_stats_saves</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                 0                 34                 32</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                0                 31                 29</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 26               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 27               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 28               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 29               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 30               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 31               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 32               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 33               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 34               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 35               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 36               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 37               NA                 NA                 NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 38               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $player_box</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    player_id      player_full_name                   link shoots_catches</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1    8473607       Michal Neuvirth /api/v1/people/8473607              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2    8476906   Shayne Gostisbehere /api/v1/people/8476906              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3    8474668            Dale Weise /api/v1/people/8474668              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4    8473512         Claude Giroux /api/v1/people/8473512              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5    8477948        Travis Sanheim /api/v1/people/8477948              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6    8474037    James van Riemsdyk /api/v1/people/8474037              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7    8478439        Travis Konecny /api/v1/people/8478439              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8    8478500         Ivan Provorov /api/v1/people/8478500              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9    8476872        Scott Laughton /api/v1/people/8476872              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10   8475321           Phil Varone /api/v1/people/8475321              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11   8479974         Nolan Patrick /api/v1/people/8479974              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12   8474161         Jakub Voracek /api/v1/people/8474161              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13   8477462           Robert Hagg /api/v1/people/8477462              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14   8478067        Oskar Lindblom /api/v1/people/8478067              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15   8476461        Sean Couturier /api/v1/people/8476461              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16   8473584      Andrew MacDonald /api/v1/people/8473584              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17   8475462           Radko Gudas /api/v1/people/8475462              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18   8477290         Michael Raffl /api/v1/people/8477290              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19   8474190        Wayne Simmonds /api/v1/people/8474190              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20   8480072        Lias Andersson /api/v1/people/8480072              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21   8468685      Henrik Lundqvist /api/v1/people/8468685              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22   8476918           Jimmy Vesey /api/v1/people/8476918              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23   8471717          Adam McQuaid /api/v1/people/8471717              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24   8471686            Marc Staal /api/v1/people/8471686              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25   8476869           Brady Skjei /api/v1/people/8476869              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26   8476458           Ryan Strome /api/v1/people/8476458              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27   8476459        Mika Zibanejad /api/v1/people/8476459              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28   8476922            Boo Nieves /api/v1/people/8476922              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29   8477402      Pavel Buchnevich /api/v1/people/8477402              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30   8475763           Kevin Hayes /api/v1/people/8475763              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31   8476368      Fredrik Claesson /api/v1/people/8476368              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32   8475184         Chris Kreider /api/v1/people/8475184              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33   8479353          Brett Howden /api/v1/people/8479353              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34   8475692       Mats Zuccarello /api/v1/people/8475692              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35   8474090         Brendan Smith /api/v1/people/8474090              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36   8480078          Filip Chytil /api/v1/people/8480078              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37   8476480 Vladislav Namestnikov /api/v1/people/8476480              L</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38   8480145            Neal Pionk /api/v1/people/8480145              R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    roster_status jersey_number position_code position_name position_type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1              N            30             G        Goalie        Goalie</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              Y            53             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3              Y            22             R    Right Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4              Y            28             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5              Y             6             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6              Y            25             L     Left Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7              Y            11             R    Right Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8              Y             9             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9              Y            21             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10             Y            44             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11             I            19             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12             Y            93             R    Right Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13             Y             8             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14             Y            23             L     Left Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15             Y            14             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16             N            47             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             Y             3             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18             Y            12             L     Left Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19             Y            17             R    Right Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20             Y            50             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21             N            30             G        Goalie        Goalie</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22             Y            26             L     Left Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23             Y            54             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24             Y            18             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25             Y            76             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26             Y            16             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27             Y            93             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28             N            24             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29             Y            89             R    Right Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30             Y            13             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31             N            33             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32             Y            20             L     Left Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33             Y            21             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34             Y            36             R    Right Wing       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35             Y            42             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36             I            72             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37             Y            90             C        Center       Forward</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38             Y            44             D    Defenseman    Defenseman</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    position_abbreviation goalie_stats_time_on_ice goalie_stats_assists</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                      G                    64:46                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                      D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                     RW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                      C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                      D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                     LW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                     RW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                      D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                      C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                    RW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                    LW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                    LW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                    RW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                     G                    64:58                    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                    LW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                    RW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                    LW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                    RW                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                     C                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                     D                     &lt;NA&gt;                   NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_goals goalie_stats_pim goalie_stats_shots goalie_stats_saves</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                   0                0                 34                 32</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                  NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                  0                0                 31                 29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                 NA               NA                 NA                 NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                 NA               NA                 NA                 NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_power_play_saves goalie_stats_short_handed_saves</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 1                              4                               1</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 2                             NA                              NA</span>
@@ -4953,45 +4953,6 @@ penalty_box, scratches, team_coaches</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 36                  &lt;NA&gt;                           NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 37                  &lt;NA&gt;                           NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 38                  &lt;NA&gt;                           NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_power_play_save_percentage</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                                 100.0000</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                                       NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                                 66.6667</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                                      NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                                      NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_short_handed_save_percentage</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 1                                        100</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 2                                         NA</span>
@@ -5031,45 +4992,84 @@ penalty_box, scratches, team_coaches</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 36                                        NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 37                                        NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 38                                        NA</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_even_strength_save_percentage skater_stats_time_on_ice</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                                     93.1034                     &lt;NA&gt;</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                                          NA                    21:26</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                                          NA                     9:11</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                                          NA                    23:45</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                                          NA                    21:47</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                                          NA                    16:51</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                                          NA                    17:43</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                                          NA                    24:28</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                                          NA                    17:20</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                                         NA                     7:38</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                                         NA                    15:54</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                                         NA                    18:16</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                                         NA                    17:59</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                                         NA                     6:43</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                                         NA                    21:34</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                                         NA                    18:00</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                                         NA                    19:58</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                                         NA                    15:22</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                                         NA                    17:19</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                                         NA                    10:33</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                                    96.2963                     &lt;NA&gt;</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                                         NA                    13:37</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                                         NA                    19:37</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                                         NA                    21:31</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                                         NA                    22:09</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                                         NA                     8:42</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                                         NA                    20:10</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                                         NA                     9:17</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                                         NA                    18:17</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                                         NA                    23:15</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                                         NA                    15:09</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                                         NA                    18:16</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                                         NA                    15:20</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                                         NA                    21:52</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                                         NA                    18:15</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                                         NA                    20:06</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                                         NA                    15:18</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                                         NA                    21:35</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_even_strength_save_percentage</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                                     93.1034</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                                          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                                    96.2963</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                                         NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    goalie_stats_power_play_save_percentage skater_stats_time_on_ice</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                                 100.0000                     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                                       NA                    21:26</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                                       NA                     9:11</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                                       NA                    23:45</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                                       NA                    21:47</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6                                       NA                    16:51</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                                       NA                    17:43</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8                                       NA                    24:28</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                                       NA                    17:20</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                                      NA                     7:38</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                                      NA                    15:54</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                                      NA                    18:16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                                      NA                    17:59</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14                                      NA                     6:43</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                                      NA                    21:34</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                                      NA                    18:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                                      NA                    19:58</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                                      NA                    15:22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                                      NA                    17:19</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                                      NA                    10:33</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21                                 66.6667                     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                                      NA                    13:37</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23                                      NA                    19:37</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24                                      NA                    21:31</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                                      NA                    22:09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                                      NA                     8:42</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27                                      NA                    20:10</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                                      NA                     9:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                                      NA                    18:17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                                      NA                    23:15</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                                      NA                    15:09</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                                      NA                    18:16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33                                      NA                    15:20</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                                      NA                    21:52</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                                      NA                    18:15</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36                                      NA                    20:06</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                                      NA                    15:18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38                                      NA                    21:35</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    skater_stats_assists skater_stats_goals skater_stats_shots skater_stats_hits</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 1                    NA                 NA                 NA                NA</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 2                     0                  0                  4                 1</span>

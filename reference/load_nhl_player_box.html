@@ -281,9 +281,26 @@ the season data into a database (used by <code><a href='update_nhl_db.html'>upda
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
 <span class='r-in'><span class='fu'>load_nhl_player_box</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>cannot open URL 'https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/player_box/rds/player_box_2021.rds': HTTP status was '404 Not Found'</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Failed to readRDS from &lt;https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/player_box/rds/player_box_2021.rds&gt;</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 0 × 0</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 36,276 × 48</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        id full_name link  shoots_catches roster_status jersey_number code  name </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 8.47<span style='color: #949494;'>e</span>6 Kris Let… /api… R              Y             58            D     Defe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 8.48<span style='color: #949494;'>e</span>6 Teddy Bl… /api… L              Y             53            C     Cent…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 8.48<span style='color: #949494;'>e</span>6 Cody Ceci /api… R              Y             4             D     Defe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 8.48<span style='color: #949494;'>e</span>6 Marcus P… /api… L              Y             28            D     Defe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 8.48<span style='color: #949494;'>e</span>6 John Mar… /api… R              Y             6             D     Defe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 8.48<span style='color: #949494;'>e</span>6 Brian Du… /api… L              Y             8             D     Defe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 8.47<span style='color: #949494;'>e</span>6 Sidney C… /api… L              N             87            C     Cent…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 8.48<span style='color: #949494;'>e</span>6 Mike Mat… /api… L              Y             5             D     Defe…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 8.48<span style='color: #949494;'>e</span>6 Jake Gue… /api… L              Y             59            L     Left…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 8.48<span style='color: #949494;'>e</span>6 Jason Zu… /api… L              Y             16            L     Left…</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 36,266 more rows, and 40 more variables: type &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   abbreviation &lt;chr&gt;, skater_stats_time_on_ice &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   skater_stats_assists &lt;int&gt;, skater_stats_goals &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   skater_stats_shots &lt;int&gt;, skater_stats_hits &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   skater_stats_power_play_goals &lt;int&gt;, skater_stats_power_play_assists &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   skater_stats_penalty_minutes &lt;int&gt;, skater_stats_face_off_wins &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   skater_stats_faceoff_taken &lt;int&gt;, skater_stats_takeaways &lt;int&gt;, …</span></span>
 <span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
