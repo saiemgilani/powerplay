@@ -10,6 +10,18 @@
     <loc>https://saiemgilani.github.io/powerplay/reference/csv_from_url.html</loc>
   </url>
   <url>
+    <loc>https://saiemgilani.github.io/powerplay/reference/load_nhl_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/powerplay/reference/load_nhl_player_box.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/powerplay/reference/load_nhl_schedule.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/powerplay/reference/load_nhl_team_box.html</loc>
+  </url>
+  <url>
     <loc>https://saiemgilani.github.io/powerplay/reference/most_recent_nhl_season.html</loc>
   </url>
   <url>
@@ -77,6 +89,12 @@
   </url>
   <url>
     <loc>https://saiemgilani.github.io/powerplay/reference/rds_from_url.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/powerplay/reference/team_logos_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://saiemgilani.github.io/powerplay/reference/update_nhl_db.html</loc>
   </url>
   <url>
     <loc>https://saiemgilani.github.io/powerplay/reference/year_to_season.html</loc>

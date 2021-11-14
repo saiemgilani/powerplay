@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NHL Teams Roster — nhl_teams_roster • powerplay</title>
+<title>Load powerplay NHL player box scores — load_nhl_player_box • powerplay</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="NHL Teams Roster — nhl_teams_roster" />
-<meta property="og:description" content="Returns NHL Teams roster information for a given team ID" />
+<meta property="og:title" content="Load powerplay NHL player box scores — load_nhl_player_box" />
+<meta property="og:description" content="helper that loads multiple seasons from the data repo either into memory
+or writes it into a db using some forwarded arguments in the dots" />
 <meta property="og:image" content="https://saiemgilani.github.io/powerplay/logo.png" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@saiemgilani" />
@@ -241,23 +242,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>NHL Teams Roster</h1>
+    <h1><strong>Load powerplay NHL player box scores</strong></h1>
     
-    <div class="hidden name"><code>nhl_teams_roster.Rd</code></div>
+    <div class="hidden name"><code>load_nhl_player_box.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns NHL Teams roster information for a given team ID</p>
+    <p>helper that loads multiple seasons from the data repo either into memory
+or writes it into a db using some forwarded arguments in the dots</p>
     </div>
 
-    <pre class="usage"><span class='fu'>nhl_teams_roster</span><span class='op'>(</span><span class='va'>team_id</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_nhl_player_box</span><span class='op'>(</span>
+  seasons <span class='op'>=</span> <span class='fu'><a href='most_recent_nhl_season.html'>most_recent_nhl_season</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>,
+  dbConnection <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tablename <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>team_id</th>
-      <td><p>A unique team ID</p></td>
+      <th>seasons</th>
+      <td><p>A vector of 4-digit years associated with given NHL seasons. (Min: 2002)</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments passed to an underlying function that writes
+the season data into a database (used by <code><a href='update_nhl_db.html'>update_nhl_db()</a></code>).</p></td>
+    </tr>
+    <tr>
+      <th>dbConnection</th>
+      <td><p>A <code>DBIConnection</code> object, as returned by <code><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>DBI::dbConnect()</a></code></p></td>
+    </tr>
+    <tr>
+      <th>tablename</th>
+      <td><p>The name of the player box data table within the database</p></td>
     </tr>
     </table>
 
@@ -267,59 +287,10 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
-<span class='r-in'>  <span class='fu'>nhl_teams_roster</span><span class='op'>(</span>team_id <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    jersey_number player_id         player_full_name            player_link</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1             86   8476453          Nikita Kucherov /api/v1/people/8476453</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2             46   8476966              Gemel Smith /api/v1/people/8476966</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3             29   8477205             Andrej Sustr /api/v1/people/8477205</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4             10   8470621              Corey Perry /api/v1/people/8470621</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5              1   8470880            Brian Elliott /api/v1/people/8470880</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6             17   8473986             Alex Killorn /api/v1/people/8473986</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7             14   8474034               Pat Maroon /api/v1/people/8474034</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8             27   8474151            Ryan McDonagh /api/v1/people/8474151</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9             91   8474564           Steven Stamkos /api/v1/people/8474564</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10            24   8474567            Zach Bogosian /api/v1/people/8474567</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11            77   8475167            Victor Hedman /api/v1/people/8475167</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12            18   8476292             Ondrej Palat /api/v1/people/8476292</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13            88   8476883       Andrei Vasilevskiy /api/v1/people/8476883</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14            41   8477930 Pierre-Edouard Bellemare /api/v1/people/8477930</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15            21   8478010            Brayden Point /api/v1/people/8478010</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16            81   8478416              Erik Cernak /api/v1/people/8478416</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             7   8478472           Mathieu Joseph /api/v1/people/8478472</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18            71   8478519          Anthony Cirelli /api/v1/people/8478519</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19            13   8479383           Boris Katchouk /api/v1/people/8479383</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20            16   8479390           Taylor Raddysh /api/v1/people/8479390</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21            98   8479410        Mikhail Sergachev /api/v1/people/8479410</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22            79   8479525              Ross Colton /api/v1/people/8479525</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23            12   8479718        Alex Barré-Boulet /api/v1/people/8479718</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24            52   8479984                Cal Foote /api/v1/people/8479984</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25            44   8480172                Jan Rutta /api/v1/people/8480172</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    position_code position_name position_type position_abbreviation</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 1              R    Right Wing       Forward                    RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              C        Center       Forward                     C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 3              D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 4              R    Right Wing       Forward                    RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5              G        Goalie        Goalie                     G</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6              L     Left Wing       Forward                    LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 7              L     Left Wing       Forward                    LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 8              D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 9              C        Center       Forward                     C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10             D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 11             D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 12             L     Left Wing       Forward                    LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 13             G        Goalie        Goalie                     G</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 14             L     Left Wing       Forward                    LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 15             C        Center       Forward                     C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 16             D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 17             R    Right Wing       Forward                    RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 18             C        Center       Forward                     C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 19             L     Left Wing       Forward                    LW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 20             R    Right Wing       Forward                    RW</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 21             D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 22             C        Center       Forward                     C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 23             C        Center       Forward                     C</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 24             D    Defenseman    Defenseman                     D</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 25             D    Defenseman    Defenseman                     D</span>
+<span class='r-in'><span class='fu'>load_nhl_player_box</span><span class='op'>(</span><span class='fl'>2021</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>cannot open URL 'https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/player_box/rds/player_box_2021.rds': HTTP status was '404 Not Found'</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Failed to readRDS from &lt;https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/player_box/rds/player_box_2021.rds&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 0 × 0</span></span>
 <span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>

@@ -267,26 +267,95 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a named list of data frames: player, stats</p>
+    <p>Returns a tibble</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
-<span class='r-in'>  <span class='fu'>nhl_schedule</span><span class='op'>(</span>season <span class='op'>=</span> <span class='fl'>2020</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 1,213 × 8</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>       game_id season_full date       home_name     away_name    home_final_score</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>001 20192020    2019-10-02 Toronto Mapl… Ottawa Sena…                5</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>002 20192020    2019-10-02 St. Louis Bl… Washington …                2</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>003 20192020    2019-10-02 Edmonton Oil… Vancouver C…                3</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>004 20192020    2019-10-02 Vegas Golden… San Jose Sh…                4</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>005 20192020    2019-10-03 Tampa Bay Li… Florida Pan…                5</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>006 20192020    2019-10-03 New York Ran… Winnipeg Je…                6</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>007 20192020    2019-10-03 Pittsburgh P… Buffalo Sab…                1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>008 20192020    2019-10-03 Carolina Hur… Montréal Ca…                4</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>009 20192020    2019-10-03 Nashville Pr… Minnesota W…                5</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> <span style='text-decoration: underline;'>2</span>019<span style='text-decoration: underline;'>020</span>010 20192020    2019-10-03 Dallas Stars  Boston Brui…                1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 1,203 more rows, and 2 more variables: away_final_score &lt;int&gt;,</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   game_type &lt;chr&gt;</span></span>
+<span class='r-in'>  <span class='fu'>nhl_schedule</span><span class='op'>(</span>season <span class='op'>=</span> <span class='fl'>2021</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         game_id                              link game_type_abbreviation</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1: 2020020001 /api/v1/game/2020020001/feed/live                      R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2: 2020020003 /api/v1/game/2020020003/feed/live                      R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3: 2020020002 /api/v1/game/2020020002/feed/live                      R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4: 2020020004 /api/v1/game/2020020004/feed/live                      R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5: 2020020005 /api/v1/game/2020020005/feed/live                      R</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948: 2020030411 /api/v1/game/2020030411/feed/live                      P</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949: 2020030412 /api/v1/game/2020030412/feed/live                      P</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950: 2020030413 /api/v1/game/2020030413/feed/live                      P</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951: 2020030414 /api/v1/game/2020030414/feed/live                      P</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952: 2020030415 /api/v1/game/2020030415/feed/live                      P</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      season_full            game_date status_abstract_game_state</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:    20202021 2021-01-13T22:30:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:    20202021 2021-01-14T00:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3:    20202021 2021-01-14T01:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4:    20202021 2021-01-14T03:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5:    20202021 2021-01-14T03:30:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948:    20202021 2021-06-29T00:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949:    20202021 2021-07-01T00:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950:    20202021 2021-07-03T00:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951:    20202021 2021-07-06T00:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952:    20202021 2021-07-08T00:00:00Z                      Final</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      status_coded_game_state status_detailed_state status_status_code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952:                       7                 Final                  7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      status_start_time_tbd away_score away_team_id      away_team_name</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:                 FALSE          3            5 Pittsburgh Penguins</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:                 FALSE          4            8  Montréal Canadiens</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3:                 FALSE          1           16  Chicago Blackhawks</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4:                 FALSE          5           23   Vancouver Canucks</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5:                 FALSE          4           19     St. Louis Blues</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948:                 FALSE          1            8  Montréal Canadiens</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949:                 FALSE          1            8  Montréal Canadiens</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950:                 FALSE          6           14 Tampa Bay Lightning</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951:                 FALSE          2           14 Tampa Bay Lightning</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952:                 FALSE          0            8  Montréal Canadiens</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        away_team_link home_score home_team_id      home_team_name</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:  /api/v1/teams/5          6            4 Philadelphia Flyers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:  /api/v1/teams/8          5           10 Toronto Maple Leafs</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3: /api/v1/teams/16          5           14 Tampa Bay Lightning</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4: /api/v1/teams/23          3           22     Edmonton Oilers</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5: /api/v1/teams/19          1           21  Colorado Avalanche</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948:  /api/v1/teams/8          5           14 Tampa Bay Lightning</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949:  /api/v1/teams/8          3           14 Tampa Bay Lightning</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950: /api/v1/teams/14          3            8  Montréal Canadiens</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951: /api/v1/teams/14          3            8  Montréal Canadiens</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952:  /api/v1/teams/8          1           14 Tampa Bay Lightning</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>        home_team_link         venue_name          venue_link venue_id</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:  /api/v1/teams/4 Wells Fargo Center /api/v1/venues/5096     5096</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2: /api/v1/teams/10   Scotiabank Arena /api/v1/venues/null         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3: /api/v1/teams/14       Amalie Arena /api/v1/venues/5017     5017</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4: /api/v1/teams/22       Rogers Place /api/v1/venues/5100     5100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5: /api/v1/teams/21         Ball Arena /api/v1/venues/5064     5064</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948: /api/v1/teams/14       Amalie Arena /api/v1/venues/5017     5017</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949: /api/v1/teams/14       Amalie Arena /api/v1/venues/5017     5017</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950:  /api/v1/teams/8        Centre Bell /api/v1/venues/null         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951:  /api/v1/teams/8        Centre Bell /api/v1/venues/null         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952: /api/v1/teams/14       Amalie Arena /api/v1/venues/5017     5017</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                         content_link game_type</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1: /api/v1/game/2020020001/content       REG</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2: /api/v1/game/2020020003/content       REG</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3: /api/v1/game/2020020002/content       REG</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4: /api/v1/game/2020020004/content       REG</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5: /api/v1/game/2020020005/content       REG</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 948: /api/v1/game/2020030411/content      POST</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 949: /api/v1/game/2020030412/content      POST</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 950: /api/v1/game/2020030413/content      POST</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 951: /api/v1/game/2020030414/content      POST</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 952: /api/v1/game/2020030415/content      POST</span>
 <span class='r-in'><span class='co'># }</span></span>
 </pre>
   </div>
