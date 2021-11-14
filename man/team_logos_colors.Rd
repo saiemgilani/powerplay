@@ -3,7 +3,7 @@
 \docType{data}
 \name{team_logos_colors}
 \alias{team_logos_colors}
-\title{Team logos & colors}
+\title{\strong{Team logos & colors}}
 \format{
 An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 33 rows and 11 columns.
 }

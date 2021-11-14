@@ -1,4 +1,4 @@
-#' Team logos & colors
+#' **Team logos & colors**
 #'
 #' A dataset containing the full team names, abbreviations, colors & logos
 #' for all 32 NHL teams.

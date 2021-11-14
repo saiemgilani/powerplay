@@ -33,7 +33,7 @@ load_nhl_pbp <- function(seasons = most_recent_nhl_season(),...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/pbp/rds/play_by_play_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/pbp/rds/play_by_play_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -83,7 +83,7 @@ load_nhl_team_box <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/team_box/rds/team_box_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/team_box/rds/team_box_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -130,7 +130,7 @@ load_nhl_player_box <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/player_box/rds/player_box_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/player_box/rds/player_box_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -180,7 +180,7 @@ load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
             seasons >= 2010,
             seasons <= most_recent_nhl_season())
   
-  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/schedules/rds/nhl_schedule_",seasons,".rds")
+  urls <- paste0("https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/schedules/rds/nhl_schedule_",seasons,".rds")
   
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -198,7 +198,7 @@ load_nhl_schedule <- function(seasons = most_recent_nhl_season(), ...,
 
 # load games file
 load_nhl_games <- function(){
-  .url <- "https://raw.githubusercontent.com/saiemgilani/powerplay-data/master/nhl/nhl_games_in_data_repo.csv"
+  .url <- "https://raw.githubusercontent.com/saiemgilani/powerplay-data/main/nhl/nhl_games_in_data_repo.csv"
   con <- url(.url)
   dat <- utils::read.csv(con)
   # close(con)

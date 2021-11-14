@@ -1,6 +1,6 @@
 .datatable.aware <- TRUE
 
-#' Progressively
+#' **Progressively**
 #'
 #' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
 #'
@@ -84,6 +84,22 @@ most_recent_nhl_season <- function() {
   )
 }
 
+#' @title **year to season (XXXX -> XXXX-YY)**
+#' @param year Four digit year (XXXX)
+#' @importFrom dplyr mutate filter select left_join
+#' @importFrom stringr str_detect
+#' @importFrom tidyr everything
+year_to_season <- function(year){
+  first_year <- substr(year,3,4)
+  next_year <- as.numeric(first_year)+1
+  next_year <- dplyr::case_when(
+    next_year <10 & first_year > 0 ~ glue::glue("0{next_year}"),
+    first_year == 99 ~ "00",
+    TRUE ~ as.character(next_year))
+  return(glue::glue("{year}-{next_year}"))
+}
+
+
 # The function `message_completed` to create the green "...completed" message
 # only exists to hide the option `in_builder` in dots
 message_completed <- function(x, in_builder = FALSE) {
@@ -129,7 +145,7 @@ rule_footer <- function(x) {
     )
   )
 }
-#' Check Status function
+#' **Check Status function**
 #' @param res Response from API
 #' @keywords Internal
 #' @import rvest
