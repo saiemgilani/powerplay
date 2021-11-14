@@ -10,9 +10,9 @@ nhl_game_feed(game_id)
 \item{game_id}{Game unique ID}
 }
 \value{
-Returns a named list of data frames: all_plays, scoring_plays, penalty_plays, plays_by_period,
-current_play, linescore, decisions,
-team_box, players_box, skaters,goalies, on_ice, on_ice_plus,
+Returns a named list of data frames: all_plays, scoring_plays,
+penalty_plays, plays_by_period, current_play, linescore, decisions,
+team_box, player_box, skaters, goalies, on_ice, on_ice_plus,
 penalty_box, scratches, team_coaches
 }
 \description{

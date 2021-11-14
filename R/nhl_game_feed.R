@@ -1,9 +1,9 @@
 #' @title **NHL Game Feed**
 #' @description Returns information on game feed for a given game id
 #' @param game_id Game unique ID 
-#' @return Returns a named list of data frames: all_plays, scoring_plays, penalty_plays, plays_by_period,
-#' current_play, linescore, decisions,
-#' team_box, players_box, skaters,goalies, on_ice, on_ice_plus,
+#' @return Returns a named list of data frames: all_plays, scoring_plays, 
+#' penalty_plays, plays_by_period, current_play, linescore, decisions,
+#' team_box, player_box, skaters, goalies, on_ice, on_ice_plus,
 #' penalty_box, scratches, team_coaches
 #' @keywords NHL Game Feed
 #' @import rvest
@@ -40,46 +40,54 @@ nhl_game_feed <- function(game_id){
       plays_df <- live_data_df$plays$allPlays
       plays_player <- jsonlite::fromJSON(jsonlite::toJSON(plays_df$players),flatten=TRUE)
       plays_df <- jsonlite::fromJSON(jsonlite::toJSON(plays_df),flatten=TRUE)
-      plays_player <- purrr::map_dfr(1:length(plays_player), function(x){
-        if("playerType" %in% colnames(plays_player[[x]]) && nrow(plays_player[[x]])>1){
-          
-          player <- data.frame(
-            "playerType_1" = plays_player[[x]]$playerType[[1]],
-            "player.id_1" = plays_player[[x]]$player.id[[1]],
-            "player.fullName_1" = plays_player[[x]]$player.fullName[[1]],
-            "player.link_1" = plays_player[[x]]$player.link[[1]],
-            "playerType_2" = plays_player[[x]]$playerType[[2]],
-            "player.id_2" = plays_player[[x]]$player.id[[2]],
-            "player.fullName_2" = plays_player[[x]]$player.fullName[[2]],
-            "player.link_2" = plays_player[[x]]$player.link[[2]])
-          return(player)
-        }else if("playerType" %in% colnames(plays_player[[x]]) && nrow(plays_player[[x]])==1){
-          
-          player <- data.frame(
-            "playerType_1" = plays_player[[x]]$playerType[[1]],
-            "player.id_1" = plays_player[[x]]$player.id[[1]],
-            "player.fullName_1" = plays_player[[x]]$player.fullName[[1]],
-            "player.link_1" = plays_player[[x]]$player.link[[1]],
-            "playerType_2" = NA_character_,
-            "player.id_2" = NA_integer_,
-            "player.fullName_2" = NA_character_,
-            "player.link_2" = NA_character_)
-          return(player)
-        }else{
-          player <- data.frame(
-            "playerType_1" = NA_character_,
-            "player.id_1" = NA_integer_,
-            "player.fullName_1" = NA_character_,
-            "player.link_1" = NA_character_,
-            "playerType_2" = NA_character_,
-            "player.id_2" = NA_integer_,
-            "player.fullName_2" = NA_character_,
-            "player.link_2" = NA_character_)
-          return(player)
-        }
-      })
-      all_plays <- dplyr::bind_cols(plays_df %>% dplyr::select(-.data$players), plays_player) %>% 
-        janitor::clean_names()
+      if(length(plays_player)>0){
+        plays_player <- purrr::map_dfr(1:length(plays_player), function(x){
+          if("playerType" %in% colnames(plays_player[[x]]) && nrow(plays_player[[x]])>1){
+            
+            player <- data.frame(
+              "playerType_1" = plays_player[[x]]$playerType[[1]],
+              "player.id_1" = plays_player[[x]]$player.id[[1]],
+              "player.fullName_1" = plays_player[[x]]$player.fullName[[1]],
+              "player.link_1" = plays_player[[x]]$player.link[[1]],
+              "playerType_2" = plays_player[[x]]$playerType[[2]],
+              "player.id_2" = plays_player[[x]]$player.id[[2]],
+              "player.fullName_2" = plays_player[[x]]$player.fullName[[2]],
+              "player.link_2" = plays_player[[x]]$player.link[[2]])
+            return(player)
+          }else if("playerType" %in% colnames(plays_player[[x]]) && nrow(plays_player[[x]])==1){
+            
+            player <- data.frame(
+              "playerType_1" = plays_player[[x]]$playerType[[1]],
+              "player.id_1" = plays_player[[x]]$player.id[[1]],
+              "player.fullName_1" = plays_player[[x]]$player.fullName[[1]],
+              "player.link_1" = plays_player[[x]]$player.link[[1]],
+              "playerType_2" = NA_character_,
+              "player.id_2" = NA_integer_,
+              "player.fullName_2" = NA_character_,
+              "player.link_2" = NA_character_)
+            return(player)
+          }else{
+            player <- data.frame(
+              "playerType_1" = NA_character_,
+              "player.id_1" = NA_integer_,
+              "player.fullName_1" = NA_character_,
+              "player.link_1" = NA_character_,
+              "playerType_2" = NA_character_,
+              "player.id_2" = NA_integer_,
+              "player.fullName_2" = NA_character_,
+              "player.link_2" = NA_character_)
+            return(player)
+          }
+        })
+      }
+      if(length(plays_df)>0 && length(plays_player)>0){
+        all_plays <- plays_df %>% 
+          dplyr::select(-.data$players) %>% 
+          dplyr::bind_cols(plays_player) %>% 
+          janitor::clean_names()  
+      }else{
+        all_plays = data.frame()
+      }
       scoring_plays <- live_data_df$plays$scoringPlays
       penalty_plays <- live_data_df$plays$penaltyPlays
       plays_by_period <- live_data_df$plays$playsByPeriod
@@ -105,7 +113,8 @@ nhl_game_feed <- function(game_id){
       team_box <- dplyr::bind_rows(away_team_box, home_team_box) %>% 
         dplyr::rename(
           team_id = .data$id,
-          team_name = .data$name)
+          team_name = .data$name) %>% 
+        janitor::clean_names()
       ###---player_box----
       away_players_box <- purrr::map_df(1:length(away_boxscore$players),function(x){
         person <- data.frame(away_boxscore$players[[x]][["person"]]) %>% 
@@ -133,7 +142,15 @@ nhl_game_feed <- function(game_id){
       })
       away_players_box$home_away <- "Away"
       home_players_box$home_away <- "Home"
-      players_box <- dplyr::bind_rows(away_players_box, home_players_box)
+      players_box <- dplyr::bind_rows(away_players_box, home_players_box) %>% 
+        dplyr::rename(
+          player_id = .data$id,
+          player_full_name = .data$full_name,
+          position_code = .data$code,
+          position_name = .data$name,
+          position_type = .data$type,
+          position_abbreviation = .data$abbreviation) %>% 
+        janitor::clean_names()
       
       ###---goalies----
       away_goalies <- data.frame("goalies" = away_boxscore$goalies)
@@ -176,7 +193,7 @@ nhl_game_feed <- function(game_id){
                list(onIcePlus), list(penaltyBox), list(scratches), list(team_coaches))
       names(game) <- c("all_plays", "scoring_plays", "penalty_plays", "plays_by_period",
                        "current_play", "linescore", "decisions",
-                       "team_box", "players_box", "skaters", "goalies", "on_ice", "on_ice_plus",
+                       "team_box", "player_box", "skaters", "goalies", "on_ice", "on_ice_plus",
                        "penalty_box", "scratches", "team_coaches")
     },
     error = function(e) {

@@ -1,7 +1,7 @@
 #' @title **NHL Game Boxscore**
 #' @description Returns information on game boxscore for a given game id
 #' @param game_id Game unique ID 
-#' @return Returns a named list of data frames: team_box, players_box, 
+#' @return Returns a named list of data frames: team_box, player_box, 
 #' skaters, goalies, on_ice, on_ice_plus, penalty_box, 
 #' scratches, team_coaches
 #' @keywords NHL Game Boxscore
@@ -78,7 +78,15 @@ nhl_game_boxscore <- function(game_id){
       })
       away_players_box$home_away <- "Away"
       home_players_box$home_away <- "Home"
-      players_box <- dplyr::bind_rows(away_players_box, home_players_box)
+      players_box <- dplyr::bind_rows(away_players_box, home_players_box) %>% 
+        dplyr::rename(
+          player_id = .data$id,
+          player_full_name = .data$full_name,
+          position_code = .data$code,
+          position_name = .data$name,
+          position_type = .data$type,
+          position_abbreviation = .data$abbreviation) %>% 
+        janitor::clean_names()
       
       #---goalies----
       away_goalies <- data.frame("goalies" = away_boxscore$goalies)
@@ -123,7 +131,7 @@ nhl_game_boxscore <- function(game_id){
       #---
       game = c(list(team_box),list(players_box), list(skaters), list(goalies), list(onIce),
                list(onIcePlus), list(penaltyBox), list(scratches), list(team_coaches))
-      names(game) <- c("team_box","players_box","skaters","goalies", "on_ice", "on_ice_plus",
+      names(game) <- c("team_box","player_box","skaters","goalies", "on_ice", "on_ice_plus",
                        "penalty_box", "scratches", "team_coaches")
     },
     error = function(e) {

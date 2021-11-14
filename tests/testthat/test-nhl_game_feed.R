@@ -10,7 +10,7 @@ test_that("NHL - Get NHL Game Feed", {
             "linescore",
             "decisions",
             "team_box",
-            "players_box",
+            "player_box",
             "skaters",
             "goalies",
             "on_ice",

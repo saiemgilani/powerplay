@@ -3,7 +3,7 @@ test_that("NHL - Get NHL Game Boxscore", {
   x <- nhl_game_boxscore(game_id=2021020182)
   
   names <- c("team_box", 
-             "players_box", 
+             "player_box", 
              "skaters",
              "goalies",
              "on_ice", 
