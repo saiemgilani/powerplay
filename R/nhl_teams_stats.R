@@ -1,4 +1,4 @@
-#' @title NHL Teams Stats
+#' @title **NHL Teams Stats**
 #' @description Returns NHL Teams stats information for a given team ID
 #' @param team_id A unique team ID
 #' @return Returns a tibble

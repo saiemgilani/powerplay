@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_teams_roster.R
 \name{nhl_teams_roster}
 \alias{nhl_teams_roster}
-\title{NHL Teams Roster}
+\title{\strong{NHL Teams Roster}}
 \usage{
 nhl_teams_roster(team_id)
 }

@@ -1,4 +1,4 @@
-#' @title NHL Game Feed
+#' @title **NHL Game Feed**
 #' @description Returns information on game feed for a given game id
 #' @param game_id Game unique ID 
 #' @return Returns a named list of data frames: all_plays, scoring_plays, penalty_plays, plays_by_period,

@@ -1,4 +1,4 @@
-#' @title NHL Game Boxscore
+#' @title **NHL Game Boxscore**
 #' @description Returns information on game boxscore for a given game id
 #' @param game_id Game unique ID 
 #' @return Returns a named list of data frames: team_box, players_box, 

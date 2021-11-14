@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_divisions.R
 \name{nhl_divisions}
 \alias{nhl_divisions}
-\title{NHL Divisions}
+\title{\strong{NHL Divisions}}
 \usage{
 nhl_divisions()
 }

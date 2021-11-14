@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_draft_year.R
 \name{nhl_draft_year}
 \alias{nhl_draft_year}
-\title{NHL Draft by Year}
+\title{\strong{NHL Draft by Year}}
 \usage{
 nhl_draft_year(year)
 }

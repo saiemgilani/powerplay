@@ -1,4 +1,4 @@
-#' @title NHL Teams
+#' @title **NHL Teams**
 #' @description Returns NHL Teams information
 #' @return Returns a tibble
 #' @keywords NHL Teams

@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_teams.R
 \name{nhl_teams}
 \alias{nhl_teams}
-\title{NHL Teams}
+\title{\strong{NHL Teams}}
 \usage{
 nhl_teams()
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_schedule.R
 \name{nhl_schedule}
 \alias{nhl_schedule}
-\title{NHL Schedule}
+\title{\strong{NHL Schedule}}
 \usage{
 nhl_schedule(season = NULL, day = as.Date(Sys.Date(), "\%Y-\%m-\%d"))
 }

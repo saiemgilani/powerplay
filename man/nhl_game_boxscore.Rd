@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_game_boxscore.R
 \name{nhl_game_boxscore}
 \alias{nhl_game_boxscore}
-\title{NHL Game Boxscore}
+\title{\strong{NHL Game Boxscore}}
 \usage{
 nhl_game_boxscore(game_id)
 }

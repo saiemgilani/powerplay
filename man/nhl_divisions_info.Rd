@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_divisions_info.R
 \name{nhl_divisions_info}
 \alias{nhl_divisions_info}
-\title{NHL Divisions Info}
+\title{\strong{NHL Divisions Info}}
 \usage{
 nhl_divisions_info(division_id)
 }

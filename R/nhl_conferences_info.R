@@ -1,4 +1,4 @@
-#' @title NHL Conference Info
+#' @title **NHL Conference Info**
 #' @description Returns information on a conference by conference ID
 #' @param conference_id Conference ID
 #' @return Returns a data frame

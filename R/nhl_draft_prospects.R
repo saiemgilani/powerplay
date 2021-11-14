@@ -1,4 +1,4 @@
-#' @title NHL Draft Prospects
+#' @title **NHL Draft Prospects**
 #' @description Returns information on draft prospects
 #' @return Returns a data frame:
 #'     * prospect_id - 

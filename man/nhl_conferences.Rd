@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_conferences.R
 \name{nhl_conferences}
 \alias{nhl_conferences}
-\title{NHL Conferences}
+\title{\strong{NHL Conferences}}
 \usage{
 nhl_conferences()
 }

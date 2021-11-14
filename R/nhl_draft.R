@@ -1,4 +1,4 @@
-#' @title NHL Draft
+#' @title **NHL Draft**
 #' @description Returns information on draft
 #' @return Returns a data frame:
 #'     * year - 

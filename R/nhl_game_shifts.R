@@ -1,4 +1,4 @@
-#' @title NHL Game Shifts
+#' @title **NHL Game Shifts**
 #' @description Returns information on game shifts for a given game id
 #' @param game_id Game unique ID 
 #' @return Returns a tibble

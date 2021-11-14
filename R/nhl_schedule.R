@@ -1,4 +1,4 @@
-#' @title NHL Schedule
+#' @title **NHL Schedule**
 #' @description Returns NHL Schedule data
 #' @param season NHL Season
 #' @param day Date

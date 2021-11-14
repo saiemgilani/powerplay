@@ -1,4 +1,4 @@
-#' @title NHL Game Content
+#' @title **NHL Game Content**
 #' @description Returns game content for a given game ID
 #' @param game_id Game unique ID 
 #' @return Returns a tibble

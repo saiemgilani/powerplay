@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_game_feed.R
 \name{nhl_game_feed}
 \alias{nhl_game_feed}
-\title{NHL Game Feed}
+\title{\strong{NHL Game Feed}}
 \usage{
 nhl_game_feed(game_id)
 }

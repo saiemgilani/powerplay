@@ -1,4 +1,4 @@
-#' @title NHL Conferences
+#' @title **NHL Conferences**
 #' @description Returns a table of current NHL conferences
 #' @return Returns a data frame
 #' * conference_id - conference ID

@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_game_content.R
 \name{nhl_game_content}
 \alias{nhl_game_content}
-\title{NHL Game Content}
+\title{\strong{NHL Game Content}}
 \usage{
 nhl_game_content(game_id)
 }

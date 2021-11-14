@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_player_info.R
 \name{nhl_player_info}
 \alias{nhl_player_info}
-\title{NHL Player Info}
+\title{\strong{NHL Player Info}}
 \usage{
 nhl_player_info(player_id)
 }

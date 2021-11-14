@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_draft_prospects.R
 \name{nhl_draft_prospects}
 \alias{nhl_draft_prospects}
-\title{NHL Draft Prospects}
+\title{\strong{NHL Draft Prospects}}
 \usage{
 nhl_draft_prospects()
 }

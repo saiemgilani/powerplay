@@ -1,4 +1,4 @@
-#' @title NHL Player Stats
+#' @title **NHL Player Stats**
 #' @description Returns player stats for a given player ID
 #' @param player_id Player unique ID 
 #' @return Returns a tibble

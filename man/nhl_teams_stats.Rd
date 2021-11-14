@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_teams_stats.R
 \name{nhl_teams_stats}
 \alias{nhl_teams_stats}
-\title{NHL Teams Stats}
+\title{\strong{NHL Teams Stats}}
 \usage{
 nhl_teams_stats(team_id)
 }

@@ -1,4 +1,4 @@
-#' @title NHL Divisions Info
+#' @title **NHL Divisions Info**
 #' @description Returns information on a division by division ID
 #' @param division_id Division ID
 #' @return Returns a data frame

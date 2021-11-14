@@ -2,7 +2,7 @@
 % Please edit documentation in R/nhl_game_shifts.R
 \name{nhl_game_shifts}
 \alias{nhl_game_shifts}
-\title{NHL Game Shifts}
+\title{\strong{NHL Game Shifts}}
 \usage{
 nhl_game_shifts(game_id)
 }
