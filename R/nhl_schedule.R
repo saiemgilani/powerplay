@@ -55,13 +55,16 @@ nhl_schedule <- function(season = NULL, day = as.Date(Sys.Date(), "%Y-%m-%d")){
     dplyr::rename(
       game_id = .data$game_pk,
       season_full = .data$season,
-      game_type_abbreviation = .data$game_type) %>% 
+      game_type_abbreviation = .data$game_type,
+      game_date_time = .data$game_date) %>% 
     dplyr::mutate(
       game_type = dplyr::case_when(
         substr(.data$game_id, 6, 6) == 1 ~ "PRE",
         substr(.data$game_id, 6, 6) == 2 ~ "REG",
         substr(.data$game_id, 6, 6) == 3 ~ "POST",
-        substr(.data$game_id, 6, 6) == 4 ~ "ALLSTAR"))
+        substr(.data$game_id, 6, 6) == 4 ~ "ALLSTAR"),
+      venue_id = ifelse(.data$venue_id == "NULL", NA_integer_, .data$venue_id),
+      game_date = as.Date(substr(.data$game_date_time,1,10),"%Y-%m-%d"))
   
   game_dates <- game_dates %>% 
     dplyr::filter(.data$game_type == "REG" | .data$game_type == "POST")

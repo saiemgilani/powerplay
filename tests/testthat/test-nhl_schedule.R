@@ -6,7 +6,7 @@ test_that("NHL - Get NHL Schedule", {
             "link",
             "game_type_abbreviation",
             "season_full",
-            "game_date",
+            "game_date_time",
             "status_abstract_game_state",
             "status_coded_game_state",
             "status_detailed_state",
@@ -24,7 +24,8 @@ test_that("NHL - Get NHL Schedule", {
             "venue_link",
             "venue_id",
             "content_link",
-            "game_type")
+            "game_type",
+            "game_date")
   
   expect_equal(colnames(x), cols)
   expect_s3_class(x, 'data.frame')
