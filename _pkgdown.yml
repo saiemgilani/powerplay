@@ -157,10 +157,13 @@ reference:
   - subtitle: Included data
     desc: Data included within the package
     contents:
-      - '`most_recent_nhl_season`'
       - '`team_logos_colors`'
+  - subtitle: Loading helper functions
+    desc: Helper functions for loading and NHL season reference
+    contents:
+      - '`most_recent_nhl_season`'
+      - '`year_to_season`'
       - '`progressively`'
       - '`check_status`'
       - '`csv_from_url`'
       - '`rds_from_url`'
-      - '`year_to_season`'

@@ -17,15 +17,17 @@ A utility to quickly obtain clean and tidy hockey play by play data.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://saiemgilani.github.io/powerplay}
-  \item \url{http://www.github.com/saiemgilani/powerplay}
+  \item \url{https://github.com/saiemgilani/powerplay}
+  \item \url{https://saiemgilani.github.io/powerplay/}
+  \item Report bugs at \url{https://github.com/saiemgilani/powerplay/issues}
 }
 
 
 Useful links:
 \itemize{
-  \item \url{https://saiemgilani.github.io/powerplay}
-  \item \url{http://www.github.com/saiemgilani/powerplay}
+  \item \url{https://github.com/saiemgilani/powerplay}
+  \item \url{https://saiemgilani.github.io/powerplay/}
+  \item Report bugs at \url{https://github.com/saiemgilani/powerplay/issues}
 }
 
 }

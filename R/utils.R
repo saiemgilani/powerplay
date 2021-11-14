@@ -37,9 +37,6 @@ csv_from_url <- function(...){
   data.table::fread(...)
 }
 
-.datatable.aware <- TRUE
-
-
 #' @title
 #' **Load .rds file from a remote connection**
 #' @param url a character url
