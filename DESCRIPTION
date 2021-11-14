@@ -5,8 +5,7 @@ Authors@R:
     person(given = "Saiem Gilani", email = "saiem.gilani@gmail.com", role = c("aut", "cre"))
 Description: A utility to quickly obtain clean and tidy hockey play by play data.
 License: MIT + file LICENSE
-URL: https://saiemgilani.github.io/powerplay,
-    http://www.github.com/saiemgilani/powerplay
+URL: https://github.com/saiemgilani/powerplay
 Depends: 
     R (>= 3.6)
 Imports: 
@@ -45,3 +44,4 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
+BugReports: https://github.com/saiemgilani/powerplay/issues
